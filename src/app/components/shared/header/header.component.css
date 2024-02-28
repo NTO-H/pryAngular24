@@ -1,0 +1,135 @@
+@import url("http://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+header{
+/* background-color: #1d223a; */
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+height: 80px;
+/* color: rgb(255, 228, 110); */
+/* color: #000000; */
+/* background:#ffffff; Da un fondo brillante al texto */
+
+flex-direction: row;
+border-bottom:solid 3px #000000;
+}
+.menu mat-icon{
+
+color: #cba014;
+}
+button{
+    margin-top: -10px;
+margin-left: 550%;
+}
+button:hover{
+    background: #ebebeb;
+}
+@import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);
+
+
+header {
+    position: -webkit-sticky; /* Para Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+}
+@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap);
+
+
+header {
+backdrop-filter: blur(5px); 
+/* background: #000000; */
+font-family: 'Josefin Sans', sans-serif;
+background-color: #14161d;
+/* background-color: #ffffff; */
+
+    transition: background-color 1ms ease;
+    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.892)0%, rgba(255, 249, 225, 0.868) 150%);  */
+    /* background: linear-gradient(0deg, rgba(1, 1, 1, 0.892)0%, rgba(27, 33, 46, 0.868) 150%);  */
+/* background-color: #39344b; Color cuando no se ha desplazado */ 
+  }
+  
+  header.scrolled {
+/*  */
+    background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
+
+    /* Color cuargb(131, 129, 129)plazado */
+backdrop-filter: blur(5px); 
+border-bottom:solid 3px #a6a6a689;
+
+
+
+}
+
+a{
+    font-family: 'Anton', sans-serif;
+    margin-top: 30px;
+    color: #ffdc5c;
+    transition: color 1ms ease;
+
+}
+a.scrolled {
+    color: rgb(223, 175, 0) !important;
+  
+    
+}
+    
+
+.buscador{
+padding: 10px;
+    border-radius: 20px;
+    padding: auto;
+
+width: 280px;
+height: 37px;
+}
+a:hover{
+color: #000000;
+
+text-shadow: 0 0 10px #9b6200, 0 0 20px #affffe, 0 0 30px #ebebeb, 0 0 40px #7a7a7a;
+cursor:pointer;
+
+background-color: #cba014;
+}
+
+.migajapan{
+
+    background-color: antiquewhite;
+    height: 40px;
+    backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+height: 70px;
+color: rgb(255, 255, 255);
+flex-direction: row;
+}
+
+
+
+ul{
+justify-content: center;
+    padding: 15px;
+list-style: none;
+font-size: 20px;
+    margin-right: auto;
+    display: flex;
+font-family:"Quicksand","sans-serif";
+/* font-family: sans-serif; */
+
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+
+    flex-direction: row;
+
+}
+li{
+    margin-top: 12px;
+    margin-bottom: 15px;
+    
+
+    margin-right:40px ;
+}
+a{
+padding: 2rem 2rem;
+/* color: rgb(0, 0, 0); */
+
+
+    text-decoration: none;
+}
+

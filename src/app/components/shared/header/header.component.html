@@ -1,0 +1,25 @@
+<header [ngClass]="{'scrolled': isScrolled}">
+  <nav>
+    <ul>
+
+
+      <li><a routerLink="/login">login
+
+        </a></li>
+
+      <li><a routerLink="/listar-productos">listar</a></li>
+      <li><a routerLink="/cards-productos">productos</a></li>
+      <!-- Agrega más enlaces según sea necesario -->
+      <li>
+        <input type="text" class="buscador" name="filterProducts" placeholder="buscar producto...">
+      </li>
+      <li> <button mat-icon-button class="menu" aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button></li>
+    </ul>
+    <!-- <nav class="migajapan">
+    
+  </nav> -->
+  </nav>
+
+</header>

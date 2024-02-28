@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> Listado de productos </span>
+                    <div class="form-group col-md-2">
+
+                        <label>Buscar producto</label>
+                    </div>
+                    <input type="text" class="form-control mt-3" name="filterProducts" placeholder="buscar producto..."
+                        [(ngModel)]="filterProducts">
+                    <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
+                    <table *ngIf="listProductos.length>0" class="table table-striped mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">imagen</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Ubicación</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of listProductos | filter:filterProducts">
+
+                                <td>
+                                    <!--inicio estatico -->
+                                    <img [src]="photoSelected||  '../../../assets/products/p1.jpg'" class="img-fluid"
+                                        alt="No image">
+                                    <!-- estatico fin -->
+                                </td>
+                                <!--Original <td>{{producto.imagen}}</td> -->
+
+                                <td>{{producto.nombre}}</td>
+                                <td>{{producto.categoria}}</td>
+                                <td>{{producto.ubicacion}}</td>
+                                <td>{{producto.precio | currency:'USD'}}</td>
+                                <td>
+                                    <i [routerLink]="['/detalle-producto',producto._id]"
+                                        class="fas fa-solid fa-book-open me-4"></i>
+                                    <i [routerLink]="['/editar-producto',producto._id]"
+                                        class="fas fa-edit text-primary me-4"></i>
+                                    <i (click)="eliminarProducto(producto._id)"
+                                        class="fas fa-regular fa-trash-can text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: center; margin-top:10px;" *ngIf="listProductos.length==0">No hay productos
+                        agregados</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

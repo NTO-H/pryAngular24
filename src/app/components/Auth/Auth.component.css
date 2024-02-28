@@ -1,0 +1,31 @@
+img{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    height: 30vb;
+    width: 30vb;
+    filter: contrast(200%);
+
+    animation-duration: 1s;
+    animation-name: slide;
+}
+body{
+    background: #0095c7;
+    /* background: radial-gradient(circle at center, #9ecd99 0%, #518998 100%);  */
+    /* background: radial-gradient(circle at center, #c17f7f 0%, #0412a1 100%);  */
+}
+
+@keyframes slide {
+    0%{
+        margin-left: 50%;
+        transform: rotate(90deg); /* Aquí puedes cambiar el ángulo de rotación inicial */
+    
+    }
+    /* 50%{
+        margin-left: 20%;
+    } */
+50%{
+    margin-left: 0%;
+    transform: rotate(0deg); 
+}
+}

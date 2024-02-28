@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);
+
+
+@import url(https://fonts.googleapis.com/css2?family=Arizonia&display=swap);
+
+
+footer {
+    font-family: 'Anton', sans-serif;
+    background-color: #12181e;
+    padding: 10px;
+    text-align: center;
+    color: #780f52;
+    position: fixed;
+    left: 0;
+    font-size: 30px;
+    bottom: 0;
+    text-shadow: #ffffff;
+    width: 100%;
+}
