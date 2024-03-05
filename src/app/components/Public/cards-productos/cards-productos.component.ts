@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el di
 import { ProductoService } from 'src/app/services/producto.service';
 // import { ButtonModule } from 'primeng/button'; 
 import { ButtonModule } from 'primeng/button'; // Import the ButtonModule
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @Component({
   selector: 'app-cards-productos',
   templateUrl: './cards-productos.component.html',
@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button'; // Import the ButtonModule
 export class CardsProductosComponent implements OnInit {
 
   // constructor() { }
+  isLoading=true;//variable rastreador de carga de productos
   listProductos:Producto[]=[];
   filterProducts = '';
 
@@ -24,7 +25,7 @@ export class CardsProductosComponent implements OnInit {
   
   ngOnInit() {
     this.obtenerProductos();
-
+this.cargarProductos();
   }
   
   onPhotoSelected(event: Event): void {
@@ -41,7 +42,17 @@ export class CardsProductosComponent implements OnInit {
 
 
   // imagen fin
-constructor(private _productoService:ProductoService,private toastr:ToastrService) {}
+constructor(private _productoService:ProductoService,private toastr:ToastrService) {this.cargarProductos()}
+  cargarProductos(){
+    this.isLoading=true;//comienza la carga/el isLoading esta en true
+    this._productoService.getProductos().subscribe(data=>{
+      this.listProductos=data;
+      this.isLoading=false;//carga de productos/el isLisLoadingoader cambia a false
+     } , error => {
+        console.error('Error cargando productos', error);
+        this.isLoading = false;  // hubo un error cargando los datos, entonces configura isLoading como false
+      });
+    };
   
   obtenerProductos(){
 

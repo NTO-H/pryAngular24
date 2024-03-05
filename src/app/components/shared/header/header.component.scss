@@ -11,10 +11,48 @@ height: 80px;
 flex-direction: row;
 border-bottom:solid 3px #000000;
 }
+
+
+
+
+
+
+
+.menu-header{
+padding:20px;
+margin: 0px;
+background: #f8fdfd;
+}
 .menu mat-icon{
 
 color: #cba014;
 }
+ .example-container {
+     /* position: fixed; */
+    /* margin-top: 50px; */
+    left: 0;
+    z-index: 1000;
+    /* width: 500px; */
+    /* height: 2000px; */
+} 
+span:hover{
+    border-bottom:solid 3px #ffea00;
+
+}
+.example-sidenav {
+      padding: 30px;
+    background: #fbfbfb;
+
+    position: fixed;
+/* margin-bottom:solid 3px #000000; */
+    
+
+    left: 0;
+    z-index: 1000;
+    width: 500px;
+    height: 2000px;
+  }
+  
 button{
     margin-top: -10px;
 margin-left: 550%;

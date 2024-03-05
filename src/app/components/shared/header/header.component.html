@@ -1,25 +1,90 @@
 <header [ngClass]="{'scrolled': isScrolled}">
   <nav>
     <ul>
-
-
-      <li><a routerLink="/login">login
-
-        </a></li>
-
+      <li> <button mat-icon-button class="menu" id="menu" aria-label="Example icon button with a menu icon"
+          (click)="openMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </li>
+      <li>
+        <a routerLink="/login">login
+        </a>
+      </li>
       <li><a routerLink="/listar-productos">listar</a></li>
+      <!-- <li><a routerLink="/crear-cuenta">registrarme</a></li> -->
       <li><a routerLink="/cards-productos">productos</a></li>
       <!-- Agrega más enlaces según sea necesario -->
       <li>
         <input type="text" class="buscador" name="filterProducts" placeholder="buscar producto...">
       </li>
-      <li> <button mat-icon-button class="menu" aria-label="Example icon button with a menu icon">
-          <mat-icon>menu</mat-icon>
-        </button></li>
+
     </ul>
     <!-- <nav class="migajapan">
-    
-  </nav> -->
+      
+    </nav> -->
   </nav>
 
 </header>
+
+
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="menu-header">
+      <h3 class="nv">Menú Principal</h3>
+    </div>
+    <!-- <mat-list>
+      <mat-list-item>
+        <span matListItemTitle>This is the title</span>
+      </mat-list-item>
+      <mat-list-item>Also the title</mat-list-item>
+    </mat-list> -->
+
+    <h3>Usuario</h3>
+    <mat-list>
+      <mat-list-item>
+        <span routerLink="/crear-cuenta" matListItemTitle>registrarme</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span routerLink="/login" matListItemTitle>login</span>
+      </mat-list-item>
+    </mat-list>
+
+    <h3>¿Quienes somos?</h3>
+    <mat-list>
+      <mat-list-item>
+        <span matListItemTitle>Descripción de la empres</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span matListItemTitle>Politicas de privacidad</span>
+      </mat-list-item>
+      <!-- <mat-list-item>
+        <span matListItemTitle>Title</span>
+        <span matListItemLine>Second line. This line will truncate.</span>
+        Third line
+      </mat-list-item> -->
+    </mat-list>
+
+    <h3>Contacto</h3>
+    <mat-list class="example-list-wrapping">
+      <!-- <mat-list-item lines="3">
+        <span matListItemTitle>Title</span>
+        <span>
+          Secondary line that will wrap because the list lines is explicitly set to 3 lines. Text
+          inside of a `matListItemTitle` or `matListItemLine` will never wrap.
+        </span>
+      </mat-list-item> -->
+      <mat-list-item lines="3">
+        <span matListItemTitle>iconos</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <!-- <div class="example-sidenav-content">
+      <!-- <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button> 
+     
+    </div>
+  </mat-drawer-container> -->
+
+</mat-drawer-container>

@@ -1,4 +1,73 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css"
+      rel="stylesheet"
+    />
+  </head>
 
-  <img src="../../../assets/images/logo.png" alt="" srcset="">
-</body>
+  <body>
+    <img src="../../../assets/images/logo.png" alt="" srcset="" />
+
+    <div class="log-text">
+      <div class="nombreEmp">
+       <h1>Wordl</h1>
+        <h1>Tropical</h1>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <div class="frm-container">
+          <!-- <form action=""> -->
+          <div class="container">
+            <form class="form-blur">
+              <!-- Aquí va tu formulario -->
+            </form>
+
+            <form class="form-focus">
+              <h2>Inicia Sesion</h2>
+              <div>
+                <mat-form-field class="nombre">
+                  <mat-label>Ingresar nombre*</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Eje. Juan Perez"
+                    [formControl]="inputControl"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="nombre">
+                  <mat-label>Ingresar contraseña*</mat-label>
+                  <input
+                    matInput  
+                    type="text"     #input maxlength="10"
+                    placeholder="********"
+                    [formControl]="inputControl"
+                  />
+                  <!-- <input matInput #input maxlength="10" placeholder="Ex. Nougat"> -->
+                  <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                </mat-form-field>
+                
+              </div>
+              <div>
+                <button class="inciar">iniciar sesion</button>
+              </div>
+              <p>
+  Default appearance:
+
+              <div>
+                <a routerLink="/olvideMiContra">olvide mi contraseña </a>
+                <a routerLink="/crear-cuenta">registrarme </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

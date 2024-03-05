@@ -7,14 +7,17 @@ import { DetalleProductoComponent } from './components/Public/detalle-producto/d
 import {HeaderComponent} from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 // import { HomeComponent } from './components/Public/home/home.component';
-import { AuthComponent } from './components/Auth/Auth.component';
-import { CardsProductosComponent } from './components/Public/cards-productos/cards-productos.component';
 
+import { AuthComponent } from './components/Auth/Auth.component';
+import { CrearCuentaComponent } from './components/Public/crear-cuenta/crear-cuenta.component';
+import { CardsProductosComponent } from './components/Public/cards-productos/cards-productos.component';
 const routes: Routes = [
   
   {path:'',component:CardsProductosComponent},
   
   {path:'login',component:AuthComponent},
+  {path:'crear-cuenta',component:CrearCuentaComponent},
+
   {path:'cards-productos',component:CardsProductosComponent},
   {path:'listar-productos',component:ListarProductosComponent},
   {path:'crear-producto',component:CrearProductoComponent},

@@ -1,10 +1,10 @@
 import { FormsModule, NgModel, NgModelGroup } from '@angular/forms';
-import { Component, } from '@angular/core';
+import { Component, Injectable} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 // import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
-
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 @Component({
   selector: 'app-listar-productos',
   templateUrl: './listar-productos.component.html',

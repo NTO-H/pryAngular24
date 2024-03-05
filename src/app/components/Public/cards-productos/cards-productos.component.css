@@ -10,11 +10,14 @@ h3{
         height: 200px;
         width: 250px;
     }
-    /* *{
-        color: rgba(45, 45, 45, 0.916);
-        text-shadow:  1px #fff317;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    } */
+    .container{
+    margin-top: 50vb;
+
+    }
+    .loading{
+        text-align: center;
+        margin-top: 150px;
+    }
     .info{
     
         border: 1px solid #000000;
@@ -41,6 +44,8 @@ h3{
     .cards{
         display: flex;
         flex-wrap: wrap; 
+    /* margin-top: 50px; */
+
     }
     
     @media (min-width: 700px) {

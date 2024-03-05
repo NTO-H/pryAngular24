@@ -9,7 +9,7 @@
                         <label>Buscar producto</label>
                     </div>
                     <input type="text" class="form-control mt-3" name="filterProducts" placeholder="buscar producto..."
-                        [(ngModel)]="filterProducts">
+                        [(ngModel)]="filterProducts"> x
                     <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
                     <table *ngIf="listProductos.length>0" class="table table-striped mt-4">
                         <thead>
@@ -35,7 +35,6 @@
 
                                 <td>{{producto.nombre}}</td>
                                 <td>{{producto.categoria}}</td>
-                                <td>{{producto.ubicacion}}</td>
                                 <td>{{producto.precio | currency:'USD'}}</td>
                                 <td>
                                     <i [routerLink]="['/detalle-producto',producto._id]"
@@ -48,9 +47,17 @@
                             </tr>
                         </tbody>
                     </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+     </mat-paginator>
+                    <!-- <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                </mat-paginator> -->
                     <h5 style="text-align: center; margin-top:10px;" *ngIf="listProductos.length==0">No hay productos
                         agregados</h5>
                 </div>
+                
+                
             </div>
         </div>
     </div>

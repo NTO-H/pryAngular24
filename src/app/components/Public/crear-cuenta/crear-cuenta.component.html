@@ -1,0 +1,91 @@
+<div>
+    <div>
+        <mat-tab-group>
+            <mat-tab label="First">
+                <div class="frm-container">
+                    <!-- <form action=""> -->
+                    <div class="container">
+                        <form class="form-focus">
+                            <h2>Inicia Sesion</h2>
+                            <div>
+                                <mat-form-field class="nombre">
+                                    <mat-label>Ingresar nombre*</mat-label>
+                                    <input matInput type="text" placeholder="Eje. Juan Perez"
+                                        [formControl]="inputControl" />
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                
+                                <div>
+                                    <mat-form-field class="contraseña">
+                                        <mat-label>Ingresar contraseña*</mat-label>
+                                        <input id="pass1"  matInput type="text" #input maxlength="10"
+                                            placeholder="********" [formControl]="inputControl" />
+                                        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+
+                                    <mat-form-field class="contraseña">
+                                        <mat-label>Ingresar contraseña*</mat-label>
+                                        <input id="pass2" matInput type="text" #input2 maxlength="10"
+                                            placeholder="********" [formControl]="inputControl" />
+                                        <!-- <input matInput #input maxlength="10" placeholder="Ex. Nougat"> -->
+                                        <mat-hint align="end">{{input2.value.length}}/10</mat-hint>
+                                    </mat-form-field>
+                                </div>
+                                
+                                
+                                @if (passFormControl.hasError("email") && !passFormControl.hasError("required"))
+                                {
+                                <mat-error>Please enter a valid email address</mat-error>
+                                }
+                                
+                                @if (passFormControl.hasError("required"))
+                                {
+                                <mat-error>El correo es <strong>obligatorio</strong></mat-error>
+                                }
+
+                            </div>
+
+                            <div>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>ingresar correo</mat-label>
+                                    <input type="email" matInput [formControl]="emailFormControl"
+                                        [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                                    <mat-hint>Completa correctamente los campos</mat-hint>
+                                    @if (emailFormControl.hasError("email") && !emailFormControl.hasError("required"))
+                                    {
+                                    <mat-error>Please enter a valid email address</mat-error>
+                                    }
+
+                                    @if (emailFormControl.hasError("required"))
+                                    {
+                                    <mat-error>El correo es <strong>obligatorio</strong></mat-error>
+                                    }
+
+                                </mat-form-field>
+                            </div>
+
+                            <!-- </div> -->
+
+                            <div>
+                                <button class="inciar">iniciar sesion</button>
+                            </div>
+                            <p>
+
+                            <div>
+                                <a routerLink="/olvideMiContra">olvide mi contraseña </a>
+                                <a routerLink="/crear-cuenta">registrarme </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Second"> Content 2 </mat-tab>
+            <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group>
+
+
+    </div>
+</div>

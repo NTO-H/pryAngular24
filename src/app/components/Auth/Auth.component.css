@@ -1,19 +1,16 @@
 img{
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 50px;
     margin-left: 50px;
     height: 30vb;
     width: 30vb;
     filter: contrast(200%);
 
-    animation-duration: 1s;
-    animation-name: slide;
+    /* animation-duration: 3s; */
+    animation: slide 3s, slideAnimation 3s  ;
 }
-body{
-    background: #0095c7;
-    /* background: radial-gradient(circle at center, #9ecd99 0%, #518998 100%);  */
-    /* background: radial-gradient(circle at center, #c17f7f 0%, #0412a1 100%);  */
-}
+
+
 
 @keyframes slide {
     0%{
@@ -29,3 +26,124 @@ body{
     transform: rotate(0deg); 
 }
 }
+
+a{
+    cursor: pointer;
+}
+
+
+  
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(0vw);
+    }
+    100% {
+      transform: translateX(5vw); /* Ajusta la distancia según tus necesidades */
+    }
+  }
+
+.frm-container{
+padding: 20px;
+    background: hsla(0, 0%, 100%, 0.908);
+    /* background: ; */
+    width: 50vb;
+    box-shadow:0px 0px 10px  #909090;
+
+    height: 50vb;
+    border-radius: 10px;
+
+}
+.container {
+    position: relative;
+}
+
+.form-blur {
+    filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.frm-container{
+    /* padding: 500px; */
+    margin-left: 50%;
+    margin-top: -28%;
+    margin-bottom: 50px;
+    /* margin-right: 40px; */
+    z-index: 1px;
+}
+.form-focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+mat-form-field {
+    width: 100%;
+}
+
+body{
+    background: linear-gradient(180deg, rgba(114, 126, 154, 0.578) 0%, rgba(136, 153, 160, 0.539) 100%); 
+}
+
+@import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);
+
+@import url(https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap);
+
+
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@100;200;300;400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Satisfy&display=swap);
+
+.inciar {
+    border-radius: 5px;
+    padding: 3px;
+    color: #ffc72f;
+    background: #ffffff;
+    font-family: 'Dancing Script', handwriting;
+
+    margin:solid 1px #b98800;
+}
+
+
+/* body { */
+.nombreEmp h1{
+    color: rgb(16, 37, 45);
+    /* size: 30em; */
+    text-shadow:0px 0px 5px #ffe600;
+
+    font-size: 1000%;
+    font-family: 'Satisfy', handwriting;
+    /* font-family: 'Dancing Script', handwriting; */
+    /* font-family: 'Cedarville Cursive', handwriting; */
+margin-top: -2%;
+margin-left: 20px;
+margin-bottom: -10%;
+
+}
+
+.log-text  {
+    /* width: 40%; */
+    height: 90px;
+    /* border-right:solid 5px #07648c; */
+    /* margin-right: 20px; */
+margin-top: 10%;
+/* background-color: #07648c; */
+margin-bottom: -10%;
+
+
+}
+
+
+
+app-main:host {
+    display: block;
+    margin: 32px;
+   
+ }
+  
+ .nombre{
+     width: 300px;
+    }
+ .input{
+border-radius: 300px;
+background: #a40707;
+
+ }

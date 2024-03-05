@@ -1,9 +1,7 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { ListarProductosComponent } from '../../admin/producto/listar-productos/listar-productos.component';
-
+import { ListarProductosComponent } from '../../Admin/producto/listar-productos/listar-productos.component';
 import { HeaderComponent } from './header.component';
 
 
