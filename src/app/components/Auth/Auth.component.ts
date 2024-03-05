@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import anime from'animejs/lib/'
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
@@ -7,9 +6,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 
 import {ButtonModule} from 'primeng/button';
-// import * as anime from 'animejs';
-// import { FormControl } from "@angular/forms";
-// node_modules/animejs';
+
 import {
   FormControl,
   FormGroupDirective,

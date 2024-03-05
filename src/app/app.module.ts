@@ -11,7 +11,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthComponent } from './components/Auth/Auth.component';
 import { DetalleProductoComponent } from './components/Public/detalle-producto/detalle-producto.component';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -65,16 +64,7 @@ import { RouterModule } from '@angular/router';
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
   imports: [
-    IgxButtonModule,
-    IgxIconModule,
-    IgxLayoutModule,
-    IgxNavigationDrawerModule,
-    IgxRippleModule,
-    IgxToggleModule, RouterModule.forRoot([
-      { path: "login", component: AuthComponent },
-      { path: "crear-cuenta", component: CrearCuentaComponent },
-      // { path: "button-group", component:  }
-    ]),
+  
     BrowserModule, CommonModule,
     AppRoutingModule,
     ReactiveFormsModule, MatSnackBarModule,
