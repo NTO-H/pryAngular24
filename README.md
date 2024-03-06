@@ -5,19 +5,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 # INSTALACION *
-1-generas una carpeta en tu portatil
 
-2-abres esa carpeta en visual studio code
 
-3-abres el terminal y ejecutas los siguientes comandos
+1-git clone https://github.com/NTO-H/pryAngular24.git
 
-3.1-git clone https://github.com/NTO-H/pryAngular24.git
+2-cd pryAngular24
 
-3.2-cd pryAngular24
+3-npm install
 
-3.3-npm install
-
-3.4-npm start 
+4-npm start 
 
 
 
