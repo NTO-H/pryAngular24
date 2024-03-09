@@ -1,73 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css"
-      rel="stylesheet"
-    />
-  </head>
+<body>
 
-  <body>
-    <img src="../../../assets/images/logo.png" alt="" srcset="" />
+  <div>
+    <div class="contenedor">
 
-    <div class="log-text">
-      <div class="nombreEmp">
-       <h1>Wordl</h1>
-        <h1>Tropical</h1>
-      </div>
-    </div>
 
-    <div>
-      <div>
+
+
+      <div class="container">
         <div class="frm-container">
-          <!-- <form action=""> -->
-          <div class="container">
-            <form class="form-blur">
-              <!-- Aquí va tu formulario -->
-            </form>
 
-            <form class="form-focus">
-              <h2>Inicia Sesion</h2>
-              <div>
-                <mat-form-field class="nombre">
-                  <mat-label>Ingresar nombre*</mat-label>
-                  <input
-                    matInput
-                    type="text"
-                    placeholder="Eje. Juan Perez"
-                    [formControl]="inputControl"
-                  />
-                </mat-form-field>
-              </div>
+          <h2>Iniciar sesion</h2>
+          <!-- <p-card styleClass="user-form" class="form flex    justify-content-center"> -->
 
-              <div>
-                <mat-form-field class="nombre">
-                  <mat-label>Ingresar contraseña*</mat-label>
-                  <input
-                    matInput  
-                    type="text"     #input maxlength="10"
-                    placeholder="********"
-                    [formControl]="inputControl"
-                  />
-                  <!-- <input matInput #input maxlength="10" placeholder="Ex. Nougat"> -->
-                  <mat-hint align="end">{{input.value.length}}/10</mat-hint>
-                </mat-form-field>
-                
-              </div>
-              <div>
-                <button class="inciar">iniciar sesion</button>
-              </div>
-              <p>
-  Default appearance:
 
-              <div>
-                <a routerLink="/olvideMiContra">olvide mi contraseña </a>
-                <a routerLink="/crear-cuenta">registrarme </a>
-              </div>
-            </form>
+          <div class="conteninesinput">
+            <p-inputGroup>
+              <p-inputGroupAddon>
+                <i class="pi pi-user"></i>
+              </p-inputGroupAddon>
+              <span class="p-float-label">
+                <input formControlName="nombre" pInputText id="nombre" />
+                <label for="nombre">Username</label>
+                <!-- <span *ngIf="usuarioForm.get('nombre')?.hasError('required')">El nombre es
+                                    obligatorio</span> -->
+              </span>
+            </p-inputGroup>
           </div>
+
+
+
+
+          <div  class="conteninesinput">
+            <span  class="p-float-label">
+              <p-password id="pass" formControlName="pass" [toggleMask]="true" [(ngModel)]="value">
+
+              </p-password>
+              <label for="pass">Contraseña:</label>
+            </span>
+
+          </div>
+          <button class="btn">Iniciar sesion</button>
         </div>
+
       </div>
+
+
+      <div class="container2">
+        <div class="frm-container-opciones">
+
+          <h2><strong> Tropical world </strong></h2>
+          <h2>beinvenido a nuestra pagina,aqui puedes encontrar los productos para la saluda y el cuidado para tu bebe</h2>
+          <!-- <ul>
+            <li>febhfbehfbeh</li>
+            <li>febhfbehfbeh</li>
+            <li>febhfbehfbeh</li>
+           
+          </ul>f -->
+
+
+          <!-- <p-card styleClass="user-form" class="form flex    justify-content-center"> -->
+          <!-- <a href="">registrarme</a>
+<a href="">olvide mi contraseña</a> -->
+
+          <ul>
+            <li><a   routerLink="/crear-cuenta">Registrarme</a></li>
+            <li><a routerLink="/recuperacion">olvide mi contraseña</a></li>
+          </ul>
+
+
+        </div>
+
+      </div>
+
     </div>
-  </body>
-</html>
+  </div>
+</body>

@@ -1,0 +1,45 @@
+body {
+    background-image: url('../../../../assets/images/fondoBody.jpg');
+    background-size: cover;
+    /* Hace que la imagen de fondo cubra todo el cuerpo */
+    background-position: center;
+    /* Centra la imagen de fondo */
+}
+
+
+
+ body {
+     font-family: Arial, sans-serif;
+     margin: 20px;
+     line-height: 1.6;
+ }
+
+ h1 {
+     color: #333;
+ }
+
+ .faq-container {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+
+ .faq-item {
+     width: 48%;
+   
+     box-sizing: border-box;
+     margin-bottom: 20px;
+     padding: 10px;
+     background: #fefdfdb1;
+     border: 1px solid #ddddddb1;
+     border-radius: 5px;
+ }
+
+ .question {
+     font-weight: bold;
+     color: #0066cc;
+ }
+
+ .answer {
+     margin-top: 5px;
+ }

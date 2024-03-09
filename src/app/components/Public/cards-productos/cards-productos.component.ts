@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProductoService } from 'src/app/services/producto.service';
 // import { ButtonModule } from 'primeng/button'; 
@@ -12,6 +13,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   styleUrls: ['./cards-productos.component.css']
 })
 export class CardsProductosComponent implements OnInit {
+
+
+
+  
+  id: string | null;
 
   // constructor() { }
   isLoading=true;//variable rastreador de carga de productos
@@ -42,7 +48,12 @@ this.cargarProductos();
 
 
   // imagen fin
-constructor(private _productoService:ProductoService,private toastr:ToastrService) {this.cargarProductos()}
+  constructor(private _productoService: ProductoService, private toastr: ToastrService, private aRouter: ActivatedRoute)
+  {
+    this.cargarProductos(),
+    this.id = this.aRouter.snapshot.paramMap.get('id');
+
+  }
   cargarProductos(){
     this.isLoading=true;//comienza la carga/el isLoading esta en true
     this._productoService.getProductos().subscribe(data=>{
@@ -51,7 +62,8 @@ constructor(private _productoService:ProductoService,private toastr:ToastrServic
      } , error => {
         console.error('Error cargando productos', error);
         this.isLoading = false;  // hubo un error cargando los datos, entonces configura isLoading como false
-      });
+    });
+    // this.id = this.aRouter.snapshot.paramMap.get('id');
     };
   
   obtenerProductos(){
@@ -66,5 +78,4 @@ constructor(private _productoService:ProductoService,private toastr:ToastrServic
     })
     
   }
-
 }

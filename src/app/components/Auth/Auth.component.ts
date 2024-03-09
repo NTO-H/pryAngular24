@@ -45,12 +45,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-Auth',
   templateUrl: './Auth.component.html',
   styleUrls: ['./Auth.component.css'],
-  standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule, MatDividerModule, MatIconModule],
+  // standalone: true,
+  // imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule, MatDividerModule, MatIconModule],
 })
 export class AuthComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  
+
+  value!: string;
   matcher = new MyErrorStateMatcher();
   constructor() { }
   inputControl: FormControl = new FormControl(''); 

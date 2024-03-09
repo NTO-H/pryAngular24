@@ -1,4 +1,5 @@
 @import url("http://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import "primeicons/primeicons.css";
 header{
 /* background-color: #1d223a; */
 backdrop-filter: blur(12px);
@@ -11,11 +12,9 @@ height: 80px;
 flex-direction: row;
 border-bottom:solid 3px #000000;
 }
-
-
-
-
-
+#menu{
+margin-left: 5px;
+}
 
 
 .menu-header{
@@ -25,7 +24,7 @@ background: #f8fdfd;
 }
 .menu mat-icon{
 
-color: #cba014;
+color: #037598;
 }
  .example-container {
      /* position: fixed; */
@@ -44,9 +43,6 @@ span:hover{
     background: #fbfbfb;
 
     position: fixed;
-/* margin-bottom:solid 3px #000000; */
-    
-
     left: 0;
     z-index: 1000;
     width: 500px;
@@ -60,7 +56,7 @@ margin-left: 550%;
 button:hover{
     background: #ebebeb;
 }
-@import url(https://fonts.googleapis.com/css2?family=Anton&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=ConcertOne&display=swap);
 
 
 header {
@@ -69,14 +65,17 @@ header {
     top: 0;
     z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
 }
-@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=ArchivoBlack:wght@100;200;300;400;500;600;700&display=swap);
 
 
+// Archivo Black
+// @Prompt
 header {
 backdrop-filter: blur(5px); 
 /* background: #000000; */
-font-family: 'Josefin Sans', sans-serif;
-background-color: #14161d;
+font-family: 'ArchivoBlack';
+background-color:#dceeb1;
+
 /* background-color: #ffffff; */
 
     transition: background-color 1ms ease;
@@ -86,9 +85,9 @@ background-color: #14161d;
   }
   
   header.scrolled {
-/*  */
-    background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
-
+// /*  */
+//     background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
+background: #b6dda6;
     /* Color cuargb(131, 129, 129)plazado */
 backdrop-filter: blur(5px); 
 border-bottom:solid 3px #a6a6a689;
@@ -97,14 +96,20 @@ border-bottom:solid 3px #a6a6a689;
 
 }
 
-a{
-    font-family: 'Anton', sans-serif;
+
+
+
+
+
+#a{
+    font-family: 'Concert One', sans-serif;
     margin-top: 30px;
-    color: #ffdc5c;
+    color: #1b4465;
+
     transition: color 1ms ease;
 
 }
-a.scrolled {
+#a.scrolled {
     color: rgb(223, 175, 0) !important;
   
     
@@ -119,13 +124,15 @@ padding: 10px;
 width: 280px;
 height: 37px;
 }
-a:hover{
+#a:hover{
 color: #000000;
+list-style: outside;
+border-bottom: solid 1px #5fcbfd;
 
-text-shadow: 0 0 10px #9b6200, 0 0 20px #affffe, 0 0 30px #ebebeb, 0 0 40px #7a7a7a;
+// text-shadow: 0 0 10px #9b6200, 0 0 20px #affffe, 0 0 30px #ebebeb, 0 0 40px #7a7a7a;
 cursor:pointer;
 
-background-color: #cba014;
+// background-color: #cba014;
 }
 
 .migajapan{
@@ -141,7 +148,7 @@ flex-direction: row;
 
 
 
-ul{
+#ul{
 justify-content: center;
     padding: 15px;
 list-style: none;
@@ -156,14 +163,14 @@ font-family:"Quicksand","sans-serif";
     flex-direction: row;
 
 }
-li{
+#li{
     margin-top: 12px;
     margin-bottom: 15px;
     
 
     margin-right:40px ;
 }
-a{
+#a{
 padding: 2rem 2rem;
 /* color: rgb(0, 0, 0); */
 
@@ -171,3 +178,113 @@ padding: 2rem 2rem;
     text-decoration: none;
 }
 
+
+ #ul1 {
+     list-style: none;
+     padding: 0;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ #li1 {
+
+     display: flex;
+     align-items: center;
+     padding: 10px;
+     border-bottom: 1px solid #ccc;
+     transition: background-color 0.3s;
+ }
+
+ #li1:hover {
+ cursor: pointer;
+     background-color: #f0f0f0;
+     /* Color gris al hacer hover */
+ }
+
+ /* Estilos para el ícono (puedes usar una fuente de íconos o una imagen) */
+ .icon {
+     margin-right: 10px;
+     font-size: 18px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ul1 ul {
+    margin-top: 30px;
+    display: none;
+    list-style: none;
+    /* Aplicar list-style: none; para quitar los estilos de viñetas o números en la lista */
+    padding: 0;
+    background-color: #fff;
+    /* Fondo blanco para el ul */
+    color: #000;
+    /* Texto negro en el ul */
+    border: 1px solid #ccc;
+    /* Borde gris claro para el ul */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Estilo para los elementos li dentro del ul1 */
+.ul1 ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Cambia el fondo al pasar el mouse sobre un elemento li dentro del ul1 */
+.ul1 ul li:hover {
+    background-color: #ddd;
+    /* Fondo gris claro al pasar el mouse sobre un elemento li */
+}
+
+/* Muestra el ul cuando se pasa el cursor sobre el li con clase ul1 */
+.ul1:hover ul {
+    display: block;
+}

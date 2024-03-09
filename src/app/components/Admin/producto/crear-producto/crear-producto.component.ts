@@ -12,6 +12,8 @@ import { MessageService } from 'primeng/api';
   templateUrl: './crear-producto.component.html',
   styleUrls: ['./crear-producto.component.scss'], providers: [MessageService]
 })
+  
+  
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
   titulo = 'crear Producto';

@@ -1,0 +1,78 @@
+.frm-container {
+    background: rgb(232, 232, 232);
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    border-radius: 10px;
+    width: 400px;
+    padding: 40px;
+}
+
+
+// estilos globales para botones
+.btn {
+    width: 280px;
+
+    padding: 5px;
+    background: #6095db;
+    border: solid #000000 1px;
+    color: black;
+
+    height: 40px;
+}
+
+.btn:hover {
+    width: 280px;
+
+    padding: 5px;
+    background: #ffe4ad;
+    border: solid #09839e 1px;
+    color: #09839e;
+
+    height: 40px;
+}
+
+// estilos globales para botones
+
+
+body {
+    background-image: url('../../../../assets/images/fondoBody.jpg');
+    background-size: cover;
+    /* Hace que la imagen de fondo cubra todo el cuerpo */
+    background-position: center;
+    /* Centra la imagen de fondo */
+}
+
+.iniciar {
+    margin-top: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.conteninesinput {
+    margin-top: 15px;
+
+
+}
+
+
+#pass {
+    margin-top: 23px;
+    width: 15em;
+}
+
+#correo {
+    width: 17.5em;
+}
+
+p-inputGroup {
+    width: 17.5em;
+}
+
+// meng {
+.p-float-label {
+    width: 16.8em;
+}

@@ -60,7 +60,10 @@ export class ListarProductosComponent {
 constructor(private _productoService:ProductoService,private toastr:ToastrService) {}
   ngOnInit():void{
     this.obtenerProductos();
+    // this.detalleProductoById();
   }
+
+
   obtenerProductos(){
     this._productoService.getProductos().subscribe(data=>{
       this.listProductos=data;
@@ -69,6 +72,18 @@ constructor(private _productoService:ProductoService,private toastr:ToastrServic
       console.log("ocurrio un error al obtener la información");
     }) 
   }
+
+
+//   detalleProductoById(id: any) {
+  
+//     this._productoService.detalleProductoById(id).subscribe(data=>{
+
+//   // this.detalleProductoById(id);
+//   this.listProductos=data;
+// })
+    
+//   }
+
   eliminarProducto(id:any){
 
     this._productoService.eliminarProducto(id).subscribe(data=>{

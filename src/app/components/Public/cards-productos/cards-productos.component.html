@@ -1,69 +1,102 @@
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 5000,
-  })
-</script>
+<body>
 
-<div>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 5000,
+    })
+  </script>
+
   <div>
-    <div
-      style="display: flex;margin-top: 50px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-      <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner>
-      <p *ngIf="isLoading">Cargando productos...</p>
-
-      <div class="container">
-
-        <div *ngIf="!isLoading && listProductos.length>0">
-          <div class="cards">
-            <div data-aos="flip-up" class="card" *ngFor="let producto of listProductos">
-
-              <!-- estatico -->
-              <img [src]="photoSelected||  '../../../assets/products/p1.jpg'" class="img-fluid" alt="No image">
-              <!-- estatico -->
-
-              <h1>{{producto.nombre}}</h1>
-              <div class="acciones">
-                <div>
-                  <h4>precio <strong>{{producto.precio | currency:'USD'}}</strong></h4>
-                  <ul>
-                    <li>comprar
-                    </li>
-                    <i class="fas fa-solid heart me-4">favorito</i>
-                    <li>compartir</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="detalles">
-                <p>
-                  mas de este ya no hay
-                </p>
-              </div>
-              <div class="mb-3">
-                <button routerLink="listar-productos" class="btn btn-secondary float-start mt-3">
-                  Detalles
-                </button>
-                <button type="submit" class="btn btn-warning float-end mt-3">COMPRAR
-                  <!-- {{btnTitle}} -->
-                </button>
-
-
-              </div>
-
-            </div>
+    <div data-aos="zoom-in" class="contenedor-bienvenida">
+      <!-- <img src="../../../../assets/products/" alt=""> -->
 
 
 
 
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div *ngIf="!isLoading && listProductos.length === 0">
-      No se encontraron productos.
     </div>
   </div>
-</div>
-<!-- </div> -->
+  <div data-aos="zoom-in" class="contenerdor-texto">
+
+    <h1>Los mejores articulos para tu bebe</h1>
+  </div>
+
+
+  <div>
+    <div>
+      <div
+        style="display: flex;margin-top:50px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+        <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;"
+          role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <!-- <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner> -->
+        <div style="text-align: center; margin-top: -100px;" *ngIf="!isLoading && listProductos.length === 0">
+          No se encontraron productos.
+        </div>
+        <p *ngIf="isLoading">Cargando productos...</p>
+
+        <div class="container">
+
+          <div *ngIf="!isLoading && listProductos.length>0">
+            <div class="cards">
+              <div data-aos="flip-up" class="card" *ngFor="let producto of listProductos">
+
+                <!-- estatico -->
+                <img [routerLink]="'/detalles/' + producto._id"
+                  [src]="photoSelected||  '../../../assets/products/p1.jpg'" class="img-fluid" alt="No image">
+                <!-- estatico -->
+
+                <h1>{{producto.nombre}}</h1>
+                <div class="acciones">
+                  <div>
+                    <h4>precio <strong>{{producto.precio | currency:'USD'}}</strong></h4>
+                    <ul>
+                      <li>comprar
+                      </li>
+                      <i class="fas fa-solid heart me-4">favorito</i>
+                      <li>compartir</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="detalles">
+                  <p>
+                    mas de este ya no hay
+                  </p>
+                </div>
+                <div class="mb-3">
+                  <button [routerLink]="'/detalles/' + producto._id" class="btn btn-secondary float-start mt-3">
+                    Detalles
+                  </button>
+
+                  <button type="submit" class="btn btn-warning float-end mt-3">COMPRAR
+                    <!-- {{btnTitle}} -->
+                  </button>
+
+
+                </div>
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      
+
+     
+      </div>
+
+
+    </div>
+
+  </div>
+  <!-- <div class="container2"> -->
+
+
+  <!-- </div> -->
+  <!-- </div> -->
+</body>

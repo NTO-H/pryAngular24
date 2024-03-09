@@ -1,3 +1,25 @@
-<p>
-  detalle-producto works!
-</p>
+
+<body>
+  <div
+    style="display: flex;margin-top: 50px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner>
+    <p *ngIf="isLoading">Cargando productos...</p>
+
+  <div *ngIf="listProductos" class="container">
+    <div class="image-section">
+      <img src="../../../../assets/products/p1.jpg" alt="Descripción de la imagen">
+    </div>
+    <div class="data-section">
+      <h2>Detalles del producto</h2>
+      <h2>Nombre: {{listProductos.nombre}}</h2>
+      <ul>
+      <!-- <p>Descripción del producto:{{listProductos.descripcion}}</p> -->
+        <li><h2>Precio:<strong>{{listProductos.precio}}</strong></h2> </li>
+        <li><h2>Categoría:{{listProductos.categoria}}</h2></li>
+        <!-- Agrega más detalles según sea necesario -->
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<!-- </html> -->

@@ -5,6 +5,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule}from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { Sidebar } from 'primeng/sidebar';
+import { MenuItem, MessageService } from 'primeng/api';
+import { FormControl, FormGroup } from '@angular/forms';
+
+// import { MenuItem } from 'primeng/api';
+
+interface City {
+  name: string,
+  code: string
+}
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,25 +29,205 @@ export class HeaderComponent implements OnInit{
   menuOpen = false;
 
 
-// nueva libreria 
-public componentLinks = [
-        {
-            link: 'avatar',
-            name: 'Avatar'
-        },
-        {
-            link: 'badge',
-            name: 'Badge'
-        },
-        {
-            link: 'button-group',
-            name: 'Button Group'
-        }
+  
+
+
+  items: MenuItem[] | undefined;
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'File',
+        icon: 'pi pi-fw pi-file',
+        items: [
+          {
+            label: 'New',
+            icon: 'pi pi-fw pi-plus',
+            items: [
+              {
+                label: 'Bookmark',
+                icon: 'pi pi-fw pi-bookmark'
+              },
+              {
+                label: 'Video',
+                icon: 'pi pi-fw pi-video'
+              }
+            ]
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-fw pi-trash'
+          },
+          {
+            separator: true
+          },
+          {
+            label: 'Export',
+            icon: 'pi pi-fw pi-external-link'
+          }
+        ]
+      },
+      {
+        label: 'Edit',
+        icon: 'pi pi-fw pi-pencil',
+        items: [
+          {
+            label: 'Left',
+            icon: 'pi pi-fw pi-align-left'
+          },
+          {
+            label: 'Right',
+            icon: 'pi pi-fw pi-align-right'
+          },
+          {
+            label: 'Center',
+            icon: 'pi pi-fw pi-align-center'
+          },
+          {
+            label: 'Justify',
+            icon: 'pi pi-fw pi-align-justify'
+          }
+        ]
+      },
+      {
+        label: 'Users',
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {
+            label: 'New',
+            icon: 'pi pi-fw pi-user-plus'
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-fw pi-user-minus'
+          },
+          {
+            label: 'Search',
+            icon: 'pi pi-fw pi-users',
+            items: [
+              {
+                label: 'Filter',
+                icon: 'pi pi-fw pi-filter',
+                items: [
+                  {
+                    label: 'Print',
+                    icon: 'pi pi-fw pi-print'
+                  }
+                ]
+              },
+              {
+                icon: 'pi pi-fw pi-bars',
+                label: 'List'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Events',
+        icon: 'pi pi-fw pi-calendar',
+        items: [
+          {
+            label: 'Edit',
+            icon: 'pi pi-fw pi-pencil',
+            items: [
+              {
+                label: 'Save',
+                icon: 'pi pi-fw pi-calendar-plus'
+              },
+              {
+                label: 'Delete',
+                icon: 'pi pi-fw pi-calendar-minus'
+              }
+            ]
+          },
+          {
+            label: 'Archieve',
+            icon: 'pi pi-fw pi-calendar-times',
+            items: [
+              {
+                label: 'Remove',
+                icon: 'pi pi-fw pi-calendar-minus'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Quit',
+        icon: 'pi pi-fw pi-power-off'
+      }
     ];
-    
+  }
+  
+
+  cities!: City[];
+
+  formGroup!: FormGroup;
+
+  // ngOnInit() {
+   
+  // } 
+
+
+  rounded1: boolean = true;
+  outlined1:boolean = true;
+  
 
 
 
+
+  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
+
+  closeCallback(e:any): void {
+    this.sidebarRef.close(e);
+  }
+
+  sidebarVisible: boolean = false;
+  
+
+
+  // menusonctnido
+  // items: MenuItem[] | undefined;
+
+  // ngOnInit() {
+  //   this.items = [
+  //     {
+  //       label: 'Options',
+  //       items: [
+  //         {
+  //           label: '<span class="text-xl font-bold" style="min-width: 150px;">Refresh</span>',
+  //           escape: false,
+  //           icon: 'pi pi-refresh',
+  //           iconClass: 'text-xl'
+  //         },
+  //         {
+  //           label: '<span class="text-xl font-bold" style="min-width: 150px;">Delete</span>',
+  //           escape: false,
+  //           icon: 'pi pi-times',
+  //           iconClass: 'text-xl'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       label: 'Navigate',
+  //       items: [
+  //         {
+  //           label: '<span class="text-xl font-bold" style="min-width: 150px;">Angular</span>',
+  //           icon: 'pi pi-external-link',
+  //           url: 'http://angular.io'
+  //         },
+  //         {
+  //           label: '<span class="text-xl font-bold" style="min-width: 150px;">Router</span>',
+  //           icon: 'pi pi-upload',
+  //           routerLink: '/fileupload'
+  //         }
+  //       ]
+  //     }
+  //   ];
+
+  // }
+// menusonctnido
 
   @ViewChild('drawer') drawer!: MatDrawer;
   @ViewChild('drawer', { read: ElementRef }) drawerElement!: ElementRef;
@@ -72,8 +264,8 @@ public componentLinks = [
   // constructor() {}
 
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {

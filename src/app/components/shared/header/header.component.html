@@ -1,90 +1,110 @@
 <header [ngClass]="{'scrolled': isScrolled}">
   <nav>
-    <ul>
-      <li> <button mat-icon-button class="menu" id="menu" aria-label="Example icon button with a menu icon"
-          (click)="openMenu()">
+    <ul id="ul">
+      <li id="li">
+        <!-- <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button> -->
+        <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
+          aria-label="Example icon button with a menu icon" (click)="openMenu()">
           <mat-icon>menu</mat-icon>
         </button>
       </li>
-      <li>
-        <a routerLink="/login">login
+      <li id="li">
+        <a id="a" routerLink="/" >
+          Home
+        </a>
+  
+      </li>
+      <li id="li">
+        <a id="a" routerLink="/login">login
         </a>
       </li>
-      <li><a routerLink="/listar-productos">listar</a></li>
-      <!-- <li><a routerLink="/crear-cuenta">registrarme</a></li> -->
-      <li><a routerLink="/cards-productos">productos</a></li>
-      <!-- Agrega más enlaces según sea necesario -->
-      <li>
-        <input type="text" class="buscador" name="filterProducts" placeholder="buscar producto...">
+      
+      <li id="li" class="ul1">
+        <a id="a" routerLink="/listar-productos">listar</a>
+        <ul class="ul">
+          <li><a href="#">Cuarto del bebé</a></li>
+          <li><a href="#">Alimentación</a></li>
+          <li><a href="#">Paseo</a></li>
+        </ul>
       </li>
 
+
+      <li id="li"><a id="a" routerLink="/cards-productos">productos</a></li>
+
+
+      <!-- <li id="li">
+        <input type="text" class="buscador" name="filterProducts" placeholder="buscar producto...">
+      </li> -->
+      <!-- -->
+
     </ul>
-    <!-- <nav class="migajapan">
-      
-    </nav> -->
   </nav>
 
 </header>
 
+<div class="card flex justify-content-center">
+  <p-sidebar [(visible)]="sidebarVisible">
+    <ul id="ul1">
+      <h3><i routerLink="/" class="pi pi-home"></i><strong>
+          Home
+        </strong></h3>
+
+      <li routerLink="/crear-cuenta" id="li1"><span class="icon">🌟</span> Registrarme</li>
+      <li routerLink="/login" id="li1"><span class="icon">📚</span> login</li>
+      <li routerLink="/recuperacion" id="li1"><span class="icon">📚</span> recuperacion</li>
+    </ul>
+    <h3><strong>
+        Acerca de la empresa
+      </strong></h3>
+    <ul id="ul1">
+
+      <li routerLink="quienesSomos" id="li1"><span class="icon">🔍</span> quienes somos</li>
+      <li routerLink="politicas" id="li1"><span class="icon">🎉</span> politicas de privacidad</li>
+    </ul>
+    <h3><strong>
+        Dashboard
+      </strong></h3>
+    <ul id="ul1">
+
+      <li routerLink="dashboard" id="li1"><span class="icon">🔍</span> graficos</li>
+      <!-- <li routerLink="politicas" id="li1"><span class="icon">🎉</span>muestra de ventas</li> -->
+    </ul>
+    <h3><strong>
+        IoT
+      </strong></h3>
+    <ul id="ul1">
+
+      <li routerLink="iot" id="li1"><span class="icon">🔍</span>dispositivos</li>
+      <!-- <li routerLink="politicas" id="li1"><span class="icon">🎉</span>muestra de uso</li> -->
+    </ul>
+    <h3><strong>
+        Atencion a cliente
+      </strong></h3>
+    <ul id="ul1">
+      <!-- <li  routerLink="politicas" id="li1"><span class="icon">🎉</span> Ayuda</li> -->
+      <li routerLink="ayuda" id="li1"><span class="icon">🎉</span> Ayuda</li>
+      <li routerLink="preguntas" id="li1"><span class="icon">🔍</span> preguntas frecuentes</li>
+    </ul>
 
 
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <div class="menu-header">
-      <h3 class="nv">Menú Principal</h3>
-    </div>
-    <!-- <mat-list>
-      <mat-list-item>
-        <span matListItemTitle>This is the title</span>
-      </mat-list-item>
-      <mat-list-item>Also the title</mat-list-item>
-    </mat-list> -->
+    <!-- </form> -->
+    <!-- </div> -->
 
-    <h3>Usuario</h3>
-    <mat-list>
-      <mat-list-item>
-        <span routerLink="/crear-cuenta" matListItemTitle>registrarme</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span routerLink="/login" matListItemTitle>login</span>
-      </mat-list-item>
-    </mat-list>
 
-    <h3>¿Quienes somos?</h3>
-    <mat-list>
-      <mat-list-item>
-        <span matListItemTitle>Descripción de la empres</span>
-      </mat-list-item>
-      <mat-list-item>
-        <span matListItemTitle>Politicas de privacidad</span>
-      </mat-list-item>
-      <!-- <mat-list-item>
-        <span matListItemTitle>Title</span>
-        <span matListItemLine>Second line. This line will truncate.</span>
-        Third line
-      </mat-list-item> -->
-    </mat-list>
+    <ng-template class="header-menu" pTemplate="header"> Tropical World </ng-template>
+    <!-- <ng-template pTemplate="content">Contenido</ng-template> -->
+    <ng-template pTemplate="footer">Tropical World</ng-template>
+  </p-sidebar>
+  <!-- <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button> -->
+</div>
 
-    <h3>Contacto</h3>
-    <mat-list class="example-list-wrapping">
-      <!-- <mat-list-item lines="3">
-        <span matListItemTitle>Title</span>
-        <span>
-          Secondary line that will wrap because the list lines is explicitly set to 3 lines. Text
-          inside of a `matListItemTitle` or `matListItemLine` will never wrap.
-        </span>
-      </mat-list-item> -->
-      <mat-list-item lines="3">
-        <span matListItemTitle>iconos</span>
-      </mat-list-item>
-    </mat-list>
-  </mat-drawer>
-  <!-- <div class="example-sidenav-content">
-      <!-- <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button> 
-     
-    </div>
-  </mat-drawer-container> -->
+<!--         
+      </div>
+    </ng-template>
+  </p-sidebar>
+  <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button>
+</div>
 
-</mat-drawer-container>
+
+
+ -->
