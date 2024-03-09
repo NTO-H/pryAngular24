@@ -3,10 +3,14 @@
     <ul id="ul">
       <li id="li">
         <!-- <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button> -->
-        <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
-          aria-label="Example icon button with a menu icon" (click)="openMenu()">
+        
+      <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
+          aria-label="Example icon button with a menu icon">
           <mat-icon>menu</mat-icon>
-        </button>
+        </button> 
+
+
+
       </li>
       <li id="li">
         <a id="a" routerLink="/" >
@@ -31,11 +35,6 @@
 
       <li id="li"><a id="a" routerLink="/cards-productos">productos</a></li>
 
-
-      <!-- <li id="li">
-        <input type="text" class="buscador" name="filterProducts" placeholder="buscar producto...">
-      </li> -->
-      <!-- -->
 
     </ul>
   </nav>

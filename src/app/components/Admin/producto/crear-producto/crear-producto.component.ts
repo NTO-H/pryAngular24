@@ -4,16 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
-import { Observable } from 'rxjs';
 import { MessageService } from 'primeng/api';
-  
+
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
   styleUrls: ['./crear-producto.component.scss'], providers: [MessageService]
 })
-  
-  
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
   titulo = 'crear Producto';
@@ -35,21 +32,14 @@ export class CrearProductoComponent implements OnInit {
     });
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
-  submit() {
-    if (this.productoForm.valid)
-    this.toastr.success("Todos los datos son válidos");
-    else
-    this.toastr.error("Todos los datos son inválidos");
-    
-  }
+
   showTopCenter() {
     this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
-}
+  }
 
-  
+
   ngOnInit(): void {
     this.esEditar();
-    // this.agregarProducto();
   }
 
   agregarProducto() {
@@ -81,22 +71,23 @@ export class CrearProductoComponent implements OnInit {
       this._productoService.guardarProducto(PRODUCTO).subscribe(
         response => {
           // if (data && data.id) {
-            console.log('Respuesta 02:',response)
-            this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
-    this.router.navigate(['/']);},error=>{
-      // this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
-      // let mensajeError = 'Ocurrió un error al agregar el producto.';
-      // let tituloError = 'Error de inserción';
-      this.showTopCenter();   
-      // this.messageService.add({ key: 'tc', severity: 'warn', summary: tituloError, detail: mensajeError });
-      // this.toastr.error(mensajeError, tituloError);
-      
-      // this.toastr.error('Ocurrió un error al agregar el producto.', 'Error de inserción ');
-    }
+          console.log('Respuesta 02:', response)
+          this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
+          this.router.navigate(['/']);
+        }, error => {
+          // this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
+          // let mensajeError = 'Ocurrió un error al agregar el producto.';
+          // let tituloError = 'Error de inserción';
+          this.showTopCenter();
+          // this.messageService.add({ key: 'tc', severity: 'warn', summary: tituloError, detail: mensajeError });
+          // this.toastr.error(mensajeError, tituloError);
+
+          // this.toastr.error('Ocurrió un error al agregar el producto.', 'Error de inserción ');
+        }
       );
     }
   }
-  verificarYAgregar(){
+  verificarYAgregar() {
     this.toastr.success('Producto registrado con éxito!', 'Éxito');
     this.router.navigate(['/']);
   }
