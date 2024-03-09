@@ -73,7 +73,7 @@ export class CrearProductoComponent implements OnInit {
           // if (data && data.id) {
           console.log('Respuesta 02:', response)
           this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
-          this.router.navigate(['/']);
+          this.router.navigate(['/listar-productos']);
         }, error => {
           // this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
           // let mensajeError = 'Ocurrió un error al agregar el producto.';

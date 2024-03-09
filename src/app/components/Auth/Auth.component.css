@@ -12,20 +12,19 @@ background-image: url('../../../../src/assets/images/fondoBody.jpg');
  cursor: pointer;
  }   
 
-
 .frm-container {
-    background: rgb(232, 232, 232);
+    background: #ffffff;
+    box-shadow: 10px 0px 20px #292929 ;
     position: absolute;
-     top: 55%;
-text-align: center;
+    top: 63%;
+    color: #414141;
+    text-align: center;
     left: 50%;
     transform: translate(-50%,-80%);
-    border-radius: 10px;
+    border-radius: 30px;
     width: 400px;
     padding: 50px;
 }
-    
-
 
 .container2{
 
