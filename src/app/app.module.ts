@@ -2,6 +2,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MessageService } from 'primeng/api';
 import { AppComponent } from './app.component';
 import { CrearProductoComponent } from './components/Admin/producto/crear-producto/crear-producto.component';
@@ -85,7 +87,7 @@ import { RecuperacionComponent } from './components/Public/recuperacion/recupera
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
   imports: [MenuModule, ListboxModule,
-    SidebarModule, MdbCheckboxModule,
+    SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule,
     BrowserModule, CommonModule, AccordionModule,
     AppRoutingModule, PasswordModule,
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule,
