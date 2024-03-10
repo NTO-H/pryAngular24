@@ -3,6 +3,7 @@ body {
     background-size: cover;
     /* Hace que la imagen de fondo cubra todo el cuerpo */
     background-position: center;
+    
     /* Centra la imagen de fondo */
 }
 .imagen{
@@ -11,11 +12,12 @@ margin-left: 50%;
 margin-right: 50%;
 margin-top: 50px;
 margin-bottom: 50px;
+// filter: hue-rotate(90deg);
 width: 500px;
     filter:drop-shadow( 0 0  10px rgba(142, 218, 232, 0.8));
 // background-size: cover;
     border-radius: 20px;
-    /* Ajusta el valor de radio según tus preferencias */
+/* Ajusta el valor de radio según tus preferencias */
     // overflow: hidden;
 }
  * {

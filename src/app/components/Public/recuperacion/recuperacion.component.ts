@@ -71,6 +71,7 @@ export class RecuperacionComponent {
     const USUARIOS: Usuario = {
       nombre: this.usuarioForm.get('nombre')?.value,
       pass: this.usuarioForm.get('pass')?.value,
+      telefono: this.usuarioForm.get('telefono')?.value,
       correo: this.usuarioForm.get('correo')?.value,
     }
   }

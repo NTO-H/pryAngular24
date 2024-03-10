@@ -1,9 +1,14 @@
+import { UsuarioService } from './../../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 // import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Producto } from 'src/app/models/producto';
+import { MessageService } from 'primeng/api';
+import swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario';
 import { ActivatedRoute,Route } from '@angular/router';
 // import {}
@@ -22,7 +27,9 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormGroup } from '@angular/forms';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
+import { response } from 'express';
+import { error } from 'console';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -43,78 +50,70 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   // imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatDividerModule, MatIconModule, MatTabsModule],
   // imports: [ReactiveFormsModule],
   templateUrl: './crear-cuenta.component.html',
-  styleUrl: './crear-cuenta.component.scss',
+  styleUrls: ['./crear-cuenta.component.scss'], providers: [MessageService]
 })
-export class CrearCuentaComponent {
+export class CrearCuentaComponent implements OnInit {
+  usuarioForm!: FormGroup;  
 
 
-
-  usuarioForm: FormGroup;
-
-  value!: string;
-  
-
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  // passFormControl = new FormControl();
-
-
-  // const pas1 = passFormControl.value;
-
-  matcher = new MyErrorStateMatcher();
-  // constructor(
-  //   private fb: FormBuilder
-
-  // ) {
-  //   this.usuarioForm = this.fb.group({
-  //     nombre: ['', Validators.required],
-  //     pass: ['', Validators.required],
-  //     correo:['',Validators.required]
-
-  //   })
-    
-  // }
-
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router,
+    private toastr: ToastrService,
+    private _UsuarioService: UsuarioService,
+    private aRouter: ActivatedRoute,
+    private messageService: MessageService) {
     this.usuarioForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
+      nombre: ['',Validators.required],
       pass: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]]
+      telefono: ['', Validators.required],
+      correo: ['', Validators.required],
     });
   }
 
-
-  inputControl: FormControl = new FormControl('');
-  ngOnInit() {
-    this.inputControl = new FormControl('');
+  ngOnInit(): void {
+    // this.usuarioForm = this.formBuilder.group({
+    //   nombre: "",
+    //   pass:"",
+    //   telefono:"",
+    //   correo: ""
+    // });
   }
+
+
   registrarUsuario() {
-    const USUARIOS: Usuario = {
-      nombre: this.usuarioForm.get('nombre')?.value,
-      pass: this.usuarioForm.get('pass')?.value,
-      correo:this.usuarioForm.get('correo')?.value,
+    // let usuario = this.usuarioForm.getRawValue();
+
+
+    const USUARIO :Usuario = {
+  
+        nombre: this.usuarioForm.get('nombre')?.value,
+        correo: this.usuarioForm.get('correo')?.value,
+        telefono: this.usuarioForm.get('telefono')?.value,
+        pass: this.usuarioForm.get('pass')?.value,
     }
+
+    if (USUARIO.nombre == "" || USUARIO.correo == "" || USUARIO.pass == "") {
+      Swal.fire('Error', 'ingresa los datos correctamente', 'error');
+    
+    }
+    else {
+      this._UsuarioService.guardarUsuario(USUARIO).subscribe(response => {
+        this.toastr.info('usuario agrega con éxito!', 'succes');
+        console.log(USUARIO.nombre, USUARIO.correo)
+      }, error => {
+        this.toastr.error('usuario no se pudo registrar!', 'error');
+        // console.log(USUARIO.nombre, USUARIO.correo)
+      }
+      )
+    }
+   
+     
+    // this.router.navigate(['/']);
+  
+
+
   }
 
 
-
-  get nombre() {
-    return this.usuarioForm.get('nombre');
-  }
-
-  get pass() {
-    return this.usuarioForm.get('pass');
-  }
-
-  get correo() {
-    return this.usuarioForm.get('correo');
-  }
-
-
-
-
-  addUser() {
-    console.log(this.usuarioForm.value);
-  }
 
 
 

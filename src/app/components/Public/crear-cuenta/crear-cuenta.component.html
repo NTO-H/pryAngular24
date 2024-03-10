@@ -1,81 +1,75 @@
- <body>
+<body>
     <div>
+
         <div class="frm-container">
             <div class="container">
-                <h2>Registro de usuarios</h2>
-
-                <div class="conteninesinput">
-                 
+                <form method="post" [formGroup]="usuarioForm" (ngSubmit)="registrarUsuario()">
+                    <h2>Registro de usuarios</h2>
+                    <div class="conteninesinput">
                         <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
                             shape="circle"></p-avatar>
-                    <!-- </p-inputGroup> -->
-                </div>
-                <div class="conteninesinput">
-                    <p-inputGroup>
-                        <p-inputGroupAddon>
-                            <i class="pi pi-user"></i>
-                        </p-inputGroupAddon>
+                        <!-- </p-inputGroup> -->
+                    </div>
+                    <div class="conteninesinput">
+                        <p-inputGroup>
+                            <p-inputGroupAddon>
+                                <i class="pi pi-user"></i>
+                            </p-inputGroupAddon>
+                            <span class="p-float-label">
+                                <input id="nombre" formControlName="nombre" pInputText />
+                                <label for="nombre">Username</label>
+                            </span>
+                        </p-inputGroup>
+                    </div>
+                    <div class="conteninesinput">
                         <span class="p-float-label">
-                            <input  id="nombre" formControlName="nombre" pInputText />
-                            <label for="nombre">Username</label>
+                            <input formControlName="correo" pInputText id="correo" />
+                            <label for="correo">Correo</label>
                         </span>
-                    </p-inputGroup>
-                </div>
-                <div class="conteninesinput">
-                    <span class="p-float-label">
-                        <input pInputText id="correo" [(ngModel)]="value" />
-                        <label for="correo">Correo</label>
-                    </span>
-                </div>
+                    </div>
 
-                <div class="conteninesinput">
-                    <span class="p-float-label">
-                        <input pInputText id="correo" [(ngModel)]="value" />
-                        <label for="correo">Número telefónico</label>
-                    </span>
-                </div>
+                    <div class="conteninesinput">
+                        <span class="p-float-label">
+                            <input  formControlName="telefono" pInputText id="telefono" />
+                            <label for="telefono">Número telefónico</label>
+                        </span>
+                    </div>
 
-                <div class="conteninesinput">
-                    <span class="p-float-label">
-                        <p-password formControlName="pass" [toggleMask]="true">
-                            <ng-template pTemplate="header">
-                                <h6>Pick a password</h6>
-                            </ng-template>
-                            <ng-template pTemplate="footer">
-                                <p-divider></p-divider>
-                                <p class="mt-2">Suggestions</p>
-                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-                                    <li>At least one lowercase</li>
-                                    <li>At least one uppercase</li>
-                                    <li>At least one numeric</li>
-                                    <li>Minimum 8 characters</li>
-                                </ul>
-                            </ng-template>
-                        </p-password>
-                        <label for="pass">Contraseña:</label>
-                    </span>
-                </div>
-
-                <div class="conteninesinput">
-                    <span class="p-float-label">
-                        <p-password formControlName="confirmPass" [toggleMask]="true">
-                            <ng-template pTemplate="header">
-                                <h6>Confirmar contraseña</h6>
-                            </ng-template>
-                        </p-password>
-                        <label for="confirmPass">Confirmar Contraseña:</label>
-                    </span>
-                </div>
-                <div class="conteninesinput">
-                   <button class="btn"> Registrarme</button>
-                </div>
-
-
-
-
-                <!-- <p-button class="btn" label="Registrarme" [raised]="true" severity="registrarme"
-
-                    type="submit"></p-button> -->
+                    <div class="conteninesinput">
+                        <span class="p-float-label">
+                            <p-password formControlName="pass" [toggleMask]="true">
+                                <ng-template pTemplate="header">
+                                    <h6>Pick a password</h6>
+                                </ng-template>
+                                <ng-template pTemplate="footer">
+                                    <p-divider></p-divider>
+                                    <p class="mt-2">Suggestions</p>
+                                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                        <li>At least one lowercase</li>
+                                        <li>At least one uppercase</li>
+                                        <li>At least one numeric</li>
+                                        <li>Minimum 8 characters</li>
+                                    </ul>
+                                </ng-template>
+                            </p-password>
+                            <label for="pass">Contraseña:</label>
+                        </span>
+                    </div>
+   <button type="submit" class="btn"> Registrarme</button>
+                    <!-- <div class="conteninesinput">
+                        <span class="p-float-label">
+                            <p-password formControlName="confirmPass" [toggleMask]="true">
+                                <ng-template pTemplate="header">
+                                    <h6>Confirmar contraseña</h6>
+                                </ng-template>
+                            </p-password>
+                            <label for="confirmPass">Confirmar Contraseña:</label>
+                        </span>
+                    </div> -->
+                    <!-- <div class="conteninesinput"> -->
+                     
+                    <!-- </div> -->
+                </form>
             </div>
         </div>
     </div>

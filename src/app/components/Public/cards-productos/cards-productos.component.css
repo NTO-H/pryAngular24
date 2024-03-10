@@ -1,37 +1,39 @@
-.contenerdor-texto{
-text-align: center;
-margin-top:20px ;
-margin-bottom: 10px;
+.contenerdor-texto {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
     animation: float1 2s ease-in-out infinite;
 
 }
 
 
-.contenedor{
-top: 0%;
-margin: 0%;
+.contenedor {
+    top: 0%;
+    margin: 0%;
 }
 
+body {
+    margin: 0%;
+    padding: 0%;
+    /* background: linear-gradient(Black width 80% opacity to right,rgb(0 0 0 /.8),rgb(0 0 0 / 0),url('../../../../assets/images/fondoBody.jpg')); */
+    background-image: url('../../../../assets/images/fondoBody.jpg');
+    background-size: cover;
+    background-position: center;
 
-body[_ngcontent-ng-c3167373455] {
-  margin: 0%;
-  padding: 0%;
-  background-image: url('../../../../assets/images/fondoBody.jpg');
-   background-size: cover;
-  background-position: center;
-  
-  font-family: 'Arial', sans-serif;
-  color: #00a0c8;
-  
-  /* border-bottom:solid  30px #ededede6 ; */
-  box-shadow: 0px 1px 40px #6e6e6e,0 0 42px #f7f3f3,0 0 49px #d1d1d1;
+    font-family: 'Arial', sans-serif;
+    color: #00a0c8;
+    /* box-shadow:0 40px 50px rgb(0, 0, 0); */
+
+    /* border-bottom:solid  30px #ededede6 ; */
 }
 
 
 body[_ngcontent-ng-c3167373455]::before {
- 
-  backdrop-filter: blur(20px); /* Adjust blur amount as needed */
-  z-index: -1;
+
+    /* box-shadow: 0px 1px 40px #ffffff,0 0 42px #363535,0 0 49px #d1d1d1; */
+    backdrop-filter: blur(20px);
+    /* Adjust blur amount as needed */
+    z-index: -1;
 }
 
 
@@ -47,10 +49,10 @@ body[_ngcontent-ng-c3167373455]::before {
     background-image: url('../../../../assets/images/imagefondo.jpeg');
     background-size: contain;
     background-position: center;
-    
+
     background-repeat: no-repeat;
     overflow: hidden;
-    
+
     /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.837); Agrega la sombra al contenedor */
 }
 
@@ -75,14 +77,17 @@ body[_ngcontent-ng-c3167373455]::before {
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-10px);
         filter: blur(0.7px);
-        
+
         color: aqua;
-    box-shadow: 0px 0px 5px rgba(173, 213, 219, 0.932); /* Agrega la sombra al contenedor */
+        box-shadow: 0px 0px 5px rgba(173, 213, 219, 0.932);
+        /* Agrega la sombra al contenedor */
 
     }
+
     100% {
         transform: translateY(0px);
     }
@@ -92,96 +97,106 @@ body[_ngcontent-ng-c3167373455]::before {
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-10px);
 
     }
+
     100% {
         transform: translateY(0px);
     }
 }
 
 
-h3{
+h3 {
     margin: auto;
-        font-size: 50px;
-    }
-    img{
-        
+    font-size: 50px;
+}
+
+img {
+
     padding: auto;
-        height: 200px;
-        width: 250px;
-    }
-    .container{
+    height: 200px;
+    width: 250px;
+}
+
+.container {
     margin-top: 60vb;
 
-    }
-    .loading{
-        text-align: center;
-        margin-top: 150px;
-    }
-    .info{
-    
-        border: 1px solid #000000;
-    }
-    .card{
-   
-     border: 4px solid #c7c7c74c;
+}
+
+.loading {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.info {
+
+    border: 1px solid #000000;
+}
+
+.card {
+
+    border: 4px solid #c7c7c74c;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.882);
     height: 480px;
     margin: 100px;
     width: 340px;
     margin-right: auto;
-    
-     z-index: 10px;
-    
-    box-shadow: 0px 0px 50px #7a9a98e3;
-       /* animation: nom};  */
-        padding: 30px;
-        position: relative;
-        
-    }
-    
-    
-    .cards{
-     z-index: 1px;
-        display: flex;
-        flex-wrap: wrap; 
+
+    z-index: 10px;
+
+    box-shadow: 0px 20px 50px #7a9a98e3;
+    /* animation: nom};  */
+    padding: 30px;
+    position: relative;
+
+}
+
+
+.cards {
+    z-index: 1px;
+    display: flex;
+    flex-wrap: wrap;
     /* margin-top: 100px; */
 
-    }
-    
-    
+}
 
 
-    @media (min-width: 700px) {
-      
-        .cards {
-            justify-content: space-between; /* Alinea las tarjetas a los extremos de su contenedor */
-        }
-    
-        .card {
-            width: calc(25% - 20px); /* Ajusta el ancho de cada tarjeta para que haya 4 por fila */
-        }
+
+
+@media (min-width: 700px) {
+
+    .cards {
+        justify-content: space-between;
+        /* Alinea las tarjetas a los extremos de su contenedor */
     }
-    
-    
-    
-    .acciones ul{
-        margin: auto;
-        margin-left: -50px;
-      list-style: none;
-       
-        flex-direction: row;
+
+    .card {
+        width: calc(25% - 20px);
+        /* Ajusta el ancho de cada tarjeta para que haya 4 por fila */
     }
-    .acciones li {
-        display: inline-block;
-        margin: 0 10px;
-        cursor: pointer;
-      }
-    
-      .detalles{
-        /* padding: 10px; */
-        border-bottom: 1px solid #ddd;
-      }
+}
+
+
+
+.acciones ul {
+    margin: auto;
+    margin-left: -50px;
+    list-style: none;
+
+    flex-direction: row;
+}
+
+.acciones li {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.detalles {
+    /* padding: 10px; */
+    border-bottom: 1px solid #ddd;
+}
