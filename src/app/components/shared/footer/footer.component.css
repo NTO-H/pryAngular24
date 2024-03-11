@@ -849,9 +849,11 @@ input[type=submit]:active, input[type=submit]:focus {
 }
 
 .footer-distributed {
-  background: #666;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+color: #3D7D97;
+  /* background: #666; */
+  box-shadow: 0 0 10px rgba(105, 104, 104, 0.926);
   box-sizing: border-box;
+  background: linear-gradient(180deg, #fffee9 0%, #9fe9cd 100%);
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
@@ -880,7 +882,7 @@ input[type=submit]:active, input[type=submit]:focus {
 }
 
 .footer-distributed .footer-links {
-  color: #ffffff;
+color: #3D7D97;
   margin: 0px 0 12px;
   padding: 0;
 }
@@ -905,8 +907,8 @@ input[type=submit]:active, input[type=submit]:focus {
 }
 
 .footer-distributed .footer-center i {
-  background-color: #33383b;
-  color: #ffffff;
+  background-color: #003145;
+color: #daba00;
   font-size: 25px;
   width: 38px;
   height: 38px;
@@ -924,7 +926,7 @@ input[type=submit]:active, input[type=submit]:focus {
 
 .footer-distributed .footer-center p {
   display: inline-block;
-  color: #ffffff;
+color: #3D7D97;
   font-weight: 400;
   vertical-align: middle;
   margin: 0;
@@ -939,8 +941,7 @@ input[type=submit]:active, input[type=submit]:focus {
   content: "|";
   font-weight: 300;
   font-size: 20px;
-  left: 0;
-  color: #fff;
+  left: 0;color: #daba00;
   display: inline-block;
   padding-right: 5px;
 }
@@ -963,7 +964,7 @@ input[type=submit]:active, input[type=submit]:focus {
 
 .footer-distributed .footer-company-about span {
   display: block;
-  color: #ffffff;
+color: #3D7D97;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -978,10 +979,10 @@ input[type=submit]:active, input[type=submit]:focus {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color: #33383b;
+  background-color: #003a44;
   border-radius: 2px;
   font-size: 20px;
-  color: #ffffff;
+color: #daba00;
   text-align: center;
   line-height: 35px;
   margin-right: 3px;
