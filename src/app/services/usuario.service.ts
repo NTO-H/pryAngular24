@@ -18,7 +18,7 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-    url = 'http://localhost:4000/usuarios/';
+    url = 'http://localhost:4000/usuario/';
 
     constructor(private http: HttpClient) { }
 
@@ -26,21 +26,21 @@ export class UsuarioService {
         return this.http.get(this.url);
     }
 
+ guardarUsuario(usuario: Usuario): Observable<any> {
+        return this.http.post<any>(this.url, usuario,{withCredentials:true});
+    }
 
     // eliminarProducto(id: string): Observable<any> {
     //     return this.http.delete(this.url + id);
     // }
-    guardarUsuario(usuario: Usuario): Observable<any> {
-        return this.http.post<any>(this.url, usuario);
-    }
+   
 
 
+    // obtenerProducto(id: string): Observable<any> {
 
-    obtenerProducto(id: string): Observable<any> {
+    //     return this.http.get(this.url + id);
 
-        return this.http.get(this.url + id);
-
-    }
+    // }
 
 
 

@@ -10,7 +10,7 @@ import { Producto } from 'src/app/models/producto';
 import { MessageService } from 'primeng/api';
 import swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario';
-import { ActivatedRoute,Route } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 // import {}
 
 
@@ -53,7 +53,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./crear-cuenta.component.scss'], providers: [MessageService]
 })
 export class CrearCuentaComponent implements OnInit {
-  usuarioForm!: FormGroup;  
+  usuarioForm!: FormGroup;
 
 
   constructor(private formBuilder: FormBuilder, private router: Router,
@@ -62,53 +62,55 @@ export class CrearCuentaComponent implements OnInit {
     private aRouter: ActivatedRoute,
     private messageService: MessageService) {
     this.usuarioForm = this.formBuilder.group({
-      nombre: ['',Validators.required],
+      nombre: ['', Validators.required],
       pass: ['', Validators.required],
       telefono: ['', Validators.required],
       correo: ['', Validators.required],
     });
   }
 
+
+
   ngOnInit(): void {
-    // this.usuarioForm = this.formBuilder.group({
-    //   nombre: "",
-    //   pass:"",
-    //   telefono:"",
-    //   correo: ""
-    // });
+
+  }
+  ValidarCorreo = function (correo: any) {
+    var validRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (correo.match(validRegex)) {
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
-
   registrarUsuario() {
-    // let usuario = this.usuarioForm.getRawValue();
+    const USUARIO: Usuario = {
 
-
-    const USUARIO :Usuario = {
-  
-        nombre: this.usuarioForm.get('nombre')?.value,
-        correo: this.usuarioForm.get('correo')?.value,
-        telefono: this.usuarioForm.get('telefono')?.value,
-        pass: this.usuarioForm.get('pass')?.value,
+      nombre: this.usuarioForm.get('nombre')?.value,
+      correo: this.usuarioForm.get('correo')?.value,
+      telefono: this.usuarioForm.get('telefono')?.value,
+      pass: this.usuarioForm.get('pass')?.value,
     }
-
-    if (USUARIO.nombre == "" || USUARIO.correo == "" || USUARIO.pass == "") {
+    if (!this.ValidarCorreo(USUARIO.correo)) {
+      Swal.fire('Error', 'correo no valido', 'error');
+    }
+    else if (USUARIO.nombre == "" || USUARIO.correo == "" || USUARIO.pass == "") {
       Swal.fire('Error', 'ingresa los datos correctamente', 'error');
-    
-    }
-    else {
+    } else {
       this._UsuarioService.guardarUsuario(USUARIO).subscribe(response => {
-        this.toastr.info('usuario agrega con éxito!', 'succes');
+        this.toastr.success('usuario agregado con éxito!', 'succes');
         console.log(USUARIO.nombre, USUARIO.correo)
       }, error => {
-        this.toastr.error('usuario no se pudo registrar!', 'error');
-        // console.log(USUARIO.nombre, USUARIO.correo)
+        this.toastr.error(' ! El correo ya se encuentra registrado!', 'error');
       }
       )
     }
-   
-     
+
+
     // this.router.navigate(['/']);
-  
+
 
 
   }

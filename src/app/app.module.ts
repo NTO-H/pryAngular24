@@ -1,3 +1,4 @@
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 import { SidebarModule } from 'primeng/sidebar';
@@ -75,6 +76,7 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
+// import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 @NgModule({
 
   declarations: [
@@ -82,7 +84,7 @@ import { RecuperacionComponent } from './components/Public/recuperacion/recupera
     AppComponent,AyudaComponent,
     CrearCuentaComponent, PrincipalComponent,
     CrearProductoComponent, RecuperacionComponent,
-    ListarProductosComponent,
+    ListarProductosComponent,PerfilComponent,
     DetalleProductoComponent,AuthComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
