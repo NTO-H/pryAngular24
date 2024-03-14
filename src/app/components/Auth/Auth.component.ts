@@ -1,62 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-
-import {ButtonModule} from 'primeng/button';
-
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
-
-/** @title Input with a custom ErrorStateMatcher */
-// @Component({
-//   selector: 'input-error-state-matcher-example',
-//   templateUrl: './input-error-state-matcher-example.html',
-//   styleUrl: './input-error-state-matcher-example.css',
-//   standalone: true,
-//   imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
-// })
-// export class InputErrorStateMatcherExample {
-//   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
-//   matcher = new MyErrorStateMatcher();
-// }
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-Auth',
   templateUrl: './Auth.component.html',
-  styleUrls: ['./Auth.component.css'],
-  // standalone: true,
-  // imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule, MatDividerModule, MatIconModule],
+  styleUrls: ['./Auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  loginForm: FormGroup;
+  loggingIn: boolean = false; // Variable para controlar el estado de carga
+  isLoading = false;//variable rastreador de carga de producto
 
-  value!: string;
-  matcher = new MyErrorStateMatcher();
-  constructor() { }
-  inputControl: FormControl = new FormControl(''); 
-  ngOnInit() {
-    this.inputControl = new FormControl('');
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.loginForm = this.fb.group({
+      correo: ['', Validators.required],
+      pass: ['', Validators.required]
+    });
   }
-  
+
+  ngOnInit() { }
+
+  login() {
+    const correo = this.loginForm.value.correo;
+    const pass = this.loginForm.value.pass;
+
+    this.isLoading = true; // Establecer el estado de carga a true
+
+    this.authService.login(correo, pass).subscribe(
+      (response) => {
+        console.log('Inicio de sesión exitoso:', response);
+
+        // Verifica si hay un rol en la respuesta
+        if (response && response.rol) {
+          // Accede al rol del usuario
+          const rol = response.rol;
+          localStorage.setItem('rol', rol);
+          // Recarga la página después de iniciar sesión
+          window.location.reload();
+        } else {
+          console.error('No se recibió el rol del usuario en la respuesta.');
+          this.toastr.error('Error en inicio de sesión', 'Error');
+          this.loggingIn = false; // Establecer el estado de carga a false
+        }
+      },
+      (error) => {
+        console.error('Error en inicio de sesión:', error);
+        this.toastr.error('Error en inicio de sesión', 'Error');
+        this.loggingIn = false; // Establecer el estado de carga a false
+      }
+    );
+  }
 }

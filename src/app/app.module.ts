@@ -1,4 +1,4 @@
-import { PerfilComponent } from './components/usuario/perfil/perfil.component';
+
 import { ErrorStateMatcher } from '@angular/material/core';
 
 import { SidebarModule } from 'primeng/sidebar';
@@ -68,6 +68,7 @@ import { PasswordModule } from 'primeng/password';
 
 import { CardModule } from 'primeng/card';
 
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MenubarModule } from 'primeng/menubar';
@@ -76,16 +77,20 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
+import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes-somos.component';
+import { IotComponent } from './components/iot/iot.component';
+import { AdmHeaderComponent } from './components/Admin/adm-header/adm-header.component';
+import { ClientHeaderComponent } from './components/client/client-header/client-header.component';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 @NgModule({
 
   declarations: [
   
-    AppComponent,AyudaComponent,
-    CrearCuentaComponent, PrincipalComponent,
-    CrearProductoComponent, RecuperacionComponent,
-    ListarProductosComponent,PerfilComponent,
-    DetalleProductoComponent,AuthComponent,
+    AppComponent, AyudaComponent, AdmHeaderComponent, 
+    CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,
+    CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,
+    ListarProductosComponent,
+    DetalleProductoComponent,AuthComponent,IotComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
   imports: [MenuModule, ListboxModule,
@@ -95,7 +100,7 @@ import { RecuperacionComponent } from './components/Public/recuperacion/recupera
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule,
     BrowserAnimationsModule, InputGroupModule, MdbAccordionModule,
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,
-    HttpClientModule, MatListModule, MatIconButton,
+    HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule,
     FormsModule, MatButtonModule, MatIconModule, MatDrawer, MatPaginatorModule, MatButtonToggleModule,
     ButtonModule, ProgressSpinnerModule, MatSidenavModule, MatInputModule, ToastModule, InputTextModule
 

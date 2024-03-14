@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, HostListener,Renderer2, ElementRef,OnInit, ViewChild } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,9 +14,12 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 })
 export class CardsProductosComponent implements OnInit {
 
-
-
   
+  isCardBlurred = false;
+  
+
+
+
   id: string | null;
 
   // constructor() { }
@@ -34,6 +37,8 @@ export class CardsProductosComponent implements OnInit {
 this.cargarProductos();
   }
   
+
+
   onPhotoSelected(event: Event): void {
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
@@ -46,13 +51,14 @@ this.cargarProductos();
     }
   }
 
-
+  
   // imagen fin
-  constructor(private _productoService: ProductoService, private toastr: ToastrService, private aRouter: ActivatedRoute)
+  constructor(private el: ElementRef, private renderer: Renderer2,private _productoService: ProductoService, private toastr: ToastrService, private aRouter: ActivatedRoute)
   {
     this.cargarProductos(),
     this.id = this.aRouter.snapshot.paramMap.get('id');
 
+    
   }
   cargarProductos(){
     this.isLoading=true;//comienza la carga/el isLoading esta en true
@@ -65,6 +71,18 @@ this.cargarProductos();
     });
     // this.id = this.aRouter.snapshot.paramMap.get('id');
     };
+  
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY;
+    const containerTop = this.el.nativeElement.getBoundingClientRect().top;
+
+    if (containerTop < scrollY) {
+      this.renderer.addClass(this.el.nativeElement, 'blur');
+    } else {
+      this.renderer.removeClass(this.el.nativeElement, 'blur');
+    }
+  }
   
   obtenerProductos(){
 

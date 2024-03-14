@@ -27,8 +27,7 @@
     <div>
       <div
         style="display: flex;margin-top:50px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
-        <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;"
-          role="status">
+        <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 5px;" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
         <!-- <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner> -->
@@ -37,11 +36,11 @@
         </div>
         <p *ngIf="isLoading">Cargando productos...</p>
 
-        <div class="container">
+        <div  class="container">
 
           <div *ngIf="!isLoading && listProductos.length>0">
-            <div class="cards">
-              <div data-aos="flip-up" class="card" *ngFor="let producto of listProductos">
+            <div appScrollEffect class="cards">
+              <div  [ngClass]="{ 'blur': isCardBlurred }" data-aos="flip-up" class="card" *ngFor="let producto of listProductos">
 
                 <!-- estatico -->
                 <img [routerLink]="'/detalles/' + producto._id"

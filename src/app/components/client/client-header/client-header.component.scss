@@ -1,0 +1,350 @@
+@import url("http://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import "primeicons/primeicons.css";
+
+header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 80px;
+    flex-direction: row;
+    border-bottom: dashed 3px #fffcae;
+}
+
+#menu {
+    margin-left: 5px;
+}
+
+
+.menu-header {
+    padding: 20px;
+    margin: 0px;
+    background: #f8fdfd;
+}
+
+.menu mat-icon {
+
+    color: #037598;
+}
+
+.example-container {
+    /* position: fixed; */
+    /* margin-top: 50px; */
+    left: 0;
+    z-index: 1000;
+    /* width: 500px; */
+    /* height: 2000px; */
+}
+
+span:hover {
+    border-bottom: solid 3px #ffea00;
+
+}
+
+.example-sidenav {
+    padding: 30px;
+    background: #fbfbfb;
+
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+    width: 500px;
+    height: 2000px;
+}
+
+button {
+    margin-top: -10px;
+    margin-left: 550%;
+}
+
+button:hover {
+    background: #ebebeb;
+}
+
+@import url(https://fonts.googleapis.com/css2?family=ConcertOne&display=swap);
+
+
+header {
+    position: -webkit-sticky;
+    /* Para Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Asegura que el encabezado esté por encima de otros elementos */
+}
+
+@import url(https://fonts.googleapis.com/css2?family=ArchivoBlack:wght@100;200;300;400;500;600;700&display=swap);
+
+
+// Archivo Black
+// @Prompt
+header {
+    backdrop-filter: blur(5px);
+    /* background: #000000; */
+    font-family: 'ArchivoBlack';
+    background-color: rgba(198, 255, 175, 0.877);
+    // background: linear-gradient(180deg, #fffee9 0%, #9fe9cd 100%);
+    // background: linear-gradient(180deg, #fff1ad 0%, #80ff9f 100%);
+    // background: linear-gradient(180deg, #b0fff8 0%, #bcffad 100%);
+
+    /* background-color: #ffffff; */
+
+    transition: background-color 1ms ease;
+    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.892)0%, rgba(255, 249, 225, 0.868) 150%);  */
+    /* background: linear-gradient(0deg, rgba(1, 1, 1, 0.892)0%, rgba(27, 33, 46, 0.868) 150%);  */
+    /* background-color: #39344b; Color cuando no se ha desplazado */
+}
+
+header.scrolled {
+    // /*  */
+    //     background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
+    background: #ecffcb;
+    /* Color cuargb(131, 129, 129)plazado */
+    backdrop-filter: blur(5px);
+    border-bottom: solid 3px #a6a6a689;
+
+
+
+}
+
+
+
+
+
+
+#a {
+    font-family: 'Concert One', sans-serif;
+    margin-top: 30px;
+    color: #1b4465;
+
+    transition: color 1ms ease;
+
+}
+
+#a.scrolled {
+    color: rgb(223, 175, 0) !important;
+
+
+}
+
+#li3[_ngcontent-ng-c874189023] {
+    margin-top: 15px;
+    width: 15px;
+    height: 15px;
+    // margin-left: -100px;
+    // cur
+
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    // border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+
+
+.buscador {
+    padding: 10px;
+    border-radius: 20px;
+    padding: auto;
+
+    width: 280px;
+    height: 37px;
+}
+
+#a:hover {
+    color: #000000;
+    list-style: outside;
+    border-bottom: solid 2px #f5c83f;
+    box-shadow: inset 0 0 0 1.5px rgb(255, 248, 154);
+    // text-shadow: 0 0 10px #9b6200, 0 0 20px #affffe, 0 0 30px #ebebeb, 0 0 40px #7a7a7a;
+    cursor: pointer;
+
+    // background-color: #cba014;
+}
+
+// @layer primeng {
+.p-breadcrumb {
+    background: #bd1717;
+    border: 1px solid #1c68ff;
+    border-radius: 6px;
+    padding: 1rem;
+    // }
+}
+
+.migajapan {
+
+    background-color: antiquewhite;
+    height: 30px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 70px;
+    color: rgb(255, 255, 255);
+    flex-direction: row;
+}
+
+
+
+#ul {
+    justify-content: center;
+    padding: 15px;
+    list-style: none;
+    font-size: 20px;
+    margin-right: auto;
+    display: flex;
+    font-family: "Quicksand", "sans-serif";
+    /* font-family: sans-serif; */
+
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+
+    flex-direction: row;
+
+}
+
+#li {
+    margin-top: 12px;
+    margin-bottom: 15px;
+
+
+    margin-right: 40px;
+}
+
+#a {
+    padding: 2rem 2rem;
+    /* color: rgb(0, 0, 0); */
+
+
+    text-decoration: none;
+}
+
+
+#ul1 {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#li1 {
+
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+#li1:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    /* Color gris al hacer hover */
+}
+
+/* Estilos para el ícono (puedes usar una fuente de íconos o una imagen) */
+.icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+.spinner-grow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Ajusta el z-index según sea necesario */
+}
+
+
+
+
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ul1 ul {
+    margin-top: 30px;
+    display: none;
+    list-style: none;
+    /* Aplicar list-style: none; para quitar los estilos de viñetas o números en la lista */
+    padding: 0;
+    background-color: #fff;
+    /* Fondo blanco para el ul */
+    color: #000;
+    /* Texto negro en el ul */
+    border: 1px solid #ccc;
+    /* Borde gris claro para el ul */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Estilo para los elementos li dentro del ul1 */
+.ul1 ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Cambia el fondo al pasar el mouse sobre un elemento li dentro del ul1 */
+.ul1 ul li:hover {
+    background-color: #ddd;
+    /* Fondo gris claro al pasar el mouse sobre un elemento li */
+}
+
+/* Muestra el ul cuando se pasa el cursor sobre el li con clase ul1 */
+.ul1:hover ul {
+    display: block;
+}

@@ -1,12 +1,4 @@
 
-body{
-background-image: url('../../../../src/assets/images/fondoBody.jpg');
-    background-size: cover;
-    /* Hace que la imagen de fondo cubra todo el cuerpo */
-    background-position: center;
-    /* Centra la imagen de fondo */}
-    
-
 
  a{
  cursor: pointer;
@@ -16,14 +8,14 @@ background-image: url('../../../../src/assets/images/fondoBody.jpg');
     background: #ffffff;
     box-shadow: 10px 0px 20px #292929 ;
     position: absolute;
-    top: 63%;
+    top: 70%;
     color: #414141;
     text-align: center;
     left: 50%;
     transform: translate(-50%,-80%);
     border-radius: 30px;
-    width: 400px;
-    padding: 50px;
+    width: 380px;
+    padding: 45px;
 }
 
 .container2{
@@ -135,9 +127,36 @@ width: 280px;
 } */
 
  #pass{
-width: 500%;
+width: 1000%;
 }
 
-     .p-float-label{
-width: 16.5em;
+  .p-float-label[_ngcontent-ng-c1087923046] {
+      width: 14.5em;
+  }
+  
+  .spinner-grow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Ajusta el z-index según sea necesario */
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+body {
+    background-image: url('../../../../src/assets/images/fondoBody.jpg');
+    background-size: cover;
+    /* Hace que la imagen de fondo cubra todo el cuerpo */
+    background-position: center;
+    /* Centra la imagen de fondo */
 }

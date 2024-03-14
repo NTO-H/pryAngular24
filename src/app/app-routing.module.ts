@@ -1,4 +1,4 @@
-import { PerfilComponent } from './components/usuario/perfil/perfil.component';
+// import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListarProductosComponent } from './components/Admin/producto/listar-productos/listar-productos.component';
@@ -19,6 +19,8 @@ import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
+// import { UsuarioHomeComponent } from './components/usuario/usuario-home/usuario-home.component';
+import { AdminHomeComponent } from './components/Admin/admin-home/admin-home.component';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 // import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
 // import  {PerfilComponent}
@@ -26,13 +28,13 @@ const routes: Routes = [
   { path: '', component: PrincipalComponent },
   { path: 'ayuda', component: AyudaComponent },
   { path: 'recuperacion', component: RecuperacionComponent },
-  // { path: 'EquipoDesarrollo', component: EquipoDesarrolloComponent },
-
+  // { path: 'cliente', component: UsuarioHomeComponent },
+  { path: 'admin', component: AdminHomeComponent },
   { path: 'preguntas', component: PreguntasComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'iot', component: IotComponent },
   { path: 'login', component: AuthComponent },
-  { path: 'miPerfil', component: PerfilComponent },
+  // { path: 'miPerfil', component: PerfilComponent },
   { path: 'politicas', component: PoliticasComponent },
   {path:'crear-cuenta',component:CrearCuentaComponent},
   { path: 'quienesSomos', component: QuienesSomosComponent },

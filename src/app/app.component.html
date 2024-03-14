@@ -1,11 +1,47 @@
+   <!-- Header específico del administrador -->
+   <app-adm-header *ngIf="isAdmin">
+   </app-adm-header>
+
+
+   <!-- Header específico del cliente -->
+   <app-client-header  *ngIf="isClient"></app-client-header>
+
+
+   <!-- Header público -->
+<app-header *ngIf="isPublic"></app-header>
+<router-outlet></router-outlet>
+
+<!-- Cuerpo de la aplicación -->
+
+<!-- Cuerpo de la aplicación -->
+<router-outlet></router-outlet>
    
+
+
+
+<!-- 
    
+<div *ngIf="isAdminLoggedIn">
+   <app-adm-header></app-adm-header>
+</div>
+<div *ngIf="isClienteLoggedIn">
    <app-header></app-header>
+   <router-outlet>
+   
+   </router-outlet>
+</div>
+<div *ngIf="!isAdminLoggedIn">
+<app-header></app-header>
 
-<router-outlet>
+</div> -->
 
- 
+<!-- Cuerpo de la aplicación -->
+<!-- <router-outlet></router-outlet> -->
 
 
-</router-outlet>
- 
+<!--  -->
+
+
+<!-- <app-header></app-header> -->
+
+<app-footer></app-footer>

@@ -51,6 +51,7 @@ header {
   min-height: 50px;
   z-index: 10;
   position: relative;
+  
 }
 
 .profile-container {
@@ -850,6 +851,7 @@ input[type=submit]:active, input[type=submit]:focus {
 
 .footer-distributed {
 color: #3D7D97;
+  /* margin-top: 10px; */
   /* background: #666; */
   box-shadow: 0 0 10px rgba(105, 104, 104, 0.926);
   box-sizing: border-box;
@@ -1021,6 +1023,7 @@ color: #daba00;
 }
 @media (max-width: 880px) {
   .footer-distributed {
+
     font: bold 14px sans-serif;
   }
   .footer-distributed .footer-left,

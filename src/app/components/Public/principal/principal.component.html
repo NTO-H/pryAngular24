@@ -4,7 +4,7 @@
     
 
 
-
+<span class="cursor-sombra"></span>
 
 <!-- <header>
     <h1>Política de Privacidad</h1>
@@ -12,13 +12,28 @@
 <img class="imagen" src="../../../../assets/images/nn.png" alt="">
 <div class="log-text">
     <div class="nombreEmp">
-        <!-- <h1>Wordl</h1>
-        <h1>Tropical</h1> -->
-        {{message}}
+        <h1>Wordl</h1>
+        <h1>Tropical</h1>
+        <!-- {{message}} -->
     </div>
 </div>
 </body>
 
 
-<app-footer>
-</app-footer>
+<script>
+   const cursorSombra = document.querySelector(".cursor-sombra");
+
+    document.addEventListener("mousemove", (e) => {
+        cursorSombra.style.left = `${e.clientX}px`;
+        cursorSombra.style.top = `${e.clientY}px`;
+        cursorSombra.style.opacity = 1;
+    });
+
+    document.addEventListener("mouseout", () => {
+        cursorSombra.style.opacity = 0;
+    });
+
+</script>
+
+<!-- <app-footer>
+</app-footer> -->

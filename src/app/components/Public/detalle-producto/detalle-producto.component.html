@@ -1,7 +1,7 @@
 
 <body>
   <div
-    style="display: flex;margin-top: 50px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    style="display: flex;margin-top: 0px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
     <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner>
     <p *ngIf="isLoading">Cargando productos...</p>
 
@@ -20,6 +20,45 @@
       </ul>
     </div>
   </div>
+</div>
+<!-- comentario -->
+
+
+
+<div class="comments-section">
+  <h2>Comentarios de Productos</h2>
+  <!-- Comentario 1 -->
+  <div class="comment">
+    <div class="user-info">
+      <img src="user1.jpg" alt="">
+      <span class="username">Usuario1</span>
+    </div>
+    <p class="comment-text">¡Gran producto! Realmente me encanta cómo funciona y se ve. Lo recomendaría a cualquiera.
+    </p>
+    <span class="comment-date">14 de marzo de 2024</span>
+  </div>
+  <!-- Comentario 2 -->
+  <div class="comment">
+    <div class="user-info">
+      <img src="user2.jpg" alt="">
+      <span class="username">Usuario2</span>
+    </div>
+    <p class="comment-text">No estoy tan impresionado con este producto. Creo que hay mejores opciones disponibles.</p>
+    <span class="comment-date">12 de marzo de 2024</span>
+  </div>
+  <!-- Agrega más comentarios aquí -->
+</div>
+<!-- comentar -->
+
+<div class="comment-form">
+  <h2>Agregar Comentario</h2>
+  <form action="#" method="POST">
+    <label for="username">Nombre de Usuario:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="comment">Comentario:</label>
+    <textarea id="comment" name="comment" rows="4" required></textarea>
+    <button type="submit">Publicar Comentario</button>
+  </form>
 </div>
 </body>
 <!-- </html> -->

@@ -1,0 +1,127 @@
+<header [ngClass]="{'scrolled': isScrolled}">
+    <nav>
+        <ul id="ul">
+            <li id="li3">
+                <!-- <a id="logo" routerLink="/"> -->
+                <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
+                    shape="circle"></p-avatar>
+                <!-- </a> -->
+
+            </li>
+            <li id="li">
+                <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
+                    aria-label="Example icon button with a menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </li>
+
+
+            <li id="li">
+                <a id="a" routerLink="/">
+                    Home
+                </a>
+
+            </li>
+
+           
+
+            <li id="li" class="ul1">
+                <a id="a" routerLink="/listar-productos">Productos</a>
+                <ul class="ul">
+                    <li><a href="#">Calificacion</a></li>
+                    <li><a href="#">Comentarios productos</a></li>
+                    <!-- <li><a href="#"></a></li> -->
+                </ul>
+            </li>
+
+
+            <!-- <li id="li"><a id="a" routerLink="/cards-productos">productos</a></li> -->
+
+<li id="li">
+    <a id="a" (click)="logout()">cerrar sesion
+    </a>
+</li>
+        </ul>
+    </nav>
+
+</header>
+
+
+
+<div class="card flex justify-content-center">
+    <p-breadcrumb id="contenedor-breadcrumb" class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
+
+
+<div class="card flex justify-content-center">
+    <p-sidebar [(visible)]="sidebarVisible">
+        <ul id="ul1">
+            <h3><i routerLink="/" class="pi pi-home"></i><strong>
+                    Home
+                </strong></h3>
+
+            <li routerLink="/crear-cuenta" id="li1"><span class="icon">🌟</span> Registrarme</li>
+            <li routerLink="/login" id="li1"><span class="icon">📚</span> login</li>
+            <li routerLink="/recuperacion" id="li1"><span class="icon">📚</span> recuperacion</li>
+            <li routerLink="/miPerfil" id="li1"><span class="icon">📚</span> Mi perfil</li>
+        </ul>
+        <h3><strong>
+                Acerca de la empresa
+            </strong></h3>
+        <ul id="ul1">
+
+            <!-- <li routerLink="quienesSomos" id="li1"><span class="icon">🔍</span> quienes somos</li> -->
+            <li routerLink="politicas" id="li1"><span class="icon">🎉</span> politicas de privacidad</li>
+        </ul>
+        <h3><strong>
+                Dashboard
+            </strong></h3>
+        <ul id="ul1">
+
+            <li routerLink="dashboard" id="li1"><span class="icon">🔍</span> graficos</li>
+            <!-- <li routerLink="politicas" id="li1"><span class="icon">🎉</span>muestra de ventas</li> -->
+        </ul>
+        <h3><strong>
+                IoT
+            </strong></h3>
+        <ul id="ul1">
+
+            <li routerLink="iot" id="li1"><span class="icon">🔍</span>dispositivos</li>
+            <!-- <li routerLink="politicas" id="li1"><span class="icon">🎉</span>muestra de uso</li> -->
+        </ul>
+        <!-- <h3><strong>
+                Atencion a cliente
+            </strong></h3>
+        <ul id="ul1">
+            <li routerLink="ayuda" id="li1"><span class="icon">🎉</span> Ayuda</li>
+            <li routerLink="preguntas" id="li1"><span class="icon">🔍</span> preguntas frecuentes</li>
+        </ul> -->
+
+
+        <!-- </form> -->
+        <!-- </div> -->
+
+
+        <ng-template class="header-menu" pTemplate="header"> Tropical World </ng-template>
+        <!-- <ng-template pTemplate="content">Contenido</ng-template> -->
+        <ng-template pTemplate="footer">Tropical World</ng-template>
+    </p-sidebar>
+    <!-- <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button> -->
+</div>
+
+<!--         
+      </div>
+    </ng-template>
+  </p-sidebar>
+  <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button>
+</div>
+
+
+
+ -->
+ <div class="loading-overlay">
+
+    <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>

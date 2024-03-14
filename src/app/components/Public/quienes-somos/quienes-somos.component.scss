@@ -15,16 +15,11 @@ body {
     /* Centra la imagen de fondo */
 }
 
-.equipo[_ngcontent-ng-c1051575842]{
-color: #00b291;
 
-box-shadow:  0 0  10px #515151;
-background: linear-gradient(180deg, #fffeeb 0%, #9fe9cd 100%);
-// background-color: #472b6c;
-}
 body{
 margin: 0;
 padding: 0%;
+height: 200vb;
 }
     // background: linear-gradient(180deg, #774999 0%, #472b6c 100%);}
 .equipo {
@@ -32,8 +27,12 @@ padding: 0%;
     padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
+    color: #00b291;
+    
+        // box-shadow: 0 0 10px #515151;
     justify-content: space-around;
-    border-top:solid 1px #472b6c;
+// background: linear-gradient(180deg, #fffeeb 0%, #9fe9cd 100%);
+    // border-top:solid 1px #472b6c;
 margin-top: 20px;
     .miembro {
 

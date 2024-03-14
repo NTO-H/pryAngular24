@@ -1,81 +1,68 @@
 <body>
+<!-- <div class="loading-overlay"> -->
+
+  <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  
+
 
   <div>
     <div class="contenedor">
 
-
-
-
-      <div class="container">
-        <div class="frm-container">
-
-          <h2>Iniciar sesion</h2>
-          <!-- <p-card styleClass="user-form" class="form flex    justify-content-center"> -->
-<div class="conteninesinput">
-
-  <p-avatar image="../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-  <!-- </p-inputGroup> -->
-</div>
-
-          <div class="conteninesinput">
-            <p-inputGroup>
-              <p-inputGroupAddon>
-                <i class="pi pi-user"></i>
-              </p-inputGroupAddon>
+      <!-- form -->
+      <form method="post" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="container">
+          <div class="frm-container">
+            <h2>Iniciar sesión</h2>
+            <div class="conteninesinput">
+              <p-avatar image="../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
+                shape="circle"></p-avatar>
+              <!-- </p-inputGroup> -->
+            </div>
+            <div class="conteninesinput">
+              <p-inputGroup>
+                <p-inputGroupAddon>
+                  <i class="pi pi-user"></i>
+                </p-inputGroupAddon>
+                <span class="p-float-label">
+                  <input formControlName="correo" pInputText id="nombre" />
+                  <label for="nombre">correo de usuario</label>
+                </span>
+              </p-inputGroup>
+            </div>
+            <br>
+            <!-- Input para la contraseña -->
+            <div class="conteninesinput">
               <span class="p-float-label">
-                <input formControlName="nombre" pInputText id="nombre" />
-                <label for="nombre">Username</label>
-                <!-- <span *ngIf="usuarioForm.get('nombre')?.hasError('required')">El nombre es
-                                    obligatorio</span> -->
+                <p-password id="pass" formControlName="pass" [toggleMask]="true"></p-password>
+                <label for="pass">Contraseña:</label>
               </span>
-            </p-inputGroup>
+            </div>
+            <br>
+            <!-- Botón de inicio de sesión -->
+            <button type="submit" class="btn">Iniciar sesión</button>
           </div>
-
-
-
-
-          <div  class="conteninesinput">
-            <span  class="p-float-label">
-              <p-password id="pass" formControlName="pass" [toggleMask]="true" [(ngModel)]="value">
-
-              </p-password>
-              <label for="pass">Contraseña:</label>
-            </span>
-
-          </div>
-          <button class="btn">Iniciar sesion</button>
         </div>
+      </form>
 
-      </div>
+
+      <!-- form -->
 
 
       <div class="container2">
         <div class="frm-container-opciones">
-
           <h2><strong> Tropical world </strong></h2>
-          <h2>beinvenido a nuestra pagina,aqui puedes encontrar los productos para la saluda y el cuidado para tu bebe</h2>
-          <!-- <ul>
-            <li>febhfbehfbeh</li>
-            <li>febhfbehfbeh</li>
-            <li>febhfbehfbeh</li>
-           
-          </ul>f -->
-
-
-          <!-- <p-card styleClass="user-form" class="form flex    justify-content-center"> -->
-          <!-- <a href="">registrarme</a>
-<a href="">olvide mi contraseña</a> -->
-
+          <h2>beinvenido a nuestra pagina,aqui puedes encontrar una gran variedad de productos para la salud y el
+            cuidado para tu bebe
+          </h2>
           <ul>
-            <li><a   routerLink="/crear-cuenta">Registrarme</a></li>
+            <li><a routerLink="/crear-cuenta">Registrarme</a></li>
             <li><a routerLink="/recuperacion">olvide mi contraseña</a></li>
           </ul>
-
-
         </div>
-
       </div>
-
     </div>
   </div>
 </body>
