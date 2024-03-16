@@ -2,7 +2,7 @@
     background: #ffffff;
     box-shadow: 10px 0px 20px #292929 ;
     position: absolute;
-    top: 75%;
+    top: 110vb;
     color: #414141;
     text-align: center;
     left: 50%;
@@ -11,8 +11,40 @@
     width: 400px;
     padding: 40px;
 }
+body{
+height: 120vb;
+}
 
 
+// .pregunta {
+//     padding: 2px;
+//     // color: #606060;
+//     border: solid 1px #d0d0d0dd;
+//     border-radius: 3px;
+//     color: #606060;
+//     // flex-wrap: wrap;
+//     padding-left: 50px;
+//     background-color: #ffffff;
+//     width: 280px;
+// // display: flex;
+//     height: 50px;
+//     // overflow: scroll;
+//     /* o scroll */
+// }
+
+// select {
+//     padding: 2px;
+//     border: solid 1px #d0d0d0dd;
+//     border-radius: 3px;
+//     color: #606060;
+//     /* Agrega esta línea para establecer el color del texto */
+//     padding-left: 50px;
+//     background-color: #ffffff;
+//     width: 280px;
+//     height: 50px;
+//     overflow-y: auto;
+//     /* o scroll */
+// }
 // estilos globales para botones
 .btn{
 width:280px;
@@ -53,8 +85,6 @@ margin-top: 10px;
 
 .conteninesinput{
 margin-top: 15px;
-
-
 }
 
 
@@ -72,3 +102,24 @@ width: 17.5em;
      .p-float-label{
 width: 16.8em;
 }
+
+.p-dropdown{
+    width: 100%;
+}
+// .p-dropdown .p-component{
+//     margin: 0%;
+// }
+
+.p-dropdown-panel .p-component .ng-star-inserted{
+background-color: #000000;
+padding-left: 0%;
+}
+
+// p-ripple p-element p-dropdown-item
+// .p-element p-dropdown-label p-inputtext ng-star-inserted
+.p-overlay{
+padding-left: 0%;
+}
+
+
+// p-dropdown p-component p-inputwrapper p-dropdown-clearable p-inputwrapper-filled p-inputwrapper-focus

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { TabView } from 'primeng/tabview';
 @Component({
   selector: 'app-Auth',
   templateUrl: './Auth.component.html',
@@ -13,6 +13,7 @@ export class AuthComponent implements OnInit {
   loginForm: FormGroup;
   loggingIn: boolean = false; // Variable para controlar el estado de carga
   isLoading = false;//variable rastreador de carga de producto
+  // @ViewChild('tabView') tabView!: TabView;
 
   constructor(
     private fb: FormBuilder,
@@ -44,7 +45,23 @@ export class AuthComponent implements OnInit {
           const rol = response.rol;
           localStorage.setItem('rol', rol);
           // Recarga la página después de iniciar sesión
+          // window.location.reload();
           window.location.reload();
+          // if (rol === 'admin') {
+          //   this.router.navigate(['admin-home']); // Redirige al home del administrador
+          //   // window.location.reload();
+          // } else if (rol === 'cliente') {
+          //   this.router.navigate(['client-home']); // Redirige al home del cliente
+          //   // window.location.reload();
+          // } else {
+
+          //   this.router.navigate(['/l|ogin']); // Redirige al login
+
+          //   console.error('Rol de usuario no válido:', rol);
+          //   this.toastr.error('Error en inicio de sesión', 'Error');
+          // }
+
+
         } else {
           console.error('No se recibió el rol del usuario en la respuesta.');
           this.toastr.error('Error en inicio de sesión', 'Error');

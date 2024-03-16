@@ -29,11 +29,11 @@
 
                     <div class="conteninesinput">
                         <span class="p-float-label">
-                            <input  formControlName="telefono" pInputText id="telefono" />
+                            <input formControlName="telefono" pInputText id="telefono" />
                             <label for="telefono">Número telefónico</label>
                         </span>
                     </div>
-
+                    <br>
                     <div class="conteninesinput">
                         <span class="p-float-label">
                             <p-password formControlName="pass" [toggleMask]="true">
@@ -54,20 +54,49 @@
                             <label for="pass">Contraseña:</label>
                         </span>
                     </div>
-   <button type="submit" class="btn"> Registrarme</button>
-                    <!-- <div class="conteninesinput">
+                    <br>
+                    <div class="conteninesinput">
                         <span class="p-float-label">
-                            <p-password formControlName="confirmPass" [toggleMask]="true">
+                            <p-password formControlName="confirmpass" [toggleMask]="true">
                                 <ng-template pTemplate="header">
                                     <h6>Confirmar contraseña</h6>
                                 </ng-template>
                             </p-password>
                             <label for="confirmPass">Confirmar Contraseña:</label>
                         </span>
-                    </div> -->
-                    <!-- <div class="conteninesinput"> -->
-                     
-                    <!-- </div> -->
+                    </div>
+                    <div class="conteninesinput">
+                        <!-- <span class="p-float-label"> -->
+                            <label for="">selecciona una pregunta</label>
+<!-- <div class="card flex justify-content-center"> -->
+    <!-- <div class="card flex justify-content-center"> -->
+<label for="pregunta">Pregunta:</label>
+<select id="pregunta" formControlName="pregunta">
+    <option *ngFor="let pregunta of Pregunta" [value]="pregunta.value">{{ pregunta.label }}</option>
+</select>
+    <!-- </div> -->
+
+<!-- </div> -->
+                            <!-- <select class="pregunta"  id="">
+                                
+                                <option value="1">¡equipo de futbol?</option>
+                                <option value="2">¡equipo de futbol?</option>
+                                <option value="3">¡equipo de futbol?</option>
+                                <option value="4">¡equipo de futbol?</option>
+                                <option value="5">¡equipo de futbol?</option>
+                                <option value="6">¡equipo de futbol?</option>
+                                <option value="7">¡equipo de futbol?</option>
+                                <option value="8">¡equipo de futbol?</option>
+                            </select> -->
+                        <!-- </span> -->
+                    </div>
+                    <div class="conteninesinput">
+                        <span class="p-float-label">
+                            <input formControlName="respuesta"  pInputText id="correo" />
+                            <label for="correo">respuesta</label>
+                        </span>
+                    </div>
+                    <button type="submit" class="btn"> Registrarme</button>
                 </form>
             </div>
         </div>

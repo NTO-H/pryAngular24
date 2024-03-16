@@ -21,6 +21,7 @@ import { DashboardComponent } from './components/Admin/dashboard/dashboard.compo
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
 // import { UsuarioHomeComponent } from './components/usuario/usuario-home/usuario-home.component';
 import { AdminHomeComponent } from './components/Admin/admin-home/admin-home.component';
+import { ClientHomeComponent } from './components/client/client-home/client-home.component';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 // import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
 // import  {PerfilComponent}
@@ -29,7 +30,9 @@ const routes: Routes = [
   { path: 'ayuda', component: AyudaComponent },
   { path: 'recuperacion', component: RecuperacionComponent },
   // { path: 'cliente', component: UsuarioHomeComponent },
-  { path: 'admin', component: AdminHomeComponent },
+  { path: 'admin-home', component: AdminHomeComponent },
+  // { path: 'admin', component: AdminHomeComponent },
+  {path:'client-home',component:ClientHomeComponent},
   { path: 'preguntas', component: PreguntasComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'iot', component: IotComponent },

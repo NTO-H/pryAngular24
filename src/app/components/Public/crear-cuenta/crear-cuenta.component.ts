@@ -1,126 +1,86 @@
 import { UsuarioService } from './../../../services/usuario.service';
-import { Component, OnInit } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-// import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/models/producto';
-import { MessageService } from 'primeng/api';
-import swal from 'sweetalert2';
-import { Usuario } from 'src/app/models/usuario';
-import { ActivatedRoute, Route } from '@angular/router';
-// import {}
-
-
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-  FormBuilder,
-} from '@angular/forms';
-
-
-import { ErrorStateMatcher } from '@angular/material/core';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { response } from 'express';
-import { error } from 'console';
+import { Usuario } from 'src/app/models/usuario';
+import { MessageService } from 'primeng/api';
 
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-
-
-
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
+interface PreguntaOption {
+  label: string;
+  value: string;
 }
 
-
-
-
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-crear-cuenta',
-  // imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatDividerModule, MatIconModule, MatTabsModule],
-  // imports: [ReactiveFormsModule],
   templateUrl: './crear-cuenta.component.html',
-  styleUrls: ['./crear-cuenta.component.scss'], providers: [MessageService]
+  styleUrls: ['./crear-cuenta.component.scss'],
+  providers: [MessageService]
 })
 export class CrearCuentaComponent implements OnInit {
   usuarioForm!: FormGroup;
+  Pregunta: PreguntaOption[] = [];
 
-
-  constructor(private formBuilder: FormBuilder, private router: Router,
+  constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private _UsuarioService: UsuarioService,
-    private aRouter: ActivatedRoute,
-    private messageService: MessageService) {
+    private _UsuarioService: UsuarioService) {
     this.usuarioForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      pass: ['', Validators.required],
-      telefono: ['', Validators.required],
       correo: ['', Validators.required],
+      pass: ['', Validators.required],
+      confirmpass: ['', Validators.required],
+      telefono: ['', Validators.required],
+      pregunta: ['', Validators.required], // Hacer que la pregunta sea requerida
+      respuesta: ['', Validators.required],
     });
   }
 
-
-
-  ngOnInit(): void {
-
+  ngOnInit() {
+    this.Pregunta = [
+      { label: '¿nombre de tu mejor amigo?', value: 'nombre_amigo' },
+      { label: '¿color favorito?', value: 'color_favorito' },
+      { label: '¿equipo de futbol?', value: 'equipo_futbol' }
+    ];
   }
-  ValidarCorreo = function (correo: any) {
-    var validRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (correo.match(validRegex)) {
-      return true;
-    } else {
-      return false;
-    }
-
+  ValidarCorreo(correo: string) {
+    const validRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return correo.match(validRegex) !== null;
   }
 
   registrarUsuario() {
-    const USUARIO: Usuario = {
+    if (this.usuarioForm.get('pregunta')?.value === '') {
+      Swal.fire('Error', 'Por favor selecciona una pregunta', 'error');
+      return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
+    }
 
+    const preguntaSeleccionada: PreguntaOption = this.usuarioForm.get('pregunta')?.value;
+    console.log(preguntaSeleccionada)
+
+    // const preguntaSeleccionadaValue: string = preguntaSeleccionada.value; // Obtener el valor de la pregunta seleccionada
+
+    const USUARIO: Usuario = {
       nombre: this.usuarioForm.get('nombre')?.value,
       correo: this.usuarioForm.get('correo')?.value,
       telefono: this.usuarioForm.get('telefono')?.value,
       pass: this.usuarioForm.get('pass')?.value,
-    }
+      confirmpass: this.usuarioForm.get('confirmpass')?.value,
+      pregunta: preguntaSeleccionada.value,
+      respuesta: this.usuarioForm.get('respuesta')?.value,
+    };
+
     if (!this.ValidarCorreo(USUARIO.correo)) {
-      Swal.fire('Error', 'correo no valido', 'error');
-    }
-    else if (USUARIO.nombre == "" || USUARIO.correo == "" || USUARIO.pass == "") {
-      Swal.fire('Error', 'ingresa los datos correctamente', 'error');
+      Swal.fire('Error', 'Correo no válido', 'error');
+    } else if (USUARIO.nombre === '' || USUARIO.correo === '' || USUARIO.pass === '') {
+      Swal.fire('Error', 'Ingresa los datos correctamente', 'error');
     } else {
       this._UsuarioService.guardarUsuario(USUARIO).subscribe(response => {
-        this.toastr.success('usuario agregado con éxito!', 'succes');
-        console.log(USUARIO.nombre, USUARIO.correo)
+        this.toastr.success('Usuario agregado con éxito!', 'Success');
+        console.log('Nombre:', USUARIO.nombre, 'Correo:', USUARIO.correo);
       }, error => {
-        this.toastr.error(' ! El correo ya se encuentra registrado!', 'error');
-      }
-      )
+        this.toastr.error('El correo ya se encuentra registrado', 'Error');
+      });
     }
-
-
-    // this.router.navigate(['/']);
-
-
-
   }
-
-
-
-
-
-
-
 }

@@ -1,11 +1,16 @@
 <body>
-<!-- <div class="loading-overlay"> -->
+  <!-- <div class="loading-overlay"> -->
 
-  <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
+  <!-- <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div> -->
+  
+  <div *ngIf="isLoading" class="loader"  role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  
+
+
 
 
   <div>
@@ -53,10 +58,10 @@
 
       <div class="container2">
         <div class="frm-container-opciones">
-          <h2><strong> Tropical world </strong></h2>
+          <!-- <h2><strong> Tropical world </strong></h2>
           <h2>beinvenido a nuestra pagina,aqui puedes encontrar una gran variedad de productos para la salud y el
             cuidado para tu bebe
-          </h2>
+          </h2> -->
           <ul>
             <li><a routerLink="/crear-cuenta">Registrarme</a></li>
             <li><a routerLink="/recuperacion">olvide mi contraseña</a></li>

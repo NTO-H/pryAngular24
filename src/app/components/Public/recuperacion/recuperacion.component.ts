@@ -67,13 +67,13 @@ export class RecuperacionComponent {
   ngOnInit() {
     this.inputControl = new FormControl('');
   }
-  registrarUsuario() {
-    const USUARIOS: Usuario = {
-      nombre: this.usuarioForm.get('nombre')?.value,
-      pass: this.usuarioForm.get('pass')?.value,
-      telefono: this.usuarioForm.get('telefono')?.value,
-      correo: this.usuarioForm.get('correo')?.value,
-    }
+  buscarUsuario() {
+    // const USUARIOS: Usuario = {
+    //   nombre: this.usuarioForm.get('nombre')?.value,
+    //   pass: this.usuarioForm.get('pass')?.value,
+    //   telefono: this.usuarioForm.get('telefono')?.value,
+    //   correo: this.usuarioForm.get('correo')?.value,
+    // }
   }
 
 

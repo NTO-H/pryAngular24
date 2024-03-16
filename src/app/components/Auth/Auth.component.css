@@ -17,24 +17,55 @@
     width: 380px;
     padding: 45px;
 }
+body{
+height: 80vb;
+}
 
 .container2{
 
-    background: transparent;
+    background: #ffeac4f0;
     backdrop-filter: blur(10px);
     position: absolute;
      top:0;
-height: 100%;
+/* height: 50%; */
 
-    left: 10%;
+    left: 40%;
     transform: translate(-50%,-150%);
     border-radius: 10px;
     width: 300px;
+    
   text-align: center;
-    padding-top: 40px;
-    padding-left: 40px;
-    transform: translateY(70px);
+    padding-top: 5px;
+    height: 60px;
+    padding-left: 1px;
+    /* padding-bottom: 10px; */
+    transform: translateY(100%);
+border-bottom:solid 1px #ffcb62 ;
+   
+    animation: float 2s  ease-in-out  forwards;
+    /* padding-right: 40px; */
+}
 
+.container2{
+
+    background: #ffeac4f0;
+    backdrop-filter: blur(10px);
+    position: absolute;
+     top:0;
+/* height: 50%; */
+
+    left: 40%;
+    transform: translate(-50%,-150%);
+    border-radius: 10px;
+    width: 300px;
+    
+  text-align: center;
+    padding-top: 5px;
+    height: 60px;
+    padding-left: 1px;
+    /* padding-bottom: 10px; */
+    transform: translateY(100%);
+border-bottom:solid 1px #ffcb62 ;
    
     animation: float 2s  ease-in-out  forwards;
     /* padding-right: 40px; */
@@ -48,12 +79,12 @@ list-style: none;
 
 from{
 opacity: 0;
-transform: translateY(50px);
+transform: translateY(500px);
 /* translate: ; */
 }
 to{
 opacity: 1;
-transform: translateY(150px);
+transform: translateY(600px);
 }
 
 
@@ -111,7 +142,7 @@ margin-top: 10px;
 
 .conteninesinput{
 margin-top: 15px;
-
+margin-left: 10px;
 
 }
 .container{
@@ -159,4 +190,47 @@ body {
     /* Hace que la imagen de fondo cubra todo el cuerpo */
     background-position: center;
     /* Centra la imagen de fondo */
+}
+
+
+
+/* loading css */
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 25px;
+    height: 50px;
+    position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    display: grid;
+    color: #000;
+    background:
+        linear-gradient(currentColor 0 0) top/100% 2px,
+        radial-gradient(farthest-side at top, #0000 calc(100% - 2px), currentColor calc(100% - 1px), #0000) top,
+        linear-gradient(currentColor 0 0) bottom/100% 2px,
+        radial-gradient(farthest-side at bottom, #0000 calc(100% - 2px), currentColor calc(100% - 1px), #0000) bottom;
+    background-size: 100% 1px, 100% 50%;
+    background-repeat: no-repeat;
+    animation: l18 4s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    background: inherit;
+    border: inherit;
+    animation: inherit;
+}
+
+.loader::after {
+    animation-duration: 2s;
+}
+
+@keyframes l18 {
+    100% {
+        transform: rotate(1turn)
+    }
 }

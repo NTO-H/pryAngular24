@@ -1,4 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 import { AfterViewInit, Component, Inject, ElementRef, HostListener, Renderer2, OnInit, ViewChild, Injectable } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
@@ -30,7 +31,7 @@ export class AdmHeaderComponent {
 
   isLoading = false;//variable rastreador de carga de producto
 
-  constructor(private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   esUsuario(): boolean {
     const rol = this.authService.obtenerRolUsuario();
@@ -75,8 +76,11 @@ export class AdmHeaderComponent {
 
     console.log("sesion cerrada")
     this.isLoading = true; // Establecer el estado de carga a false
+    localStorage.removeItem('rol');
+  //  this.router.navigate(['/']); // Redirige al home del cliente
+    window.location.reload();
+ 
 
-          window.location.reload();
     // Realiza cualquier otra lógica que necesites al cerrar sesión, como redirigir al usuario a la página de inicio
   }
 

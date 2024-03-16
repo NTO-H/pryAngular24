@@ -3,6 +3,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
+import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MessageService } from 'primeng/api';
@@ -23,6 +24,7 @@ import { ButtonModule } from 'primeng/button'; // Import the ButtonModule
 import { MatButtonModule } from '@angular/material/button';
 // import { AppModule } from './app.module';
 // 
+import { TabViewModule } from 'primeng/tabview';
 // import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
@@ -66,6 +68,7 @@ import { PrincipalComponent } from './components/Public/principal/principal.comp
 
 import { PasswordModule } from 'primeng/password';
 
+import { SelectItem } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 
 import { BreadcrumbModule } from 'primeng/breadcrumb';
@@ -73,6 +76,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
+
+import { TreeSelectModule } from 'primeng/treeselect';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
@@ -93,12 +98,12 @@ import { ClientHeaderComponent } from './components/client/client-header/client-
     DetalleProductoComponent,AuthComponent,IotComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
-  imports: [MenuModule, ListboxModule,
-    SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule,
+  imports: [MenuModule, ListboxModule, TreeSelectModule,
+    SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
     BrowserModule, CommonModule, AccordionModule,
     AppRoutingModule, PasswordModule,
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule,
-    BrowserAnimationsModule, InputGroupModule, MdbAccordionModule,
+    BrowserAnimationsModule, InputGroupModule, MdbAccordionModule, TabViewModule,
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,
     HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule,
     FormsModule, MatButtonModule, MatIconModule, MatDrawer, MatPaginatorModule, MatButtonToggleModule,
