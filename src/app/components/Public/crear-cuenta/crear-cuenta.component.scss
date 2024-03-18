@@ -53,8 +53,17 @@ padding: 5px;
 background: #6095db;
 border:solid #000000 1px;
 color: black;
-
 height: 40px;
+}
+
+.character-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #555;
+    /* Color del contador de caracteres */
+    font-size: 15px;
+    /* Tamaño de fuente del contador de caracteres */
 }
 
 .btn:hover{

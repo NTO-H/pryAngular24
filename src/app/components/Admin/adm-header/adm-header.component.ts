@@ -49,16 +49,16 @@ export class AdmHeaderComponent {
   // uso de breadumn
   items: MenuItem[] | undefined;
 
-  home: MenuItem | undefined;
+  // home: MenuItem | undefined;
 
   ngOnInit() {
     Emitters.authEmitter.subscribe((auth: boolean) => {
 
     })
 
-    this.items = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
+    // this.items = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
 
-    this.home = { icon: 'pi pi-home', routerLink: '/' };
+    // this.home = { icon: 'pi pi-home', routerLink: '/' };
   }
   // --->
 

@@ -173,6 +173,7 @@ width: 1000%;
     z-index: 9999;
     /* Ajusta el z-index según sea necesario */
 }
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -197,8 +198,8 @@ body {
 /* loading css */
 /* HTML: <div class="loader"></div> */
 .loader {
-    width: 25px;
-    height: 50px;
+    width: 35px;
+    height: 70px;
     position: fixed;
         top: 50%;
         left: 50%;

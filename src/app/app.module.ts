@@ -1,12 +1,14 @@
 
 import { ErrorStateMatcher } from '@angular/material/core';
-
+// import { MatButtonModule } from 'primeng/breadcrumb';
+// import { InputTextModule } from 'primeng/inputtext';
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { MessageService } from 'primeng/api';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { AppComponent } from './app.component';
 import { CrearProductoComponent } from './components/Admin/producto/crear-producto/crear-producto.component';
 import { ListarProductosComponent } from './components/Admin/producto/listar-productos/listar-productos.component';
@@ -77,6 +79,7 @@ import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 
+// import { BreadcrumbModule }
 import { TreeSelectModule } from 'primeng/treeselect';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
@@ -86,7 +89,9 @@ import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes
 import { IotComponent } from './components/iot/iot.component';
 import { AdmHeaderComponent } from './components/Admin/adm-header/adm-header.component';
 import { ClientHeaderComponent } from './components/client/client-header/client-header.component';
+import { mensageservice } from './services/mensage.service';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
+// import { MessageService } from '';
 @NgModule({
 
   declarations: [
@@ -94,15 +99,15 @@ import { ClientHeaderComponent } from './components/client/client-header/client-
     AppComponent, AyudaComponent, AdmHeaderComponent, 
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,
     CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,
-    ListarProductosComponent,
+    ListarProductosComponent,HeaderComponent,
     DetalleProductoComponent,AuthComponent,IotComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
-    BrowserModule, CommonModule, AccordionModule,
+    BrowserModule, CommonModule, AccordionModule, InputNumberModule,
     AppRoutingModule, PasswordModule,
-    ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule,
+    ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule, InputTextModule,
     BrowserAnimationsModule, InputGroupModule, MdbAccordionModule, TabViewModule,
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,
     HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule,
@@ -111,7 +116,7 @@ import { ClientHeaderComponent } from './components/client/client-header/client-
 
   ],
   providers: [
-    provideAnimationsAsync(), MessageService
+    provideAnimationsAsync(), MessageService,mensageservice
   ],
   bootstrap: [AppComponent]
 })

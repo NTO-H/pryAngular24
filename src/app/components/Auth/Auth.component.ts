@@ -21,6 +21,8 @@ export class AuthComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
+    
+    
     this.loginForm = this.fb.group({
       correo: ['', Validators.required],
       pass: ['', Validators.required]
@@ -66,12 +68,16 @@ export class AuthComponent implements OnInit {
           console.error('No se recibió el rol del usuario en la respuesta.');
           this.toastr.error('Error en inicio de sesión', 'Error');
           this.loggingIn = false; // Establecer el estado de carga a false
+          this.isLoading = false;//variable rastreador de carga de producto
+
         }
       },
       (error) => {
         console.error('Error en inicio de sesión:', error);
         this.toastr.error('Error en inicio de sesión', 'Error');
         this.loggingIn = false; // Establecer el estado de carga a false
+        this.isLoading = false;//variable rastreador de carga de producto
+
       }
     );
   }

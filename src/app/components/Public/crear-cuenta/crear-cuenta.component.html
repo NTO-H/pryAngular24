@@ -26,14 +26,21 @@
                             <label for="correo">Correo</label>
                         </span>
                     </div>
-
+                    <div *ngIf="!ValidarCorreo(usuarioForm?.get('correo')?.value)">
+                        <p style="color: red;">el correo no es valido</p>
+                    </div>
                     <div class="conteninesinput">
                         <span class="p-float-label">
-                            <input formControlName="telefono" pInputText id="telefono" />
+                            <input pInputText  [(ngModel)]="value"  pKeyFilter="int" formControlName="telefono" id="telefono" (input)="limitarLongitud($event)"
+                                pattern="[0-9]*"  />
                             <label for="telefono">Número telefónico</label>
+                            <span class="character-counter">{{ usuarioForm.get('telefono')?.value ?
+                                usuarioForm.get('telefono')?.value.toString().length : 0 }}/10</span>
                         </span>
                     </div>
+
                     <br>
+
                     <div class="conteninesinput">
                         <span class="p-float-label">
                             <p-password formControlName="pass" [toggleMask]="true">
@@ -65,34 +72,25 @@
                             <label for="confirmPass">Confirmar Contraseña:</label>
                         </span>
                     </div>
-                    <div class="conteninesinput">
-                        <!-- <span class="p-float-label"> -->
-                            <label for="">selecciona una pregunta</label>
-<!-- <div class="card flex justify-content-center"> -->
-    <!-- <div class="card flex justify-content-center"> -->
-<label for="pregunta">Pregunta:</label>
-<select id="pregunta" formControlName="pregunta">
-    <option *ngFor="let pregunta of Pregunta" [value]="pregunta.value">{{ pregunta.label }}</option>
-</select>
-    <!-- </div> -->
 
-<!-- </div> -->
-                            <!-- <select class="pregunta"  id="">
-                                
-                                <option value="1">¡equipo de futbol?</option>
-                                <option value="2">¡equipo de futbol?</option>
-                                <option value="3">¡equipo de futbol?</option>
-                                <option value="4">¡equipo de futbol?</option>
-                                <option value="5">¡equipo de futbol?</option>
-                                <option value="6">¡equipo de futbol?</option>
-                                <option value="7">¡equipo de futbol?</option>
-                                <option value="8">¡equipo de futbol?</option>
-                            </select> -->
-                        <!-- </span> -->
+                    <div
+                        *ngIf="usuarioForm?.get('pass') && usuarioForm?.get('confirmpass') && !ValidaPass(usuarioForm?.get('pass')?.value, usuarioForm?.get('confirmpass')?.value)">
+                        <p style="color: red;">Las contraseñas no coinciden</p>
                     </div>
+
+
+                    <div class="conteninesinput">
+                        <label for="">selecciona una pregunta</label>
+                        <select class="form-control" formControlName="pregunta" id="inputState">
+                            <option selected>seleccione...</option>
+                            <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.value">
+                                {{preguntaItem.label}}</option>
+                        </select>
+                    </div>
+
                     <div class="conteninesinput">
                         <span class="p-float-label">
-                            <input formControlName="respuesta"  pInputText id="correo" />
+                            <input formControlName="respuesta" pInputText id="correo" />
                             <label for="correo">respuesta</label>
                         </span>
                     </div>

@@ -18,7 +18,7 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-    url = 'http://localhost:4000/usuarios/singUp';
+    url = 'http://localhost:4000/usuarios/';
 
     constructor(private http: HttpClient) { }
 
@@ -27,9 +27,20 @@ export class UsuarioService {
     }
 
     guardarUsuario(usuario: Usuario): Observable<any> {
-        return this.http.post<any>(this.url, usuario, { withCredentials: true });
+        return this.http.post<any>(this.url + 'singUp', usuario, { withCredentials: true });
     }
 
+
+    enviarCorreo(correo:string):Observable<any> {
+        return this.http.post<boolean>(this.url+'correo' , {correo});
+    }
+    
+    enviarToken(correo :string,token:string):Observable<any> {
+        return this.http.post<boolean>(this.url + 'token', {correo,token});
+    }
+    actualizaPassword(token: string, correo: string,nueva:string):Observable<any> {
+        return this.http.put<boolean>(this.url + 'actualiza', {token,correo,nueva});
+    }
 
     // eliminarProducto(id: string): Observable<any> {
     //     return this.http.delete(this.url + id);

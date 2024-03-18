@@ -1,29 +1,15 @@
 <header [ngClass]="{'scrolled': isScrolled}">
    
-<!-- <body> -->
-    <!-- <div *ngIf="loggingIn" class="loading-overlay"> -->
-      
-    <!-- </div> -->
-<!-- </body> -->
+
 
    
     <nav>
         <ul id="ul">
             <li id="li3">
-                <!-- <a id="logo" routerLink="/"> -->
                 <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
                     shape="circle"></p-avatar>
-                <!-- </a> -->
 
             </li>
-            <!-- <li id="li">
-                <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
-                    aria-label="Example icon button with a menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </li> -->
-
-
             <li id="li">
                 <a id="a" routerLink="/">
                     Home
@@ -39,7 +25,6 @@
                     <li><a href="#">Calificacion</a></li>
                     <li><a routerLink="cards-productos">catalogo</a></li>
                     <li><a href="#">Comentarios productos</a></li>
-                    <!-- <li><a href="#"></a></li> -->
                 </ul>
             </li>
 
@@ -83,7 +68,18 @@
 
 
 <div class="card flex justify-content-center">
-    <p-breadcrumb id="contenedor-breadcrumb" class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <p-breadcrumb  #parent id="contenedor-breadcrumb" class="max-w-full">
+        <ol class="breadcrumb">
+<ng-template ngFor let-route [ngFor]="parent.breadcrumbs">
+<li *ngIf="!route.terminal" class="breadcrumb-item">
+<a [routerLink]="route.url">{{route.displayName}}</a>
+</li>
+<li *ngIf="route.terminal" class="breadcrumb-item- active">{{route.displayName}}</li>
+</ng-template>
+
+        </ol>
+    </p-breadcrumb>
+
 </div>
 
 

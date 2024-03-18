@@ -3,24 +3,9 @@ body {
     background-size: cover;
     /* Hace que la imagen de fondo cubra todo el cuerpo */
     background-position: center;
-    
+    // width: 500px;
     /* Centra la imagen de fondo */
 }
-
-
-.cursor-sombra {
-    position: absolute;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 5px rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(255, 255, 255, 0.3);
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-}
-
-
 
 
 .imagen{
@@ -40,7 +25,7 @@ width: 500px;
  * {
      margin: 0%;
      padding: 0%;
-     box-sizing: border-box;
+    //  box-sizing: border-box;
  }
 
 

@@ -26,6 +26,7 @@ export class AppComponent {
     // Verifica el rol del usuario
     const userRole = this.authService.obtenerRolUsuario();
     // Dependiendo del rol, establece las variables correspondientes
+    // window.location.reload();
     if (userRole === 'admin') {
       this.isAdmin = true;
       console.log("admin?=>", this.isAdmin);
@@ -42,6 +43,8 @@ export class AppComponent {
       this.router.navigate(['/']); // Redirige al home del cliente
 
     }
+
+   
   }
 
 

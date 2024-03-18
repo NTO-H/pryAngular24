@@ -52,8 +52,19 @@
 
 
 
-<div  class="card flex justify-content-center">
-  <p-breadcrumb id="contenedor-breadcrumb" class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+<div class="card flex justify-content-center">
+  <p-breadcrumb #parent>
+    <ol class="breadcrumb">
+      <ng-template ngFor let-route [ngFor]="parent.breadcrumbs">
+        <li *ngIf="!route.terminal" class="breadcrumb-item">
+          <a href="" [routerLink]="route.url">{{route.displayName}}</a>
+        </li>
+        <li *ngIf="route.terminal" class="breadcrumb-item- active">{{route.displayName}}</li>
+      </ng-template>
+
+    </ol>
+  </p-breadcrumb>
+
 </div>
 
 

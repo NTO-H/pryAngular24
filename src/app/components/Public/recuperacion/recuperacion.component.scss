@@ -1,81 +1,197 @@
-.frm-container {
-    background: #ffffff;
-    box-shadow: 10px 0px 20px #292929;
-    position: absolute;
-    top: 75%;
-    color: #414141;
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, -80%);
-    border-radius: 30px;
-    width: 400px;
-    padding: 40px;
+  body {
+      background-image: url('../../../../assets/images/fondoBody.jpg');
+      background-size: cover;
+      /* Hace que la imagen de fondo cubra todo el cuerpo */
+      background-position: center;
+margin-top: -50px;
+padding: 40px;
+      /* Centra la imagen de fondo */
+  }
+
+
+
+   .container {
+       max-width: 400px;
+    //    margin: 50px auto;
+       margin-top: 50px;
+       padding: 20px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       background: #fcfcfc ;
+    //    background: #fcfcfc ;
+    //    
+
+       box-shadow: 0 10px 10px rgba(165, 165, 165, 0.911);
+   }
+.info-forgott img {
+    vertical-align: middle;
+    // border-style: none;
+
+    width: 300px;
+height: 300px;
+    margin-top: -300px;
+border-radius: 30px;
 }
-
-
-// estilos globales para botones
-.btn {
-    width: 280px;
-
-    padding: 5px;
-    background: #6095db;
-    border: solid #000000 1px;
-    color: black;
-
-    height: 40px;
+h1{
+text-align: center;
 }
+   .recovery-form {
+       display: flex;
+       flex-direction: column;
+   }
 
-.btn:hover {
-    width: 280px;
+   .option-section {
+       display: flex;
+       height: 60px;
+       padding: 20px;
+       border-radius: 10px;
+          border:solid 1px  #fbc0c0 ;
+       align-items: center;
+       margin-bottom: 14px;
+box-shadow: 0 5px 5px #ffefceac;
+   }
 
-    padding: 5px;
+   .option-section label {
+       display: flex;
+       align-items: center;
+   }
+
+   .option-section input[type="radio"] {
+    margin-inline-start: 100px;
+   }
+   #email-option {
+    margin-inline-start: 150px;
+   }
+
+   .option-section label i {
+       font-size: 20px;
+       
+       border-radius: 50px;
+
+       margin-right: 5px;
+   
+   }
+i {
+    font-size: 20px;
+-webkit-text-stroke: 1px rgb(255, 173, 115);
+    background-color: rgba(251, 192, 192, 0.423);
+    padding: 11px;
+    /* height: 50px; */
+    width: 55px;
+    height: 43px;
+
+    // width: 10px;
+    color: transparent;
+        /* Remove the background color */
+    }
+   .option-section:hover{
+      background: #f6ffcf;
+   }
+
+   button[type="submit"] {
+       width: 100%;
+       padding: 10px;
+    // padding-bottom: 2px;
+        background: #6095db;
+        border: solid #000000 1px;
+        color: black;
+    
+        height: 45px;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       font-size: 16px;
+   }
+
+   button[type="submit"]:hover {
     background: #ffe4ad;
-    border: solid #09839e 1px;
-    color: #09839e;
+        border: solid #09839e 1px;
+        color: #09839e;
+   }
 
-    height: 40px;
+// email
+
+.container2 {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(126, 126, 126, 0.911);
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        .form-group {
+            margin-bottom: 15px;
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+            input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            .radio-group {
+                display: flex;
+                align-items: center;
+
+                input[type="radio"] {
+                    margin-right: 10px;
+                }
+            }
+
+.p-inputtext{
+width: 500px;
 }
 
-// estilos globales para botones
 
 
-body {
-    background-image: url('../../../../assets/images/fondoBody.jpg');
-    background-size: cover;
-    /* Hace que la imagen de fondo cubra todo el cuerpo */
-    background-position: center;
-    /* Centra la imagen de fondo */
+        }
+
+#codigo{
+// button,
+//     input,
+//     optgroup,
+//     select,
+//     textarea {
+        // margin: 0;
+        // font-family: inherit;
+        // font-size: inherit;
+        // line-height: inherit;
+        width: 100%;
+    // }
 }
 
-.iniciar {
-    margin-top: 20px;
-}
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
 
-.btn {
-    margin-top: 10px;
-}
-
-.conteninesinput {
-    margin-top: 15px;
-
-
-}
-
-
-#pass {
-    margin-top: 23px;
-    width: 15em;
-}
-
-#correo {
-    width: 17.5em;
-}
-
-p-inputGroup {
-    width: 17.5em;
-}
-
-// meng {
-.p-float-label {
-    width: 16.8em;
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
 }

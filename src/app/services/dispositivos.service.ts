@@ -4,16 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-
-
-// src/app/services/:
-
-// Propósito: Contiene los servicios utilizados en la aplicación.
-// Funcionalidad: Los servicios son utilizados para encapsular la
-//  lógica de negocio, la interacción con APIs, y otras operaciones 
-//  que no pertenecen directamente a un componente. Al organizar los
-//   servicios en esta carpeta, se mejora la modularidad y la reutilización del código.
-
 @Injectable({
     providedIn: 'root',
 })

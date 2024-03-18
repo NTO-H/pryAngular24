@@ -48,7 +48,7 @@ export class ClientHeaderComponent {
     console.log("sesion cerrada")
     this.isLoading = true; // Establecer el estado de carga a false
     localStorage.removeItem('rol');
-    window.location.reload();
+    // window.location.reload();
     this.router.navigate(['/']); // Redirige al home del cliente
 
     // Realiza cualquier otra lógica que necesites al cerrar sesión, como redirigir al usuario a la página de inicio
