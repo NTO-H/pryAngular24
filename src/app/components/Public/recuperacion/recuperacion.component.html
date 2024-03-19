@@ -1,43 +1,38 @@
 <body>
+    <!-- *TODO:  usando directivas ngif  -->
+
     <div *ngIf="!formularioEnviado" class="container2">
-        <h1>Metodo de recuperar contraseña</h1>
-        <form (ngSubmit)="seleccion()" [formGroup]="frmSeleccion" class="recovery-form">
+        <h1>Metodo de recoperación </h1>
+        <form (ngSubmit)="seleccion()" [formGroup]="frmSeleccionMetodoRecuperacion" class="recovery-form">
             <div class="option-section">
                 <label for="email-option"><i class="fa fa-envelope"></i> Restablecer por Email</label>
-                <input type="radio" formControlName="opcion" value="correo" id="email-option"
-                    checked>
+                <input type="radio" formControlName="opcion" value="correo" id="email-option" checked>
             </div>
-
             <div class="option-section">
                 <label for="pregunta-option"><i class="fa fa-circle-question"></i>Restablecer por pregunta
                     secreta</label>
-                <input type="radio" formControlName="opcion" value="pregunta" id="pregunta-option"
-               >
+                <input type="radio" formControlName="opcion" value="pregunta" id="pregunta-option">
             </div>
             <button type="submit">Enviar Enlace</button>
         </form>
     </div>
-    <!-- <div class="info-forgott"> -->
-    <!-- <h4> Por favor si olvidaste tu contraseña ,selecciona la opcion</h4>
-<img  src="../../../../assets/images/img-forgott.png" alt="">
-</div> -->
-    <!-- paso dos -->
 
 
-    <!-- para la opcion de correo -->
+
+    <!--! para la opcion de correo -->
     <div *ngIf="esFrmCorreo" class="container2">
         <h2>Recuperar Contraseña correo</h2>
         <h5>Ingresa tu correo y sigue las instrucciones para resetear tu contraseña</h5>
         <form [formGroup]="frmbuscarCorreo" (ngSubmit)="enviarYbuscarCorreo()" method="post">
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label>
-                <input  formControlName="correo" type="email" id="email">
+                <input formControlName="correo" type="email" id="email">
             </div>
             <button type="submit">continuar</button>
         </form>
     </div>
 
-   <!-- correo:proceso de eingresar digitos -->
+    <!-- !correo:proceso de ingresar digitos -->
     <div *ngIf="esfrmVerficacion" class="container2">
         <h2>Obtén la verificacion en tu correo</h2>
         <h5>Para fines de seguridad, necesitas ingresar el código que hemos enviado a
@@ -46,7 +41,8 @@
         <form [formGroup]="frmVerificacion" (ngSubmit)="verficarCodigo()" action="#" method="post">
             <div class="form-group">
                 <label for="codigo">codigo</label>
-                <input pInputText id="codigo"  formControlName="codigo" aria-describedby="codigo-help" [(ngModel)]="value" />
+                <input pInputText id="codigo" formControlName="codigo" aria-describedby="codigo-help"
+                    [(ngModel)]="value" />
                 <br>
                 <small id="codigo-help">Enter your code to reset your password.</small>
             </div>
@@ -54,49 +50,44 @@
         </form>
     </div>
 
-    <!-- para la opcion de pregunta -->
+    <!--! para la opcion de pregunta -->
     <div *ngIf="esFrmPregunta" class="container2">
         <h2>Recuperar Contraseña pregunta</h2>
-        <form  [formGroup]="frmPregunta" (ngSubmit)="enviarRespuesta()"  method="post">
-
-
+        <h5>Actualiza tu contraseña a favor de las preguntas secretas</h5>
+        <form [formGroup]="frmPregunta" (ngSubmit)="enviarRespuesta()" method="post">
             <div class="form-group">
-                 <label for="">selecciona una pregunta</label>
+                <label for="">selecciona una pregunta</label>
                 <select class="form-control" formControlName="pregunta" id="inputState">
                     <option selected>seleccione...</option>
                     <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.value">
                         {{preguntaItem.label}}</option>
                 </select>
-                <label for="email">Correo Electrónico:</label>
-                <input formControlName="correo" type="email" id="email" name="email" required>
+                <label for="email">Ingresa tu respuesta:</label>
+                <input formControlName="respuesta" type="text" id="email"  required>
             </div>
             <button type="submit">continuar</button>
         </form>
     </div>
 
-
-
-
- 
-<!-- formualrio para resetear password  -->
-<div *ngIf="esFrmResetPassword" class="container2">
-    <h2>Actualiza tu contraseña</h2>
-    <h5>Crea nueva contraseña segura</h5>
-    <form [formGroup]="frmActualizaPassword" (ngSubmit)="actualizaPassword()" method="post">
-        <div class="form-group">
-            <label for="">Nueva contraseña</label>
-            <input formControlName="nueva" type="password" />
-            <br>
-            <!-- <small id="codigo-help">Enter your code to reset your password.</small> -->
-            <br>
-            <label for="">Confirmar password</label>
-            <input formControlName="confirma" type="password" />
-            <br>
-            <!-- <small id="codigo-help">Enter your code to reset your password.</small> -->
-        </div>
-        <button type="submit">Resetear contraseña</button>
-    </form>
-</div>
+    <!--! formualrio para resetear password  -->
+    <div *ngIf="esFrmResetPassword" class="container2">
+        <h2>Actualiza tu contraseña</h2>
+        <h5>Crea nueva contraseña segura</h5>
+        <form [formGroup]="frmActualizaPassword" (ngSubmit)="actualizarPassword()" method="post">
+            <div class="form-group">
+                <label for="">Nueva contraseña</label>
+                <input formControlName="nueva" type="password" />
+                <br>
+                <!-- <small id="codigo-help">Enter your code to reset your password.</small> -->
+                <br>
+                <label for="">Confirmar password</label>
+                <input formControlName="confirma" type="password" />
+                <br>
+                <!-- <small id="codigo-help">Enter your code to reset your password.</small> -->
+            </div>
+            <button type="submit">Resetear contraseña</button>
+        </form>
+    </div>
 
 
 

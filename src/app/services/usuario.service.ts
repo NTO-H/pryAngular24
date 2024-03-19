@@ -38,8 +38,18 @@ export class UsuarioService {
     enviarToken(correo :string,token:string):Observable<any> {
         return this.http.post<boolean>(this.url + 'token', {correo,token});
     }
-    actualizaPassword(token: string, correo: string,nueva:string):Observable<any> {
-        return this.http.put<boolean>(this.url + 'actualiza', {token,correo,nueva});
+    
+    enviarDatos(pregunta :string,respuesta:string):Observable<any> {
+        return this.http.post<boolean>(this.url + 'respuesta', {pregunta,respuesta});
+    }
+
+
+    actualizaPasswordxCorreo(token: string, correo: string,nueva:string):Observable<any> {
+        return this.http.put<boolean>(this.url + 'actualizaxCorreo', {token,correo,nueva});
+    }
+
+    actualizaPasswordxPregunta(pregunta: string, respuesta: string, nueva: string): Observable<any> {
+        return this.http.put<boolean>(this.url + 'actualizaxPregunta', { pregunta, respuesta,nueva});
     }
 
     // eliminarProducto(id: string): Observable<any> {
