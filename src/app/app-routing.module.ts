@@ -1,3 +1,5 @@
+import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
+import { CarritoComponent } from './components/shared/carrito/carrito.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { clientGuard, adminGuard } from './components/guards/private.guard';
 // clientGuard
@@ -29,7 +31,8 @@ const routes: Routes = [
   { path: '', component: PrincipalComponent },
   { path: 'ayuda', component: AyudaComponent },
   { path: 'recuperacion', component: RecuperacionComponent },
-  // { path: 'cliente', component: UsuarioHomeComponent },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'listar-usuarios', component: ListarUsuariosComponent },
   { path: 'admin-home', component: AdminHomeComponent ,data:{breadcrumb:'Administrador'},canActivate: [adminGuard] } ,
   // { path: 'admin', component: AdminHomeComponent },
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},

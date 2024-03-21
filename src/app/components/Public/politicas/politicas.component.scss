@@ -4,4 +4,45 @@ body {
     /* Hace que la imagen de fondo cubra todo el cuerpo */
     background-position: center;
     /* Centra la imagen de fondo */
-}
+
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: #f4f4f4;
+       color: #709cd2;
+       
+   }
+
+   header {
+       background-color: #96beffab;
+       color: #f78eff;
+       box-shadow:0px 10px 10px  #b3fbf8ba;
+       text-align: center;
+       padding: 1em 0;
+   }
+
+   section {
+       max-width: 800px;
+       margin: 20px auto;
+       padding: 20px;
+       background-color: #ffffffe2;
+
+    backdrop-filter: blur(10px);
+       box-shadow: 0 10px 10px rgba(255, 226, 173, 0.885);
+   }
+
+   h1,
+   h2 {
+       color: #41ab70;
+   }
+
+   p {
+       line-height: 1.6;
+   }
+
+   footer {
+       text-align: center;
+       padding: 1em 0;
+       background-color: #8ffffb;
+       color: #fff;
+   }

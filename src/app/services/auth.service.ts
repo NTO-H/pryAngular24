@@ -34,6 +34,8 @@ export class AuthService {
         return !!localStorage.getItem('token');
     }
 
+
+    
     obtenerRolUsuario(): string | null {
         // Recuperar el rol del usuario almacenado en el localStorage o en una variable de estado
         const rol = localStorage.getItem('rol');

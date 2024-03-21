@@ -31,10 +31,29 @@
                             <input formControlName="precio" type="number" class="form-control" placeholder="precio" />
                         </div>
                         <!-- <p-toast position="top-center" key="tc"></p-toast> -->
+                        <!-- <div class="card flex justify-content-center"> -->
+                        
+                        <div class="mt-3">
+                            <!-- <input formControlName="precio" type="number" class="form-control" placeholder="precio" /> -->
+                            <span class="p-float-label">
+                                <textarea formControlName="descripcion" id="float-input" rows="5" cols="30" pInputTextarea></textarea>
+                                <label for="float-input">Descripción</label>
+                            </span>
+
+
+                        </div>
+                        <!-- </div> -->
+
+
+
+                        <!-- <p-toast position="top-center" key="tc"></p-toast> -->
                         <div class="card flex justify-content-center gap-2">
                             <p-toast position="bottom-center" key="tc"></p-toast>
                             <!-- <button type="button" pButton pRipple (click)="showTopCenter()" label="Top Center" class="p-button-warning"></button> -->
                         </div>
+
+
+
                         <div class="mb-3">
                             <button routerLink="/listar-productos" class="btn btn-secondary float-start mt-3">
                                 Volver

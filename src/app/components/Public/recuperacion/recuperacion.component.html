@@ -32,7 +32,14 @@
         </form>
     </div>
 
+<!-- ? usar en opciones <mat-radio-group [(ngModel)]="humedad">
+                    <mat-radio-button *ngFor="let option of humedadOptions" [value]="option.value">{{ option.label
+                        }}</mat-radio-button>
+                </mat-radio-group>
+                ? -->
+
     <!-- !correo:proceso de ingresar digitos -->
+    
     <div *ngIf="esfrmVerficacion" class="container2">
         <h2>Obtén la verificacion en tu correo</h2>
         <h5>Para fines de seguridad, necesitas ingresar el código que hemos enviado a

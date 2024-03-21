@@ -3,10 +3,12 @@ export class Producto {
     nombre: string;
     categoria: string;
     precio: number;
+    descripcion: string;
 
-    constructor(nombre: string,categoria:string,precio:number) {
+    constructor(nombre: string, categoria: string, precio: number, descripcion:string) {
         this.nombre = nombre;
         this.categoria = categoria;
-        this.precio=precio;
+        this.precio = precio;
+        this.descripcion = descripcion;
     }
 }

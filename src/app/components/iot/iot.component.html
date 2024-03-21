@@ -9,183 +9,78 @@
 
 <body>
 
-    <header  class="header-Title">
+    <header class="header-Title">
         <h1> IOT SERVICE</h1>
     </header>
-<div class="card">
-    <p-menubar [model]="items"></p-menubar>
-</div>
 
 
     <section class="dispositivos">
-        <div class="dispositivo">
-            <img src="dispositivo1.jpg" alt="Dispositivo 1">
-            <h2>Nombre del Dispositivo 1</h2>
-            <p>Descripción del Dispositivo 1. Puedes ver más detalles y conectarlo.</p>
-            <button class="conectar">Conectar</button>
-        </div>
 
         <div class="dispositivo">
-            <img src="dispositivo2.jpg" alt="Dispositivo 2">
-            <h2>Nombre del Dispositivo 2</h2>
-            <p>Descripción del Dispositivo 2. Puedes ver más detalles y conectarlo.</p>
-            <button class="conectar">Conectar</button>
+            <div class="icono">
+                <i [ngClass]="{
+            'fas fa-tint': humedad > 75,
+            'fas fa-tint-slash': humedad <= 75 && humedad > 50,
+            'fas fa-drip': humedad <= 50 && humedad > 25,
+            'fas fa-seedling': humedad <= 25
+        }"></i>
+            </div>
+            <img [src]="imagen" [alt]="alt">
+            <div class="humedad">
+                <span class="label">Humedad:</span>
+                <span class="value">{{ humedad }}%</span>
+                <input type="range" [(ngModel)]="humedad" min="0" max="100">
+            </div>
         </div>
 
-        <!-- Agrega más dispositivos según sea necesario -->
+
+
+
+
+        <!--  -->
+        <div class="dispositivo">
+            <div class="icono">
+                <i [ngClass]="{'fas fa-sun': temperatura > 30, 'fas fa-snowflake': temperatura <= 30}"></i>
+            </div>
+            <img [src]="imagen" [alt]="alt">
+            <div class="temperatura">
+                <span class="label">Temperatura:</span>
+                <span class="value">{{ temperatura }}°C</span>
+                <input type="range" [(ngModel)]="temperatura" min="0" max="100">
+            </div>
+        </div>
+
+
+
+        <!-- *esto es para luces  -->
+        <!-- <div class="contiende-switch">
+            <h5>Led</h5> -->
+        <div class="switch-container" [ngClass]="{ 'active': isChecked }" (click)="toggleSwitch()">
+            <label class="switch">
+                <img src="../../../assets/images/bombilla-de-idea.png" alt="led">
+            </label>
+            <div class="status-label">{{ isChecked ? 'Encendido' : 'Apagado' }}</div>
+            <!-- </div> -->
+        </div>
+
+        <div class="switch-container" [ngClass]="{ 'active': isCheckedValancin }" (click)="toggleSwitchValanin()">
+            <label class="switch">
+                <img src="../../../assets/images/cuna-de-bebe.png" alt="valancin">
+            </label>
+            <div class="status-label">{{ isCheckedValancin ? 'Encendido' : 'Apagado' }}</div>
+            <!-- </div> -->
+        </div>
+
+
+        <div class="switch-container" [ngClass]="{ 'active': isCheckedCarrucel }" (click)="toggleSwitchCarrucel()">
+            <label class="switch">
+                <img src="../../../assets/images/movil-cuna.png" alt="valancin">
+            </label>
+            <div class="status-label">{{ isCheckedCarrucel ? 'Encendido' : 'Apagado' }}</div>
+            <!-- </div> -->
+        </div>
 
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--     
-<div class="wrapper">
-    <div class="line line1">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line2">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line3">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line4">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line5">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line6">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line7">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line8">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line9">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line10">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-    <div class="line line11">
-        <span class="circle circle-top"></span>
-        <div class="dotted">
-            <span class="dot dot-top"></span>
-            <span class="dot dot-middle-top"></span>
-            <span class="dot dot-middle-bottom"></span>
-            <span class="dot dot-bottom"></span>
-        </div>
-        <span class="circle circle-bottom"></span>
-    </div>
-</div>
-    <footer>
-        <p>&copy; 2024 Tropical world IoT</p>
-    </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- -->
 
 </body>
 

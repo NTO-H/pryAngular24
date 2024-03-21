@@ -50,12 +50,13 @@ export class QuienesSomosComponent {
     private aRouter: ActivatedRoute,
     private messageService: MessageService) {
 
+    // this.comentarioForm = this.formBuilder.group({
     this.comentarioForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      correo: ['', Validators.required],
-      comemtario: ['', Validators.required],
+      nombre: [''],
+      correo: [''],
+      comentario: ['']
     });
-  }  
+  }
   ValidarCorreo = function (correo: any) {
     var validRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -66,32 +67,33 @@ export class QuienesSomosComponent {
     }
 
   }
-
+  
+  
   registrarComentario() {
-    const COMENTARIO: Comentario = {
-      nombre: this.comentarioForm.get('nombre')?.value,
-      correo: this.comentarioForm.get('correo')?.value,
-      comentario: this.comentarioForm.get('comentario')?.value,
+    const nombre = this.comentarioForm.get('nombre')?.value;
+    const correo = this.comentarioForm.get('correo')?.value;
+    const comentario = this.comentarioForm.get('comentario')?.value;
+
+    console.log("nombre=>", nombre);
+    console.log("correo=>", correo);
+    console.log("comentario=>", comentario);
+
+    // Validar que todos los campos estén completos
+    if (!nombre || !correo || !comentario) {
+      Swal.fire('Error', 'Por favor, completa todos los campos', 'error');
+      return; // Salir de la función si algún campo está vacío
     }
-   
-   if (COMENTARIO.nombre == "" || COMENTARIO.correo == "" || COMENTARIO.comentario == "") {
-      Swal.fire('Error', 'ingresa los datos correctamente', 'error');
-   } else if (!this.ValidarCorreo(COMENTARIO.correo)) {
-     Swal.fire('Error', 'correo no valido', 'error');
-   } 
-   
-   else {
-     this._comentarioService.guardarComentario(COMENTARIO).subscribe(response => {
-        this.toastr.success('usuario agregado con éxito!', 'succes');
-        console.log(COMENTARIO.nombre, COMENTARIO.correo)
-      }, error => {
-        this.toastr.error(' ! El correo ya se encuentra registrado!', 'error');
+
+    // Llamar al servicio para guardar el comentario
+    this._comentarioService.guardarComentario(nombre, correo, comentario).subscribe(
+      response => {
+        this.toastr.success('¡Se envió tu comentario con éxito!', 'Éxito');
+      },
+      error => {
+        this.toastr.error('¡Hubo un error al enviar el comentario!', 'Error');
       }
-      )
-    }
-
-
-
+    );
+  
 
 
 

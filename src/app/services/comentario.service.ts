@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ComentarioService {
 
-    url = 'http://localhost:4000/comentario/comentar';
+    url = 'http://localhost:4000/comentarios/';
 
     constructor(private http: HttpClient) { }
 
@@ -21,8 +21,8 @@ export class ComentarioService {
         return this.http.delete(this.url + id);
     }
 
-    guardarComentario(comentario: Comentario): Observable<any> {
-        return this.http.post<any>(this.url, comentario);
+    guardarComentario(nombre:string,correo:string, comentario: string): Observable<any> {
+        return this.http.post<any>(this.url+"comentarioInvitado",{nombre ,correo,comentario} );
     }
 
     // editarProducto(id: string, comentario: Comentario): Observable<any> {

@@ -1,3 +1,4 @@
+import { CarritoComponent } from './components/shared/carrito/carrito.component';
 
 import { ErrorStateMatcher } from '@angular/material/core';
 // import { MatButtonModule } from 'primeng/breadcrumb';
@@ -72,14 +73,14 @@ import { PasswordModule } from 'primeng/password';
 
 import { SelectItem } from 'primeng/api';
 import { CardModule } from 'primeng/card';
+import { MatSliderModule } from '@angular/material/slider'; 
 
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
-
-// import { BreadcrumbModule }
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
@@ -92,28 +93,34 @@ import { ClientHeaderComponent } from './components/client/client-header/client-
 import { mensageservice } from './services/mensage.service';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 // import { MessageService } from '';
+// import { MatSliderModule } from '@angular/material/slider'; // Importa MatSliderModule
+
+import { MatRadioModule } from '@angular/material/radio';
+import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
 @NgModule({
 
   declarations: [
   
-    AppComponent, AyudaComponent, AdmHeaderComponent, 
+    AppComponent, AyudaComponent, AdmHeaderComponent, IotComponent,
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,
     CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,
-    ListarProductosComponent,HeaderComponent,
-    DetalleProductoComponent,AuthComponent,IotComponent,
+    ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,
+    DetalleProductoComponent,AuthComponent,IotComponent,ListarProductosComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
-    BrowserModule, CommonModule, AccordionModule, InputNumberModule,
-    AppRoutingModule, PasswordModule,
+    BrowserModule, CommonModule, AccordionModule, InputNumberModule, InputTextareaModule,
+    AppRoutingModule, PasswordModule, MatRadioModule,
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule, InputTextModule,
     BrowserAnimationsModule, InputGroupModule, MdbAccordionModule, TabViewModule,
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,
-    HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule,
+    HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule, MatSliderModule,
     FormsModule, MatButtonModule, MatIconModule, MatDrawer, MatPaginatorModule, MatButtonToggleModule,
     ButtonModule, ProgressSpinnerModule, MatSidenavModule, MatInputModule, ToastModule, InputTextModule
 
+  ], exports: [
+    IotComponent
   ],
   providers: [
     provideAnimationsAsync(), MessageService,mensageservice

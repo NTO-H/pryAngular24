@@ -2,11 +2,14 @@ export class Dispositivo {
     _id?: number;
     Temperatura: string;
     Movimiento: string;
-    Estado: number;
+    EstadoLed: number;
 
-    constructor(Temperatura: string, Movimiento: string, Estado: number) {
+
+
+    constructor(Temperatura: string, EstadoLed:number,Movimiento: string) {
         this.Temperatura = Temperatura;
         this.Movimiento = Movimiento;
-        this.Estado = Estado;
+        this.EstadoLed = EstadoLed;
     }
+
 }

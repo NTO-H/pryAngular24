@@ -29,6 +29,8 @@ export class CrearProductoComponent implements OnInit {
       producto: ['', Validators.required],
       categoria: ['', Validators.required],
       precio: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      
     });
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
@@ -47,6 +49,7 @@ export class CrearProductoComponent implements OnInit {
       nombre: this.productoForm.get('producto')?.value,
       categoria: this.productoForm.get('categoria')?.value,
       precio: this.productoForm.get('precio')?.value,
+      descripcion: this.productoForm.get('descripcion')?.value,
     };
 
     const onSuccess = () => {
@@ -75,14 +78,7 @@ export class CrearProductoComponent implements OnInit {
           this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
           this.router.navigate(['/listar-productos']);
         }, error => {
-          // this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
-          // let mensajeError = 'Ocurrió un error al agregar el producto.';
-          // let tituloError = 'Error de inserción';
           this.showTopCenter();
-          // this.messageService.add({ key: 'tc', severity: 'warn', summary: tituloError, detail: mensajeError });
-          // this.toastr.error(mensajeError, tituloError);
-
-          // this.toastr.error('Ocurrió un error al agregar el producto.', 'Error de inserción ');
         }
       );
     }
@@ -102,6 +98,7 @@ export class CrearProductoComponent implements OnInit {
           producto: data.nombre,
           categoria: data.categoria,
           precio: data.precio,
+          descripcion: data.descripcion
         });
       });
     }

@@ -35,41 +35,20 @@ export class AuthComponent implements OnInit {
     const correo = this.loginForm.value.correo;
     const pass = this.loginForm.value.pass;
 
-    this.isLoading = true; // Establecer el estado de carga a true
-
+    this.isLoading = true;
     this.authService.login(correo, pass).subscribe(
       (response) => {
         console.log('Inicio de sesión exitoso:', response);
-
-        // Verifica si hay un rol en la respuesta
         if (response && response.rol) {
-          // Accede al rol del usuario
           const rol = response.rol;
           localStorage.setItem('rol', rol);
-          // Recarga la página después de iniciar sesión
-          // window.location.reload();
+      
           window.location.reload();
-          // if (rol === 'admin') {
-          //   this.router.navigate(['admin-home']); // Redirige al home del administrador
-          //   // window.location.reload();
-          // } else if (rol === 'cliente') {
-          //   this.router.navigate(['client-home']); // Redirige al home del cliente
-          //   // window.location.reload();
-          // } else {
-
-          //   this.router.navigate(['/l|ogin']); // Redirige al login
-
-          //   console.error('Rol de usuario no válido:', rol);
-          //   this.toastr.error('Error en inicio de sesión', 'Error');
-          // }
-
-
         } else {
           console.error('No se recibió el rol del usuario en la respuesta.');
           this.toastr.error('Error en inicio de sesión', 'Error');
           this.loggingIn = false; // Establecer el estado de carga a false
           this.isLoading = false;//variable rastreador de carga de producto
-
         }
       },
       (error) => {
@@ -77,7 +56,6 @@ export class AuthComponent implements OnInit {
         this.toastr.error('Error en inicio de sesión', 'Error');
         this.loggingIn = false; // Establecer el estado de carga a false
         this.isLoading = false;//variable rastreador de carga de producto
-
       }
     );
   }

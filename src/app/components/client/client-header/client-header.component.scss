@@ -122,24 +122,45 @@ header.scrolled {
 #a.scrolled {
     color: rgb(223, 175, 0) !important;
 
-
 }
 
-#li3[_ngcontent-ng-c874189023] {
+
+#li3 {
     margin-top: 15px;
     width: 15px;
     height: 15px;
-    // margin-left: -100px;
-    // cur
+    margin-left: -50px;
+    // color: rgb(22, 128, 47);
+    margin-right: 100px;
+}
+
+#li3 {
 
     display: flex;
     align-items: center;
     padding: 10px;
     // border-bottom: 1px solid #ccc;
     transition: background-color 0.3s;
+
+
 }
 
 
+// #li3 {
+//     margin-top: 15px;
+//     width: 15px;
+//     height: 15px;
+//     margin-left: -50px;
+//     // cur
+//     margin-right: 100px;
+
+
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+//     // border-bottom: 1px solid #ccc;
+//     transition: background-color 0.3s;
+// }
 
 .buscador {
     padding: 10px;
