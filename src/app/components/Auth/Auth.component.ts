@@ -1,9 +1,15 @@
+// import { jwt_decode } from 'jwt-jwt_decode';
+// import { jwt_decode } from 'jwt_decode';
+// import { jwt_decode } from 'jwt-decode';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { TabView } from 'primeng/tabview';
+// const jwt = require('jsonwebtoken');
+// import * as jwt_decode from 'jwt-decode';
+
 @Component({
   selector: 'app-Auth',
   templateUrl: './Auth.component.html',
@@ -29,8 +35,15 @@ export class AuthComponent implements OnInit {
     });
   }
 
+
+  
+
+
   ngOnInit() { }
 
+  
+  
+  
   login() {
     const correo = this.loginForm.value.correo;
     const pass = this.loginForm.value.pass;
@@ -41,8 +54,13 @@ export class AuthComponent implements OnInit {
         console.log('Inicio de sesión exitoso:', response);
         if (response && response.rol) {
           const rol = response.rol;
+          const token = response.token;
+          localStorage.setItem('token', token);
           localStorage.setItem('rol', rol);
-      
+
+          localStorage.setItem('currentUser', correo);
+
+
           window.location.reload();
         } else {
           console.error('No se recibió el rol del usuario en la respuesta.');

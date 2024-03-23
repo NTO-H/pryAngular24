@@ -21,9 +21,19 @@ export class UsuarioService {
     url = 'http://localhost:4000/usuarios/';
 
     constructor(private http: HttpClient) { }
+    
+    
+    
+    enviarCorreo(correo: string): Observable<any> {
+        return this.http.post<boolean>(this.url+'correo' , {correo});
+    }
+    
 
+
+
+    
     getUsuarios(): Observable<any> {
-        return this.http.get(this.url);
+        return this.http.get(this.url +'getUsuarios');
     }
 
     guardarUsuario(usuario: Usuario): Observable<any> {
@@ -31,10 +41,7 @@ export class UsuarioService {
     }
 
 
-    enviarCorreo(correo:string):Observable<any> {
-        return this.http.post<boolean>(this.url+'correo' , {correo});
-    }
-    
+   
     enviarToken(correo :string,token:string):Observable<any> {
         return this.http.post<boolean>(this.url + 'token', {correo,token});
     }
@@ -52,6 +59,11 @@ export class UsuarioService {
         return this.http.put<boolean>(this.url + 'actualizaxPregunta', { pregunta, respuesta,nueva});
     }
 
+   
+
+    eliminarUsuario(id: string): Observable<any> {
+        return this.http.delete(this.url + id);
+    }
     // eliminarProducto(id: string): Observable<any> {
     //     return this.http.delete(this.url + id);
     // }
@@ -74,10 +86,11 @@ export class UsuarioService {
 
 
 
-    // detalleProductoById(id: string): Observable<any> {
-    //     //return this.http.get(`${this.apiUrl}/${id}`);
-    //     return this.http.get(this.url + id);
-    // }
+    detalleUsuarioById(id: string): Observable<any> {
+        //return this.http.get(`${this.apiUrl}/${id}`);
+        return this.http.get(this.url + id);
+    }
+
 
 
 

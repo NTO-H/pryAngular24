@@ -1,8 +1,9 @@
 import { CarritoComponent } from './components/shared/carrito/carrito.component';
-
+import { DialogModule } from 'primeng/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
 // import { MatButtonModule } from 'primeng/breadcrumb';
 // import { InputTextModule } from 'primeng/inputtext';
+// import { SidebarModule } from 'primeng/sidebar';
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
 import { DropdownModule } from 'primeng/dropdown';
@@ -97,16 +98,18 @@ import { mensageservice } from './services/mensage.service';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
+import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
+import { PoliticasComponent } from './components/Public/politicas/politicas.component';
 @NgModule({
 
   declarations: [
   
     AppComponent, AyudaComponent, AdmHeaderComponent, IotComponent,
-    CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,
+    CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
     CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,
     DetalleProductoComponent,AuthComponent,IotComponent,ListarProductosComponent,
-    FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent
+    FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent,PoliticasComponent,
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,

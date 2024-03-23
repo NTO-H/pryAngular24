@@ -5,14 +5,16 @@ import { FormsModule, NgModel, NgModelGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 // import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 import { Producto } from 'src/app/models/producto';
+import { Usuario } from 'src/app/models/usuario';
 import { ProductoService } from 'src/app/services/producto.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-listar-usuarios',
   templateUrl: './listar-usuarios.component.html',
   styleUrls: ['./listar-usuarios.component.css']
 })
 export class ListarUsuariosComponent implements OnInit {
-  listProductos: Producto[] = [];
+  listUsuarios: Usuario[] = [];
   // filterProducts = '';
   filterProducts: string = '';
 
@@ -29,7 +31,7 @@ export class ListarUsuariosComponent implements OnInit {
   // ngOnInit() {
   //   this.obtenerProductos();
 
-  // }
+  // }6666666
 
   onPhotoSelected(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -42,19 +44,17 @@ export class ListarUsuariosComponent implements OnInit {
       reader.readAsDataURL(this.file);
     }
   }
-
-
   // imagen fin
-  constructor(private _productoService: ProductoService, private toastr: ToastrService) { }
+  constructor(private usuarioService: UsuarioService, private toastr: ToastrService) { }
   ngOnInit(): void {
-    this.obtenerProductos();
+    this.obtenerUsuarios();
     // this.detalleProductoById();
   }
 
 
-  obtenerProductos() {
-    this._productoService.getProductos().subscribe(data => {
-      this.listProductos = data;
+  obtenerUsuarios() {
+    this.usuarioService.getUsuarios().subscribe(data => {
+      this.listUsuarios = data;
       console.log(data);
     }, error => {
       console.log("ocurrio un error al obtener la información");
@@ -72,13 +72,13 @@ export class ListarUsuariosComponent implements OnInit {
 
   //   }
 
-  eliminarProducto(id: any) {
+  eliminarUsuario(id: any) {
 
-    this._productoService.eliminarProducto(id).subscribe(data => {
+    this.usuarioService.eliminarUsuario(id).subscribe(data => {
 
 
-      this.toastr.success('El producto fue eliminado con exito', 'Producto eliminado');
-      this.obtenerProductos();
+      this.toastr.success('El usuario fue eliminado con exito', 'Usuario eliminado');
+      this.obtenerUsuarios();
 
     }, error => {
 

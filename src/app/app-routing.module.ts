@@ -26,14 +26,18 @@ import { RecuperacionComponent } from './components/Public/recuperacion/recupera
 import { AdminHomeComponent } from './components/Admin/admin-home/admin-home.component';
 import { ClientHomeComponent } from './components/client/client-home/client-home.component';
 import { PerfilComponent } from './components/Public/perfil/perfil.component';
+import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
+  // { path: '', component: PrincipalComponent },
+
   { path: 'ayuda', component: AyudaComponent },
   { path: 'recuperacion', component: RecuperacionComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'listar-usuarios', component: ListarUsuariosComponent },
   { path: 'admin-home', component: AdminHomeComponent ,data:{breadcrumb:'Administrador'},canActivate: [adminGuard] } ,
+  { path: 'agregar-politicas', component: AgregarPoliticasComponent, data: { breadcrumb: 'Administrador' } },
   // { path: 'admin', component: AdminHomeComponent },
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},

@@ -77,16 +77,36 @@
                         *ngIf="usuarioForm?.get('pass') && usuarioForm?.get('confirmpass') && !ValidaPass(usuarioForm?.get('pass')?.value, usuarioForm?.get('confirmpass')?.value)">
                         <p style="color: red;">Las contraseñas no coinciden</p>
                     </div>
+                    
+<!-- <div class="conteninesinput">
+    <label for="inputState">selecciona una pregunta</label>
+    <select class="form-control large-select" formControlName="pregunta">
+        <option selected>Seleccione...</option>
+        <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.value">
+            {{preguntaItem.label}}
+        </option>
+    </select>
+    <i class="fas fa-chevron-down"></i>
+</div>
+ -->
+<div class="conteninesinput">
+    <label for="pregunta">Selecciona una pregunta</label>
+    <select class="form-control" formControlName="pregunta">
+        <option value="" disabled selected>Seleccione...</option>
+        <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.label">{{ preguntaItem.label }}</option>
+    </select>
+</div>
 
 
-                    <div class="conteninesinput">
-                        <label for="">selecciona una pregunta</label>
-                        <select class="form-control" formControlName="pregunta" id="inputState">
-                            <option selected>seleccione...</option>
-                            <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.value">
-                                {{preguntaItem.label}}</option>
-                        </select>
-                    </div>
+
+
+<!-- <div class="conteninesinput">
+    <label for="inputState">Selecciona una pregunta</label>
+    <p-dropdown [options]="preguntas" placeholder="Seleccione..." formControlName="pregunta" optionLabel="label"
+        appendTo="body" [style]="{'width': '100%'}">
+    </p-dropdown>
+</div>
+ -->
 
                     <div class="conteninesinput">
                         <span class="p-float-label">

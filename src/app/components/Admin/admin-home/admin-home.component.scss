@@ -1,176 +1,191 @@
 body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    // height: 100%;
+    // top: -8%;
+margin-top: -50px;
+padding: 40px;
     background-image: url('../../../../assets/images/fondoBody.jpg');
     background-size: cover;
-    /* Hace que la imagen de fondo cubra todo el cuerpo */
     background-position: center;
 
-    /* Centra la imagen de fondo */
 }
 
+body {
+    position: relative;
+    /* Establece la posición relativa para el cuerpo */
+}
 
-.cursor-sombra {
+.contenedor {
     position: absolute;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 5px rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(255, 255, 255, 0.3);
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-}
-
-
-
-
-.imagen {
-    height: 500px;
-    margin-left: 50%;
-    margin-right: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    // filter: hue-rotate(90deg);
-    width: 500px;
-    filter: drop-shadow(0 0 10px rgba(142, 218, 232, 0.8));
-    // background-size: cover;
-    border-radius: 20px;
-    /* Ajusta el valor de radio según tus preferencias */
-    // overflow: hidden;
-}
-
-* {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-}
-
-
-
-span {
-    position: absolute;
-    pointer-events: none;
-    transition: 0.5s;
-    background-size: cover;
-    animation: animate 1s linear infinite;
-}
-
-@keyframes animate {
-    0% {
-        translate: 0 0;
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    30% {
-        translate: 0 100px;
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        translate: 0 80px;
-        opacity: 0;
-    }
-}
-
-header {
-    background-color: #b9b9b9;
-    color: #ff8ef2;
+    /* Establece la posición absoluta para el contenedor */
+    top: 20%;
+    font-size: clamp(2.5rem, 1.0774rem + 3.7936vw, 5.625rem);
+    // font-size: clamp(2.5rem,1.0774rem+3.7936vw,5.625rem);
+    /* Distancia desde la parte superior del cuerpo */
+    left: 30%;
+    /* Distancia desde la izquierda del cuerpo */
+    width: 550px;
+    /* Ancho del contenedor */
+    background-color: #ffdd9e4e;
+    /* Fondo transparente */
+        backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ffca68b8;
+    /* Bordes redondeados */
+    padding: 20px;
+    /* Espaciado interno */
     text-align: center;
-    padding: 1em 0;
+    /* Centra el contenido */
+}
+.contenido h1 {
+    margin: 5px 0;
 }
 
-@import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);
-
-@import url(https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap);
-
-
-@import url(https://fonts.googleapis.com/css2?family=Mitr&display=swap);
-
-.inciar {
-    border-radius: 5px;
-    padding: 3px;
-    color: #ffc72f;
-    background: #ffffff;
-    font-family: 'Dancing Script', handwriting;
-
-    margin: solid 1px #b98800;
+.contenido h5 {
+    margin: 0;
 }
 
-// @Mitr
-
-
-/* body { */
-.nombreEmp h1 {
-    color: rgba(0, 72, 131, 0.995);
-    /* size: 30em; */
-    text-shadow: 0px 0px 5px #ffe600;
-    // Medium 500
-
-    font-size: 800%;
-    font-family: 'Mitr', handwriting;
-    /* font-family: 'Dancing Script', handwriting; */
-    /* font-family: 'Cedarville Cursive', handwriting; */
-    margin-top: -13%;
-    margin-bottom: -2%;
-
-}
-
-.log-text {
-    /* width: 40%; */
-    margin-left: 20px;
-    height: 70px;
-    /* border-right:solid 5px #07648c; */
-    /* margin-right: 20px; */
-    margin-top: -18%;
-    /* background-color: #07648c; */
-    margin-bottom: -10%;
-
-
+.texto-bienvenida {
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 
+// * {
+//     margin: 0%;
+//     padding: 0%;
+//     box-sizing: border-box;
+// }
 
-app-main:host {
-    display: block;
-    margin: 32px;
 
-}
 
-.nombre {
-    width: 300px;
-}
+// // span {
+// //     position: absolute;
+// //     pointer-events: none;
+// //     transition: 0.5s;
+// //     background-size: cover;
+// //     animation: animate 1s linear infinite;
+// // }
 
-.input {
-    border-radius: 300px;
-    background: #a40707;
+// @keyframes animate {
+//     0% {
+//         translate: 0 0;
+//         opacity: 0;
+//     }
 
-}
+//     10% {
+//         opacity: 1;
+//     }
 
-@mixin fade-in-bottom {
-    @keyframes fade-in-bottom {
-        0% {
-            transform: translateY(50px);
-            opacity: 0;
-        }
+//     30% {
+//         translate: 0 100px;
+//         opacity: 1;
+//     }
 
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-}
+//     90% {
+//         opacity: 1;
+//     }
 
-// Llama al mixin para definir la animación
-@include fade-in-bottom;
+//     100% {
+//         translate: 0 80px;
+//         opacity: 0;
+//     }
+// }
 
-// Asigna la animación a la clase .imagen
-.imagen {
-    animation: fade-in-bottom 1s ease; // Puedes ajustar la duración y la función de temporización según tus necesidades
-}
+// header {
+//     background-color: #b9b9b9;
+//     color: #ff8ef2;
+//     text-align: center;
+//     padding: 1em 0;
+// }
+
+// @import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);
+
+// @import url(https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap);
+
+
+// @import url(https://fonts.googleapis.com/css2?family=Mitr&display=swap);
+
+// // .inciar {
+// //     border-radius: 5px;
+// //     padding: 3px;
+// //     color: #ffc72f;
+// //     background: #ffffff;
+// //     font-family: 'Dancing Script', handwriting;
+
+// //     margin: solid 1px #b98800;
+// // }
+
+// // @Mitr
+
+
+// /* body { */
+// .nombreEmp h1 {
+//     color: rgba(0, 72, 131, 0.995);
+//     /* size: 30em; */
+//     text-shadow: 0px 0px 5px #ffe600;
+//     // Medium 500
+
+//     font-size: 800%;
+//     font-family: 'Mitr', handwriting;
+//     /* font-family: 'Dancing Script', handwriting; */
+//     /* font-family: 'Cedarville Cursive', handwriting; */
+  
+
+// }
+
+
+
+// // 
+//   .contenedor-admin-bienvenida {
+//     //   background-color: rgba(255, 255, 255, 0.5);
+//       /*Fondotransparente*/border-radius: 10px;
+//       /*Bordesredondeados*/padding: 20px;
+//     //   width: 100px;
+//     //   height: 60px;
+//       text-align: center;
+//       -webkit-border-radius: 10px;
+//       -moz-border-radius: 10px;
+//       -ms-border-radius: 10px;
+//       -o-border-radius: 10px;
+//     //   height: 100vb;
+// }
+
+//   .nombreEmp h1 {
+//       margin: 25px 0;
+//   }
+
+//   .nombreEmp h5 {
+
+//       margin: 100px;
+//   }
+
+
+
+
+// @mixin fade-in-bottom {
+//     @keyframes fade-in-bottom {
+//         0% {
+//             transform: translateY(50px);
+//             opacity: 0;
+//         }
+
+//         100% {
+//             transform: translateY(0);
+//             opacity: 1;
+//         }
+//     }
+// }
+
+// // Llama al mixin para definir la animación
+// @include fade-in-bottom;
+
+// // Asigna la animación a la clase .imagen
+// .imagen {
+//     animation: fade-in-bottom 1s ease;
+//     //Puedesajustarladuraciónylafuncióndetemporizaciónsegúntusnecesidades:;
+//     -webkit-animation: fade-in-bottom 1s ease;
+// }

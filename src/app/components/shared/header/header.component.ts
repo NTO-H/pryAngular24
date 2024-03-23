@@ -26,6 +26,12 @@ export class HeaderComponent implements OnInit{
   // menuOpen = false;
 
   
+  menuVisible: boolean = false;
+
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
+  
   constructor(private authService: AuthService) { }
   
   esUsuario(): boolean {

@@ -77,10 +77,11 @@ header {
 // Archivo Black
 // @Prompt
 header {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
     /* background: #000000; */
     font-family: 'ArchivoBlack';
-    background-color: rgba(198, 255, 175, 0.877);
+    // background-color: #efff9f50;
+    background: linear-gradient(180deg, #efff9f50 0%, #bdffe892 100%);
     // background: linear-gradient(180deg, #fffee9 0%, #9fe9cd 100%);
     // background: linear-gradient(180deg, #fff1ad 0%, #80ff9f 100%);
     // background: linear-gradient(180deg, #b0fff8 0%, #bcffad 100%);
@@ -96,7 +97,7 @@ header {
 header.scrolled {
     // /*  */
     //     background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
-    background: #ecffcb;
+background: #ffffff73;
     /* Color cuargb(131, 129, 129)plazado */
     backdrop-filter: blur(5px);
     border-bottom: solid 3px #a6a6a689;
@@ -113,14 +114,14 @@ header.scrolled {
 #a {
     font-family: 'Concert One', sans-serif;
     margin-top: 25px;
-    color: #1b4465;
+    color: #0c141a;
 // height: 50px;
     // transition: color 1ms ease;
-
+font-size: 17px;
 }
 
 #a.scrolled {
-    color: rgb(223, 175, 0) !important;
+    color: rgb(45, 45, 45) !important;
 
 
 }
@@ -154,10 +155,10 @@ header.scrolled {
 }
 
 #a:hover {
-    color: #000000;
+    color: #ae8000;
     list-style: outside;
-    border-bottom: solid 2px #f5c83f;
-    box-shadow: inset 0 0 0 1.5px rgb(255, 248, 154);
+    // border-bottom: solid 2px #f5c83f;
+    // box-shadow: inset 0 0 0 1.5px rgb(255, 248, 154);
     // text-shadow: 0 0 10px #9b6200, 0 0 20px #affffe, 0 0 30px #ebebeb, 0 0 40px #7a7a7a;
     cursor: pointer;
 

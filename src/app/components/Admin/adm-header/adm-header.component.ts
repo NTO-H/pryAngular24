@@ -33,6 +33,8 @@ export class AdmHeaderComponent {
 
   constructor(private router: Router, private authService: AuthService) { }
 
+
+  
   esUsuario(): boolean {
     const rol = this.authService.obtenerRolUsuario();
     return rol === 'usuario';

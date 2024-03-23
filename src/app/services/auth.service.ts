@@ -12,17 +12,35 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-    url = 'http://localhost:4000/usuarios/singIn';
+    url = 'http://localhost:4000/usuarios/';
     private token!: string;
 
     authStatus = new BehaviorSubject<boolean>(false);
 
     constructor(private http: HttpClient) { }
 
-    login(correo: string, password: string): Observable<any> {
+    getCurrentUser(correo:string,password:string){
         return this.http.post(this.url, { correo, password });
+
+        
+    }
+    login(correo: string, password: string): Observable<any> {
+        // this.getCurrentUser(correo, password)
+        return this.http.post(this.url +'singIn', { correo, password });
     }
 
+    // verPerfil()
+
+    miPerfilUsuario(correo: string): Observable<any> {
+        return this.http.get<any>(`${this.url}miPerfil/${correo}`);
+    }
+
+
+    
+
+
+
+    
     logout():void {
         // Elimina el token de sesión
         localStorage.removeItem('rol');

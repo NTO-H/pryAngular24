@@ -52,10 +52,7 @@ export class CrearProductoComponent implements OnInit {
       descripcion: this.productoForm.get('descripcion')?.value,
     };
 
-    const onSuccess = () => {
-      this.toastr.success('Producto registrado con éxito!', 'Éxito');
-      this.router.navigate(['/']);
-    };
+    
 
     const onError = (error: any) => {
       console.error(error);
@@ -83,10 +80,7 @@ export class CrearProductoComponent implements OnInit {
       );
     }
   }
-  verificarYAgregar() {
-    this.toastr.success('Producto registrado con éxito!', 'Éxito');
-    this.router.navigate(['/']);
-  }
+ 
 
 
   esEditar() {

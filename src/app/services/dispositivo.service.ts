@@ -13,54 +13,38 @@ export class DispositivoService {
 
     constructor(private http: HttpClient) { }
 
-    // getDispositivos(): Observable<any> {
-    //     return this.http.get(this.url);
-    // }
+    getEstadoLed(): Observable<any> {
+        return this.http.get<any>(this.url +'obtenerEstadoLed');
+    }
+    getEstadoValancin(): Observable<any> {
+        return this.http.get<any>(this.url +'obtenerEstadoValancin');
+    }
+    getEstadoMusica(): Observable<any> {
+        return this.http.get<any>(this.url +'obtenerEstadoMusica');
+    }
 
+    getEstadoCarrucel(): Observable<any> {
+        return this.http.get<any>(this.url + 'obtenerEstadoCarrucel');
+    }
 
-    // eliminarDispositivo(id: string): Observable<any> {
-    //     return this.http.delete(this.url + id);
-    // }
-
-
-    // guardarProducto(dispositivo: Dispositivo): Observable<any> {
-    //     return this.http.post<any>(this.url, dispositivo);
-    // }
-
-    // obtenerProducto(id: string): Observable<any> {
-    //     return this.http.get(this.url + id);
-    // }
-
+    obtenerProducto(id: string): Observable<any> {
+        return this.http.get(this.url + id);
+    }
 
     editarDispositivoLed(estado: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoLed", {"led": estado });
     }
+
     editarDispositivoValancin(estadoValancin: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoValancin", { "valancin": estadoValancin });
     }
 
-
-    
     editarDispositivoCarrucel(estadoCarrucel: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoCarrucel", { "carrucel": estadoCarrucel });
     }
 
-
-
-    // estadoLed(estado :boolean): Observable<any> {
-    //     return this.http.get(this.url +'estadoLed/', estado);
-    // }
-
-    
-    // detalleDispositivoById(id: string): Observable<any> {
-    //     //return this.http.get(`${this.apiUrl}/${id}`);
-    //     return this.http.get(this.url + id);
-    // }
-
-
-
-
-
-
+    editarEstadoMusica(estadoMusica: number): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica });
+    }
 
 }

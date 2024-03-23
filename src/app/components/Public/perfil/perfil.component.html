@@ -1,4 +1,4 @@
-<body><div class="profile">
+<!-- <body><div class="profile">
   <img src="avatar.jpg" alt="User Avatar" class="avatar">
   <h1 class="name">John Doe</h1>
   <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet eros non tellus vehicula, quis
@@ -9,4 +9,39 @@
     <p class="detail"><strong>Website:</strong> <a href="https://example.com">example.com</a></p>
   </div>
 </div>
+</body> -->
+
+
+
+  <title>User Profile</title>
+ 
+<body>
+  <!-- <div class="container"> -->
+    <div class="container">
+      <div class="profile-header">
+        <div class="profile-picture">
+          <img src="https://via.placeholder.com/150" alt="Profile Picture">
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-name">{{currentUser.nombre}}</h1>
+          <!-- <p class="profile-email">johnexample.com</p> -->
+          <p class="profile-email">Password: {{currentUser.password}}</p>
+          <p class="profile-email">Telefono: {{currentUser.telefono}}</p>
+          <p class="profile-email">Correo: {{currentUser.correo}}</p>
+          <p class="profile-email">Rol: {{currentUser.rol}}</p>
+        </div>
+      </div>
+      <p class="profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla nec justo semper
+        cursus. Sed id felis vel nulla sollicitudin eleifend.</p>
+      <div class="profile-skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Angular</div>
+      </div>
+      <div class="profile-footer">
+        <p>Last updated: March 25, 2024</p>
+      </div>
+      </div>
+    <!-- </div> -->
 </body>

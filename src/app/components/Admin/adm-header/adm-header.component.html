@@ -1,8 +1,8 @@
 <header [ngClass]="{'scrolled': isScrolled}">
-   
 
 
-   
+
+
     <nav>
         <ul id="ul">
             <li id="li3">
@@ -11,7 +11,7 @@
 
             </li>
             <li id="li">
-                <a id="a" routerLink="/">
+                <a id="a" routerLink="/admin-home">
                     Home
                 </a>
 
@@ -49,9 +49,11 @@
             </li>
 
             <li id="li" class="ul1">
-
-                <a routerLink="politicas" id="a"> Politicas de privacidad</a>
+                <a routerLink="agregar-politicas" id="a"> Politicas de privacidad</a>
             </li>
+            <!-- <li id="li" class="ul1">
+                <a routerLink="politicas" id="a"> Politicas de privacidad</a>
+            </li> -->
 
             <li id="li" class="ul1">
                 <!-- </ul> -->
@@ -68,26 +70,26 @@
 </header>
 
 
-
+<!-- 
 <div class="card flex justify-content-center">
-    <p-breadcrumb  #parent id="contenedor-breadcrumb" class="max-w-full">
+    <p-breadcrumb #parent id="contenedor-breadcrumb" class="max-w-full">
         <ol class="breadcrumb">
-<ng-template ngFor let-route [ngFor]="parent.breadcrumbs">
-<li *ngIf="!route.terminal" class="breadcrumb-item">
-<a [routerLink]="route.url">{{route.displayName}}</a>
-</li>
-<li *ngIf="route.terminal" class="breadcrumb-item- active">{{route.displayName}}</li>
-</ng-template>
+            <ng-template ngFor let-route [ngFor]="parent.breadcrumbs">
+                <li *ngIf="!route.terminal" class="breadcrumb-item">
+                    <a [routerLink]="route.url">{{route.displayName}}</a>
+                </li>
+                <li *ngIf="route.terminal" class="breadcrumb-item- active">{{route.displayName}}</li>
+            </ng-template>
 
         </ol>
     </p-breadcrumb>
 
-</div>
+</div> -->
 
 
 
 <div class="loading-overlay">
 
-<div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
+    <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>

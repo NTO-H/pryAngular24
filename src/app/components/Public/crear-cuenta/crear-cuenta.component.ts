@@ -20,11 +20,11 @@ export class CrearCuentaComponent implements OnInit {
   value: number | undefined;
 
 
-  preguntas =[
-    { label: '¿nombre de tu mejor amigo?', value: 'nombre_amigo' },
-    { label: '¿color favorito?', value: 'color_favorito' },
-    { label: '¿equipo de futbol?', value: 'equipo_futbol' }
-    ];
+  preguntas = [
+    { label: '¿Nombre de tu mejor amigo?' },
+    { label: '¿Color favorito?' },
+    { label: '¿Equipo de fútbol?' }
+  ];
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -71,47 +71,94 @@ export class CrearCuentaComponent implements OnInit {
   }
 
   registrarUsuario() {
+    
+
+
+    
+
+    // Validar cada campo individualmente
+    const nombre = this.usuarioForm.get('nombre')?.value;
+    const correo = this.usuarioForm.get('correo')?.value;
+    const telefono = this.usuarioForm.get('telefono')?.value;
+    const pass = this.usuarioForm.get('pass')?.value;
+    const confirmpass = this.usuarioForm.get('confirmpass')?.value;
+    const respuesta = this.usuarioForm.get('respuesta')?.value;
+
+    // Validar que el campo nombre no esté vacío
+    if (!nombre) {
+      Swal.fire('Error', 'Por favor ingresa tu nombre', 'error');
+      return;
+    }
+
+    // Validar que el campo correo no esté vacío
+    if (!correo) {
+      Swal.fire('Error', 'Por favor ingresa tu correo electrónico', 'error');
+      return;
+    }
+
+    // Validar que el campo teléfono no esté vacío
+    if (!telefono) {
+      Swal.fire('Error', 'Por favor ingresa tu número de teléfono', 'error');
+      return;
+    }
+
+    // Validar que el campo contraseña no esté vacío
+    if (!pass) {
+      Swal.fire('Error', 'Por favor ingresa una contraseña', 'error');
+      return;
+    }
+
+    // Validar que el campo confirmar contraseña no esté vacío
+    if (!confirmpass) {
+      Swal.fire('Error', 'Por favor confirma tu contraseña', 'error');
+      return;
+    }
     if (this.usuarioForm.get('pregunta')?.value === '') {
       Swal.fire('Error', 'Por favor selecciona una pregunta', 'error');
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
     }
 
+    // Validar que el campo respuesta no esté vacío
+    if (!respuesta) {
+      Swal.fire('Error', 'Por favor ingresa una respuesta', 'error');
+      return;
+    }
+
+
+
 
     
-
-
-
-
-    
-    const USUARIO: Usuario = {
-      nombre: this.usuarioForm.get('nombre')?.value,
-      correo: this.usuarioForm.get('correo')?.value,
-      telefono: this.usuarioForm.get('telefono')?.value,
-      pass: this.usuarioForm.get('pass')?.value,
-      confirmpass: this.usuarioForm.get('confirmpass')?.value,
-      token:'',
-      pregunta: this.usuarioForm.get('pregunta')?.value,
-      respuesta: this.usuarioForm.get('respuesta')?.value,
-    };
+    // const USUARIO: Usuario = {
+    //   nombre: this.usuarioForm.get('nombre')?.value,
+    //   correo: this.usuarioForm.get('correo')?.value,
+    //   telefono: this.usuarioForm.get('telefono')?.value,
+    //   pass: this.usuarioForm.get('pass')?.value,
+    //   confirmpass: this.usuarioForm.get('confirmpass')?.value,
+    //   token:'',
+    //   pregunta: this.usuarioForm.get('pregunta')?.value,
+    //   respuesta: this.usuarioForm.get('respuesta')?.value,
+    // };
 
 
    
 
 
-    if (!this.ValidarCorreo(USUARIO.correo)) {
+    if (!this.ValidarCorreo(correo)) {
       Swal.fire('Error', 'Correo no válido', 'error');
-    } else if (USUARIO.nombre === '' || USUARIO.correo === '' || USUARIO.pass === '') {
+    } else if (nombre === '' || correo === '' || pass === '') {
       Swal.fire('Error', 'Ingresa los datos correctamente', 'error');
     
-    } else if (!this.ValidaPass(USUARIO.pass, USUARIO.confirmpass)){
+    } else if (!this.ValidaPass(pass, confirmpass)){
       Swal.fire('Error', 'Las contraseñas no coinciden', 'error');
 // ("las contraseñas no coinciden")
     }
     else
     {
-      this._UsuarioService.guardarUsuario(USUARIO).subscribe(response => {
-        this.toastr.success('Usuario agregado con éxito!', 'Success');
-        console.log('Nombre:', USUARIO.nombre, 'Correo:', USUARIO.correo);
+      this._UsuarioService.guardarUsuario(this.usuarioForm.value).subscribe(response => {
+        // this.toastr.success('Usuario agregado con éxito!', 'Success');
+        Swal.fire('Exitoso', 'Usuario agregado con éxito!', 'success');
+
+        console.log('Nombre:', nombre, 'Correo:',correo);
       }, error => {
         this.toastr.error('El correo ya se encuentra registrado', 'Error');
       });

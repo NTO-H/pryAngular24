@@ -48,6 +48,9 @@ export class ClientHeaderComponent {
     console.log("sesion cerrada")
     this.isLoading = true; // Establecer el estado de carga a false
     localStorage.removeItem('rol');
+
+
+    
     window.location.reload();
 
     // window.location.reload();

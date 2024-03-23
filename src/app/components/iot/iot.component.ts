@@ -2,7 +2,7 @@ import { MatSliderModule } from '@angular/material/slider';
 // import { DispositivoService } from 'src/app/services/dispositivos.service';
 // import { Dispositivo } from './../../models/dispositivos';
 import { Console } from 'console';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { mensageservice } from 'src/app/services/mensage.service';
 import { Router } from 'express';
@@ -21,20 +21,11 @@ import { Dispositivo } from 'src/app/models/dispositivos';
   templateUrl: './iot.component.html',
   styleUrls: ['./iot.component.scss']
 })
-export class IotComponent {
+export class IotComponent implements OnInit {
   @Input() imagen!: string;
   @Input() alt!: string;
   temperatura: number = 25;
-  // humedad: number = 60;
-  // @Input() humedad!: number;
-  // // @Input() humedad: number = 50; 
-  // humedadOptions = [
-  //   { value: 0, label: '0%' },
-  //   { value: 25, label: '25%' },
-  //   { value: 50, label: '50%' },
-  //   { value: 75, label: '75%' },
-  //   { value: 100, label: '100%' }
-  // ];
+ 
   humedad: number = 0; // Valor inicial de la humedad
   // humedad: number = 0; // Valor inicial de la humedad
   humedadOptions = [
@@ -44,32 +35,35 @@ export class IotComponent {
     { value: 75, label: '75%', icon: 'fas fa-tint' },
     { value: 100, label: '100%', icon: 'fas fa-tint' }
   ];
+  // Declaración de la propiedad style con un objeto que cumple con el tipo esperado
+  sidebarStyle: { [klass: string]: any } = { heig:'50%',  width: '100%', textAlign: 'center' };
+  // height:50%; width:100%; text-align: center; z-index: 1102;
+  isChecked!: boolean;
+  isCheckedValancin!: boolean;
+  isCheckedCarrucel!: boolean;
+  isCheckedMusica!: boolean;
 
-  isChecked: boolean = false;
-  isCheckedValancin: boolean = false;
-  isCheckedCarrucel: boolean = false;
 
-
+  sidebarVisible3: boolean = false;
   constructor( private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
  
   }
 
-  
-  toggleSwitch() {
-    this.isChecked = !this.isChecked;
 
+  items: MenuItem[] | undefined;
 
-
-    // Convertir isChecked a 1 o 0
-    const valor = this.isChecked ? 1 : 0;
-    console.log("valor del estado=>",valor);
-    // Llamar a cambiaEstadoLed() con el nuevo valor
-    this.cambiaEstadoLed(valor);
-
-
-
+  ngOnInit(): void {
+    this.obtenerEstadoLed();
+    this.obtnerEstadoVancin();
+    this.obtenerEstadoCarrucel();
+    this.obtenerEstadoMusica();
   }
 
+  toggleSwitch() {
+    this.isChecked = !this.isChecked;
+    const valor = this.isChecked ? 1 : 0;
+    this.cambiaEstadoLed(valor);
+  }
 
   toggleSwitchValanin()
   {
@@ -80,12 +74,20 @@ export class IotComponent {
   }
 
 
+  
   toggleSwitchCarrucel()
   {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
-    console.log("valor del valancin=>", valorCarrucel);
+    console.log("valor del Carrucel=>", valorCarrucel);
     this.cambiaEstadoCarrucel(valorCarrucel);
+  }
+  toggleSwitchMusica()
+  {
+    this.isCheckedMusica = !this.isCheckedMusica;
+    const valorMusica = this.isCheckedMusica ? 1 : 0;
+    console.log("valor del Musica=>", valorMusica);
+    this.cambiaEstadoMusica(valorMusica);
   }
 
   
@@ -157,112 +159,90 @@ export class IotComponent {
   }
 
 
-  items: MenuItem[] | undefined;
-  ngOnInit() {
-    
-
-    // this.yourDataService.getHumedad().subscribe(
-    //   (data: any) => {
-    //     // Asigna el valor de la humedad obtenido del servicio al ngModel del slider
-    //     this.humedad = data.humedad; // Suponiendo que el valor de humedad se obtiene de un objeto data con una propiedad 'humedad'
-    //   },
-    //   (error) => {
-    //     console.error('Error al obtener el valor de la humedad:', error);
-    //   }
-    // );
-  
-
-    this.items = [
-      {
-        label: 'Disposivos',
-        icon: 'pi pi-fw pi-file',
-        items: [
-          {
-            label: 'Disposivos',
-            icon: 'pi pi-fw pi-plus',
-          },
-        ]
+  cambiaEstadoMusica(valor: number) {
+    this.dispositivoService.editarEstadoMusica(valor).subscribe(
+      (response) => {
+        // Manejar la respuesta del servidor si es necesario
+        this.toastr.success('Estado del musica actualizado correctamente');
       },
-      {
-        label: 'Data',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          {
-            label: 'Dashboard',
-            icon: 'pi pi-fw pi-align-left'
-          },
-        ]
-      },
-      {
-        label: 'Users',
-        icon: 'pi pi-fw pi-user',
-        items: [
-          {
-            label: 'New',
-            icon: 'pi pi-fw pi-user-plus'
-          },
-          {
-            label: 'Delete',
-            icon: 'pi pi-fw pi-user-minus'
-          },
-          {
-            label: 'Search',
-            icon: 'pi pi-fw pi-users',
-            items: [
-              {
-                label: 'Filter',
-                icon: 'pi pi-fw pi-filter',
-                items: [
-                  {
-                    label: 'Print',
-                    icon: 'pi pi-fw pi-print'
-                  }
-                ]
-              },
-              {
-                icon: 'pi pi-fw pi-bars',
-                label: 'List'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-          {
-            label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-              {
-                label: 'Save',
-                icon: 'pi pi-fw pi-calendar-plus'
-              },
-              {
-                label: 'Delete',
-                icon: 'pi pi-fw pi-calendar-minus'
-              }
-            ]
-          },
-          {
-            label: 'Archieve',
-            icon: 'pi pi-fw pi-calendar-times',
-            items: [
-              {
-                label: 'Remove',
-                icon: 'pi pi-fw pi-calendar-minus'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'Quit',
-        icon: 'pi pi-fw pi-power-off'
+      (error) => {
+        this.toastr.error('Error al actualizar el estado del musica ');
+        console.error('Error al actualizar el estado del musica:', error);
       }
-    ];
+    );
   }
+
+
+  obtenerEstadoLed() {
+    this.dispositivoService.getEstadoLed().subscribe(
+      (response) => {
+        // Asignar el valor del LED basado en la respuesta
+
+        if (response == 1) {
+           this.isChecked =true
+        }
+        // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
+        console.log("valor que se obtiene de getEstadoLed=>",response);
+        console.log("valor que se de isckeck=>", this.isChecked);
+      },
+      (error) => {
+        console.error('Error al obtener el estado del LED:', error);
+      }
+    );
+  }
+  obtnerEstadoVancin() {
+    this.dispositivoService.getEstadoValancin().subscribe(
+      (response) => {
+        // Asignar el valor del LED basado en la respuesta
+
+        if (response == 1) {
+          this.isCheckedValancin =true
+        }
+        // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
+        console.log("valor que se obtiene de getEstadoValancin=>",response);
+        console.log("valor que se de isckeck=>", this.isChecked);
+      },
+      (error) => {
+        console.error('Error al obtener el estado del valancin:', error);
+      }
+    );
+  }
+  obtenerEstadoCarrucel() {
+    this.dispositivoService.getEstadoCarrucel().subscribe(
+      (response) => {
+        // Asignar el valor del LED basado en la respuesta
+
+        if (response == 1) {
+          this.isCheckedCarrucel =true
+        }
+        // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
+        console.log("valor que se obtiene de getEstadoCarrucel=>",response);
+        console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+      },
+      (error) => {
+        console.error('Error al obtener el estado del carrucel:', error);
+      }
+    );
+  }
+  obtenerEstadoMusica() {
+    this.dispositivoService.getEstadoMusica().subscribe(
+      (response) => {
+        // Asignar el valor del LED basado en la respuesta
+
+        if (response == 1) {
+          this.isCheckedMusica =true
+        }
+        // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
+        console.log("valor que se obtiene de getEstadoMusica=>",response);
+        console.log("valor que se de isckeck=>", this.isChecked);
+      },
+      (error) => {
+        console.error('Error al obtener el estado del carrucel:', error);
+      }
+    );
+  }
+
+
 
 
 

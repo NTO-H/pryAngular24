@@ -15,6 +15,8 @@ export class mensageservice {
     constructor(private _http: HttpClient) { }
   
 
+    
+    
     enviarCorreo(correo: string): Observable<any> {
         return this._http.post<any>(this.url , { correo });
     }

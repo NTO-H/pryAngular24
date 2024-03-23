@@ -1,3 +1,5 @@
+<body>
+  
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -5,34 +7,40 @@
         <div class="card-body text-center">
           <span class="titulo"> Listado de productos </span>
           <div class="form-group col-md-2">
-            <label>Buscar producto</label>
+            <label>Buscar usuario</label>
           </div>
           <input type="text" class="form-control mt-3" name="filterProducts" placeholder="buscar producto..."
             [(ngModel)]="filterProducts">
           <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
-          <table *ngIf="listProductos.length > 0" class="table table-striped mt-4">
+          <table *ngIf="listUsuarios.length > 0" class="table table-striped mt-4">
             <thead>
               <tr>
                 <th scope="col">imagen</th>
-                <th scope="col">Producto</th>
-                <th scope="col">Categoria</th>
-                <!-- <th scope="col">Ubicación</th> -->
-                <th scope="col">Precio</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Cambiar rol</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let producto of listProductos | filter:filterProducts">
+              <tr *ngFor="let usuario of listUsuarios | filter:filterProducts">
                 <td>
                   <img [src]="photoSelected || '../../../assets/products/p1.jpg'" class="img-fluid" alt="No image">
                 </td>
-                <td>{{producto.nombre}}</td>
-                <td>{{producto.categoria}}</td>
-                <td>{{producto.precio | currency:'USD'}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.correo}}</td>
+                <td>{{usuario.rol}}</td>
                 <td>
-                  <i [routerLink]="['/detalles', producto._id]" class="fas fa-solid fa-book-open me-4"></i>
-                  <i [routerLink]="['/editar-producto', producto._id]" class="fas fa-edit text-primary me-4"></i>
-                  <i (click)="eliminarProducto(producto._id)" class="fas fa-regular fa-trash-can text-danger"></i>
+                  
+<input type="checkbox" name="" id="">
+                </td>
+                <td>
+                  <i [routerLink]="['/detalles', usuario._id]" class="fas fa-solid fa-book-open me-4"></i>
+                  <i [routerLink]="['/editar-usuario', usuario._id]" class="fas fa-edit text-primary me-4"></i>
+                  <i (click)="eliminarUsuario(usuario._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                 </td>
               </tr>
             </tbody>
@@ -40,10 +48,11 @@
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
             aria-label="Select page of periodic elements">
           </mat-paginator>
-          <h5 style="text-align: center; margin-top:10px;" *ngIf="listProductos.length === 0">No hay productos
+          <h5 style="text-align: center; margin-top:10px;" *ngIf="listUsuarios.length === 0">No hay productos
             agregados</h5>
         </div>
       </div>
     </div>
   </div>
 </div>
+</body>

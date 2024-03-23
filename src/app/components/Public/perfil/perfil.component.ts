@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  // constructor() { }
+  currentUser: any; // Variable para almacenar la información del usuario logeado
 
-  ngOnInit() {
+
+  constructor(private auth:AuthService) { }
+
+  ngOnInit(): void {
+    // Obtener los datos del usuario almacenados en el localStorage
+    const userData = localStorage.getItem('currentUser');
+  
+console.log(userData)
+    // Verificar si hay datos de usuario en el localStorage
+    if (userData) {
+      // Obtener los datos del usuario por correo electrónico
+      this.auth.miPerfilUsuario(userData).subscribe(data => {
+        this.currentUser = data.datos;
+      });
+    }
   }
 
+  
 }

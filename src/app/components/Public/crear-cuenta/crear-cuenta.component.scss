@@ -15,36 +15,46 @@ body{
 height: 120vb;
 }
 
+ol,
+ul {
+    padding-left: 0rem;
+}
+.pregunta {
+    padding: 2px;
+    // color: #606060;
+    border: solid 1px #d0d0d0dd;
+    border-radius: 3px;
+    color: #606060;
+    // flex-wrap: wrap;
+    padding-left: 50px;
+    background-color: #ffffff;
+    width: 280px;
+// display: flex;
+    height: 50px;
+    // overflow: scroll;
+    /* o scroll */
+}
+/* Estilo para el icono */
+.fa-chevron-down {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+select {
+    padding: 2px;
+    border: solid 1px #d0d0d0dd;
+    border-radius: 3px;
+    color: #606060;
+    /* Agrega esta línea para establecer el color del texto */
+    padding-left: 50px;
+    background-color: #ffffff;
+    width: 280px;
+    height: 50px;
+    overflow-y: auto;
+    /* o scroll */
+}
 
-// .pregunta {
-//     padding: 2px;
-//     // color: #606060;
-//     border: solid 1px #d0d0d0dd;
-//     border-radius: 3px;
-//     color: #606060;
-//     // flex-wrap: wrap;
-//     padding-left: 50px;
-//     background-color: #ffffff;
-//     width: 280px;
-// // display: flex;
-//     height: 50px;
-//     // overflow: scroll;
-//     /* o scroll */
-// }
-
-// select {
-//     padding: 2px;
-//     border: solid 1px #d0d0d0dd;
-//     border-radius: 3px;
-//     color: #606060;
-//     /* Agrega esta línea para establecer el color del texto */
-//     padding-left: 50px;
-//     background-color: #ffffff;
-//     width: 280px;
-//     height: 50px;
-//     overflow-y: auto;
-//     /* o scroll */
-// }
 // estilos globales para botones
 .btn{
 width:280px;

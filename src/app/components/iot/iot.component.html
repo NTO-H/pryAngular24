@@ -11,7 +11,19 @@
 
     <header class="header-Title">
         <h1> IOT SERVICE</h1>
+        <p-button type="button" class="mr-2" (click)="sidebarVisible3 = true" icon="pi pi-arrow-down"></p-button>
     </header>
+<p-sidebar [(visible)]="sidebarVisible3" position="top" [style]="sidebarStyle">
+     <form>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre">
+      <button type="button">Enviar</button>
+    </div>
+    <!-- Repite para otros campos -->
+  </form>
+</p-sidebar>
+
 
 
     <section class="dispositivos">
@@ -50,17 +62,15 @@
             </div>
         </div>
 
-
-
-        <!-- *esto es para luces  -->
-        <!-- <div class="contiende-switch">
-            <h5>Led</h5> -->
+    </section>
+<section class="botones">
+    <div class="fila">
+        <!-- Botones de la primera fila -->
         <div class="switch-container" [ngClass]="{ 'active': isChecked }" (click)="toggleSwitch()">
             <label class="switch">
                 <img src="../../../assets/images/bombilla-de-idea.png" alt="led">
             </label>
             <div class="status-label">{{ isChecked ? 'Encendido' : 'Apagado' }}</div>
-            <!-- </div> -->
         </div>
 
         <div class="switch-container" [ngClass]="{ 'active': isCheckedValancin }" (click)="toggleSwitchValanin()">
@@ -68,19 +78,26 @@
                 <img src="../../../assets/images/cuna-de-bebe.png" alt="valancin">
             </label>
             <div class="status-label">{{ isCheckedValancin ? 'Encendido' : 'Apagado' }}</div>
-            <!-- </div> -->
         </div>
+    </div>
 
-
+    <div class="fila">
+        <!-- Botones de la segunda fila -->
         <div class="switch-container" [ngClass]="{ 'active': isCheckedCarrucel }" (click)="toggleSwitchCarrucel()">
             <label class="switch">
                 <img src="../../../assets/images/movil-cuna.png" alt="valancin">
             </label>
             <div class="status-label">{{ isCheckedCarrucel ? 'Encendido' : 'Apagado' }}</div>
-            <!-- </div> -->
         </div>
 
-    </section>
+        <div class="switch-container" [ngClass]="{ 'active': isCheckedMusica }" (click)="toggleSwitchMusica()">
+            <label class="switch">
+                <img src="../../../assets/images/cancion-de-cuna.png" alt="valancin">
+            </label>
+            <div class="status-label">{{ isCheckedMusica ? 'Encendido' : 'Apagado' }}</div>
+        </div>
+    </div>
+</section>
 
 </body>
 

@@ -1,47 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad</title>
-    <style>
-     
-    </style>
-</head>
 
 <body>
 
-    <header>
-        <h1>Política de Privacidad</h1>
-    </header>
-
     <section>
-        <h2>Información Recopilada</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut risus nec urna dignissim varius a a elit.
-        </p>
+    <div *ngFor="let politica of listPoliticas" class="p-grid">
+        <div class="p-col-12">
+            <p-accordion [activeIndex]="activeIndex">
+                <p-accordionTab header="{{politica.titulo}}">
+                    <p>{{politica.contenido}}</p>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+    </div>
 
-        <h2>Uso de la Información</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut risus nec urna dignissim varius a a elit.
-        </p>
 
-        <h2>Seguridad</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut risus nec urna dignissim varius a a elit.
-        </p>
-
-        <h2>Enlaces a Terceros</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut risus nec urna dignissim varius a a elit.
-        </p>
-
-        <h2>Cambios en la Política de Privacidad</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut risus nec urna dignissim varius a a elit.
-        </p>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Nombre de tu Empresa</p>
-    </footer>
+   
 
 </body>
-
-</html>
+ <!-- <footer>
+        <p>&copy; 2024 Nombre de tu Empresa</p>
+    </footer>
+</html> -->
