@@ -15,29 +15,6 @@
 
 }
 
-body {
-    margin: 0%;
-    padding: 0%;
-    /* background: linear-gradient(Black width 80% opacity to right,rgb(0 0 0 /.8),rgb(0 0 0 / 0),url('../../../../assets/images/fondoBody.jpg')); */
-    background-image: url('../../../../assets/images/fondoBody.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: 'Arial', sans-serif;
-    color: #00a0c8;
-    height: 180vb;
-    /* box-shadow:0 40px 50px rgb(0, 0, 0); */
-
-    /* border-bottom:solid  30px #ededede6 ; */
-}
-
-
-body[_ngcontent-ng-c3167373455]::before {
-
-    /* box-shadow: 0px 1px 40px #ffffff,0 0 42px #363535,0 0 49px #d1d1d1; */
-    backdrop-filter: blur(20px);
-    /* Adjust blur amount as needed */
-    z-index: -1;
-}
 
 .container {
     margin-top: 5vb;
@@ -173,9 +150,10 @@ img {
  transition: filter 0.3s ease;
  }
 
- .card:hover {
-     filter: brightness(90%);
- }
+ /* .card:hover {
+     filter: brightness(-90%);
+     -webkit-filter: brightness(-90%);
+} */
 
  .blur {
      filter: blur(5px);

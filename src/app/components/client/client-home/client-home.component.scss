@@ -1,46 +1,20 @@
 body {
-    background-image: url('../../../../assets/images/fondoBody.jpg');
-    background-size: cover;
-    /* Hace que la imagen de fondo cubra todo el cuerpo */
+    // margin: 0;
+    // padding: 0;
+        justify-content: center;
+        align-items: center;
+        // height: 100%;
+        // top: -8%;
+        margin-top: -50px;
+        // padding: 40px;
+        background-image: url('../../../../assets/images/fondoBody.jpg');
+        background-size: cover;
     background-position: center;
-
-    /* Centra la imagen de fondo */
-}
-
-
-.cursor-sombra {
-    position: absolute;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 5px rgba(255, 255, 255, 0.5), 0 0 0 10px rgba(255, 255, 255, 0.3);
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    -ms-transition: opacity 0.2s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out;
 }
 
 
 
 
-.imagen {
-    height: 500px;
-    margin-left: 50%;
-    margin-right: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    // filter: hue-rotate(90deg);
-    width: 500px;
-    filter: drop-shadow(0 0 10px rgba(142, 218, 232, 0.8));
-    // background-size: cover;
-    border-radius: 20px;
-    /* Ajusta el valor de radio según tus preferencias */
-    // overflow: hidden;
-}
 
 * {
     margin: 0%;
@@ -117,11 +91,11 @@ header {
     text-shadow: 0px 0px 5px #ffe600;
     // Medium 500
 
-    font-size: 800%;
+    // font-size: 800%;
     font-family: 'Mitr', handwriting;
     /* font-family: 'Dancing Script', handwriting; */
     /* font-family: 'Cedarville Cursive', handwriting; */
-    margin-top: -13%;
+    margin-top: 50%;
     margin-bottom: -2%;
 
 }
@@ -147,9 +121,9 @@ app-main:host {
 
 }
 
-.nombre {
-    width: 300px;
-}
+// .nombre {
+//     width: 300px;
+// }
 
 .input {
     border-radius: 300px;
@@ -177,4 +151,128 @@ app-main:host {
 // Asigna la animación a la clase .imagen
 .imagen {
     animation: fade-in-bottom 1s ease; // Puedes ajustar la duración y la función de temporización según tus necesidades
+}
+
+
+
+// bienvenida// bienvenida
+$color-primario: #ff6b6b;
+$color-secundario: #ffc83ebd;
+$color-fondo: #ffdbac5d;
+$color-texto: #1a535c;
+
+.welcome-container {
+    background-color: $color-fondo;
+    color: $color-texto;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 620px;
+    position: absolute;
+        /* Establece la posición absoluta para el contenedor */
+        top: 20%;
+        height: 280px;
+        // font-size: clamp(2.5rem, 1.0774rem + 3.7936vw, 5.625rem);
+        // font-size: clamp(2.5rem,1.0774rem+3.7936vw,5.625rem);
+        /* Distancia desde la parte superior del cuerpo */
+        left: 30%;
+        /* Distancia desde la izquierda del cuerpo */
+        // width: 550px;
+        /* Ancho del contenedor */
+        background-color: #ffdd9e4e;
+        /* Fondo transparente */
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ffca68b8;
+        /* Bordes redondeados */
+        padding: 20px;
+        /* Espaciado interno */
+        text-align: center;
+        /* Centra el contenido */
+
+
+    margin: 2rem auto;
+    backdrop-filter: blu(10px);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    .empresa {
+    font-size: 40px;
+        color: $color-primario;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $color-secundario;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+// cards
+$color-primario: #5f27cd;
+$color-secundario: #10ac84;
+$color-texto: #1e272e;
+$color-fondo: #f1f2f6;
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+        // top: 50%;
+}
+
+.card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-top: 50%;
+
+    &:hover {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+}
+
+    .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 15px;
+        background-color: $color-fondo;
+
+        .card-title {
+            color: $color-primario;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: $color-texto;
+            margin-bottom: 15px;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: $color-secundario;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: darken($color-secundario, 10%);
+            }
+        }
+    }
 }

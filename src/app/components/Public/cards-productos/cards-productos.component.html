@@ -1,4 +1,4 @@
-<body>
+<!-- <body> -->
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -44,25 +44,14 @@
 
                 <!-- estatico -->
                 <img [routerLink]="'/detalles/' + producto._id"
-                  [src]="photoSelected||  '../../../assets/products/p1.jpg'" class="img-fluid" alt="No image">
+                  [src]="producto.imagen"  style="width: 900px; height: 900px;" class="img-fluid" alt="No image">
                 <!-- estatico -->
 
                 <h1>{{producto.nombre}}</h1>
                 <div class="acciones">
                   <div>
                     <h4>precio <strong>{{producto.precio | currency:'USD'}}</strong></h4>
-                    <ul>
-                      <li>comprar
-                      </li>
-                      <i class="fas fa-solid heart me-4">favorito</i>
-                      <li>compartir</li>
-                    </ul>
                   </div>
-                </div>
-                <div class="detalles">
-                  <p>
-                    mas de este ya no hay
-                  </p>
                 </div>
                 <div class="mb-3">
                   <button [routerLink]="'/detalles/' + producto._id" class="btn btn-secondary float-start mt-3">
@@ -98,4 +87,4 @@
 
   <!-- </div> -->
   <!-- </div> -->
-</body>
+<!-- </body> -->

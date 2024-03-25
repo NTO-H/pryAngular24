@@ -19,9 +19,24 @@
 <div   *ngFor="let politica of listPoliticas"lass="p-grid">
     <div class="p-col-12">
         <p-accordion [activeIndex]="0">
+        
             <p-accordionTab header="{{politica.titulo}}">
-                <p>{{politica.contenido}}</p-accordionTab>
+                <p>{{politica.contenido}}<div class="button-row">
+                <button class="btn-delete">
+                    <i class="fas fa-trash-alt"></i>
+                    Eliminar
+                </button>
+            
+                <button class="btn-update">
+                    <i class="fas fa-sync-alt"></i>
+                    Actualizar
+                </button>
+            </div></p-accordionTab>
+            
         </p-accordion>
+
+
+      
     </div>
 </div>
 

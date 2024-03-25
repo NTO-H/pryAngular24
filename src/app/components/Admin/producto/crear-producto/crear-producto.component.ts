@@ -16,6 +16,7 @@ export class CrearProductoComponent implements OnInit {
   titulo = 'crear Producto';
   btnTitle = 'crear';
   id: string | null;
+  selectedFile: File | null = null; // Inicializa con null
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +31,7 @@ export class CrearProductoComponent implements OnInit {
       categoria: ['', Validators.required],
       precio: ['', Validators.required],
       descripcion: ['', Validators.required],
+      imagen: ['', Validators.required],
       
     });
     this.id = this.aRouter.snapshot.paramMap.get('id');
@@ -40,27 +42,48 @@ export class CrearProductoComponent implements OnInit {
   }
 
 
+  onFileSelected(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files && inputElement.files.length > 0) {
+      this.selectedFile = inputElement.files[0];
+      console.log(this.selectedFile)
+    }
+  }
+
   ngOnInit(): void {
     this.esEditar();
   }
-
   agregarProducto() {
-    const PRODUCTO: Producto = {
-      nombre: this.productoForm.get('producto')?.value,
-      categoria: this.productoForm.get('categoria')?.value,
-      precio: this.productoForm.get('precio')?.value,
-      descripcion: this.productoForm.get('descripcion')?.value,
-    };
+    // Obtener los valores del formulario
+    const productoNombre = this.productoForm.get('producto')?.value;
+    const productoCategoria = this.productoForm.get('categoria')?.value;
+    const productoPrecio = this.productoForm.get('precio')?.value;
+    const productoDescripcion = this.productoForm.get('descripcion')?.value;
+    // const imagen = this.productoForm.get('imagen')?.value;
+    console.log(this.selectedFile)
+    // Validar que se haya seleccionado un archivo
+    if (!this.selectedFile) {
+      console.error('No se ha seleccionado ningún archivo.');
+      return;
+    }
 
-    
+    // Crear un objeto FormData y agregar los datos del producto
+    const formData = new FormData();
+    formData.append('nombre', productoNombre);
+    formData.append('categoria', productoCategoria);
+    formData.append('precio', productoPrecio);
+    formData.append('descripcion', productoDescripcion);
+    formData.append('imagen', this.selectedFile);
 
+    // Realizar la solicitud HTTP para guardar o actualizar el producto
     const onError = (error: any) => {
       console.error(error);
       this.toastr.error('Ocurrió un error al agregar el producto.', 'Error');
     };
 
     if (this.id !== null) {
-      this._productoService.editarProducto(this.id, PRODUCTO).subscribe(
+      // Si es una edición, llamar al método editarProducto con el ID y el objeto formData
+      this._productoService.editarProducto(this.id, formData).subscribe(
         () => {
           this.toastr.info('Producto actualizado con éxito!', 'Actualizado');
           this.router.navigate(['/']);
@@ -68,19 +91,23 @@ export class CrearProductoComponent implements OnInit {
         onError
       );
     } else {
-      this._productoService.guardarProducto(PRODUCTO).subscribe(
+      // Si es un nuevo producto, llamar al método guardarProducto con el objeto formData
+      this._productoService.guardarProducto(formData).subscribe(
         response => {
-          // if (data && data.id) {
-          console.log('Respuesta 02:', response)
+          console.log('Respuesta 02:', response);
           this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
+
+
+          
           this.router.navigate(['/listar-productos']);
-        }, error => {
+        },
+        error => {
           this.showTopCenter();
         }
       );
     }
   }
- 
+
 
 
   esEditar() {
@@ -93,6 +120,7 @@ export class CrearProductoComponent implements OnInit {
           categoria: data.categoria,
           precio: data.precio,
           descripcion: data.descripcion
+          // imagen: data.imagen
         });
       });
     }

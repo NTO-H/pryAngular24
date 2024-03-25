@@ -27,12 +27,15 @@ import { AdminHomeComponent } from './components/Admin/admin-home/admin-home.com
 import { ClientHomeComponent } from './components/client/client-home/client-home.component';
 import { PerfilComponent } from './components/Public/perfil/perfil.component';
 import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
+import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
   // { path: '', component: PrincipalComponent },
 
   { path: 'ayuda', component: AyudaComponent },
+  { path: 'preguntas', component: AgregarPreguntasComponent },
+  { path: 'preguntasPublic', component: PreguntasComponent },
   { path: 'recuperacion', component: RecuperacionComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'listar-usuarios', component: ListarUsuariosComponent },

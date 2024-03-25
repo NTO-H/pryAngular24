@@ -105,6 +105,7 @@ export class AgregarPoliticasComponent {
       
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
+        this.obtenerPoliticas()
         // this.router.navigate(['/agregar-politicas']);
       }, error => {
         // this.router.navigate(['/agregar-politicas']);

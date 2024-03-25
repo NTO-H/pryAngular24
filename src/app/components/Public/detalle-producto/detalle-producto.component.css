@@ -7,7 +7,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-height: 200vh;
+height: 250vh;
 margin-top: -10px;
 /* margin: 0; */
   /* padding: 0; */
@@ -34,17 +34,35 @@ margin-top: -10px;
   img {
   margin-left: 10px;
     max-width: 100%;
+    /* box-shadow: 0 0 5px #777; */
     height: auto;
     animation:float 5s ease-in-out infinite;
 
   }
 }
 
-
+.contiene-descripcion{
+    color: rgb(55, 55, 55);
+    margin-left: 16%;
+    width: 70%;
+    background-color: #ffffffe9;
+    margin-bottom: 2%;
+    box-shadow: 0 5px 10px #8a8a8a;
+    padding: 20px;
+    font-size: 12px;
+    border-radius:30px ;
+    backdrop-filter: blur(10px);
+    /*border-bottom:solid 1px #454545;
+    */-webkit-border-radius:30px ;
+    -moz-border-radius:30px ;
+    -ms-border-radius:30px ;
+    -o-border-radius:30px ;
+    -webkit-border-radius:30px ;
+}
 
 
 @keyframes float {
-    0% { transform: translateY(0px); }
+    0% { transform: translateY(0px); -webkit-transform: translateY(0px); -moz-transform: translateY(0px); -ms-transform: translateY(0px); -o-transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
 }
@@ -78,9 +96,16 @@ height: 350px;
 /* comentarios */
 .comments-section {
   max-width: 1000px;
-  margin: 0 auto; 
-   background: transparent;
-backdrop-filter: blur(2px);
+  margin: 0 auto;
+      margin-bottom: 2%;
+        box-shadow: 0 10px 5px #777;
+        padding: 20px;
+        /* font-size: 12px; */
+        border-radius: 30px;
+        backdrop-filter: blur(10px);
+   /* background: transparent; */
+    margin-left: 16%;
+/* backdrop-filter: blur(2px); */
 
 }
 

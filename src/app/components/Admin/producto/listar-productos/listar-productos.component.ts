@@ -1,5 +1,5 @@
 import { FormsModule, NgModel, NgModelGroup } from '@angular/forms';
-import { Component, Injectable} from '@angular/core';
+import { Component, Injectable, OnInit} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 // import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 import { Producto } from 'src/app/models/producto';
@@ -22,7 +22,7 @@ import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'
 //   ],
 //   // ...
 // })
-export class ListarProductosComponent {
+export class ListarProductosComponent implements OnInit{
 
   listProductos:Producto[]=[];
   filterProducts = '';
@@ -54,7 +54,6 @@ export class ListarProductosComponent {
       reader.readAsDataURL(this.file);
     }
   }
-
 
   // imagen fin
 constructor(private _productoService:ProductoService,private toastr:ToastrService) {}

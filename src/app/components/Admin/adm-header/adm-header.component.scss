@@ -81,7 +81,7 @@ header {
     /* background: #000000; */
     font-family: 'ArchivoBlack';
     // background-color: #efff9f50;
-    background: linear-gradient(180deg, #efff9f50 0%, #bdffe892 100%);
+    background: linear-gradient(180deg, #efff9f2c 0%, #bdffe86a 100%);
     // background: linear-gradient(180deg, #fffee9 0%, #9fe9cd 100%);
     // background: linear-gradient(180deg, #fff1ad 0%, #80ff9f 100%);
     // background: linear-gradient(180deg, #b0fff8 0%, #bcffad 100%);
@@ -110,11 +110,18 @@ background: #ffffff73;
 
 
 
-
+// Estilos para el header
+.primer-header {
+    background-color: #08313ea5;
+    color: rgb(255, 243, 168);
+    padding: 10px 0;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
 #a {
     font-family: 'Concert One', sans-serif;
     margin-top: 25px;
-    color: #0c141a;
+    color: #002747;
 // height: 50px;
     // transition: color 1ms ease;
 font-size: 17px;

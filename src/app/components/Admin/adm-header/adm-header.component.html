@@ -1,3 +1,6 @@
+<div class="primer-header">
+    <h1>Panel de Administración</h1>
+</div>
 <header [ngClass]="{'scrolled': isScrolled}">
 
 
@@ -8,8 +11,15 @@
             <li id="li3">
                 <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
                     shape="circle"></p-avatar>
-
             </li>
+          
+
+
+
+            <!-- <li id="li" style="color: rgb(8, 114, 80);">
+                    <a id="a">Tropical world</a>
+            </li> -->
+
             <li id="li">
                 <a id="a" routerLink="/admin-home">
                     Home
@@ -20,11 +30,12 @@
 
 
             <li id="li" class="ul1">
-                <a id="a" routerLink="/listar-productos">Productos</a>
+                <a id="a">Productos</a>
                 <ul class="ul">
-                    <li><a href="#">Calificacion</a></li>
+                    <!-- <li><a href="#">p</a></li> -->
                     <li><a routerLink="cards-productos">Catalogo</a></li>
                     <li><a href="#">Comentarios productos</a></li>
+                    <li><a routerLink="listar-productos">Listar productos</a></li>
                 </ul>
             </li>
             <li id="li" class="ul1">
@@ -58,6 +69,11 @@
             <li id="li" class="ul1">
                 <!-- </ul> -->
                 <a routerLink="dashboard" id="a"> Graficos</a>
+            </li>
+
+            <li id="li" class="ul1">
+                <!-- </ul> -->
+                <a routerLink="preguntas" id="a"> preguntas</a>
             </li>
 
             <li id="li">

@@ -3,29 +3,26 @@
         <ul id="ul">
             <li id="li3">
                 <!-- <a id="logo" routerLink="/"> -->
-                <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
+                    shape="circle"></p-avatar>
                 <!-- </a> -->
-            
+
             </li>
-            <li style="list-style: none; margin-left: -20px; margin-top: 10px; margin-right: 500px; color: rgb(8, 114, 80);">
+            <li
+                style="list-style: none; margin-left: -20px; margin-top: 10px; margin-right: 500px; color: rgb(8, 114, 80);">
                 <h2>Tropical world</h2>
             </li>
-            <li id="li">
-                <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
-                    aria-label="Example icon button with a menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </li>
+
 
 
             <li id="li">
-                <a id="a" routerLink="/">
+                <a id="a" routerLink="/client-home">
                     Home
                 </a>
 
             </li>
 
-           
+
 
             <li id="li" class="ul1">
                 <a id="a" routerLink="/cards-productos">Productos</a>
@@ -39,10 +36,16 @@
 
             <!-- <li id="li"><a id="a" routerLink="/cards-productos">productos</a></li> -->
 
-<li id="li">
-    <a id="a"  (click)="logout()">Cerrar sesion
-    </a>
-</li>
+            <li id="li">
+                <a id="a" (click)="logout()">Cerrar sesion
+                </a>
+            </li>
+            <li id="li">
+                <button mat-icon-button class="menu" (click)="sidebarVisible = true" id="menu"
+                    aria-label="Example icon button with a menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -78,7 +81,7 @@
         <h3><strong>
                 Dashboard
             </strong></h3>
-        
+
         <h3><strong>
                 IoT
             </strong></h3>
@@ -117,7 +120,7 @@
 
 
  -->
- <div class="loading-overlay">
+<div class="loading-overlay">
 
     <div *ngIf="isLoading" class="spinner-grow" style="width: 3rem; height: 3rem;margin-bottom: 10px;" role="status">
         <span class="visually-hidden">Loading...</span>

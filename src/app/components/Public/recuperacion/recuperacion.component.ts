@@ -378,6 +378,27 @@ export class RecuperacionComponent {
         console.log(response);
         if (response) {
           Swal.fire('¡Operación exitosa!', 'Se actualizó tu contraseña', 'success');
+
+
+
+          console.log('Inicio de sesión exitoso:', response);
+          if (response && response.rol && response.rol=="admin") {
+            const rol = response.rol;
+            // const token = response.token;
+            // localStorage.setItem('token', token);
+            localStorage.setItem('rol', rol);
+
+
+            
+
+
+
+          }
+
+
+
+
+
           this.router.navigate(['/login']); // Redirige al home del cliente
           this.esFrmResetPassword = false;
         } else {

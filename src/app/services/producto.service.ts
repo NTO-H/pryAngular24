@@ -19,7 +19,7 @@ import { Producto } from '../models/producto';
 })
 export class ProductoService {
   
-  url = 'http://localhost:4000/productos/';
+  url = 'https://servidortropicalworld-1.onrender.com/productos/';
 
   constructor(private http: HttpClient) {}
 
@@ -33,9 +33,13 @@ export class ProductoService {
   }
 
   
-  guardarProducto(producto: Producto): Observable<any> {
-    return this.http.post<any>(this.url, producto);
+  guardarProducto(formdata: FormData): Observable<any> {
+    return this.http.post<any>(this.url, formdata);
   }
+  
+  // guardarProducto(producto: Producto): Observable<any> {
+  //   return this.http.post<any>(this.url, producto);
+  // }
 
 
 
@@ -44,11 +48,9 @@ export class ProductoService {
   }
 
 
-
-editarProducto(id:string,producto:Producto):Observable<any>{
-return this.http.put(this.url+id,producto);
-
-}
+  editarProducto(id: string, formData: FormData) {
+    return this.http.put<any>(this.url+id, formData);
+  }
 
 
 

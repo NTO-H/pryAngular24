@@ -84,6 +84,37 @@ export class CrearCuentaComponent implements OnInit {
     const confirmpass = this.usuarioForm.get('confirmpass')?.value;
     const respuesta = this.usuarioForm.get('respuesta')?.value;
 
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  
     // Validar que el campo nombre no esté vacío
     if (!nombre) {
       Swal.fire('Error', 'Por favor ingresa tu nombre', 'error');

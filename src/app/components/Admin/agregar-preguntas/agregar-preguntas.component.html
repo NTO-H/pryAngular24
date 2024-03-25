@@ -1,1 +1,66 @@
-<p>agregar-preguntas works!</p>
+
+
+<!-- <body> -->
+
+
+    <!-- <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Agregar Pregunta</a>
+        <a href="#">Ver Preguntas</a>
+        <a href="#">Cerrar Sesión</a>
+    </nav> -->
+
+    <div class="container">
+        <div class="content">
+            <form [formGroup]="frmAgregarPreguntas" (ngSubmit)="agregarPregunta()" class="question-form">
+                <label for="question">Pregunta:</label>
+                <input formControlName="titulo" type="text" id="question" name="question" required>
+
+                <label for="answer">Respuesta:</label>
+                <textarea id="answer"  formControlName="contenido"  name="answer" required></textarea>
+
+                <button type="submit">Agregar Pregunta</button>
+            </form>
+
+            <!-- Sección para listar preguntas -->
+            <div  id="questions-list">
+                <h2>Preguntas Existentes:</h2>
+                <ul  *ngFor="let pregunta of listPreguntas"  id="questions">
+                    <!-- Las preguntas se listarán aquí -->
+                <p-accordion [activeIndex]="0">
+                    <p-accordionTab header="{{pregunta.titulo}}">
+                        <p>{{pregunta.contenido}}
+                        <div class="button-row">
+                           <!-- }}
+                             <i [routerLink]="['/detalles',producto._id]"
+                                        class="fas fa-solid fa-book-open me-4"></i>
+                                    <i [routerLink]="['/editar-producto',producto._id]"
+                                        class="fas fa-edit text-primary me-4"></i>
+                                    <i (click)="eliminarProducto(producto._id)"
+                                        class="fas fa-regular fa-trash-can text-danger"></i>
+                            -->
+                           
+                           
+                           
+                            <button [routerLink]="['/detalles',pregunta._id]" class="btn-delete">
+                                <i  class="fas fa-trash-alt"></i>
+                                Eliminar
+                            </button>
+                        
+                            <button   [routerLink]="['/editar-producto',pregunta._id]" class="btn-update">
+                                <i class="fas fa-sync-alt"></i>
+                                Actualizar
+                            </button>
+                        </div>
+                    </p-accordionTab>
+                </p-accordion>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Aquí iría tu JavaScript para manejar las preguntas
+    </script>
+<!--  -->
+<!-- </body> -->

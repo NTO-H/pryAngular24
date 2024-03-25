@@ -7,7 +7,36 @@ body {
     /* Centra la imagen de fondo */
 }
 
+.button {
+    display: inline-block;
+    padding: 20px 40px;
+    /*Ajustaelpaddingsegúnseanecesario*///display: inline-block;
+    //padding: 25px 25px;
+    //text-decoration: none;
+    color: #232c50;
+    background-color: #ffe0b2;
+    border: 1px solid #edb47b;
+    border-radius:100px;
+    //font-size: 14px;
+    //height: 25px;
+    //width: 300px;
+    margin-left: 100px;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    &:hover
+{
+        background-color: #b9fcbc;
+        border-color: #ffffff;
+    }
 
+    &:active {
+        background-color: #5e7a95;
+        border-color: #2d3e4f;
+    }
+        position: absolute;
+        top: 500px; // Ajusta la posición vertical según tu preferencia
+        // left: 20px; // 
+}
 .imagen{
 height: 500px;
 margin-left: 50%;
@@ -105,17 +134,35 @@ width: 500px;
 
 }
 
+@keyframes left {
+    from {
+        transform: translateX(0px);
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        -o-transform: translateX(0px);
+}
+
+    to {
+        transform: translateX(50px);
+        -webkit-transform: translateX(50px);
+        -moz-transform: translateX(50px);
+        -ms-transform: translateX(50px);
+        -o-transform: translateX(50px);
+}
+}
+
 .log-text {
-    /* width: 40%; */
-    margin-left: 20px;
+    /*width: 40%;
+    */margin-left: 20px;
     height: 70px;
-    /* border-right:solid 5px #07648c; */
-    /* margin-right: 20px; */
-    margin-top: -18%;
-    /* background-color: #07648c; */
-    margin-bottom: -10%;
-
-
+    /*border-right:solid 5px #07648c;
+    *//*margin-right: 20px;
+    */margin-top: -24%;
+    /*background-color: #07648c;
+    */margin-bottom: -10%;
+    animation:float 1s ease  ;
+    -webkit-animation:left 1s ease  ;
 }
 
 
@@ -135,6 +182,9 @@ app-main:host {
     background: #a40707;
 
 }
+
+
+
 @mixin fade-in-bottom {
     @keyframes fade-in-bottom {
         0% {
@@ -149,14 +199,23 @@ app-main:host {
     }
 }
 
+@keyframes float {
+  from{
+            transform: translateY(50px);
+  }
+  to{
+transform: translateY(0);
+  }
+}
+
 // Llama al mixin para definir la animación
 @include fade-in-bottom;
 
 // Asigna la animación a la clase .imagen
 .imagen {
-    animation: fade-in-bottom 1s ease; // Puedes ajustar la duración y la función de temporización según tus necesidades
+    animation: float 1s ease;
+    //Puedesajustarladuraciónylafuncióndetemporizaciónsegúntusnecesidades:;
+    -webkit-animation: float 1s ease;
 }
-
-
 
 

@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-    url = 'http://localhost:4000/usuarios/';
+    url = 'https://servidortropicalworld-1.onrender.com/usuarios/';
     private token!: string;
 
     authStatus = new BehaviorSubject<boolean>(false);

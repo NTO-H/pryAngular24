@@ -5,7 +5,7 @@ body {
     align-items: center;
     // height: 100%;
     // top: -8%;
-margin-top: -50px;
+margin-top: -75px;
 padding: 40px;
     background-image: url('../../../../assets/images/fondoBody.jpg');
     background-size: cover;
@@ -18,28 +18,34 @@ body {
     /* Establece la posición relativa para el cuerpo */
 }
 
+
+
+
+
+@keyframes fadeIn {
+    0%{opacity: 0;}
+    50%{opacity: 3;}
+    100%{opacity: 5;}
+}
+
 .contenedor {
     position: absolute;
-    /* Establece la posición absoluta para el contenedor */
-    top: 20%;
+    /*Establecelaposiciónabsolutaparaelcontenedor*/top: 20%;
     font-size: clamp(2.5rem, 1.0774rem + 3.7936vw, 5.625rem);
-    // font-size: clamp(2.5rem,1.0774rem+3.7936vw,5.625rem);
-    /* Distancia desde la parte superior del cuerpo */
-    left: 30%;
-    /* Distancia desde la izquierda del cuerpo */
-    width: 550px;
-    /* Ancho del contenedor */
-    background-color: #ffdd9e4e;
-    /* Fondo transparente */
-        backdrop-filter: blur(5px);
+    //font-size: clamp(2.5rem,1.0774rem+3.7936vw,5.625rem);
+    /*Distanciadesdelapartesuperiordelcuerpo*/left: 30%;
+    /*Distanciadesdelaizquierdadelcuerpo*/width: 550px;
+    /*Anchodelcontenedor*/background-color: #ffdd9e4e;
+    /*Fondotransparente*/backdrop-filter: blur(5px);
     border-radius: 10px;
     box-shadow: 0 0 10px #ffca68b8;
-    /* Bordes redondeados */
-    padding: 20px;
-    /* Espaciado interno */
-    text-align: center;
-    /* Centra el contenido */
+    /*Bordesredondeados*/padding: 20px;
+    /*Espaciadointerno*/text-align: center;
+    animation: fadeIn 2s infinite;
+    -webkit-animation: fadeIn 2s ease-in;
 }
+
+
 .contenido h1 {
     margin: 5px 0;
 }

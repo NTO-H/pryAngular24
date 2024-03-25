@@ -100,15 +100,18 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
 import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
 import { PoliticasComponent } from './components/Public/politicas/politicas.component';
+import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
+import { ClientHomeComponent } from './components/client/client-home/client-home.component';
+import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 @NgModule({
 
   declarations: [
   
     AppComponent, AyudaComponent, AdmHeaderComponent, IotComponent,
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
-    CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,
-    ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,
-    DetalleProductoComponent,AuthComponent,IotComponent,ListarProductosComponent,
+    CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,PreguntasComponent,
+    ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
+    DetalleProductoComponent,AuthComponent,IotComponent,ListarProductosComponent,ClientHomeComponent,
     FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent,PoliticasComponent,
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,

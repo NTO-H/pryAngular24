@@ -1,61 +1,16 @@
 
 
 <body>
-     <!-- <div class="contenedor-preguntas"> -->
-
      <h1>Preguntas Frecuentes</h1>
-
-    <div class="faq-container">
+ 
+    <div *ngFor="let preguntas of listPreguntas" class="faq-container">
 
         <!-- Pregunta 1 -->
         <div class="faq-item">
-            <div class="question">¿Qué productos ofrecen para bebés?</div>
-            <div class="answer">
-                Ofrecemos una amplia gama de productos para bebés, incluyendo ropa, juguetes, artículos de cuidado y
-                mucho
-                más. Puedes explorar nuestra tienda en línea para ver la colección completa.
+            <div class="question" >{{preguntas.titulo}}</div>
+            <div class="answer">{{preguntas.contenido}}
             </div>
         </div>
-
-        <!-- Pregunta 2 -->
-        <div class="faq-item">
-            <div class="question">¿Cómo realizar una compra?</div>
-            <div class="answer">
-                Realizar una compra es fácil. Simplemente selecciona los productos que deseas, agrégales al carrito de
-                compras y sigue los pasos para completar el proceso de pago. Asegúrate de proporcionar la información de
-                envío correcta.
-            </div>
-        </div>
-
-        <!-- Pregunta 3 -->
-        <div class="faq-item">
-            <div class="question">¿Cuáles son las opciones de pago disponibles?</div>
-            <div class="answer">
-                Aceptamos diversas formas de pago, incluyendo tarjetas de crédito, transferencias bancarias y métodos de
-                pago en línea. Al realizar el pago, asegúrate de verificar la seguridad de la transacción.
-            </div>
-        </div>
-
-        <!-- Pregunta 4 -->
-        <div class="faq-item">
-            <div class="question">¿Cómo puedo rastrear mi pedido?</div>
-            <div class="answer">
-                Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un enlace de seguimiento.
-                Puedes hacer clic en ese enlace para rastrear el progreso de tu entrega en tiempo real.
-            </div>
-        </div>
-
-        <!-- Pregunta 5 -->
-        <div class="faq-item">
-            <div class="question">¿Cuánto tiempo tarda en llegar mi pedido?</div>
-            <div class="answer">
-                El tiempo de entrega puede variar según tu ubicación. Por lo general, los pedidos son entregados en un
-                plazo de X a X días hábiles. Consulta la página de detalles del producto para obtener información
-                específica
-                sobre el tiempo de entrega estimado.
-            </div>
-        </div>
-
     </div>
 
      <!-- </div> -->
