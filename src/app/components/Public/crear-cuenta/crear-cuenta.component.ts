@@ -96,6 +96,47 @@ export class CrearCuentaComponent implements OnInit {
 
 
 
+    const lengthRegex = /^.{8,}$/;
+    const lettersRegex = /[a-zA-Z].*[a-zA-Z]/;
+    const upperCaseRegex = /[A-Z]/;
+    const lowerCaseRegex = /[a-z]/;
+    const numberRegex = /\d/;
+    const specialCharacterRegex = /[@$!%*?&]/;
+
+    if (!lengthRegex.test(pass)) {
+      this.toastr.error('La contraseña debe tener al menos 8 caracteres.','error');
+      return;
+    }
+
+    if (!lettersRegex.test(pass)) {
+      this.toastr.error('La contraseña debe contener al menos 2 letras.','error');
+      return;
+    }
+
+    if (!upperCaseRegex.test(pass)) {
+      this.toastr.error('La contraseña debe contener al menos una letra mayúscula.','error');
+      return;
+    }
+
+    if (!lowerCaseRegex.test(pass)) {
+      this.toastr.error('La contraseña debe contener al menos una letra minúscula.','error');
+      return;
+    }
+
+    if (!numberRegex.test(pass)) {
+      this.toastr.error('La contraseña debe contener al menos un número.','error');
+      return;
+    }
+
+    if (!specialCharacterRegex.test(pass)) {
+      this.toastr.error('La contraseña debe contener al menos un carácter especial.','error');
+      return;
+    }
+
+    if (pass !== confirmpass) {
+      this.toastr.error('Las contraseñas no coinciden.','error');
+      return;
+    }
 
 
 
@@ -113,7 +154,7 @@ export class CrearCuentaComponent implements OnInit {
 
 
 
-    
+
   
     // Validar que el campo nombre no esté vacío
     if (!nombre) {
