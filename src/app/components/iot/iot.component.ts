@@ -183,7 +183,6 @@ export class IotComponent implements OnInit {
 
         // Cambiar la imagen en función de los valores de humedad y temperatura
         if (this.humedad > 75) {
-          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
           this.alt = 'Humedad alta';
         } else if (this.humedad > 50) {
           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
