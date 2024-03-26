@@ -19,8 +19,8 @@ import { Producto } from '../models/producto';
 })
 export class ProductoService {
   
-  url = 'http://localhost:4000/productos';
-  // url = 'https://servidortropicalworld-1.onrender.com/productos/';
+  // url = 'http://localhost:4000/productos';
+  url = 'https://servidortropicalworld-1.onrender.com/productos/';
 
   constructor(private http: HttpClient) {}
 

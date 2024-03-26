@@ -18,8 +18,8 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-    url = 'http://localhost:4000/usuarios/';
-    // url = 'https://servidortropicalworld-1.onrender.com/usuarios/';
+    // url = 'http://localhost:4000/usuarios/';
+    url = 'https://servidortropicalworld-1.onrender.com/usuarios/';
 
     constructor(private http: HttpClient) { }
     
