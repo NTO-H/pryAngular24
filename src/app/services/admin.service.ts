@@ -11,7 +11,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
 
-  url = "https://servidortropicalworld-1.onrender.com/privado/"
+  url = "http://localhost:4000/privado/"
+  // url = "https://servidortropicalworld-1.onrender.com/privado/"
   
 
 
