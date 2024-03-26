@@ -201,17 +201,15 @@ export class IotComponent implements OnInit {
 
 
         // Cambiar la imagen en función de los valores de humedad y temperatura
-        if (this.temperatura > 75) {
-          this.alt = 'Humedad alta';
-        } else if (this.temperatura > 41) {
+        if (this.temperatura > 41) {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
-          this.alt = 'Humedad media';
+          this.alt = 'temperatura media';
         } else if (this.temperatura > 30 && this.temperatura<37 ) {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mtmxndj0oxhpfbjxq58v';
-          this.alt = 'Humedad normal';
+          this.alt = 'Hutemperatura normal';
         } else {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mwtyrblssqbqidm2wwyy';
-          this.alt = 'Humedad muy baja';
+          this.alt = 'temperatura muy baja';
         }
 
         console.log("valor que se obtiene de obtenerEstadoTempHume=>", response);
