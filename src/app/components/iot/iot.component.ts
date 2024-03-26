@@ -23,6 +23,7 @@ import { Dispositivo } from 'src/app/models/dispositivos';
 })
 export class IotComponent implements OnInit {
   @Input() imagen!: string;
+  @Input() imagen2!: string;
   @Input() alt!: string;
   temperatura: number = 25;
  
@@ -192,6 +193,24 @@ export class IotComponent implements OnInit {
           this.alt = 'Humedad baja';
         } else {
           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/njymyk1bytuvrgtcpnhf';
+          this.alt = 'Humedad muy baja';
+        }
+
+
+
+
+
+        // Cambiar la imagen en función de los valores de humedad y temperatura
+        if (this.temperatura > 75) {
+          this.alt = 'Humedad alta';
+        } else if (this.temperatura > 41) {
+          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
+          this.alt = 'Humedad media';
+        } else if (this.temperatura > 30 && this.temperatura<37 ) {
+          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mtmxndj0oxhpfbjxq58v';
+          this.alt = 'Humedad normal';
+        } else {
+          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mwtyrblssqbqidm2wwyy';
           this.alt = 'Humedad muy baja';
         }
 
