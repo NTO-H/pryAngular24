@@ -186,13 +186,13 @@ export class IotComponent implements OnInit {
           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
           this.alt = 'Humedad alta';
         } else if (this.humedad > 50) {
-          this.imagen = 'ruta_de_la_imagen_para_humedad_media.jpg';
+          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
           this.alt = 'Humedad media';
         } else if (this.humedad > 25) {
-          this.imagen = 'ruta_de_la_imagen_para_baja_humedad.jpg';
+          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ifhw3urphhkirc3izgtm';
           this.alt = 'Humedad baja';
         } else {
-          this.imagen = 'ruta_de_la_imagen_para_muy_baja_humedad.jpg';
+          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/njymyk1bytuvrgtcpnhf';
           this.alt = 'Humedad muy baja';
         }
 
