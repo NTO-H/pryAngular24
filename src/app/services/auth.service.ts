@@ -23,10 +23,10 @@ export class AuthService {
     getCurrentUser(correo:string,password:string){
         return this.http.post(this.url, { correo, password });
 
-        
     }
+
+    
     login(correo: string, password: string): Observable<any> {
-        // this.getCurrentUser(correo, password)
         return this.http.post(this.url +'singIn', { correo, password });
     }
 

@@ -57,6 +57,7 @@ export class IotComponent implements OnInit {
     this.obtnerEstadoVancin();
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
+    this.obtenerEstadoTempHume();
   }
 
   toggleSwitch() {
@@ -168,6 +169,37 @@ export class IotComponent implements OnInit {
       (error) => {
         this.toastr.error('Error al actualizar el estado del musica ');
         console.error('Error al actualizar el estado del musica:', error);
+      }
+    );
+  }
+
+
+  obtenerEstadoTempHume() {
+    this.dispositivoService.getTempHum().subscribe(
+      (response) => {
+        // Asignar los valores de humedad y temperatura
+        this.humedad = response.humedad;
+        this.temperatura = response.temperatura;
+
+        // Cambiar la imagen en función de los valores de humedad y temperatura
+        if (this.humedad > 75) {
+          this.imagen = 'ruta_de_la_imagen_para_alta_humedad.jpg';
+          this.alt = 'Humedad alta';
+        } else if (this.humedad > 50) {
+          this.imagen = 'ruta_de_la_imagen_para_humedad_media.jpg';
+          this.alt = 'Humedad media';
+        } else if (this.humedad > 25) {
+          this.imagen = 'ruta_de_la_imagen_para_baja_humedad.jpg';
+          this.alt = 'Humedad baja';
+        } else {
+          this.imagen = 'ruta_de_la_imagen_para_muy_baja_humedad.jpg';
+          this.alt = 'Humedad muy baja';
+        }
+
+        console.log("valor que se obtiene de obtenerEstadoTempHume=>", response);
+      },
+      (error) => {
+        console.error('Error al obtener el estado de obtenerEstadoTempHume:', error);
       }
     );
   }

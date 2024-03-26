@@ -27,42 +27,36 @@
 
 
     <section class="dispositivos">
-
+    
         <div class="dispositivo">
-            <div class="icono">
-                <i [ngClass]="{
-            'fas fa-tint': humedad > 75,
-            'fas fa-tint-slash': humedad <= 75 && humedad > 50,
-            'fas fa-drip': humedad <= 50 && humedad > 25,
-            'fas fa-seedling': humedad <= 25
-        }"></i>
-            </div>
             <img [src]="imagen" [alt]="alt">
             <div class="humedad">
                 <span class="label">Humedad:</span>
                 <span class="value">{{ humedad }}%</span>
-                <input type="range" [(ngModel)]="humedad" min="0" max="100">
             </div>
         </div>
-
-
-
-
-
-        <!--  -->
+    
         <div class="dispositivo">
-            <div class="icono">
-                <i [ngClass]="{'fas fa-sun': temperatura > 30, 'fas fa-snowflake': temperatura <= 30}"></i>
-            </div>
             <img [src]="imagen" [alt]="alt">
             <div class="temperatura">
                 <span class="label">Temperatura:</span>
                 <span class="value">{{ temperatura }}°C</span>
-                <input type="range" [(ngModel)]="temperatura" min="0" max="100">
             </div>
         </div>
-
+    
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="botones">
     <div class="fila">
         <!-- Botones de la primera fila -->

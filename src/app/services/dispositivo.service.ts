@@ -17,6 +17,9 @@ export class DispositivoService {
     getEstadoLed(): Observable<any> {
         return this.http.get<any>(this.url +'obtenerEstadoLed');
     }
+    getTempHum(): Observable<any> {
+        return this.http.get<any>(this.url +'obtenerEstadoTemperaturaHumedad');
+    }
     getEstadoValancin(): Observable<any> {
         return this.http.get<any>(this.url +'obtenerEstadoValancin');
     }
