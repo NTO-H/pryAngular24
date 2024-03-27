@@ -1,3 +1,4 @@
+import { ConsultasService } from './../../services/consultas.service';
 import { MatSliderModule } from '@angular/material/slider';
 // import { DispositivoService } from 'src/app/services/dispositivos.service';
 // import { Dispositivo } from './../../models/dispositivos';
@@ -46,7 +47,7 @@ export class IotComponent implements OnInit {
 
 
   sidebarVisible3: boolean = false;
-  constructor( private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
+  constructor(private consultaService:ConsultasService,private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
  
   }
 
