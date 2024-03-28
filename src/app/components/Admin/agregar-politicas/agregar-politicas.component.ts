@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from './../../../services/admin.service';
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 // import { AdminService } from './../../../services/admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { Politica } from 'src/app/models/privado';
+import { error } from 'console';
 // ReactiveFormsModule
 @Component({
   selector: 'app-agregar-politicas',
@@ -16,10 +17,10 @@ import { Politica } from 'src/app/models/privado';
 export class AgregarPoliticasComponent {
   frmAgregarPoliticas: FormGroup;
 
-  
+  id : string | null;
   listPoliticas: Politica[]=[]
   
-  constructor(private adminService:AdminService,private router:Router,private toastr: ToastrService ,private formBuilder: FormBuilder) {
+  constructor(private aRouter:ActivatedRoute,private adminService:AdminService,private router:Router,private toastr: ToastrService ,private formBuilder: FormBuilder) {
     
 
 
@@ -30,7 +31,7 @@ export class AgregarPoliticasComponent {
     contenido: ['', Validators.required]
     
     })
-
+this.id=this.aRouter.snapshot.paramMap.get( 'id')
     
 
   }
@@ -42,36 +43,6 @@ export class AgregarPoliticasComponent {
     
   }
 
-  //                      ,//@@@.
-  //                 .///////@@@@@@@&.
-  //            ,////////////@@@@@@@@@@@@@/
-  //       ./////////////////#@@@@@@@@@@@@@@@@@,
-  //  ,/////////////////.         ,&@@@@@@@@@@@@@@@@#
-  // /////////////.                     %@@@@@@@@@@@@@
-  // /////////.                             .%@@@@@@@@
-  // //////.                                   /@@@@@@
-  // ///////     @@%     .@@/    .@@@@@@/      %@@@@@@
-  // .//////     @@@@(   .@@/   @@@%. ,@@@#    @@@@@@&
-  // .//////     @@%@@@  .@@/  &@@             @@@@@@(
-  //  //////     @@# ,@@@.@@/  @@@   &@@@@@.   @@@@@@.
-  //  //////,    @@#   %@@@@/  ,@@@    *@@#   ,@@@@@@
-  //  //////.    @@#     @@@/    @@@@@@@@,    #@@@@@@
-  //  ,//////                                 @@@@@@&
-  //  .//////                                 @@@@@@/
-  //   //////.      @@@  @@@  @@  @ @@@@     .@@@@@@.
-  //   //////,     @    @   @ @ @ @ @==      (@@@@@@
-  //   .//////      @@@  @@@  @  @@ @        &@@@@@@
-  //   .///////.                           %@@@@@@@&
-  //    ///////////                    ,@@@@@@@@@@@(
-  //      ,///////////,             #@@@@@@@@@@@&
-  //         .///////////.       &@@@@@@@@@@@%
-  //            ./////////////@@@@@@@@@@@@*
-  //               ./////////@@@@@@@@@@,
-  //                   ./////@@@@@@%
-  //                      .//@@@#
-  
-
-
   obtenerPoliticas() {
     this.adminService.getPoliticas().subscribe(data => {
       this.listPoliticas = data;
@@ -80,6 +51,11 @@ export class AgregarPoliticasComponent {
     }, error => {
     console.log("ocurrio un error al obtener las politicas")
     })
+
+
+    
+
+
   }
 
 
@@ -100,7 +76,24 @@ export class AgregarPoliticasComponent {
 
     // const politica=this.frmAgregarPoliticas.get('politicas')?.value
 
+      if(this.id!==null){
+
+        this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
+        
+        this.toastr.success('Politica actulizado correctamente')
+
+          this.obtenerPoliticas()
+        }, (error) => {
+        this.toastr.error('Ocurrio un error al actualizar la politica')
+        
+        }
+          
+
+        )        
       
+      } else {
+
+
       this.adminService.registrarPoliticas(POLITICA).subscribe(data => {
       
         console.log('Respuesta 02:', data)
@@ -115,6 +108,7 @@ export class AgregarPoliticasComponent {
 
         
       })
+      }
 
 
     }
@@ -130,6 +124,14 @@ export class AgregarPoliticasComponent {
 
 
 
+  
+  esEditar() {
+  
+    if (this.id !== null) {
+    
+    
+    }
+  }
 
 
 

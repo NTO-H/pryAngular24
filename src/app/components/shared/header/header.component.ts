@@ -73,10 +73,6 @@ export class HeaderComponent implements OnInit{
   authenticated = false;
 
 
-
-
-  
-
   @HostListener("window:scroll", [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 0;
