@@ -1,32 +1,52 @@
+<!-- <body > -->
+    <div class="imagen-fondo">
+
+    <img class="imagenBbe"  [ngClass]="{'scrolled': isScrolled}"  src="../../../../assets/images/nn.png" alt="">
+    <div class="log-text">
+        <div class="nombreEmp">
+            <h1 [ngClass]="{'scrolled': isScrolled}">Tropical</h1>
+        </div>
+        <div class="nombreEmp">
+            <h1 [ngClass]="{'scrolled': isScrolled}">World.</h1>
+        </div>
+    </div>
+    <button  routerLink="/login" [ngClass]="{'scrolled': isScrolled}"  href="#" class="button">Get Started > </button>
 
 
-<body>
-    
-
-
-<!-- <span class="cursor-sombra"></span> -->
-
-<!-- <header>
-    <h1>Política de Privacidad</h1>
-</header> -->
-<img class="imagen" src="../../../../assets/images/nn.png" alt="">
-<div class="log-text">
-    <div class="nombreEmp">
-             <h1>Wordl.</h1>
-             <h1>Tropical</h1>
-        <br>
-   
-        <!-- {{message}} -->
+    <!-- cards-categorias -->
+    <div class="card-container">
+        <div  [ngClass]="{'scrolled': isScrolled}"  class="card">
+            <img src="https://res.cloudinary.com/dvvhnrvav/image/upload/v1711381148/Productos/bxzvlisgpti0y6icoize.webp"
+                alt="Producto" class="card-image">
+            <!-- <img src="ruta/a/imagen-del-producto.jpg" alt="Producto" class="card-image"> -->
+            <div class="card-content">
+                <h2 class="card-title">Paseo y transporte</h2>
+                <p class="card-description">Descripción breve del producto...</p>
+                <a href="#" class="card-button">Ver Más</a>
+            </div>
+        </div>
+        <div class="card">
+            <!-- <img src="ruta/a/imagen-del-producto.jpg" alt="Producto" class="card-image"> -->
+            <img src="https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/Productos/vd3p6y7rrit1qtljjhzw.webp"
+                alt="Producto" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">Alimentación y lactancia</h2>
+                <p class="card-description">Descripción breve del producto...</p>
+                <a href="#" class="card-button">Ver Más</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://res.cloudinary.com/dvvhnrvav/image/upload/v1711454953/Productos/iutpunwivor0jyh7vefk.webp"
+                alt="Producto" class="card-image">
+            <!-- <img src="ruta/a/imagen-del-producto.jpg" alt="Producto" class="card-image"> -->
+            <div class="card-content">
+                <h2 class="card-title">"ropa para bebé"</h2>
+                <p class="card-description">Descripción breve del producto...</p>
+                <a href="#" class="card-button">Ver Más</a>
+            </div>
+        </div>
+        <!-- Repite la estructura de la tarjeta para más productos -->
+    </div>
 
     </div>
-</div>
-<!-- <div class="div"> -->
-
-        <a href="#" class="button">Get Started > </a>
-<!-- </div> -->
-</body>
-
-
-
-<!-- <app-footer>
-</app-footer> -->
+<!-- </body> -->

@@ -1,5 +1,15 @@
 @import 'primeng/resources/primeng.min.css';
-
+body {
+    // , linear-gradient(black 80%, transparente);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Hace que la imagen de fondo cubra todo el cuerpo */
+    background-position: center;
+    margin-top: -90px;
+    // mask-image: linear-gradient(black 80%,transparente)
+    // height: 00vh;
+    /* Centra la imagen de fondo */
+}
 @import 'primeicons/primeicons.css';
 @import 'primeng/resources/themes/saga-blue/theme.css';
 // Uncomment the following lines if you want to add a custom palette:

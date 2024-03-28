@@ -59,6 +59,7 @@ header {
     position: -webkit-sticky; /* Para Safari */
     position: sticky;
     top: 0;
+    
     z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
 }
 @import url(https://fonts.googleapis.com/css2?family=ArchivoBlack:wght@100;200;300;400;500;600;700&display=swap);
@@ -70,10 +71,9 @@ header {
 backdrop-filter: blur(5px); 
 /* background: #000000; */
 font-family: 'ArchivoBlack';
-background-color:rgba(198, 255, 175, 0.877);
-// background: linear-gradient(180deg, #fffee9 0%, #9fe9cd 100%);
-// background: linear-gradient(180deg, #fff1ad 0%, #80ff9f 100%);
-// background: linear-gradient(180deg, #b0fff8 0%, #bcffad 100%);
+// background-color:#c6ffafe0;
+    background: linear-gradient(180deg, #9eeb848d 0%, #dbff889a 100%);
+
 
 /* background-color: #ffffff; */
 
@@ -86,13 +86,10 @@ background-color:rgba(198, 255, 175, 0.877);
   header.scrolled {
 // /*  */
 //     background: linear-gradient(0deg, rgba(112, 112, 112, 0.652) 0%, rgba(37, 45, 55, 0.723) 200%); 
-background: #ecffcb;
+background: #dbff9e6f;
     /* Color cuargb(131, 129, 129)plazado */
 backdrop-filter: blur(5px); 
 border-bottom:dashed  3px rgba(255, 169, 169, 0.964);
-
-
-
 }
 
 

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Emitters } from '../../Emitters/Emitter';
 @Component({
   selector: 'app-principal',
+
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
 
   
+  isScrolled: boolean = false;
 
 
   message!: string;
@@ -35,6 +37,21 @@ export class PrincipalComponent implements OnInit {
       }
       )
     
+  }
+
+  
+
+
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    // const imagen = document.getElementById('imagen');
+    // const imagenHeight = imagen?.offsetHeight;
+    // const imagenTop = imagen, getBoundingClientRect().top + window.pageXOffset;
+    
+
+    this.isScrolled = window.scrollY  >150;
+    // this
   }
 
 }

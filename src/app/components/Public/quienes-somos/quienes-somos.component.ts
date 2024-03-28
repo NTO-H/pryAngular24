@@ -1,8 +1,8 @@
-import { Comentario } from './../../../models/comentario';
+import { Comentario } from '../../../models/comentario';
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { UsuarioService } from './../../../services/usuario.service';
+import { UsuarioService } from '../../../services/usuario.service';
 // import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -32,8 +32,7 @@ import { ComentarioService } from 'src/app/services/comentario.service';
 
 @Component({
   selector: 'app-quienes-somos',
-  standalone: false,
-  // imports: [],
+ 
   templateUrl: './quienes-somos.component.html',
   styleUrls: ['./quienes-somos.component.scss']
 })

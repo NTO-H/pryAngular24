@@ -1,3 +1,4 @@
+import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes-somos.component';
 import { CarritoComponent } from './components/shared/carrito/carrito.component';
 import { DialogModule } from 'primeng/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -9,7 +10,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { MessageService } from 'primeng/api';
+import { Footer, MessageService } from 'primeng/api';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { AppComponent } from './app.component';
 import { CrearProductoComponent } from './components/Admin/producto/crear-producto/crear-producto.component';
@@ -87,7 +88,6 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
-import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes-somos.component';
 import { IotComponent } from './components/iot/iot.component';
 import { AdmHeaderComponent } from './components/Admin/adm-header/adm-header.component';
 import { ClientHeaderComponent } from './components/client/client-header/client-header.component';
@@ -106,13 +106,13 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
 @NgModule({
 
   declarations: [
-  
-    AppComponent, AyudaComponent, AdmHeaderComponent, IotComponent,
+    PoliticasComponent,QuienesSomosComponent,
+    AppComponent, AyudaComponent, AdmHeaderComponent,FooterComponent,
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
-    CrearProductoComponent, RecuperacionComponent,QuienesSomosComponent,PreguntasComponent,
+    CrearProductoComponent, RecuperacionComponent,PreguntasComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
-    DetalleProductoComponent,AuthComponent,IotComponent,ListarProductosComponent,ClientHomeComponent,
-    FilterPipe, CardsProductosComponent, FooterComponent, HeaderComponent,PoliticasComponent,
+    DetalleProductoComponent,AuthComponent,IotComponent,
+    FilterPipe, CardsProductosComponent,
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
@@ -123,7 +123,7 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,
     HttpClientModule, MatListModule, MatIconButton, BreadcrumbModule, MatSliderModule,
     FormsModule, MatButtonModule, MatIconModule, MatDrawer, MatPaginatorModule, MatButtonToggleModule,
-    ButtonModule, ProgressSpinnerModule, MatSidenavModule, MatInputModule, ToastModule, InputTextModule
+    ButtonModule, ProgressSpinnerModule, MatSidenavModule, MatInputModule, ToastModule 
 
   ], exports: [
     IotComponent

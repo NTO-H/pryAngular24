@@ -10,7 +10,6 @@ import { CrearProductoComponent } from './components/Admin/producto/crear-produc
 import { DetalleProductoComponent } from './components/Public/detalle-producto/detalle-producto.component';
   import { FilterPipe } from './pipes/filter/filter.pipe';
 import {HeaderComponent} from './components/shared/header/header.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
 import { PrincipalComponent } from './components/Public/principal/principal.component';
 import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes-somos.component';
 import { AuthComponent } from './components/Auth/Auth.component';

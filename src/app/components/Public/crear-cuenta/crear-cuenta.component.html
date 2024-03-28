@@ -1,9 +1,9 @@
 <body>
     <div>
 
-        <div class="frm-container">
+        <div *ngIf="esFormulario1"  class="frm-container">
             <div class="container">
-                <form method="post" [formGroup]="usuarioForm" (ngSubmit)="registrarUsuario()">
+                <form method="post" [formGroup]="frmSeccionDatosPersonales" (ngSubmit)="tomarDatosPersonales()">
                     <h2>Registro de usuarios</h2>
                     <div class="conteninesinput">
                         <p-avatar image="../../../../assets/images/logo1.jpeg" styleClass="mr-2" size="xlarge"
@@ -26,59 +26,71 @@
                             <label for="correo">Correo</label>
                         </span>
                     </div>
-                    <div *ngIf="!ValidarCorreo(usuarioForm?.get('correo')?.value)">
+                    <div *ngIf="!ValidarCorreo(frmSeccionDatosPersonales?.get('correo')?.value)">
                         <p style="color: red;">el correo no es valido</p>
                     </div>
                     <div class="conteninesinput">
                         <span class="p-float-label">
-                            <input pInputText  [(ngModel)]="value"  pKeyFilter="int" formControlName="telefono" id="telefono" (input)="limitarLongitud($event)"
-                                pattern="[0-9]*"  />
+                            <input pInputText [(ngModel)]="value" pKeyFilter="int" formControlName="telefono"
+                                id="telefono" (input)="limitarLongitud($event)" pattern="[0-9]*" />
                             <label for="telefono">Número telefónico</label>
-                            <span class="character-counter">{{ usuarioForm.get('telefono')?.value ?
-                                usuarioForm.get('telefono')?.value.toString().length : 0 }}/10</span>
+                            <span class="character-counter">{{ frmSeccionDatosPersonales.get('telefono')?.value ?
+                                frmSeccionDatosPersonales.get('telefono')?.value.toString().length : 0 }}/10</span>
                         </span>
                     </div>
+                    <button type="submit" class="btn"> Siguiente</button>
 
                     <br>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                    <div class="conteninesinput">
-                        <span class="p-float-label">
-                            <p-password formControlName="pass" [toggleMask]="true">
-                                <ng-template pTemplate="header">
-                                    <h6>Pick a password</h6>
-                                </ng-template>
-                                <ng-template pTemplate="footer">
-                                    <p-divider></p-divider>
-                                    <p class="mt-2">Suggestions</p>
-                                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-                                        <li>At least one lowercase</li>
-                                        <li>At least one uppercase</li>
-                                        <li>At least one numeric</li>
-                                        <li>Minimum 8 characters</li>
-                                    </ul>
-                                </ng-template>
-                            </p-password>
-                            <label for="pass">Contraseña:</label>
-                        </span>
-                    </div>
-                    <br>
-                    <div class="conteninesinput">
-                        <span class="p-float-label">
-                            <p-password formControlName="confirmpass" [toggleMask]="true">
-                                <ng-template pTemplate="header">
-                                    <h6>Confirmar contraseña</h6>
-                                </ng-template>
-                            </p-password>
-                            <label for="confirmPass">Confirmar Contraseña:</label>
-                        </span>
-                    </div>
+    <!-- aqui comienza el otro formulario -->
 
-                    <div
-                        *ngIf="usuarioForm?.get('pass') && usuarioForm?.get('confirmpass') && !ValidaPass(usuarioForm?.get('pass')?.value, usuarioForm?.get('confirmpass')?.value)">
-                        <p style="color: red;">Las contraseñas no coinciden</p>
-                    </div>
-                    
-<!-- <div class="conteninesinput">
+    <div   *ngIf="esFormulario2" class="frm-container">
+        <div class="container">
+            <form method="post" [formGroup]="frmSeccionDatosPrivados" (ngSubmit)="registrarUsuario()">
+                <h2>Registro de usuarios</h2>
+                <div class="conteninesinput">
+                    <span class="p-float-label">
+                        <p-password formControlName="pass" [toggleMask]="true">
+                            <ng-template pTemplate="header">
+                                <h6>Pick a password</h6>
+                            </ng-template>
+                            <ng-template pTemplate="footer">
+                                <p-divider></p-divider>
+                                <p class="mt-2">Suggestions</p>
+                                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                    <li>At least one lowercase</li>
+                                    <li>At least one uppercase</li>
+                                    <li>At least one numeric</li>
+                                    <li>Minimum 8 characters</li>
+                                </ul>
+                            </ng-template>
+                        </p-password>
+                        <label for="pass">Contraseña:</label>
+                    </span>
+                </div>
+                <br>
+                <div class="conteninesinput">
+                    <span class="p-float-label">
+                        <p-password formControlName="confirmpass" [toggleMask]="true">
+                            <ng-template pTemplate="header">
+                                <h6>Confirmar contraseña</h6>
+                            </ng-template>
+                        </p-password>
+                        <label for="confirmPass">Confirmar Contraseña:</label>
+                    </span>
+                </div>
+
+                <div
+                    *ngIf="frmSeccionDatosPrivados?.get('pass') && frmSeccionDatosPrivados?.get('confirmpass') && !ValidaPass(frmSeccionDatosPrivados?.get('pass')?.value, frmSeccionDatosPrivados?.get('confirmpass')?.value)">
+                    <p style="color: red;">Las contraseñas no coinciden</p>
+                </div>
+
+
+                <!-- <div class="conteninesinput">
     <label for="inputState">selecciona una pregunta</label>
     <select class="form-control large-select" formControlName="pregunta">
         <option selected>Seleccione...</option>
@@ -89,34 +101,36 @@
     <i class="fas fa-chevron-down"></i>
 </div>
  -->
-<div class="conteninesinput">
+                <!-- <div class="conteninesinput">
     <label for="pregunta">Selecciona una pregunta</label>
     <select class="form-control" formControlName="pregunta">
         <option value="" disabled selected>Seleccione...</option>
         <option *ngFor="let preguntaItem of preguntas" [value]="preguntaItem.label">{{ preguntaItem.label }}</option>
     </select>
-</div>
+</div> -->
 
 
 
 
-<!-- <div class="conteninesinput">
+                <div class="conteninesinput">
     <label for="inputState">Selecciona una pregunta</label>
     <p-dropdown [options]="preguntas" placeholder="Seleccione..." formControlName="pregunta" optionLabel="label"
         appendTo="body" [style]="{'width': '100%'}">
     </p-dropdown>
 </div>
- -->
 
-                    <div class="conteninesinput">
-                        <span class="p-float-label">
-                            <input formControlName="respuesta" pInputText id="correo" />
-                            <label for="correo">respuesta</label>
-                        </span>
-                    </div>
-                    <button type="submit" class="btn"> Registrarme</button>
-                </form>
-            </div>
+
+                <div class="conteninesinput">
+                    <span class="p-float-label">
+                        <input formControlName="respuesta" pInputText id="correo" />
+                        <label for="correo">respuesta</label>
+                    </span>
+                </div>
+                <button type="submit" class="btn"> Registrarme</button>
+                <!-- aqui termina el primer formulario -->
+            </form>
         </div>
     </div>
+
+
 </body>

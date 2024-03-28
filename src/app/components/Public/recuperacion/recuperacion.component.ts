@@ -1,16 +1,8 @@
-// import { Swal } from 'sweetalert2';
-// import { Component } from '@angular/core';
-
-// import { Component } from ‘@angular/core’;
-// import { MessageService } from 0./services/message.service’;
 import { mensageservice } from 'src/app/services/mensage.service';
-// import Swal, * as swal from 'sweetalert2';]
 import Swal from 'sweetalert2';
-
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-
 import { MatTabsModule } from '@angular/material/tabs';
 // import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -41,14 +33,10 @@ import { TREESELECT_VALUE_ACCESSOR } from 'primeng/treeselect';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-
-
   selectedOption: string = 'email';
-
   selectOption(event: any) {
     this.selectedOption = event.target.value;
   }
-
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
@@ -56,19 +44,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 @Component({
   selector: 'app-recuperacion',
-  // standalone: true,
-  // imports: [],
-
   templateUrl: './recuperacion.component.html',
   styleUrls: ['./recuperacion.component.scss']
 })
 export class RecuperacionComponent {
-
-
-
-
-
-
   preguntas = [
     { label: '¿nombre de tu mejor amigo?', value: 'nombre_amigo' },
     { label: '¿color favorito?', value: 'color_favorito' },
@@ -81,7 +60,6 @@ export class RecuperacionComponent {
   frmPregunta: FormGroup;
   frmActualizaPassword: FormGroup;
   
-
   value: string | undefined;
 
   // value!: string;
@@ -115,8 +93,6 @@ export class RecuperacionComponent {
 
     this.frmbuscarCorreo = this.formBuilder.group({
       correo: new FormControl('', [Validators.required, Validators.email]),
-      // correo: new FormControl('', [Validators.required, Validators.email]),
-
     })
 
 
@@ -128,19 +104,12 @@ export class RecuperacionComponent {
       pregunta: ['', Validators.required], // Hacer que la pregunta sea requerida
       respuesta: ['', Validators.required],
     })
-  
     
     this.frmActualizaPassword = this.formBuilder.group({
-
       nueva: new FormControl('', [Validators.required]),
       confirma: new FormControl('', [Validators.required]),
-      // password2: ['', Validators.required]
     })
   }
-
-
-
-
 
   inputControl: FormControl = new FormControl('');
   ngOnInit() {
@@ -154,14 +123,13 @@ export class RecuperacionComponent {
     if (this.frmSeleccionMetodoRecuperacion.value.opcion == "correo") {
       this.esFrmCorreo = true;
 
-       console.log('actualizarPasswordxCorreo')
+      console.log('actualizarPasswordxCorreo')
       this.toastr.info(`Has seleccionado la opción de recuperación por correo.`, 'Selección');
     } else if (this.frmSeleccionMetodoRecuperacion.value.opcion == "pregunta") {
-        // this.actualizarPasswordPorPregunta();
         console.log('actualizarPasswordPorPregunta')
       this.toastr.info(`Has seleccionado la opción de recuperación por pregunta.`, 'Selección');
       this.esFrmPregunta = true;
-     
+    
     } else {
       this.toastr.error(`Debes seleccionar una opción de recuperación.`, 'Error');
     }
