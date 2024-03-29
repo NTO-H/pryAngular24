@@ -152,8 +152,9 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
     }
   }
   editar(_id:any) {
-  console.log("esEditar")
+  console.log("esEditar",_id)
     if (_id) {
+      console.log(_id)
       this.titulo = 'Editar Politica';
       this.btnTitle = 'Actualizar';
       this.adminService.obtenerPolitica(_id).subscribe((data) => {
@@ -168,7 +169,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
 
   eliminarPolitica(id:any){
-    console.log("esEliminar")
+    console.log("esEliminar=>",id)
     this.adminService.eliminarPolitica(id).subscribe((data)=>{
     
     this.toastr.success('Politica eliminado con éxito','Politica eliminado')
