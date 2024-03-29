@@ -166,8 +166,9 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
     
 
     if (this.id !== null) {
-    
-    this.adminService.eliminarPolitica(this.id).subscribe((data)=>{
+      console.log("no entró!!")
+
+    this.adminService.eliminarPolitica(id).subscribe((data)=>{
     
     this.toastr.success('Politica eliminado con éxito','Politica eliminado')
     
