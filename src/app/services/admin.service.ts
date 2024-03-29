@@ -71,8 +71,8 @@ export class AdminService {
   }
 
 
-  editarPolitica(id: string, pregunta:Pregunta) {
-    return this.http.put<any>(this.url + 'politica/' + id, pregunta);
+  editarPolitica(id: string, politica:Politica) {
+    return this.http.put<any>(this.url + 'politica/' + id, politica);
   }
 
 
