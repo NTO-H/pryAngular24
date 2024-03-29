@@ -72,17 +72,6 @@ constructor(private _productoService:ProductoService,private toastr:ToastrServic
     }) 
   }
 
-
-//   detalleProductoById(id: any) {
-  
-//     this._productoService.detalleProductoById(id).subscribe(data=>{
-
-//   // this.detalleProductoById(id);
-//   this.listProductos=data;
-// })
-    
-//   }
-
   eliminarProducto(id:any){
 
     this._productoService.eliminarProducto(id).subscribe(data=>{

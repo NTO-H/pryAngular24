@@ -120,8 +120,6 @@ export class AgregarPreguntasComponent {
         this.frmAgregarPreguntas.setValue({
           titulo: data.titulo,
           contenido: data.contenido,
-         
-          // imagen: data.imagen
         });
       });
     }
