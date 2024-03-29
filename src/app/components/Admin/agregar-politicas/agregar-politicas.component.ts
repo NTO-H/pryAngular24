@@ -16,7 +16,10 @@ import { error } from 'console';
 })
 export class AgregarPoliticasComponent {
   frmAgregarPoliticas: FormGroup;
+  titulo = 'Agregar Politica';
+  btnTitle = 'Agregar';
 
+  
   id : string | null;
   listPoliticas: Politica[]=[]
   
@@ -128,12 +131,30 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
   esEditar() {
   
     if (this.id !== null) {
-    
-    
+      this.titulo = 'Editar Politica';
+      this.btnTitle = 'Actualizar';
+      this.adminService.obtenerPolitica(this.id).subscribe((data) => {
+        this.frmAgregarPoliticas.setValue(
+          {
+            titulo : data.titulo,
+            contenido :data.contenido
+          })
+      })
     }
   }
 
 
+  eliminarPolitica(id:any){
+  
+    this.adminService.eliminarPolitica(id).subscribe((data)=>{
+    
+    this.toastr.success('Politica eliminado con éxito','Politica eliminado')
+    
+    }, error => {
+      this.toastr.error('Politica no  elimando', 'Falló al eliminar')
+
+    })
+  }
 
 
 
