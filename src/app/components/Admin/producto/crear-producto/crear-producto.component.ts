@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/models/producto';
+import { Categoria, Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { MessageService } from 'primeng/api';
 
@@ -17,7 +17,7 @@ export class CrearProductoComponent implements OnInit {
   btnTitle = 'crear';
   id: string | null;
   selectedFile: File | null = null; // Inicializa con null
-  categorias:any []=[]
+  categorias:Categoria []=[]
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -51,11 +51,11 @@ export class CrearProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
+     this.obtenerCategorias();
     this.esEditar();
   }
   agregarProducto() {
-    this.obtenerCategorias();
+ 
     // Obtener los valores del formulario
     const productoNombre = this.productoForm.get('producto')?.value;
     const productoCategoria = this.productoForm.get('categoria')?.value;
@@ -129,7 +129,7 @@ export class CrearProductoComponent implements OnInit {
   }
 
   obtenerCategorias() {
-    this._productoService.getCategorias().subscribe((data) => {
+    this._productoService.getCategorias().subscribe((data: Categoria[]) => {
       this.categorias= data;
       // console.log(this.categorias)
     })

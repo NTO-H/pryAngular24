@@ -14,3 +14,17 @@ export class Producto {
         this.imagen = imagen;
     }
 }
+
+
+export class Categoria { 
+    _id?: number;
+    nombre: string;
+
+
+    constructor(nombre: string) {
+        this.nombre = nombre;
+    
+    }
+}
+
+

@@ -29,7 +29,7 @@ export class ProductoService {
   }
 
   getCategorias(): Observable<any>{
-    return this.http.get(this.url +'obtenerCategorias')
+    return this.http.get<any>(this.url +'obtenerCategorias')
   }
 
   eliminarProducto(id: string): Observable<any> {
