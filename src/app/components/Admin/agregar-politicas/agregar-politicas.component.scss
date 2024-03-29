@@ -124,8 +124,8 @@ button[type="submit"] {
     align-items: center;
 }
 
-#btn-delete,
-#btn-update {
+.btn-delete,
+.btn-update {
     font-family: Arial, sans-serif;
     font-size: 16px;
     padding: 10px 20px;
@@ -136,23 +136,23 @@ button[type="submit"] {
     display: flex;
     align-items: center;
 }
-#btn-delete {
+.btn-delete {
     background-color: #f1886a;
     color: #16232d;
 }
 
-#btn-update {
+.btn-update {
     background-color: #508a5b;
     color: #16232d;
 }
-#btn-delete:hover {
+.btn-delete:hover {
     background-color: darken(#ff6549, 10%);
 }
-#btn-update:hover {
+.btn-update:hover {
     background-color: darken(#5aff78, 10%);
 }
 
-#btn-delete i,
-#btn-update i {
+.btn-delete i,
+.btn-update i {
     margin-right: 5px;
 }
