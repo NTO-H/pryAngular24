@@ -1,6 +1,7 @@
 import { QuienesSomosComponent } from './components/Public/quienes-somos/quienes-somos.component';
 import { CarritoComponent } from './components/shared/carrito/carrito.component';
 import { DialogModule } from 'primeng/dialog';
+// import { DialogModule } from 'primeng/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
 // import { MatButtonModule } from 'primeng/breadcrumb';
 // import { InputTextModule } from 'primeng/inputtext';
@@ -117,7 +118,7 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
     BrowserModule, CommonModule, AccordionModule, InputNumberModule, InputTextareaModule,
-    AppRoutingModule, PasswordModule, MatRadioModule,
+    AppRoutingModule, PasswordModule, MatRadioModule, DialogModule,
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule, InputTextModule,
     BrowserAnimationsModule, InputGroupModule, MdbAccordionModule, TabViewModule,
     ToastrModule.forRoot(), CardModule, DividerModule, MenubarModule,

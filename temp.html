@@ -1,0 +1,19 @@
+<h2>{{titulo | uppercase}}</h2>
+<form [formGroup]="frmAgregarPoliticas" (ngSubmit)="agregarPolitica()" method="post">
+    <div class="form-group">
+        <label for="titulo">Título:</label>
+        <input formControlName="titulo" type="text" id="titulo">
+    </div>
+    <div class="form-group">
+        <label for="contenido">Política:</label>
+        <!-- <span class="p-float-label"> -->
+        <textarea id="float-input" rows="5" cols="30" id="contenido" formControlName="contenido"
+            pInputTextarea></textarea>
+        <!-- <label for="float-input">Summary</label> -->
+        <!-- </span> -->
+        <!-- <input formControlName="contenido" type="text" id="contenido"> -->
+    </div>
+    <button type="submit">
+        {{btnTitle}}
+    </button>
+</form>

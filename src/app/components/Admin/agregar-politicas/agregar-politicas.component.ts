@@ -16,6 +16,15 @@ import { error } from 'console';
 })
 export class AgregarPoliticasComponent {
   frmAgregarPoliticas: FormGroup;
+
+  visible: boolean = false;
+
+  position: string = 'center';
+
+  showDialog(position: string) {
+    this.position = position;
+    this.visible = true;
+  }
   titulo = 'Agregar Politica';
   btnTitle = 'Agregar';
 
