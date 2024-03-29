@@ -19,7 +19,7 @@ import { Producto } from '../models/producto';
 })
 export class ProductoService {
   
-  url = 'https://servidortropicalworld-1.onrender.com/productos';
+  url = 'https://servidortropicalworld-1.onrender.com/productos/';
   
 
   constructor(private http: HttpClient) {}
@@ -29,7 +29,7 @@ export class ProductoService {
   }
 
   getCategorias(): Observable<any>{
-    return this.http.get<any>(this.url +'/obtenerCategorias')
+    return this.http.get<any>(this.url +'obtenerCategorias')
   }
 
   eliminarProducto(id: string): Observable<any> {
