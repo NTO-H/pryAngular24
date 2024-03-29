@@ -131,7 +131,7 @@ export class CrearProductoComponent implements OnInit {
   obtenerCategorias() {
     this._productoService.getCategorias().subscribe((data: Categoria[]) => {
       this.categorias= data;
-      // console.log(this.categorias)
+      console.log(this.categorias)
     })
 
   }
