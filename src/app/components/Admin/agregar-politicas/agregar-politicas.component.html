@@ -1,9 +1,10 @@
 <!-- <body> -->
 <div class="container2">
-        <p-button (click)="showDialog('top')" icon="pi pi-arrow-down" label="Agregar política" styleClass="p-button-warning"></p-button>
+    <p-button (click)="showDialog('top')" icon="pi pi-arrow-down" label="Agregar política"
+        styleClass="p-button-warning"></p-button>
 
 </div>
-<p-dialog header="Header" [(visible)]="visible"  [style]="{ width: '50vw'  ,position:'center'}">
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw'  ,position:'center'}">
     <form [formGroup]="frmAgregarPoliticas" (ngSubmit)="agregarPolitica()" method="post">
         <div class="form-group">
             <label for="titulo">Título:</label>
@@ -21,30 +22,26 @@
 </p-dialog>
 
 
-<div   *ngFor="let politica of listPoliticas"lass="p-grid">
+<div *ngFor="let politica of listPoliticas" lass="p-grid">
     <div class="p-col-12">
         <p-accordion [activeIndex]="0">
-        
+
             <p-accordionTab header="{{politica.titulo}}">
                 <p>{{politica.contenido}}
                 <div class="button-row">
-           
-            
-                <!-- <button class="btn-update"> -->
-                    <i   (click)="editar(politica._id)" class="btn-update fas fa-sync-alt">Editar</i>
-                    
-                <!-- </button>   
-                  <button  class="btn-delete"> -->
-                    <i  (click)="eliminarPolitica(politica._id)" class="btn-delete fas fa-trash-alt">Eliminar</i>
-               
-                <!-- </button> -->
-            </div>
+
+                    <i (click)="esEditar()" class="btn-update fas fa-sync-alt">Editar</i>
+
+                    <i (click)="eliminarPolitica(politica._id)" class="btn-delete fas fa-trash-alt">Eliminar</i>
+
+                
+                </div>
             </p-accordionTab>
-            
+
         </p-accordion>
 
 
-      
+
     </div>
 </div>
 
