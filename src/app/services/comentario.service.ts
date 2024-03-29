@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class ComentarioService {
 
-    // url = 'http://localhost:4000/comentarios/';
     url = 'https://servidortropicalworld-1.onrender.com/comentarios/';
 
     constructor(private http: HttpClient) { }

@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class DispositivoService {
 
-    // url = 'http://localhost:4000/Dispositivos/';
     url = 'https://servidortropicalworld-1.onrender.com/Dispositivos/';
 
     constructor(private http: HttpClient) { }
