@@ -1,5 +1,5 @@
 export class Politica {
-    _id?: number;
+    _id?: string;
     titulo: string;
     contenido: string;
    
@@ -13,7 +13,7 @@ export class Politica {
 }
 
 export class Pregunta {
-    _id?: number;
+    _id?: string;
     titulo: string;
     contenido: string;
    
