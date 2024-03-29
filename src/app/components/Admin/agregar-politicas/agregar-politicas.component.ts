@@ -52,6 +52,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
   ngOnInit(): void {
     this.obtenerPoliticas();
+    this.esEditar();
     
   }
 
@@ -92,7 +93,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
         this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
         
-        this.toastr.success('Politica actulizado correctamente')
+        this.toastr.success('Politica actualizado correctamente')
 
           this.obtenerPoliticas()
         }, (error) => {
@@ -174,7 +175,8 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
       this.toastr.error('Politica no  elimando', 'Falló al eliminar')
 
     })
-    
+    this.obtenerPoliticas()
+
   }
 
 
