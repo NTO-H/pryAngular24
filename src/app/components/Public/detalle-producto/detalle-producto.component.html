@@ -1,32 +1,32 @@
 
 <body>
-  <div
+  <div *ngFor="let productoDetaill of listProductos"
     style="display: flex;margin-top: 0px; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
     <p-progressSpinner *ngIf="isLoading" aria-label="Loading"></p-progressSpinner>
     <p *ngIf="isLoading">Cargando detalles...</p>
 
-  <div *ngIf="listProductos" class="container">
+  <div  class="container">
     <div class="image-section">
-      <img [src]="listProductos.imagen" style="height: 300px; width: 300px;" alt="Descripción de la imagen">
+      <img [src]="productoDetaill.imagen" style="height: 300px; width: 300px;" alt="Descripción de la imagen">
     </div>
     <div class="data-section">
       <h2>Detalles del producto</h2>
-      <h2>Nombre: {{listProductos.nombre}}</h2>
+      <h2>Nombre: {{productoDetaill.nombre}}</h2>
       <ul>
       <!-- <p>Descripción del producto:{{listProductos.descripcion}}</p> -->
-        <li><h2>Precio:<strong>{{listProductos.precio}}</strong></h2> </li>
-        <li><h2>Categoría:{{listProductos.categoria}}</h2></li>
+        <li><h2>Precio:<strong>{{productoDetaill.precio}}</strong></h2> </li>
+        <li><h2>Categoría:{{productoDetaill.categoria}}</h2></li>
         <!-- Agrega más detalles según sea necesario -->
       </ul>
     </div>
   </div>
 </div>
 
-<div  class="contiene-descripcion">
+<div   *ngFor="let productoDetaill of listProductos" class="contiene-descripcion">
   <div>
     <h1>Descripción</h1>
     <h4>
-      {{listProductos.descripcion}}
+      {{productoDetaill.descripcion}}
     </h4>
   </div>
 

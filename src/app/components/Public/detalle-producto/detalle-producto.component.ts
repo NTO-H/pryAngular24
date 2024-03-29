@@ -8,7 +8,7 @@ import { ProductoService } from 'src/app/services/producto.service';
   styleUrls: ['./detalle-producto.component.css']
 })
 export class DetalleProductoComponent implements OnInit {
-  listProductos!: Producto;
+  listProductos: Producto[] = [];
   idproduct!: string
 
   isLoading = true;//variable rastreador de carga de producto
