@@ -62,9 +62,8 @@ export class AdminService {
   // politica
 
   eliminarPolitica(id: string): Observable<any> {
-    return this.http.delete(this.url + 'eliminarPolitica/'+id);
+    return this.http.delete(`${this.url}eliminarPolitica/${id}`);
   }
-
 
   obtenerPolitica(id: string): Observable<any> {
     return this.http.get(this.url + 'politica/' + id);
