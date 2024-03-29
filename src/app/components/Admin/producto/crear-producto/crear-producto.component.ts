@@ -17,7 +17,7 @@ export class CrearProductoComponent implements OnInit {
   btnTitle = 'crear';
   id: string | null;
   selectedFile: File | null = null; // Inicializa con null
-
+  categorias:any []=[]
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -51,9 +51,11 @@ export class CrearProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
     this.esEditar();
   }
   agregarProducto() {
+    this.obtenerCategorias();
     // Obtener los valores del formulario
     const productoNombre = this.productoForm.get('producto')?.value;
     const productoCategoria = this.productoForm.get('categoria')?.value;
@@ -124,5 +126,13 @@ export class CrearProductoComponent implements OnInit {
         });
       });
     }
+  }
+
+  obtenerCategorias() {
+    this._productoService.getCategorias().subscribe((data) => {
+      this.categorias= data;
+      // console.log(this.categorias)
+    })
+
   }
 }

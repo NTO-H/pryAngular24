@@ -20,6 +20,7 @@ import { Producto } from '../models/producto';
 export class ProductoService {
   
   url = 'https://servidortropicalworld-1.onrender.com/productos';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -27,6 +28,9 @@ export class ProductoService {
     return this.http.get(this.url);
   }
 
+  getCategorias(): Observable<any>{
+    return this.http.get(this.url +'obtenerCategorias')
+  }
 
   eliminarProducto(id: string): Observable<any> {
     return this.http.delete(this.url + id);
