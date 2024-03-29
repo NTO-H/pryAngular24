@@ -165,9 +165,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
     console.log("esEliminar=>", id)
     
 
-    if (this.id !== null) {
-      console.log("no entró!!")
-
+    
     this.adminService.eliminarPolitica(id).subscribe((data)=>{
     
     this.toastr.success('Politica eliminado con éxito','Politica eliminado')
@@ -176,7 +174,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
       this.toastr.error('Politica no  elimando', 'Falló al eliminar')
 
     })
-    }
+    
   }
 
 
