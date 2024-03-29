@@ -11,17 +11,6 @@ import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'
   styleUrls: ['./listar-productos.component.scss']
 })
 
-// @NgModule({
-//   declarations: [
-//     // ... tus componentes
-//   ],
-//   imports: [
-//     FormsModule,
-//     ReactiveFormsModule,
-//     // ... otros módulos
-//   ],
-//   // ...
-// })
 export class ListarProductosComponent implements OnInit{
 
   listProductos:Producto[]=[];

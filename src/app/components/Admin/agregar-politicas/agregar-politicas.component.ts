@@ -124,12 +124,6 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
 
     }
-    
-  
-
-
-
-    this.toastr.success("agregado",'succes');
   }
 
 
@@ -154,7 +148,6 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
   editar(_id:any) {
   console.log("esEditar",_id)
     if (_id) {
-      console.log(_id)
       this.titulo = 'Editar Politica';
       this.btnTitle = 'Actualizar';
       this.adminService.obtenerPolitica(_id).subscribe((data) => {
@@ -169,8 +162,12 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
 
   eliminarPolitica(id:any){
-    console.log("esEliminar=>",id)
-    this.adminService.eliminarPolitica(id).subscribe((data)=>{
+    console.log("esEliminar=>", id)
+    
+
+    if (this.id !== null) {
+    
+    this.adminService.eliminarPolitica(this.id).subscribe((data)=>{
     
     this.toastr.success('Politica eliminado con éxito','Politica eliminado')
     
@@ -178,6 +175,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
       this.toastr.error('Politica no  elimando', 'Falló al eliminar')
 
     })
+    }
   }
 
 

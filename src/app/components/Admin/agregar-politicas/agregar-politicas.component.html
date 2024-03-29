@@ -27,16 +27,18 @@
         
             <p-accordionTab header="{{politica.titulo}}">
                 <p>{{politica.contenido}}<div class="button-row">
-                <button  class="btn-delete">
-                    <i (click)="eliminarPolitica(politica._id)" class="fas fa-trash-alt"></i>
-                    Eliminar
-                </button>
+           
             
                 <button class="btn-update">
                     <i (click)="editar(politica._id)" class="fas fa-sync-alt"></i>
                     Editar
+                </button>   
+                  <button  class="btn-delete">
+                    <i (click)="eliminarPolitica(politica._id)" class="fas fa-trash-alt"></i>
+                    Eliminar
                 </button>
-            </div></p-accordionTab>
+            </div>
+            </p-accordionTab>
             
         </p-accordion>
 
