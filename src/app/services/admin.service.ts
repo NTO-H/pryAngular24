@@ -44,17 +44,17 @@ export class AdminService {
 
 
   eliminarPregunta(id: string): Observable<any> {
-    return this.http.delete(this.url+'pregunta' + id);
+    return this.http.delete(this.url+'pregunta/' + id);
   }
 
 
   obtenerPregunta(id: string): Observable<any> {
-    return this.http.get(this.url +'pregunta'+ id);
+    return this.http.get(this.url +'pregunta/'+ id);
   }
 
 
   editarPregunta(id: string, pregunta:Pregunta) {
-    return this.http.put<any>(this.url +'pregunta'+ id, pregunta);
+    return this.http.put<any>(this.url +'pregunta/'+ id, pregunta);
   }
 
 
@@ -62,17 +62,17 @@ export class AdminService {
   // politica
 
   eliminarPolitica(id: string): Observable<any> {
-    return this.http.delete(this.url + 'politica'+id);
+    return this.http.delete(this.url + 'politica/'+id);
   }
 
 
   obtenerPolitica(id: string): Observable<any> {
-    return this.http.get(this.url + 'politica' + id);
+    return this.http.get(this.url + 'politica/' + id);
   }
 
 
   editarPolitica(id: string, pregunta:Pregunta) {
-    return this.http.put<any>(this.url + 'politica' + id, pregunta);
+    return this.http.put<any>(this.url + 'politica/' + id, pregunta);
   }
 
 
