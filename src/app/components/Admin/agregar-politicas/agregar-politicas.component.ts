@@ -155,7 +155,9 @@ console.log("id obtenido=>",this.id)
   }
 
 
-  editar(_id:any) {
+  editar(_id: any) {
+    // this.position = position;
+    this.visible = true;
   console.log("esEditar",_id)
     if (_id) {
       this.titulo = 'Editar Politica';
