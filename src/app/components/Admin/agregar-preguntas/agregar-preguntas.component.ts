@@ -101,11 +101,14 @@ export class AgregarPreguntasComponent {
         this.btnTitle = 'Agregar';
           this.obtenerPreguntas()
         
-          this.toastr.info('Pregunta actualizado con éxito!', 'Actualizado');
+        this.toastr.info('Pregunta actualizado con éxito!', 'Actualizado');
+        this.frmAgregarPreguntas.reset();
         },
         (error) => {
           this.toastr.error('Ocurrio un error al actualizar la Pregunta')
+          this.frmAgregarPreguntas.reset();
         }
+        
       )
     } else {
       this.adminService.registrarPreguntas(PREGUNTA).subscribe(data => {
@@ -113,8 +116,10 @@ export class AgregarPreguntasComponent {
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
         this.obtenerPreguntas()
+        this.frmAgregarPreguntas.reset();
       }, error => {
         this.toastr.error('ocurrio un error!', 'Error');
+        this.frmAgregarPreguntas.reset();
       })
     }
   }
