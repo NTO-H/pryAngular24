@@ -96,10 +96,12 @@ export class AgregarPreguntasComponent {
     if (this.id !== null) {
       // Si es una edición, llamar al método editarProducto con el ID y el objeto formData
       this.adminService.editarPregunta(this.id, PREGUNTA).subscribe(()=>{
+        this.id = null;
+        this.titulo = 'Agregar Pregunta';
+        this.btnTitle = 'Agregar';
+          this.obtenerPreguntas()
         
           this.toastr.info('Pregunta actualizado con éxito!', 'Actualizado');
-          this.obtenerPreguntas()
-
         },
         (error) => {
           this.toastr.error('Ocurrio un error al actualizar la Pregunta')
