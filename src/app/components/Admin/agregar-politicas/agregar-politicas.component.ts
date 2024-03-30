@@ -89,13 +89,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
 
   }
-
-
-
-
-
-
-
+  
 
 
 
@@ -117,22 +111,22 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
     // const politica=this.frmAgregarPoliticas.get('politicas')?.value
 
-      // if(this.id!==null){
+      if(this.id!==null){
 
-      //   this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
+        this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
         
-      //   this.toastr.success('Politica actualizado correctamente')
+        this.toastr.success('Politica actualizado correctamente')
 
-      //     this.obtenerPoliticas()
-      //   }, (error) => {
-      //   this.toastr.error('Ocurrio un error al actualizar la politica')
+          this.obtenerPoliticas()
+        }, (error) => {
+        this.toastr.error('Ocurrio un error al actualizar la politica')
         
-      //   }
+        }
           
 
-      //   )        
+        )        
       
-      // } else {
+      } else {
 
 
       this.adminService.registrarPoliticas(POLITICA).subscribe(data => {
@@ -149,7 +143,7 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
 
         
       })
-      // }
+      }
 
 
     }
@@ -176,20 +170,20 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
   }
 
   
-  // editar(_id:any) {
-  // console.log("esEditar",_id)
-  //   if (_id) {
-  //     this.titulo = 'Editar Politica';
-  //     this.btnTitle = 'Actualizar';
-  //     this.adminService.obtenerPolitica(_id).subscribe((data) => {
-  //       this.frmAgregarPoliticas.setValue(
-  //         {
-  //           titulo : data.titulo,
-  //           contenido :data.contenido
-  //         })
-  //     })
-  //   }
-  // }
+  editar(_id:any) {
+  console.log("esEditar",_id)
+    if (_id) {
+      this.titulo = 'Editar Politica';
+      this.btnTitle = 'Actualizar';
+      this.adminService.obtenerPolitica(_id).subscribe((data) => {
+        this.frmAgregarPoliticas.setValue(
+          {
+            titulo : data.titulo,
+            contenido :data.contenido
+          })
+      })
+    }
+  }
 
 
 

@@ -15,15 +15,7 @@ export class ListarProductosComponent implements OnInit{
 
   listProductos:Producto[]=[];
   filterProducts = '';
-  
-
-
-
-
-
-  
   // imagen inicio
-
   photoSelected: string | ArrayBuffer|null=null;
   file: File | null = null;
   

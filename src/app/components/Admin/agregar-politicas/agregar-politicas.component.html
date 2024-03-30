@@ -1,9 +1,9 @@
 <!-- <body> -->
-<!-- <div class="container2"> -->
+<div class="container2">
     <p-button (click)="showDialog('top')" icon="pi pi-arrow-down" label="Agregar política"
         styleClass="p-button-warning"></p-button>
 
-<!-- </div> -->
+</div>
 <p-dialog header="{{titulo}}" [(visible)]="visible" [style]="{ width: '50vw'  ,position:'center'}">
 <form [formGroup]="frmAgregarPoliticas" (ngSubmit)="agregarPolitica()">
     <div class="form-group">
