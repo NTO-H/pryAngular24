@@ -20,7 +20,8 @@ export class AgregarPreguntasComponent {
   id: string | null;
 
 
-
+  titulo = 'Agregar Pregunta';
+  btnTitle = 'Agregar';
   frmAgregarPreguntas: FormGroup;
 
 
@@ -121,6 +122,8 @@ export class AgregarPreguntasComponent {
     
       this.id = _id;
     if (this.id) {
+      this.titulo = 'Editar Pregunta';
+      this.btnTitle = 'Actualizar';
       this.adminService.obtenerPregunta(_id).subscribe((data) => {
         this.frmAgregarPreguntas.setValue({
           titulo: data.titulo,

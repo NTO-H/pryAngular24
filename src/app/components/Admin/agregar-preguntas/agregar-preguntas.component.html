@@ -1,14 +1,21 @@
     <div class="container">
         <div class="content">
-            <form [formGroup]="frmAgregarPreguntas" (ngSubmit)="agregarPregunta()" class="question-form">
+        <form [formGroup]="frmAgregarPreguntas" (ngSubmit)="agregarPregunta()" class="question-form">
+            <div class="form-group">
                 <label for="question">Pregunta:</label>
                 <input formControlName="titulo" type="text" id="question" name="question" required>
-
+            </div>
+        
+            <div class="form-group">
                 <label for="answer">Respuesta:</label>
-                <textarea id="answer"  formControlName="contenido"  name="answer" required></textarea>
+                <textarea id="answer" formControlName="contenido" name="answer" required></textarea>
+            </div>
+        
+            <div class="form-group">
+                <button type="submit">{{btnTitle}}</button>
+            </div>
+        </form>
 
-                <button type="submit">Agregar Pregunta</button>
-            </form>
 
             <!-- Sección para listar preguntas -->
             <div  id="questions-list">
