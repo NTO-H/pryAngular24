@@ -16,7 +16,6 @@
             </div>
         </form>
 
-
             <!-- Sección para listar preguntas -->
             <div  id="questions-list">
                 <h2>Preguntas Existentes:</h2>
@@ -27,8 +26,6 @@
                         <p>{{pregunta.contenido}}
                         <div class="button-row">
                                 <i (click)="eliminarPregunta(pregunta._id)"  class="btn-delete fas fa-trash-alt">Eliminar</i>
-                                
-                        
                                 <i (click)="editar(pregunta._id)" class="btn-update  fas fa-sync-alt">Actualizar</i>
                         </div>
                     </p-accordionTab>
