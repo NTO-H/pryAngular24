@@ -106,10 +106,10 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
     if (this.frmAgregarPoliticas.get('politica')?.value === '') {
       Swal.fire('Error', 'Por favor selecciona una pregunta', 'error');
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
-    } else {
+    } 
 
     // const politica=this.frmAgregarPoliticas.get('politicas')?.value
-
+console.log("id obtenido=>",this.id)
       if(this.id!==null){
 
         this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
@@ -122,7 +122,6 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
         }
           
         )        
-      
       } else {
       this.adminService.registrarPoliticas(POLITICA).subscribe(data => {
       
@@ -133,20 +132,11 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
       }, error => {
         // this.router.navigate(['/agregar-politicas']);
         this.toastr.error('ocurrio un error!', 'Error');
-
-      
-
         
       })
-      }
-
-
+      
     }
   }
-
-
-
-
 
   
   esEditar() {
@@ -163,6 +153,8 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
       })
     }
   }
+
+
   editar(_id:any) {
   console.log("esEditar",_id)
     if (_id) {
