@@ -38,10 +38,7 @@ export class AgregarPreguntasComponent {
 
   }
   ngOnInit(): void {
-
-
     this.obtenerPreguntas();
-
   }
 
 
@@ -77,9 +74,7 @@ export class AgregarPreguntasComponent {
 
   }
 
-  // ngOnInit(): void {
-  //   this.esEditar();
-  // }
+  
   agregarPregunta() {
 
 
@@ -110,7 +105,6 @@ export class AgregarPreguntasComponent {
 
 
 
-      // const politica=this.frmAgregarPoliticas.get('politicas')?.value
 
 
       this.adminService.registrarPreguntas(PREGUNTA).subscribe(data => {
@@ -118,9 +112,7 @@ export class AgregarPreguntasComponent {
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
         this.obtenerPreguntas()
-        // this.router.navigate(['/agregar-politicas']);
       }, error => {
-        // this.router.navigate(['/agregar-politicas']);
         this.toastr.error('ocurrio un error!', 'Error');
 
 

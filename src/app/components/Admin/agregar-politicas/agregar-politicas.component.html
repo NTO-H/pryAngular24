@@ -5,7 +5,7 @@
 
 <!-- </div> -->
 <p-dialog header="{{titulo}}" [(visible)]="visible" [style]="{ width: '50vw'  ,position:'center'}">
-<form [formGroup]="frmAgregarPoliticas" (ngSubmit)="agregarPolitica()">
+<form id="frm" [formGroup]="frmAgregarPoliticas" (ngSubmit)="agregarPolitica()">
     <div class="form-group">
         <label for="titulo">Título:</label>
         <textarea id="titulo" name="titulo" rows="2"  formControlName="titulo"></textarea>
@@ -27,7 +27,7 @@
                 <p>{{politica.contenido}}
                 <div class="button-row">
                     <i (click)="eliminarPolitica(politica._id)" class="btn-delete fas fa-trash-alt">Eliminar</i>
-                    <i (click)="editar(politica._id)" class="btn-update fas fa-sync-alt">Editar</i>
+                    <i (click)="editar(politica._id)" #frm class="btn-update fas fa-sync-alt">Editar</i>
                 </div>
             </p-accordionTab>
         </p-accordion>

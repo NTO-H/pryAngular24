@@ -19,15 +19,10 @@
                     <p-accordionTab header="{{pregunta.titulo}}">
                         <p>{{pregunta.contenido}}
                         <div class="button-row">
-                            <!-- <button [routerLink]="['/detalles',pregunta._id]" class="btn-delete"> -->
-                                <i (click)="eliminarPregunta(pregunta._id)"  class="btn-delete fas fa-trash-alt"></i>
-                                Eliminar
-                            <!-- </button> -->
+                                <i (click)="eliminarPregunta(pregunta._id)"  class="btn-delete fas fa-trash-alt">Eliminar</i>
+                                
                         
-                            <!-- <button   [routerLink]="['/editar-producto',pregunta._id]" class="btn-update"> -->
-                                <i (click)="editar(pregunta._id)" class="btn-update  fas fa-sync-alt"></i>
-                                Actualizar
-                            <!-- </button> -->
+                                <i (click)="editar(pregunta._id)" class="btn-update  fas fa-sync-alt">Actualizar</i>
                         </div>
                     </p-accordionTab>
                 </p-accordion>
