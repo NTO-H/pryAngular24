@@ -12,16 +12,10 @@ export class AdminService {
 
 
   url = "https://servidortropicalworld-1.onrender.com/privado/"
-  
-
 
   registrarPoliticas(politica: Politica): Observable<any>{
-    
     return this.http.post<any>(this.url +'agregarPolitica', politica);
   }
-
-  
-
 
   getPoliticas(): Observable<any>{
     
@@ -37,10 +31,6 @@ export class AdminService {
     
     return this.http.get<any>(this.url +'obtenerPreguntas' );
   }
-
-
-
-  
 
 
   eliminarPregunta(id: string): Observable<any> {
