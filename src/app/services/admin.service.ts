@@ -44,7 +44,8 @@ export class AdminService {
 
 
   eliminarPregunta(id: string): Observable<any> {
-    return this.http.delete(this.url+'pregunta/' + id);
+    return this.http.delete(`${this.url}eliminarPregunta/${id}`);
+    // return this.http.delete(this.url+'pregunta/' + id);
   }
 
 
