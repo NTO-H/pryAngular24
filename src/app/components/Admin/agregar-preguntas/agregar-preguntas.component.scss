@@ -147,7 +147,7 @@ nav {
 
 .question-form {
     width: 100%;
-    max-width: 400px;
+    max-width:  1000px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -167,30 +167,33 @@ nav {
 
 .question-form input[type="text"],
 .question-form textarea {
-    width: 100%;
+    width: 700%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
 }
+button[type="submit"] {
+    width: 500%;
+    padding: 10px;
+    // padding-bottom: 2px;
+    background: #6095db;
+    border: solid #000000 1px;
+    color: black;
 
-.question-form button {
-    padding: 10px 20px;
+    height: 45px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
-}
-
-.question-form button:hover {
-    background-color: #0056b3;
+    font-size: 16px;
 }
 
 
-
-
+button[type="submit"]:hover {
+    background: #ffe4ad;
+    border: solid #09839e 1px;
+    color: #09839e;
+}
 
 
 
