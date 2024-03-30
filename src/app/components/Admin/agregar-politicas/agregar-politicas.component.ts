@@ -109,9 +109,8 @@ this.id=this.aRouter.snapshot.paramMap.get( 'id')
     } 
 
     // const politica=this.frmAgregarPoliticas.get('politicas')?.value
-console.log("id obtenido=>",this.id)
+     console.log("id obtenido=>",this.id)
       if(this.id!==null){
-
         this.adminService.editarPolitica(this.id, POLITICA).subscribe(()=>{
         
         this.toastr.success('Politica actualizado correctamente')
@@ -158,6 +157,7 @@ console.log("id obtenido=>",this.id)
   editar(_id: any) {
     // this.position = position;
     this.visible = true;
+    this.id = _id; 
   console.log("esEditar",_id)
     if (_id) {
       this.titulo = 'Editar Politica';
