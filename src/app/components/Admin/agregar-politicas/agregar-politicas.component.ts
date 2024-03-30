@@ -53,17 +53,22 @@ export class AgregarPoliticasComponent {
   ngOnInit(): void {
     this.obtenerPoliticas();
     // this.esEditar();
+
   }
-
-
 
   obtenerPoliticas() {
     this.adminService.getPoliticas().subscribe(data => {
       this.listPoliticas = data;
       console.log(data)
+
     }, error => {
       console.log("ocurrio un error al obtener las politicas")
     })
+
+
+
+
+
   }
 
 
@@ -103,10 +108,8 @@ export class AgregarPoliticasComponent {
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
     }
 
-    console.log("id obtenido=>", this.id)
-
-
     // const politica=this.frmAgregarPoliticas.get('politicas')?.value
+    console.log("id obtenido=>", this.id)
     if (this.id !== null) {
       this.adminService.editarPolitica(this.id, POLITICA).subscribe(() => {
         this.visible = false;
@@ -125,38 +128,27 @@ export class AgregarPoliticasComponent {
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
         this.obtenerPoliticas()
+        // this.router.navigate(['/agregar-politicas']);
       }, error => {
+        // this.router.navigate(['/agregar-politicas']);
         this.toastr.error('ocurrio un error!', 'Error');
+
       })
 
     }
   }
 
 
-  // esEditar() {
-
-  //   if (this.id !== null) {
-  //     this.titulo = 'Editar Politica';
-  //     this.btnTitle = 'Actualizar';
-  //     this.adminService.obtenerPolitica(this.id).subscribe((data) => {
-  //       this.frmAgregarPoliticas.setValue(
-  //         {
-  //           titulo: data.titulo,
-  //           contenido: data.contenido
-  //         })
-  //     })
-  //   }
-  // }
 
 
 
   editar(_id: any) {
     // this.position = position;
-
+    this.visible = true;
     this.id = _id;
     console.log("esEditar", _id)
     if (_id) {
-      this.titulo = 'Editar Pregunta';
+      this.titulo = 'Editar Politica';
       this.btnTitle = 'Actualizar';
       this.adminService.obtenerPolitica(_id).subscribe((data) => {
         this.frmAgregarPoliticas.setValue(

@@ -89,24 +89,22 @@ export class AgregarPreguntasComponent {
       Swal.fire('Error', 'Por favor selecciona una pregunta', 'error');
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
     }
+    console.log("id obtenido=>", this.id)
 
 
     if (this.id !== null) {
       // Si es una edición, llamar al método editarProducto con el ID y el objeto formData
-      this.adminService.editarPregunta(this.id, PREGUNTA).subscribe(
-        () => {
+      this.adminService.editarPregunta(this.id, PREGUNTA).subscribe(()=>{
+        
           this.toastr.info('Pregunta actualizado con éxito!', 'Actualizado');
           this.obtenerPreguntas()
 
         },
-
-      );
+        (error) => {
+          this.toastr.error('Ocurrio un error al actualizar la Pregunta')
+        }
+      )
     } else {
-
-
-
-
-
       this.adminService.registrarPreguntas(PREGUNTA).subscribe(data => {
 
         console.log('Respuesta 02:', data)
@@ -114,20 +112,15 @@ export class AgregarPreguntasComponent {
         this.obtenerPreguntas()
       }, error => {
         this.toastr.error('ocurrio un error!', 'Error');
-
-
-
-
       })
-
-
     }
-
   }
 
   editar(_id: any) {
-    if (this.id !== null) {
+    
+    
       this.id = _id;
+    if (this.id) {
       this.adminService.obtenerPregunta(_id).subscribe((data) => {
         this.frmAgregarPreguntas.setValue({
           titulo: data.titulo,
