@@ -47,15 +47,16 @@ ul {
 //   }
 
 .container {
-    margin-top: 37px;
+    margin-top: 50px;
 }
 
 .card {
+width: 800px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
-    padding: 20px;
+    padding: 30px;
 }
 
 .titulo {
@@ -101,9 +102,9 @@ ul {
 // }
 
 .form-label {
-color: rgb(3, 73, 65);
+color: rgb(50, 81, 80);
     // font-weight: bold; // Texto en negrita
-    // width: 50%; // Ancho del 50% para ocupar la mitad del contenedor
+    width: 50%; // Ancho del 50% para ocupar la mitad del contenedor
 }
 
 .form-control-wrapper {
