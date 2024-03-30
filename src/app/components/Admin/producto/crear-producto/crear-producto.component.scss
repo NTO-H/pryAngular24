@@ -47,31 +47,63 @@ ul {
 //   }
 
 .container {
-    margin-top: 50px; // Margen superior de 50px
+    margin-top: 50px;
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra ligera
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
-    padding: 20px; // Espaciado interno de 20px
-    display: flex; // Utiliza Flexbox para distribuir los elementos en filas
-    flex-wrap: wrap; // Permite que los elementos se envuelvan en múltiples líneas si no caben en una sola fila
+    padding: 20px;
 }
 
 .titulo {
-    text-transform: uppercase; // Convertir el texto a mayúsculas
-    font-size: 24px; // Tamaño de fuente de 24px
-    width: 100%; // Ocupa todo el ancho disponible
-    text-align: center; // Centra el texto
-    margin-bottom: 20px; // Margen inferior de 20px
+    text-transform: uppercase;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
+// .form-label {
+//     font-weight: bold;
+// }
+
+.form-control {
+    width: 100%;
+}
+
+.btn-volver {
+    margin-right: 10px;
+}
+// 2
+// .container {
+//     margin-top: 50px; // Margen superior de 50px
+// }
+
+// .card {
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra ligera
+// }
+
+// .card-body {
+//     padding: 20px; // Espaciado interno de 20px
+//     display: flex; // Utiliza Flexbox para distribuir los elementos en filas
+//     flex-wrap: wrap; // Permite que los elementos se envuelvan en múltiples líneas si no caben en una sola fila
+// }
+
+// .titulo {
+//     text-transform: uppercase; // Convertir el texto a mayúsculas
+//     font-size: 24px; // Tamaño de fuente de 24px
+//     width: 100%; // Ocupa todo el ancho disponible
+//     text-align: center; // Centra el texto
+//     margin-bottom: 20px; // Margen inferior de 20px
+// }
+
 .form-label {
-color: rgb(255, 179, 86);
+color: rgb(3, 73, 65);
     // font-weight: bold; // Texto en negrita
-    width: 50%; // Ancho del 50% para ocupar la mitad del contenedor
+    // width: 50%; // Ancho del 50% para ocupar la mitad del contenedor
 }
 
 .form-control-wrapper {
