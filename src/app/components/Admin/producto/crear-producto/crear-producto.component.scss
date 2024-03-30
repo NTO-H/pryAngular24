@@ -25,23 +25,62 @@ ul {
     padding-left: 0%;
 }
 
-// 
+// // 
+//   .titulo {
+//       font-size: 20px;
+//       font-weight: bold;
+//       display: block;
+//       text-align: center;
+//       margin-bottom: 20px;
+//   }
+
+//   .form-label {
+//       font-weight: bold;
+//   }
+
+//   .form-control {
+//       margin-bottom: 10px;
+//   }
+
+//   .btn-volver {
+//       margin-right: 10px;
+//   }
+
+
+
+
+
+
+  .container {
+      margin-top: 50px; // Margen superior de 50px
+  }
+
+  .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra ligera
+  }
+
+  .card-body {
+      padding: 20px; // Espaciado interno de 20px
+  }
+
   .titulo {
-      font-size: 20px;
-      font-weight: bold;
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
+      text-transform: uppercase; // Convertir el texto a mayúsculas
+      font-size: 24px; // Tamaño de fuente de 24px
   }
 
   .form-label {
-      font-weight: bold;
+      font-weight: bold; // Texto en negrita
   }
 
-  .form-control {
-      margin-bottom: 10px;
+  textarea.form-control {
+      border-radius: 10px; // Borde redondeado de 10px
+      border: 1px solid #ced4da; // Borde de 1px sólido
+      padding: 10px; // Espaciado interno de 10px
+      width: 100%; // Ancho del 100% para ocupar todo el espacio disponible
+      resize: vertical; // Permitir la redimensión vertical
+      min-height: 100px; // Altura mínima de 100px
   }
 
   .btn-volver {
-      margin-right: 10px;
+      margin-right: 10px; // Margen derecho de 10px
   }
