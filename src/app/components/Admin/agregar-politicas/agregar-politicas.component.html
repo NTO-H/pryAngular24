@@ -1,6 +1,6 @@
 <!-- <body> -->
 <!-- <div class="container2"> -->
-    <p-button (click)="showDialog('top')" icon="pi pi-arrow-down" label="Agregar política"
+    <p-button (click)="showDialog('top')" icon="pi pi-arrow-down" label="{{titulo}}"
         styleClass="p-button-warning"></p-button>
 
 <!-- </div> -->
@@ -27,7 +27,7 @@
                 <p>{{politica.contenido}}
                 <div class="button-row">
                     <i (click)="eliminarPolitica(politica._id)" class="btn-delete fas fa-trash-alt">Eliminar</i>
-                    <i (click)="editar(politica._id)" #frm class="btn-update fas fa-sync-alt">Editar</i>
+                    <i (click)="editar(politica._id)" href="#frm" class="btn-update fas fa-sync-alt">Editar</i>
                 </div>
             </p-accordionTab>
         </p-accordion>

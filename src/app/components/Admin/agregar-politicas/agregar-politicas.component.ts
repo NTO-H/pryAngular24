@@ -103,8 +103,10 @@ export class AgregarPoliticasComponent {
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
     }
 
-    // const politica=this.frmAgregarPoliticas.get('politicas')?.value
     console.log("id obtenido=>", this.id)
+
+
+    // const politica=this.frmAgregarPoliticas.get('politicas')?.value
     if (this.id !== null) {
       this.adminService.editarPolitica(this.id, POLITICA).subscribe(() => {
         this.visible = false;
@@ -150,11 +152,11 @@ export class AgregarPoliticasComponent {
 
   editar(_id: any) {
     // this.position = position;
-    this.visible = true;
+
     this.id = _id;
     console.log("esEditar", _id)
     if (_id) {
-      this.titulo = 'Editar Politica';
+      this.titulo = 'Editar Pregunta';
       this.btnTitle = 'Actualizar';
       this.adminService.obtenerPolitica(_id).subscribe((data) => {
         this.frmAgregarPoliticas.setValue(
