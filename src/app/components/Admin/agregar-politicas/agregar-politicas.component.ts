@@ -123,6 +123,7 @@ export class AgregarPoliticasComponent {
       )
     } else {
       this.adminService.registrarPoliticas(POLITICA).subscribe(data => {
+        this.visible = false;
 
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
