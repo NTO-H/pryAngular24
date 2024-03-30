@@ -52,23 +52,18 @@ export class AgregarPoliticasComponent {
 
   ngOnInit(): void {
     this.obtenerPoliticas();
-    this.esEditar();
-
+    // this.esEditar();
   }
+
+
 
   obtenerPoliticas() {
     this.adminService.getPoliticas().subscribe(data => {
       this.listPoliticas = data;
       console.log(data)
-
     }, error => {
       console.log("ocurrio un error al obtener las politicas")
     })
-
-
-
-
-
   }
 
 
@@ -128,31 +123,29 @@ export class AgregarPoliticasComponent {
         console.log('Respuesta 02:', data)
         this.toastr.success('Politica registrado con éxito!', 'Registró éxitoso');
         this.obtenerPoliticas()
-        // this.router.navigate(['/agregar-politicas']);
       }, error => {
-        // this.router.navigate(['/agregar-politicas']);
         this.toastr.error('ocurrio un error!', 'Error');
-
       })
 
     }
   }
 
 
-  esEditar() {
+  // esEditar() {
 
-    if (this.id !== null) {
-      this.titulo = 'Editar Politica';
-      this.btnTitle = 'Actualizar';
-      this.adminService.obtenerPolitica(this.id).subscribe((data) => {
-        this.frmAgregarPoliticas.setValue(
-          {
-            titulo: data.titulo,
-            contenido: data.contenido
-          })
-      })
-    }
-  }
+  //   if (this.id !== null) {
+  //     this.titulo = 'Editar Politica';
+  //     this.btnTitle = 'Actualizar';
+  //     this.adminService.obtenerPolitica(this.id).subscribe((data) => {
+  //       this.frmAgregarPoliticas.setValue(
+  //         {
+  //           titulo: data.titulo,
+  //           contenido: data.contenido
+  //         })
+  //     })
+  //   }
+  // }
+
 
 
   editar(_id: any) {

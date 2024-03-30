@@ -1,15 +1,3 @@
-
-
-<!-- <body> -->
-
-
-    <!-- <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Agregar Pregunta</a>
-        <a href="#">Ver Preguntas</a>
-        <a href="#">Cerrar Sesión</a>
-    </nav> -->
-
     <div class="container">
         <div class="content">
             <form [formGroup]="frmAgregarPreguntas" (ngSubmit)="agregarPregunta()" class="question-form">
@@ -31,26 +19,15 @@
                     <p-accordionTab header="{{pregunta.titulo}}">
                         <p>{{pregunta.contenido}}
                         <div class="button-row">
-                           <!-- }}
-                             <i [routerLink]="['/detalles',producto._id]"
-                                        class="fas fa-solid fa-book-open me-4"></i>
-                                    <i [routerLink]="['/editar-producto',producto._id]"
-                                        class="fas fa-edit text-primary me-4"></i>
-                                    <i (click)="eliminarProducto(producto._id)"
-                                        class="fas fa-regular fa-trash-can text-danger"></i>
-                            -->
-                           
-                           
-                           
-                            <button [routerLink]="['/detalles',pregunta._id]" class="btn-delete">
-                                <i  class="fas fa-trash-alt"></i>
+                            <!-- <button [routerLink]="['/detalles',pregunta._id]" class="btn-delete"> -->
+                                <i (click)="eliminarPregunta(pregunta._id)"  class="btn-delete fas fa-trash-alt"></i>
                                 Eliminar
-                            </button>
+                            <!-- </button> -->
                         
-                            <button   [routerLink]="['/editar-producto',pregunta._id]" class="btn-update">
-                                <i class="fas fa-sync-alt"></i>
+                            <!-- <button   [routerLink]="['/editar-producto',pregunta._id]" class="btn-update"> -->
+                                <i (click)="editar(pregunta._id)" class="btn-update  fas fa-sync-alt"></i>
                                 Actualizar
-                            </button>
+                            <!-- </button> -->
                         </div>
                     </p-accordionTab>
                 </p-accordion>

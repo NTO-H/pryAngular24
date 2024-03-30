@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class AgregarPreguntasComponent {
 
 
-  
+
   id: string | null;
 
 
@@ -28,8 +28,8 @@ export class AgregarPreguntasComponent {
   listPreguntas: Pregunta[] = []
 
 
-  constructor(private aRouter: ActivatedRoute,private adminService: AdminService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder) {
-  
+  constructor(private aRouter: ActivatedRoute, private adminService: AdminService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder) {
+
     this.frmAgregarPreguntas = this.formBuilder.group({
       titulo: ['', Validators.required],
       contenido: ['', Validators.required]
@@ -38,15 +38,34 @@ export class AgregarPreguntasComponent {
 
   }
   ngOnInit(): void {
-    this.esEditar();
+
 
     this.obtenerPreguntas();
 
   }
 
 
+  eliminarPregunta(id: any) {
+    console.log("esEliminar=>", id)
 
-  
+
+
+    this.adminService.eliminarPregunta(id).subscribe((data) => {
+      this.obtenerPreguntas()
+      this.toastr.success('Politica eliminado con éxito', 'Politica eliminado')
+
+    }, error => {
+      this.obtenerPreguntas()
+      this.toastr.error('Politica no  elimando', 'Falló al eliminar')
+
+    })
+
+
+  }
+
+
+
+
   obtenerPreguntas() {
     this.adminService.getPreguntas().subscribe(data => {
       this.listPreguntas = data;
@@ -55,7 +74,7 @@ export class AgregarPreguntasComponent {
     }, error => {
       console.log("ocurrio un error al obtener las politicas")
     })
-  
+
   }
 
   // ngOnInit(): void {
@@ -74,15 +93,22 @@ export class AgregarPreguntasComponent {
     if (this.frmAgregarPreguntas.get('titulo')?.value === '') {
       Swal.fire('Error', 'Por favor selecciona una pregunta', 'error');
       return; // No permitir enviar el formulario si no se ha seleccionado una pregunta
-    } else if(this.id !== null) {
+    }
+
+
+    if (this.id !== null) {
       // Si es una edición, llamar al método editarProducto con el ID y el objeto formData
-      this.adminService.editarPregunta(this.id,PREGUNTA).subscribe(
+      this.adminService.editarPregunta(this.id, PREGUNTA).subscribe(
         () => {
-          this.toastr.info('Producto actualizado con éxito!', 'Actualizado');
-          this.router.navigate(['/']);
+          this.toastr.info('Pregunta actualizado con éxito!', 'Actualizado');
+          this.obtenerPreguntas()
+
         },
-        
+
       );
+    } else {
+
+
 
       // const politica=this.frmAgregarPoliticas.get('politicas')?.value
 
@@ -105,22 +131,17 @@ export class AgregarPreguntasComponent {
 
     }
 
-
-
-
-
-    this.toastr.success("agregado", 'succes');
   }
 
-  esEditar() {
+  editar(_id: any) {
     if (this.id !== null) {
-      // this.titulo = 'Editar Producto';
-      // this.btnTitle = 'Actualizar';
-      this.adminService.obtenerPregunta(this.id).subscribe((data) => {
+      this.id = _id;
+      this.adminService.obtenerPregunta(_id).subscribe((data) => {
         this.frmAgregarPreguntas.setValue({
           titulo: data.titulo,
           contenido: data.contenido,
-        });
+        }
+        );
       });
     }
   }
