@@ -11,8 +11,6 @@
                     <input type="text" class="form-control mt-3" name="filterProducts" placeholder="buscar producto..."
                         [(ngModel)]="filterProducts"> 
                     <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
-                                    <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog>
-
                     <table *ngIf="listProductos.length>0" class="table table-striped mt-4">
                         <thead>
                             <tr>
@@ -43,11 +41,8 @@
                                         class="fas fa-solid fa-book-open me-4"></i>
                                     <i [routerLink]="['/editar-producto',producto._id]"
                                         class="fas fa-edit text-primary me-4"></i>
-                                  
-                                    <!-- <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog> -->
-                                    <i (click)="mostrarConfirmacionEliminar(producto._id)" class="fas fa-regular fa-trash-can text-danger"></i>
-                                    <!-- <i (click)="eliminarProducto(producto._id)"
-                                        class="fas fa-regular fa-trash-can text-danger"></i> -->
+                                    <i (click)="eliminarProducto(producto._id)"
+                                        class="fas fa-regular fa-trash-can text-danger"></i>
                                 </td>
                             </tr>
                         </tbody>
@@ -62,4 +57,3 @@
         </div>
     </div>
 </div>
-<p-toast></p-toast>
