@@ -55,10 +55,15 @@ export class ListarProductosComponent implements OnInit{
   }
 
 
-  
   mostrarConfirmacionEliminar(id: any) {
     this.confirmationService.confirm({
       message: '¿Estás seguro de que deseas eliminar este producto?',
+      header: 'Confirmación de eliminación',
+      icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: "p-button-danger p-button-text",
+      rejectButtonStyleClass: "p-button-text p-button-text",
+      acceptIcon: "pi pi-check",
+      rejectIcon: "pi pi-times",
       accept: () => {
         this.eliminarProducto(id);
       }
