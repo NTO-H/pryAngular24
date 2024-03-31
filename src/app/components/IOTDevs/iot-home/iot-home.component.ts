@@ -22,7 +22,7 @@ export class IotHomeComponent implements OnInit {
   mostrarSidebar() {
     this.sidebarVisible3 = true;
 
-    this.getToken();
+    // this.getToken();
 
 
   }
@@ -30,23 +30,23 @@ export class IotHomeComponent implements OnInit {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.getToken();
-  }
-  
-  getToken() {
     const userData = localStorage.getItem('currentUser');
-  
-   console.log(userData)
+
+    console.log(userData)
     // Verificar si hay datos de usuario en el localStorage
     if (userData) {
       // Obtener los datos del usuario por correo electrónico
       this.auth.miPerfilUsuario(userData).subscribe(data => {
         this.usuarioId = data._id;
-        console.log("id>obtenido",this.usuarioId)
+        console.log("id>obtenido", this.usuarioId)
         console.log("id>", data._id)
       });
     }
   }
+  
+  // getToken() {
+    
+  // }
     
   
   
