@@ -108,9 +108,10 @@ import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.com
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
 import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
 import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
+import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
 @NgModule({
 
-  declarations: [DevicesComponent,TablaDispositivosComponent,DashboardsComponent,
+  declarations: [DevicesComponent,TablaDispositivosComponent,DashboardsComponent,IotHomeComponent,
     IotheaderComponent,
     PoliticasComponent,QuienesSomosComponent,DashboardsComponent,
     AppComponent, AyudaComponent, AdmHeaderComponent, FooterComponent,
