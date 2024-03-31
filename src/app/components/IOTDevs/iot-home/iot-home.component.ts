@@ -18,7 +18,7 @@ export class IotHomeComponent implements OnInit {
 
 
 
-  usuarioId!: string |null; // Variable para almacenar el ID del usuario
+  usuarioId:any; // Variable para almacenar el ID del usuario
 
   // constructor(private authService: AuthService) { }
 
@@ -37,9 +37,9 @@ export class IotHomeComponent implements OnInit {
     if (userData) {
       // Obtener los datos del usuario por correo electrónico
       this.auth.miPerfilUsuario(userData).subscribe(data => {
-        this.usuarioId = data._id;
+        this.usuarioId = data.datos;
         console.log("id>obtenido", this.usuarioId)
-        console.log("id>", data._id)
+        console.log("id>", data.datos)
       });
     }
   }
@@ -48,7 +48,7 @@ export class IotHomeComponent implements OnInit {
     if (userData !== null) {
       console.log(userData);
       this.auth.miPerfilUsuario(userData).subscribe(usuario => {
-        this.usuarioId = usuario._id;
+        this.usuarioId = usuario.datos;
     
       
        
