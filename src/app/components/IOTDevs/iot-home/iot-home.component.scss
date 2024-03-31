@@ -1,11 +1,12 @@
 /* styles.css */
 .header {
     display: flex;
-    background: #ffffff8e;
+    background: #224e46;
     backdrop-filter: blur(10px);
     justify-content: space-between;
     text-align: center;
     padding: 10px 50px;
+    
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -27,7 +28,7 @@
 
 .menu a {
     text-decoration: none;
-    color: #333;
+    color: #ffedad;
     font-size: 18px;
 }
 

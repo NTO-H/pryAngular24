@@ -49,13 +49,13 @@ const routes: Routes = [
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},
   { path: 'dashboardA', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
   { path: 'iot', component: IotHomeComponent,
-    // children: [
-    //   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
-    //   { path: 'dashboard', component: DashboardsComponent, canActivate: [adminGuard] },
-    //   { path: 'devices', component: DevicesComponent, canActivate: [adminGuard] },
-    //   { path: 'tokens', component: TablaDispositivosComponent, canActivate: [adminGuard] },
-    //   // Agrega aquí más rutas según sea necesario
-    // ]
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
+      { path: 'dashboard', component: DashboardsComponent, canActivate: [adminGuard] },
+      { path: 'devices', component: DevicesComponent, canActivate: [adminGuard] },
+      { path: 'tokens', component: TablaDispositivosComponent, canActivate: [adminGuard] },
+      // Agrega aquí más rutas según sea necesario
+    ]
   },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
