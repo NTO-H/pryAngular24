@@ -1,19 +1,20 @@
-.header-Title {
-    background-color: #103e2c;
-    color: #ffefbe;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px #0000001a;
-}
+// .header-Title {
+//     background-color: #103e2c;
+//     color: #ffefbe;
+//     padding: 10px;
+//     text-align: center;
+//     box-shadow: 0 2px 4px #0000001a;
+// }
 
-.header-Title h1 {
-    margin: 0;
-    /* Elimina el margen predeterminado del h1 */
-}
+// .header-Title h1 {
+//     margin: 0;
+    
+//     /* Elimina el margen predeterminado del h1 */
+// }
 
 /* styles.scss */
 .header {
-    background-color: #333;
+    background-color: #27493c;
     color: #fff;
     display: flex;
     align-items: center;
@@ -25,22 +26,22 @@
     font-size: 24px;
     margin: 0;
 }
-
 .menu-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Cambia la dirección principal a columna */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
 }
 
 .menu-item {
-    margin-right: 20px;
+    margin-bottom: 10px;
+    /* Añade espacio entre los elementos */
 }
 
 .menu-item a {
     text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-.menu-item a:hover {
-    color: rgba(15, 53, 70, 0.94);
+    color: #ffe5a2;
 }
