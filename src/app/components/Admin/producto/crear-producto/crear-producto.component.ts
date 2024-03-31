@@ -59,7 +59,7 @@ export class CrearProductoComponent implements OnInit {
     // Obtener los valores del formulario
     const productoNombre = this.productoForm.get('producto')?.value;
     const productoCategoria = this.productoForm.get('categoria')?.value?.nombre;
-    console.log("pregunta=>",productoCategoria);
+    console.log("categoria=>",productoCategoria);
     const productoPrecio = this.productoForm.get('precio')?.value;
     const productoDescripcion = this.productoForm.get('descripcion')?.value;
     // const imagen = this.productoForm.get('imagen')?.value;

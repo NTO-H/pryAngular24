@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el di
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-listar-productos',
   templateUrl: './listar-productos.component.html',
@@ -37,7 +38,7 @@ export class ListarProductosComponent implements OnInit{
   }
 
   // imagen fin
-constructor(private _productoService:ProductoService,private toastr:ToastrService) {}
+  constructor(private _productoService: ProductoService, private toastr: ToastrService, private confirmationService: ConfirmationService) {}
   ngOnInit():void{
     this.obtenerProductos();
     // this.detalleProductoById();
@@ -53,6 +54,18 @@ constructor(private _productoService:ProductoService,private toastr:ToastrServic
     }) 
   }
 
+
+  
+  mostrarConfirmacionEliminar(id: any) {
+    this.confirmationService.confirm({
+      message: '¿Estás seguro de que deseas eliminar este producto?',
+      accept: () => {
+        this.eliminarProducto(id);
+      }
+    });
+  }
+
+  
   eliminarProducto(id:any){
 
     this._productoService.eliminarProducto(id).subscribe(data=>{

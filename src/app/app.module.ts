@@ -3,9 +3,7 @@ import { CarritoComponent } from './components/shared/carrito/carrito.component'
 import { DialogModule } from 'primeng/dialog';
 // import { DialogModule } from 'primeng/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
-// import { MatButtonModule } from 'primeng/breadcrumb';
-// import { InputTextModule } from 'primeng/inputtext';
-// import { SidebarModule } from 'primeng/sidebar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
 import { DropdownModule } from 'primeng/dropdown';
@@ -115,7 +113,7 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
     DetalleProductoComponent,AuthComponent,IotComponent,
     FilterPipe, CardsProductosComponent,
   ],
-  imports: [MenuModule, ListboxModule, TreeSelectModule,
+  imports: [MenuModule, ListboxModule, TreeSelectModule, ConfirmDialogModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
     BrowserModule, CommonModule, AccordionModule, InputNumberModule, InputTextareaModule,
     AppRoutingModule, PasswordModule, MatRadioModule, DialogModule,

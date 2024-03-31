@@ -41,8 +41,11 @@
                                         class="fas fa-solid fa-book-open me-4"></i>
                                     <i [routerLink]="['/editar-producto',producto._id]"
                                         class="fas fa-edit text-primary me-4"></i>
-                                    <i (click)="eliminarProducto(producto._id)"
-                                        class="fas fa-regular fa-trash-can text-danger"></i>
+                                    <p-toast></p-toast>
+                                    <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog>
+                                    <i (click)="mostrarConfirmacionEliminar(producto._id)" class="fas fa-regular fa-trash-can text-danger"></i>
+                                    <!-- <i (click)="eliminarProducto(producto._id)"
+                                        class="fas fa-regular fa-trash-can text-danger"></i> -->
                                 </td>
                             </tr>
                         </tbody>
