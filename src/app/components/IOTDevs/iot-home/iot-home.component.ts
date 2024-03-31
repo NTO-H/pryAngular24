@@ -16,7 +16,7 @@ export class IotHomeComponent {
 
 
 
-  usuarioId!: String;
+  usuarioId?: String;
 
   constructor(private auth: AuthService) { }
   mostrarSidebar() {
@@ -42,6 +42,8 @@ export class IotHomeComponent {
       // Obtener los datos del usuario por correo electrónico
       this.auth.miPerfilUsuario(userData).subscribe(data => {
         this.usuarioId = data._id;
+        console.log("id>obtenido",this.usuarioId)
+        console.log("id>", data._id)
       });
     }
   }
