@@ -45,7 +45,7 @@ const routes: Routes = [
   // { path: 'admin', component: AdminHomeComponent },
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},
-  { path: 'dashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
+  { path: 'dashboardA', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
   // { path: 'iot', component: IotComponent, data: { breadcrumb: 'Iot' } },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
