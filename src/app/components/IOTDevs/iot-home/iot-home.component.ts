@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   // standalone: true,
   // imports: [],
   templateUrl: './iot-home.component.html',
-  styleUrl: './iot-home.component.scss'
+  styleUrls: ['./iot-home.component.scss']
 })
 export class IotHomeComponent {
 
