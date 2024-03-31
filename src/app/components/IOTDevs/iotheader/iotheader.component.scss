@@ -1,11 +1,12 @@
 /* styles.css */
 .header {
     display: flex;
-    background:#205558;
+    background:#ffffff8e;
+    backdrop-filter: blur(10px);
     justify-content: space-between;
-    align-items: center;
+    text-align: center;
     padding: 10px 50px;
-    background-color: #ffe895;
+    
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,7 +22,7 @@
 
 .menu-item {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 200px;
 }
 
 .menu a {
