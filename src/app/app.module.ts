@@ -87,7 +87,7 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
-import { IotComponent } from './IOT/iot.component';
+// import { IotComponent } from './IOT/iot.component';
 import { AdmHeaderComponent } from './components/Admin/adm-header/adm-header.component';
 import { ClientHeaderComponent } from './components/client/client-header/client-header.component';
 import { mensageservice } from './services/mensage.service';
@@ -117,7 +117,7 @@ import { DevicesComponent } from './components/IOTDevs/devices/devices.component
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
     CrearProductoComponent, RecuperacionComponent, PreguntasComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
-    DetalleProductoComponent,AuthComponent,IotComponent,
+    DetalleProductoComponent,AuthComponent,
     FilterPipe, CardsProductosComponent,
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
@@ -132,7 +132,7 @@ import { DevicesComponent } from './components/IOTDevs/devices/devices.component
     ButtonModule, ProgressSpinnerModule, MatSidenavModule, MatInputModule, ToastModule 
 
   ], exports: [
-    IotComponent
+    // IotComponent
   ],
   providers: [
     provideAnimationsAsync(), MessageService, mensageservice, ConfirmationService

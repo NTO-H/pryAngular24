@@ -1,0 +1,314 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('../../assets/images/iot.jpg');
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen para cubrir completamente el fondo */
+    background-position: center;
+    /* Centra la imagen en el fondo */
+    background-repeat: no-repeat;
+    /* Evita que la imagen de fondo se repita */
+    color: #adecff;
+    /* Color de texto blanco para contrastar con la imagen de fondo */
+}
+
+/* Agrega estilos adicionales según sea necesario */
+.dispositivo {
+
+
+    backdrop-filter: blur(2px);
+    background: linear-gradient(270deg, #59057a7b 0%, #0380ad80 100%);
+    // background-color: #47126dcb;
+}
+
+// sensores temperatura y humedad
+
+
+::ng-deep .mat-vertical .mat-slider-wrapper {
+    height: 200px;
+    /* Define la altura del slider vertical según sea necesario */
+    transform: rotate(270deg);
+    /* Rotar el slider verticalmente */
+    transform-origin: left top;
+    /* Cambiar el origen de la transformación para evitar que el slider se desplace */
+}
+
+.sensor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temperatura,
+.humedad {
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.value {
+    margin-left: 5px;
+}
+
+// 
+
+
+.switch-container img {
+    width: 65px;
+    cursor: pointer;
+    height: 65px;
+    padding-right: 5px;
+}
+
+
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -350px;
+    margin-right: 150px;
+}
+
+.fila {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos de la fila a la derecha */
+    margin-bottom: 20px;
+    /* Espacio entre las filas */
+}
+
+.switch-container {
+    max-width: 200px;
+    /* Ancho máximo deseado para cada botón */
+    margin-right: 100px;
+    /* Espacio entre los botones */
+}
+
+.switch-container {
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ca0d0d;
+    border: none;
+    color: #fff;
+    box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 20px rgba(15, 255, 221, 0.3);
+    border: solid 10px #e8e54f;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-around;
+    /*Distribuyeloselementosuniformementedentrodelgrupo*/
+    // margin-bottom: 20px;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+
+    max-width: 300px;
+    /* Ancho máximo deseado para cada switch-container */
+    margin-bottom: 20px;
+}
+
+
+
+.switch-container:hover {
+    box-shadow: 0 0 5px #ffffff, 0 0 20px rgb(255, 238, 0);
+    /* Aquí se aumenta el margen al pasar el cursor */
+}
+
+.status-label {
+    margin-top: 80px;
+    position: absolute;
+}
+
+.switch-container.active {
+    color: #000;
+    background-color: #06ae00;
+    box-shadow: 0 0 4px rgb(0, 0, 0), 0 0 20px rgb(225, 255, 0);
+    border: solid 10px #71ff31;
+
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 64px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+
+
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+header {
+    background-color: #ffffff;
+    color: #37696c;
+    text-align: center;
+    padding: 20px;
+}
+
+.dispositivos {
+    display: flex;
+    // animation: 1s infinite rotates;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    // flex-direction: column;
+    padding: 10px;
+    margin-right: 790px;
+    margin-top: 30px;
+}
+
+.dispositivo {
+    width: 240px;
+    height: 340px;
+
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+
+
+}
+
+.conectar {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.header-Title {
+    color: #fff;
+    background-color: #37696c;
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(369deg);
+    }
+}
+
+
+@layer primeng {
+    .p-sidebar .p-sidebar-header+.p-sidebar-content {
+        padding-top: 0;
+        left: 50%;
+        transform: translateX(-10%) translateY(-50%);
+        top: 20%;
+    }
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Agregar esta línea para centrar horizontalmente */
+    margin-bottom: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 200px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 5px 15px;
+    background-color: #324e6c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+button:hover {
+    background-color: #324e6c;
+}

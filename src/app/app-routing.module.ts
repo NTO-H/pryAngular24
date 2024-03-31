@@ -16,7 +16,6 @@ import { AuthComponent } from './components/Auth/Auth.component';
 import { CrearCuentaComponent } from './components/Public/crear-cuenta/crear-cuenta.component';
 import { CardsProductosComponent } from './components/Public/cards-productos/cards-productos.component';
 import { PoliticasComponent } from './components/Public/politicas/politicas.component';
-import { IotComponent } from './IOT/iot.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
@@ -47,7 +46,7 @@ const routes: Routes = [
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},
   { path: 'dashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
-  { path: 'iot', component: IotComponent, data: { breadcrumb: 'Iot' } },
+  // { path: 'iot', component: IotComponent, data: { breadcrumb: 'Iot' } },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
   { path: 'politicas', component: PoliticasComponent, data: { breadcrumb: 'Políticas' } },
