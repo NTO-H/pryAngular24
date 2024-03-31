@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class DevicesComponent {
 
+  sidebarVisible2: boolean = false;
+
 }
