@@ -27,6 +27,9 @@ import { ClientHomeComponent } from './components/client/client-home/client-home
 import { PerfilComponent } from './components/Public/perfil/perfil.component';
 import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
 import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
+import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
+import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
+import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
@@ -55,7 +58,12 @@ const routes: Routes = [
   { path: 'crear-producto', component: CrearProductoComponent, data: { breadcrumb: 'Crear producto' }, canActivate: [adminGuard] },
   { path: 'detalles/:id', component: DetalleProductoComponent, data: { breadcrumb: 'Detalles producto' }},//componente de ver detalles
   { path: 'editar-producto/:id', component: CrearProductoComponent, data: { breadcrumb: 'Editar producto' }, canActivate: [adminGuard]},
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+   { path: 'dashboard', component: DashboardsComponent },
+  { path: 'devices', component: DevicesComponent },
+  { path: 'tokens', component: TablaDispositivosComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+
+
 
 ];
 
