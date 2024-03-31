@@ -60,8 +60,8 @@ export class ListarProductosComponent implements OnInit{
       message: '¿Estás seguro de que deseas eliminar este producto?',
       header: 'Confirmación de eliminación',
       icon: 'pi pi-exclamation-triangle',
-      acceptButtonStyleClass: "p-button-danger p-button-text",
-      rejectButtonStyleClass: "p-button-text p-button-text",
+      acceptButtonStyleClass: "p-button-danger p-button-rounded p-button-text",
+      rejectButtonStyleClass: "p-button-text p-button-rounded p-button-text",
       acceptIcon: "pi pi-check",
       rejectIcon: "pi pi-times",
       accept: () => {
