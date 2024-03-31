@@ -101,6 +101,7 @@ import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/
 import { PoliticasComponent } from './components/Public/politicas/politicas.component';
 import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
 import { ClientHomeComponent } from './components/client/client-home/client-home.component';
+// import { SidebarModule } from 'primeng/sidebar';
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 @NgModule({
 

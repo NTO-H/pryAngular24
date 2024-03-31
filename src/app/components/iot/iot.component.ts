@@ -27,7 +27,9 @@ export class IotComponent implements OnInit {
   @Input() imagen2!: string;
   @Input() alt!: string;
   temperatura: number = 25;
- 
+  sidebarVisible3: boolean = false;
+// console.log(sidebarVisible3.value);
+  
   humedad: number = 0; // Valor inicial de la humedad
   // humedad: number = 0; // Valor inicial de la humedad
   humedadOptions = [
@@ -46,7 +48,7 @@ export class IotComponent implements OnInit {
   isCheckedMusica!: boolean;
 
 
-  sidebarVisible3: boolean = false;
+  // sidebarVisible3: boolean = false;
   constructor(private consultaService:ConsultasService,private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
  
   }
@@ -173,6 +175,9 @@ export class IotComponent implements OnInit {
         console.error('Error al actualizar el estado del musica:', error);
       }
     );
+  }
+  mostrarSidebar() {
+    this.sidebarVisible3 = true;
   }
 
 
