@@ -9,7 +9,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { Footer, MessageService } from 'primeng/api';
+import { ConfirmationService, Footer, MessageService } from 'primeng/api';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { AppComponent } from './app.component';
 import { CrearProductoComponent } from './components/Admin/producto/crear-producto/crear-producto.component';
@@ -94,7 +94,7 @@ import { mensageservice } from './services/mensage.service';
 // import { EquipoDesarrolloComponent } from './components/Public/equipo-desarrollo/equipo-desarrollo.component';
 // import { MessageService } from '';
 // import { MatSliderModule } from '@angular/material/slider'; // Importa MatSliderModule
-
+// import { DialogModule } from 'primeng/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
 import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/agregar-politicas.component';
@@ -106,15 +106,15 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
 
   declarations: [
     PoliticasComponent,QuienesSomosComponent,
-    AppComponent, AyudaComponent, AdmHeaderComponent,FooterComponent,
+    AppComponent, AyudaComponent, AdmHeaderComponent, FooterComponent,
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
-    CrearProductoComponent, RecuperacionComponent,PreguntasComponent,
+    CrearProductoComponent, RecuperacionComponent, PreguntasComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
     DetalleProductoComponent,AuthComponent,IotComponent,
     FilterPipe, CardsProductosComponent,
   ],
-  imports: [MenuModule, ListboxModule, TreeSelectModule, ConfirmDialogModule,
-    SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule,
+  imports: [MenuModule, ListboxModule, TreeSelectModule,
+    SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule, ConfirmDialogModule,
     BrowserModule, CommonModule, AccordionModule, InputNumberModule, InputTextareaModule,
     AppRoutingModule, PasswordModule, MatRadioModule, DialogModule,
     ReactiveFormsModule, MatSnackBarModule, InputGroupAddonModule, InputTextModule,
@@ -128,7 +128,7 @@ import { PreguntasComponent } from './components/Public/preguntas/preguntas.comp
     IotComponent
   ],
   providers: [
-    provideAnimationsAsync(), MessageService,mensageservice
+    provideAnimationsAsync(), MessageService, mensageservice, ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
