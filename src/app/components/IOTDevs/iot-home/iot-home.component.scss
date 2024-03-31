@@ -1,0 +1,36 @@
+/* styles.css */
+.header {
+    display: flex;
+    background: #ffffff8e;
+    backdrop-filter: blur(10px);
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px 50px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #333;
+    font-size: 24px;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-item {
+    display: inline-block;
+    margin-right: 200px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.header nav ul li:hover {
+    border-bottom: 2px solid #333;
+}
