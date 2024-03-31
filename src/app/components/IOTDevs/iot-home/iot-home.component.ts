@@ -16,7 +16,7 @@ export class IotHomeComponent implements OnInit {
 
 
 
-  usuarioId?: String;
+  usuarioId:any;
 
   constructor(private auth: AuthService) { }
   mostrarSidebar() {
@@ -24,7 +24,18 @@ export class IotHomeComponent implements OnInit {
 
     // this.getToken();
 
+    const userData = localStorage.getItem('currentUser');
 
+    console.log(userData)
+    // Verificar si hay datos de usuario en el localStorage
+    if (userData) {
+      // Obtener los datos del usuario por correo electrónico
+      this.auth.miPerfilUsuario(userData).subscribe(data => {
+        this.usuarioId = data._id;
+        console.log("id>obtenido", this.usuarioId)
+        console.log("id>", data._id)
+      });
+    }
   }
 
   ngOnInit(): void {
