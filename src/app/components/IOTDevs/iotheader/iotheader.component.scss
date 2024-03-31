@@ -11,8 +11,19 @@
     /* Elimina el margen predeterminado del h1 */
 }
 
-.menu {
-    font-family: Arial, sans-serif;
+/* styles.scss */
+.header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
 }
 
 .menu-list {
@@ -21,34 +32,15 @@
 }
 
 .menu-item {
-    position: relative;
-    margin-bottom: 10px;
+    margin-right: 20px;
 }
 
 .menu-item a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
+    font-weight: bold;
 }
 
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-}
-
-.menu-item:hover .submenu {
-    display: block;
-}
-
-.header-Title {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.menu-item a:hover {
+    color: rgba(15, 53, 70, 0.94);
 }
