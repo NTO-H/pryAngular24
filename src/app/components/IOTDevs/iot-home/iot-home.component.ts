@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './iot-home.component.html',
   styleUrls: ['./iot-home.component.scss']
 })
-export class IotHomeComponent {
+export class IotHomeComponent implements OnInit {
 
   
 
@@ -27,11 +27,11 @@ export class IotHomeComponent {
 
   }
 
-  // ngOnInit(): void {
-  //   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //   //Add 'implements OnInit' to the class.
-  //   this.getToken();
-  // }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.getToken();
+  }
   
   getToken() {
     const userData = localStorage.getItem('currentUser');
