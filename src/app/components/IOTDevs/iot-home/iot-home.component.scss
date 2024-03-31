@@ -26,6 +26,7 @@
 .menu-item {
     display: inline-block;
     margin-right: 200px;
+    cursor: pointer;
 }
 
 .menu a {
@@ -37,3 +38,5 @@
 .header nav ul li:hover {
     border-bottom: 2px solid #333;
 }
+
+
