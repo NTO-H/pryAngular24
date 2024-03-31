@@ -1,47 +1,35 @@
-// .header-Title {
-//     background-color: #103e2c;
-//     color: #ffefbe;
-//     padding: 10px;
-//     text-align: center;
-//     box-shadow: 0 2px 4px #0000001a;
-// }
-
-// .header-Title h1 {
-//     margin: 0;
-    
-//     /* Elimina el margen predeterminado del h1 */
-// }
-
-/* styles.scss */
+/* styles.css */
 .header {
-    background-color: #27493c;
-    color: #fff;
     display: flex;
-    align-items: center;
+    background:#205558;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #ffe895;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
+    color: #333;
     font-size: 24px;
-    margin: 0;
 }
+
 .menu-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    /* Cambia la dirección principal a columna */
-    align-items: center;
-    /* Centra los elementos horizontalmente */
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .menu-item {
-    margin-bottom: 10px;
-    /* Añade espacio entre los elementos */
+    display: inline-block;
+    margin-right: 20px;
 }
 
-.menu-item a {
+.menu a {
     text-decoration: none;
-    color: #ffe5a2;
+    color: #333;
+    font-size: 18px;
+}
+
+.header nav ul li:hover {
+    border-bottom: 2px solid #333;
 }
