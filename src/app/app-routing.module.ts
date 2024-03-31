@@ -30,6 +30,7 @@ import { DevicesComponent } from './components/IOTDevs/devices/devices.component
 import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
 import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
 import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
+import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
@@ -47,7 +48,7 @@ const routes: Routes = [
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},
   { path: 'dashboardA', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
-  { path: 'iot', component: IotheaderComponent, data: { breadcrumb: 'Iot' } },
+  { path: 'iot', component: IotHomeComponent },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
   { path: 'politicas', component: PoliticasComponent, data: { breadcrumb: 'Políticas' } },
