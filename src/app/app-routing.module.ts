@@ -52,7 +52,7 @@ const routes: Routes = [
     path: 'iot',
     component: IotHomeComponent,
     children: [
-      // { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
       { path: 'dashboard', component: DashboardsComponent },
       { path: 'devices', component: DevicesComponent },
       { path: 'tokens', component: TablaDispositivosComponent },
