@@ -111,7 +111,7 @@ import { DevicesComponent } from './components/IOTDevs/devices/devices.component
 import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
 @NgModule({
 
-  declarations: [DevicesComponent,TablaDispositivosComponent,DashboardsComponent,IotHomeComponent,
+  declarations: [DevicesComponent,TablaDispositivosComponent,IotHomeComponent,
     IotheaderComponent,
     PoliticasComponent,QuienesSomosComponent,DashboardsComponent,
     AppComponent, AyudaComponent, AdmHeaderComponent, FooterComponent,
