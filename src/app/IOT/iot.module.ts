@@ -9,7 +9,8 @@ import { DevicesComponent } from '../components/IOTDevs/devices/devices.componen
 
 
 @NgModule({
-  declarations: [DashboardsComponent, TablaDispositivosComponent,DevicesComponent],
+  declarations: [],
+  // declarations: [DashboardsComponent, TablaDispositivosComponent,DevicesComponent],
   imports: [
     CommonModule,
     IotRoutingModule

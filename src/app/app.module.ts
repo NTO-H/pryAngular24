@@ -105,9 +105,12 @@ import { ClientHomeComponent } from './components/client/client-home/client-home
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
 import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
+import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
+import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
+import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
 @NgModule({
 
-  declarations: [
+  declarations: [DevicesComponent,TablaDispositivosComponent,DashboardsComponent,
     IotheaderComponent,
     PoliticasComponent,QuienesSomosComponent,DashboardsComponent,
     AppComponent, AyudaComponent, AdmHeaderComponent, FooterComponent,
