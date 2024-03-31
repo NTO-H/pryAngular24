@@ -3,13 +3,13 @@
     <nav class="menu">
         <ul class="menu-list">
             <li class="menu-item">
-                <a routerLink="/dashboard" routerLinkActive="active">Devices</a>
+                <a routerLink="/iot/dashboard" routerLinkActive="active">Devices</a>
             </li>
             <li class="menu-item">
-                <a routerLink="/devices" routerLinkActive="active">Dashboard</a>
+                <a routerLink="/iot/devices" routerLinkActive="active">Dashboard</a>
             </li>
             <li class="menu-item">
-                <a routerLink="/tokens" routerLinkActive="active">Apps</a>
+                <a routerLink=="/iot/tokens" routerLinkActive="active">Apps</a>
             </li>
             <li class="menu-item">
                 <a (click)="mostrarSidebar()">New</a>
@@ -17,5 +17,8 @@
         </ul>
     </nav>
 </header>
-
-<router-outlet></router-outlet> <!-- Aquí se mostrarán los componentes correspondientes a las rutas -->
+<!-- 
+<li><a routerLink="/iot/dashboard">Dashboard</a></li>
+<li><a routerLink="/iot/devices">Devices</a></li>
+<li><a routerLink="/iot/tokens">Tokens</a></li> -->
+<!-- <router-outlet></router-outlet> Aquí se mostrarán los componentes correspondientes a las rutas -->

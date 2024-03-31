@@ -48,7 +48,17 @@ const routes: Routes = [
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
   { path: 'preguntas', component: PreguntasComponent, data: { breadcrumb: 'Preguntas' }},
   { path: 'dashboardA', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
-  { path: 'iot', component: IotHomeComponent },
+  {
+    path: 'iot',
+    component: IotHomeComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'devices', component: DevicesComponent },
+      { path: 'tokens', component: TablaDispositivosComponent },
+      // Agrega aquí más rutas según sea necesario
+    ]
+  },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
   { path: 'politicas', component: PoliticasComponent, data: { breadcrumb: 'Políticas' } },
