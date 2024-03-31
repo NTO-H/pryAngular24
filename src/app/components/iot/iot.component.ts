@@ -53,6 +53,13 @@ export class IotComponent implements OnInit {
  
   }
 
+  copiarClave() {
+    // Obtener el valor del input
+    const claveInput = document.getElementById('keyInput') as HTMLInputElement;
+    claveInput.select();
+    document.execCommand('copy');
+  }
+
 
   items: MenuItem[] | undefined;
 
