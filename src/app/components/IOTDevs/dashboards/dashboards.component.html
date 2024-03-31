@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Dispositivos Cercanos</title>
+</head>
+<body>
+    <p-sidebar [(visible)]="sidebarVisible3" position="top">
+        <div class="container">
+            <div class="form-group row align-items-center">
+                <label for="keyInput" class="col-form-label col-sm-2">Token</label>
+                <div class="col-sm-8 input-group">
+                    <input type="text" class="form-control" id="keyInput" placeholder="Introduce tu clave aquí">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="copiarClave()">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-sidebar>
+    <header class="header-Title">
+        <h1> IOT SERVICE</h1><p-button type="button" class="mr-2" (click)="mostrarSidebar()"
+            icon="pi pi-arrow-down"></p-button>
+    </header>
+    <section class="dispositivos">
+        <div class="dispositivo">
+            <img style="height: 131px; width: 131px;" [src]="imagen2" [alt]="alt">
+            <div class="humedad">
+                <span class="label">Humedad:</span>
+                <span class="value">{{ humedad }}%</span>
+            </div>
+        </div>
+        <div class="dispositivo">
+            <img style="height:131px; width:131px;" [src]="imagen" [alt]="alt">
+            <div class="temperatura">
+                <span class="label">Temperatura:</span>
+                <span class="value">{{ temperatura }}°C</span>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="botones">
+        <div class="fila">
+            <!-- Botones de la primera fila -->
+            <div class="switch-container" [ngClass]="{ 'active': isChecked }" (click)="toggleSwitch()">
+                <label class="switch">
+                    <img src="../../../assets/images/bombilla-de-idea.png" alt="led">
+                </label>
+                <div class="status-label">{{ isChecked ? 'Encendido' : 'Apagado' }}</div>
+            </div>
+
+            <div class="switch-container" [ngClass]="{ 'active': isCheckedValancin }" (click)="toggleSwitchValanin()">
+                <label class="switch">
+                    <img src="../../../assets/images/cuna-de-bebe.png" alt="valancin">
+                </label>
+                <div class="status-label">{{ isCheckedValancin ? 'Encendido' : 'Apagado' }}</div>
+            </div>
+        </div>
+
+        <div class="fila">
+            <!-- Botones de la segunda fila -->
+            <div class="switch-container" [ngClass]="{ 'active': isCheckedCarrucel }" (click)="toggleSwitchCarrucel()">
+                <label class="switch">
+                    <img src="../../../assets/images/movil-cuna.png" alt="valancin">
+                </label>
+                <div class="status-label">{{ isCheckedCarrucel ? 'Encendido' : 'Apagado' }}</div>
+            </div>
+
+            <div class="switch-container" [ngClass]="{ 'active': isCheckedMusica }" (click)="toggleSwitchMusica()">
+                <label class="switch">
+                    <img src="../../../assets/images/cancion-de-cuna.png" alt="valancin">
+                </label>
+                <div class="status-label">{{ isCheckedMusica ? 'Encendido' : 'Apagado' }}</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

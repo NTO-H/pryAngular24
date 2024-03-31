@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Manager</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="title">Tokens</h1>
+        <p class="info">Use Tokens to authenticate API requests. You can create Tokens from this interface, or through
+            our API.</p>
+    </header>
+    <main class="main">
+        <input type="text" class="search-input" placeholder="Search Token">
+        <table class="token-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Created at</th>
+                    <th>Token</th>
+                    <th>Rate limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Default token</td>
+                    <td>2024-02-07 11:19:29</td>
+                    <td>*************</td>
+                    <td>1 req/s</td>
+                </tr>
+                <!-- Add more token rows here -->
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer">
+        <select class="page-size">
+            <option value="10">10 per page</option>
+            <option value="20">20 per page</option>
+            <!-- Add more options if needed -->
+        </select>
+        <button class="add-token-button">+</button>
+    </footer>
+</body>
+
+</html>

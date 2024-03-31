@@ -1,0 +1,22 @@
+
+    <p-sidebar [(visible)]="sidebarVisible3" position="top">
+        <div class="container">
+            <div class="form-group row align-items-center">
+                <label for="keyInput" class="col-form-label col-sm-2">Token</label>
+                <div class="col-sm-8 input-group">
+                    <input type="text" class="form-control" id="keyInput" placeholder="Introduce tu clave aquí">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="copiarClave()">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </p-sidebar>
+    <header class="header-Title">
+        <h1> IOT SERVICE</h1><p-button type="button" class="mr-2" (click)="mostrarSidebar()"
+            icon="pi pi-arrow-down"></p-button>
+
+    </header>

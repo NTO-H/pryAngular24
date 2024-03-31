@@ -1,7 +1,8 @@
-import { ConsultasService } from './../../services/consultas.service';
+import { ConsultasService } from './../../../services/consultas.service';
+
+
+
 import { MatSliderModule } from '@angular/material/slider';
-// import { DispositivoService } from 'src/app/services/dispositivos.service';
-// import { Dispositivo } from './../../models/dispositivos';
 import { Console } from 'console';
 import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
@@ -14,22 +15,18 @@ import { FormBuilder } from '@angular/forms';
 import { Dispositivo } from 'src/app/models/dispositivos';
 
 @Component({
-  selector: 'app-iot',
-  // standalone: true,
-  // imports: ,
-
-
-  templateUrl: './iot.component.html',
-  styleUrls: ['./iot.component.scss']
+  selector: 'app-dashboards',
+  templateUrl: './dashboards.component.html',
+  styleUrl: './dashboards.component.scss'
 })
-export class IotComponent implements OnInit {
+export class DashboardsComponent implements OnInit {
   @Input() imagen!: string;
   @Input() imagen2!: string;
   @Input() alt!: string;
   temperatura: number = 25;
   sidebarVisible3: boolean = false;
-// console.log(sidebarVisible3.value);
-  
+  // console.log(sidebarVisible3.value);
+
   humedad: number = 0; // Valor inicial de la humedad
   // humedad: number = 0; // Valor inicial de la humedad
   humedadOptions = [
@@ -40,7 +37,7 @@ export class IotComponent implements OnInit {
     { value: 100, label: '100%', icon: 'fas fa-tint' }
   ];
   // Declaración de la propiedad style con un objeto que cumple con el tipo esperado
-  sidebarStyle: { [klass: string]: any } = { heig:'50%',  width: '100%', textAlign: 'center' };
+  sidebarStyle: { [klass: string]: any } = { heig: '50%', width: '100%', textAlign: 'center' };
   // height:50%; width:100%; text-align: center; z-index: 1102;
   isChecked!: boolean;
   isCheckedValancin!: boolean;
@@ -49,8 +46,8 @@ export class IotComponent implements OnInit {
 
 
   // sidebarVisible3: boolean = false;
-  constructor(private consultaService:ConsultasService,private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
- 
+  constructor(private consultaService: ConsultasService, private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
+
   }
 
   copiarClave() {
@@ -77,8 +74,7 @@ export class IotComponent implements OnInit {
     this.cambiaEstadoLed(valor);
   }
 
-  toggleSwitchValanin()
-  {
+  toggleSwitchValanin() {
     this.isCheckedValancin = !this.isCheckedValancin;
     const valorValancin = this.isCheckedValancin ? 1 : 0;
     console.log("valor del valancin=>", valorValancin);
@@ -86,23 +82,21 @@ export class IotComponent implements OnInit {
   }
 
 
-  
-  toggleSwitchCarrucel()
-  {
+
+  toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
     console.log("valor del Carrucel=>", valorCarrucel);
     this.cambiaEstadoCarrucel(valorCarrucel);
   }
-  toggleSwitchMusica()
-  {
+  toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
     console.log("valor del Musica=>", valorMusica);
     this.cambiaEstadoMusica(valorMusica);
   }
 
-  
+
   getIconoHumedad(humedad: number): string {
     if (humedad === 0) {
       return 'icono-0';
@@ -117,17 +111,17 @@ export class IotComponent implements OnInit {
     }
   }
 
-//  !  arreglar 
-//this.yourDataService.getHumedad().subscribe(
-//      (data: any) => {
-//   // Asigna el valor de la humedad obtenido del servicio al ngModel del slider
-//   this.humedad = data.humedad; // Suponiendo que el valor de humedad se obtiene de un objeto data con una propiedad 'humedad'
-// },
-//   (error) => {
-//     console.error('Error al obtener el valor de la humedad:', error);
-//   }
-//     );
-//   }
+  //  !  arreglar 
+  //this.yourDataService.getHumedad().subscribe(
+  //      (data: any) => {
+  //   // Asigna el valor de la humedad obtenido del servicio al ngModel del slider
+  //   this.humedad = data.humedad; // Suponiendo que el valor de humedad se obtiene de un objeto data con una propiedad 'humedad'
+  // },
+  //   (error) => {
+  //     console.error('Error al obtener el valor de la humedad:', error);
+  //   }
+  //     );
+  //   }
 
   cambiaEstadoLed(valor: number) {
     this.dispositivoService.editarDispositivoLed(valor).subscribe(
@@ -217,7 +211,7 @@ export class IotComponent implements OnInit {
         if (this.temperatura > 41) {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
           this.alt = 'temperatura media';
-        } else if (this.temperatura > 30 && this.temperatura<37 ) {
+        } else if (this.temperatura > 30 && this.temperatura < 37) {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mtmxndj0oxhpfbjxq58v';
           this.alt = 'Hutemperatura normal';
         } else {
@@ -240,10 +234,10 @@ export class IotComponent implements OnInit {
         // Asignar el valor del LED basado en la respuesta
 
         if (response == 1) {
-           this.isChecked =true
+          this.isChecked = true
         }
         // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
-        console.log("valor que se obtiene de getEstadoLed=>",response);
+        console.log("valor que se obtiene de getEstadoLed=>", response);
         console.log("valor que se de isckeck=>", this.isChecked);
       },
       (error) => {
@@ -257,10 +251,10 @@ export class IotComponent implements OnInit {
         // Asignar el valor del LED basado en la respuesta
 
         if (response == 1) {
-          this.isCheckedValancin =true
+          this.isCheckedValancin = true
         }
         // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
-        console.log("valor que se obtiene de getEstadoValancin=>",response);
+        console.log("valor que se obtiene de getEstadoValancin=>", response);
         console.log("valor que se de isckeck=>", this.isChecked);
       },
       (error) => {
@@ -274,10 +268,10 @@ export class IotComponent implements OnInit {
         // Asignar el valor del LED basado en la respuesta
 
         if (response == 1) {
-          this.isCheckedCarrucel =true
+          this.isCheckedCarrucel = true
         }
         // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
-        console.log("valor que se obtiene de getEstadoCarrucel=>",response);
+        console.log("valor que se obtiene de getEstadoCarrucel=>", response);
         console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
       },
       (error) => {
@@ -291,10 +285,10 @@ export class IotComponent implements OnInit {
         // Asignar el valor del LED basado en la respuesta
 
         if (response == 1) {
-          this.isCheckedMusica =true
+          this.isCheckedMusica = true
         }
         // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
-        console.log("valor que se obtiene de getEstadoMusica=>",response);
+        console.log("valor que se obtiene de getEstadoMusica=>", response);
         console.log("valor que se de isckeck=>", this.isChecked);
       },
       (error) => {

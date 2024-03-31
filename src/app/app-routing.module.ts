@@ -16,7 +16,7 @@ import { AuthComponent } from './components/Auth/Auth.component';
 import { CrearCuentaComponent } from './components/Public/crear-cuenta/crear-cuenta.component';
 import { CardsProductosComponent } from './components/Public/cards-productos/cards-productos.component';
 import { PoliticasComponent } from './components/Public/politicas/politicas.component';
-import { IotComponent } from './components/iot/iot.component';
+import { IotComponent } from './IOT/iot.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';

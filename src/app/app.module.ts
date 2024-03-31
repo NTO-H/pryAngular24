@@ -87,7 +87,7 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AuthComponent } from './components/Auth/Auth.component';
 import { AyudaComponent } from './components/Public/ayuda/ayuda.component';
 import { RecuperacionComponent } from './components/Public/recuperacion/recuperacion.component';
-import { IotComponent } from './components/iot/iot.component';
+import { IotComponent } from './IOT/iot.component';
 import { AdmHeaderComponent } from './components/Admin/adm-header/adm-header.component';
 import { ClientHeaderComponent } from './components/client/client-header/client-header.component';
 import { mensageservice } from './services/mensage.service';
@@ -103,10 +103,13 @@ import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/
 import { ClientHomeComponent } from './components/client/client-home/client-home.component';
 // import { SidebarModule } from 'primeng/sidebar';
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
+import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
+import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
 @NgModule({
 
   declarations: [
-    PoliticasComponent,QuienesSomosComponent,
+    IotheaderComponent,
+    PoliticasComponent,QuienesSomosComponent,DashboardsComponent,
     AppComponent, AyudaComponent, AdmHeaderComponent, FooterComponent,
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
     CrearProductoComponent, RecuperacionComponent, PreguntasComponent,
