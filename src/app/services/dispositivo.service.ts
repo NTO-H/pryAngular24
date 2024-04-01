@@ -50,7 +50,7 @@ export class DispositivoService {
         return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica });
     }
     crearDispositivo(devs:Dispositivo) {
-        return this.http.post(this.url +'/crearDispositivo',devs)
+        return this.http.post(this.url +'crearDispositivo',devs)
     }
     
     
