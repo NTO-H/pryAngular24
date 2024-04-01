@@ -28,8 +28,12 @@ export class DevicesComponent {
   }
 
     crearDispositivo(){
-    
-      this.dvs.crearDispositivo(this.frmCrearDev.value).subscribe(response=>{
+      const name = this.frmCrearDev.get('devName')?.value;
+      const label = this.frmCrearDev.get('devLabel')?.value;
+   console.log(name,"<=nombre")
+      console.log(label,"<=label")
+   
+      this.dvs.crearDispositivo(this.frmCrearDev.value).subscribe(response => {
         this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
 
       },
