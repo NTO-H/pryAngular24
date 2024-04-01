@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DispositivoService {
 
-    url = 'https://servidortropicalworld-1.onrender.com/Dispositivos/';
+    url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
 
     constructor(private http: HttpClient) { }
 
@@ -49,5 +49,10 @@ export class DispositivoService {
     editarEstadoMusica(estadoMusica: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica });
     }
-
+    crearDispositivo(devs:Dispositivo) {
+        return this.http.post(this.url +'/crearDispositivo',devs)
+    }
+    
+    
 }
+

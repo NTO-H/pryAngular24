@@ -1,15 +1,25 @@
 <p-sidebar [(visible)]="sidebarVisible2" position="right">
     <h3 class="sidebar-title">Add New Device</h3>
-    <form class="device-form">
+    <form  [formGroup]="frmCrearDev" class="device-form">
         <label for="deviceName">Device name:</label>
-        <input type="text" id="deviceName" name="deviceName" placeholder="Enter device name" required>
+        <input formControlName="devName" type="text" id="deviceName" name="deviceName" placeholder="Enter device name" required>
 
         <label for="deviceLabel">Device label:</label>
-        <input type="text" id="deviceLabel" name="deviceLabel" placeholder="Enter device label" required>
+        <input formControlName="devLabel" type="text" id="deviceLabel" name="deviceLabel" placeholder="Enter device label" required>
 
         <button type="submit" class="create-button">Create a device</button>
     </form>
 </p-sidebar>
+
+
+
+
+
+
+
+
+
+
 <body>
     <header class="header">
         <div class="device-count">2 Devices</div>

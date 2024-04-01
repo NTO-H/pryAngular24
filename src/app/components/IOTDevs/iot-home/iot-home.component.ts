@@ -11,14 +11,14 @@ import Swal from 'sweetalert2';
 })
 export class IotHomeComponent implements OnInit {
 
-  
+
 
   sidebarVisible3: boolean = false;
 
 
 
 
-  usuarioId:any; // Variable para almacenar el ID del usuario
+  usuarioId: any; // Variable para almacenar el ID del usuario
 
   // constructor(private authService: AuthService) { }
 
@@ -49,23 +49,23 @@ export class IotHomeComponent implements OnInit {
       console.log(userData);
       this.auth.miPerfilUsuario(userData).subscribe(usuario => {
         this.usuarioId = usuario.datos;
-    
-      
-       
+
+
+
       })
-  }else{
-  
+    } else {
+
       Swal.fire('Error', 'No se obtubo datos', 'error');
 
     }
-    
-  
+
+
   }
-    copiarClave() {
-      // Obtener el valor del input
-      const claveInput = document.getElementById('keyInput') as HTMLInputElement;
-      claveInput.select();
-      document.execCommand('copy');
-    }
-  
+  copiarClave() {
+    // Obtener el valor del input
+    const claveInput = document.getElementById('keyInput') as HTMLInputElement;
+    claveInput.select();
+    document.execCommand('copy');
+  }
+
 }
