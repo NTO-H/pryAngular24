@@ -23,7 +23,8 @@ export class DevicesComponent  implements OnInit{
   // constructor(private dispositivoService: DispositivoService) { }
 
   ngOnInit(): void {
-    // this.obtenerDispositivos();
+    console.log("obtenerDispositivos=>aqui ")
+    this.obtenerDispositivos();
   }
 
 
@@ -48,6 +49,8 @@ export class DevicesComponent  implements OnInit{
 
 
   obtenerDispositivos() {
+    console.log("entró=>currentUser ")
+
     const correo = localStorage.getItem('currentUser');
     if (!correo) {
       this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
@@ -57,8 +60,13 @@ export class DevicesComponent  implements OnInit{
     this.usr.buscaUsuarioByCorreo(correo).subscribe(
       (data: any) => {
         if (data && data.usuarioId) {
+          const id = data.usuarioId;
           this.dvs.encontrarDispositivosPorUsuarioId(data.usuarioId).subscribe(
             (data: Dispositivo[]) => {
+              
+              console.log("entró=>encontrarDispositivosPorUsuarioId ")
+              console.log("entró=>data.usuarioId ", id)
+
               this.dispositivos = data;
               this.deviceCount = this.dispositivos.length;
               this.mostrarDispositivos = true;
