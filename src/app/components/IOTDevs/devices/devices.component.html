@@ -2,10 +2,10 @@
     <h3 class="sidebar-title">Add New Device</h3>
     <form  [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
         <label for="deviceName">Device name:</label>
-        <input formControlName="devName" type="text" id="deviceName" name="deviceName" placeholder="Enter device name" required>
+        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName" placeholder="Enter device name" required>
 
         <label for="deviceLabel">Device label:</label>
-        <input formControlName="devLabel" type="text" id="deviceLabel" name="deviceLabel" placeholder="Enter device label" required>
+        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel" placeholder="Enter device label" required>
 
         <button type="submit" class="create-button">Create a device</button>
     </form>
@@ -20,7 +20,7 @@
 
 <main class="devices" *ngIf="mostrarDispositivos">
     <div class="device-card" *ngFor="let dispositivo of dispositivos">
-        <h2 class="device-name">{{ dispositivo.devName }}</h2>
+        <h2 class="device-name">{{ dispositivo.deviceName }}</h2>
         <!-- Mostrar otras propiedades del dispositivo si es necesario -->
     </div>
 </main>

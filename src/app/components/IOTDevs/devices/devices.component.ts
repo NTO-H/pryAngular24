@@ -40,8 +40,8 @@ export class DevicesComponent  implements OnInit{
   
     
     this.frmCrearDev = this.fb.group({
-      devName: ['', Validators.required],
-      devLabel: ['', Validators.required]
+      deviceName: ['', Validators.required],
+      deviceLabel: ['', Validators.required]
     })
     this.id = this.aRouter.snapshot.paramMap.get('id');
 
@@ -61,6 +61,8 @@ export class DevicesComponent  implements OnInit{
       (data: any) => {
         if (data && data.usuarioId) {
           const id = data.usuarioId;
+
+
           this.dvs.encontrarDispositivosPorUsuarioId(id).subscribe(
             (data: Dispositivo[]) => {
               
@@ -106,8 +108,8 @@ export class DevicesComponent  implements OnInit{
         if (data && data.usuarioId) {
           // Crear el objeto Dispositivo con el ID del usuario
           const DEVICE: Dispositivo = {
-            devName: this.frmCrearDev.get('devName')?.value,
-            devLabel: this.frmCrearDev.get('devLabel')?.value,
+            deviceName: this.frmCrearDev.get('deviceName')?.value,
+            deviceLabel: this.frmCrearDev.get('deviceLabel')?.value,
             userId: data.usuarioId // Incluir el ID del usuario en el dispositivo
           };
 
