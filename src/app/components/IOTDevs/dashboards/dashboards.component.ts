@@ -13,6 +13,8 @@ import { DispositivoService } from 'src/app/services/dispositivo.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder } from '@angular/forms';
 import { Dispositivo } from 'src/app/models/dispositivos';
+import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-dashboards',
@@ -25,6 +27,11 @@ export class DashboardsComponent implements OnInit {
   @Input() alt!: string;
   temperatura: number = 25;
   sidebarVisible3: boolean = false;
+
+  dispositivos: Dispositivo[] = [];
+  deviceCount: number = 0;
+  mostrarDispositivos: boolean = false;
+
   // console.log(sidebarVisible3.value);
 
   humedad: number = 0; // Valor inicial de la humedad
@@ -46,7 +53,7 @@ export class DashboardsComponent implements OnInit {
 
 
   // sidebarVisible3: boolean = false;
-  constructor(private consultaService: ConsultasService, private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
+  constructor(private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr:UsuarioService,private consultaService: ConsultasService, private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
 
   }
 
@@ -59,6 +66,62 @@ export class DashboardsComponent implements OnInit {
 
 
   items: MenuItem[] | undefined;
+
+
+  
+//FIXME -  obtener dispositivos para select
+  
+
+
+
+  obtenerDispositivos() {
+    console.log("entró=>currentUser ")
+
+    const correo = localStorage.getItem('currentUser');
+    if (!correo) {
+      this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
+      return;
+    }
+
+    this.usr.buscaUsuarioByCorreo(correo).subscribe(
+      (data: any) => {
+        if (data && data.usuarioId) {
+          const id = data.usuarioId;
+
+
+          this.dvs.encontrarDispositivosPorUsuarioId(id).subscribe(
+            (data: Dispositivo[]) => {
+
+              console.log("entró=>encontrarDispositivosPorUsuarioId ")
+              console.log("entró=>data.usuarioId ", id)
+
+              this.dispositivos = data;
+              this.deviceCount = this.dispositivos.length;
+              this.mostrarDispositivos = true;
+            },
+            (error) => {
+              console.error('Error al obtener dispositivos:', error);
+            }
+          );
+        } else {
+          this.toastr.error('Usuario no encontrado', 'Error');
+        }
+      },
+      (error) => {
+        console.error(error);
+        this.toastr.error('Error al buscar el usuario', 'Error');
+      }
+    );
+  }
+
+
+
+  
+//FIXME - 
+  
+
+
+
 
   ngOnInit(): void {
     this.obtenerEstadoLed();
