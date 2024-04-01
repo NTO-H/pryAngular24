@@ -31,7 +31,7 @@ export class DashboardsComponent implements OnInit {
   dispositivos: Dispositivo[] = [];
   deviceCount: number = 0;
   mostrarDispositivos: boolean = false;
-
+  selectedDeviceName: string='';
   // console.log(sidebarVisible3.value);
 
   humedad: number = 0; // Valor inicial de la humedad
@@ -56,6 +56,10 @@ export class DashboardsComponent implements OnInit {
   constructor(private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr:UsuarioService,private consultaService: ConsultasService, private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
 
   }
+  updateSelectedDevice() {
+    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+  }
+
 
   copiarClave() {
     // Obtener el valor del input
