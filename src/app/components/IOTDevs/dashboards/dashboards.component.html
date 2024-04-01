@@ -3,10 +3,15 @@
 <body>
         <header class="header">
             <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
-            <select  *ngFor="let dv of dispositivos" name="options" class="optionSelect">
-                <!-- Example options -->
-                <option value="option1">{{dv.deviceName}}</option>
-            </select>
+            <header class="header">
+                <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
+                <select name="options" class="optionSelect">
+                    <!-- Itera sobre cada dispositivo para crear opciones -->
+                    <ng-container *ngFor="let dv of dispositivos">
+                        <option [value]="dv.deviceName">{{ dv.deviceName }}</option>
+                    </ng-container>
+                </select>
+            </header>
         </header>
 
     <section class="dispositivos">
