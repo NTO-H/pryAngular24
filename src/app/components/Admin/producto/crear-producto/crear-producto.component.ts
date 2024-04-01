@@ -17,7 +17,7 @@ export class CrearProductoComponent implements OnInit {
   btnTitle = 'crear';
   id: string | null;
   selectedFile: File | null = null; // Inicializa con null
-  categorias:Categoria []=[]
+  categorias: Categoria[] = []
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -32,7 +32,7 @@ export class CrearProductoComponent implements OnInit {
       precio: ['', Validators.required],
       descripcion: ['', Validators.required],
       imagen: ['', Validators.required],
-      
+
     });
     this.id = this.aRouter.snapshot.paramMap.get('id');
   }
@@ -40,7 +40,6 @@ export class CrearProductoComponent implements OnInit {
   showTopCenter() {
     this.messageService.add({ key: 'tc', severity: 'warn', summary: 'Warn', detail: 'Message Content' });
   }
-
 
   onFileSelected(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
@@ -51,15 +50,17 @@ export class CrearProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.obtenerCategorias();
+    this.obtenerCategorias();
     this.esEditar();
   }
   agregarProducto() {
- 
+
     // Obtener los valores del formulario
     const productoNombre = this.productoForm.get('producto')?.value;
     const productoCategoria = this.productoForm.get('categoria')?.value?.nombre;
-    console.log("categoria=>",productoCategoria);
+    console.log("categoria=>", productoCategoria);
+
+
     const productoPrecio = this.productoForm.get('precio')?.value;
     const productoDescripcion = this.productoForm.get('descripcion')?.value;
     // const imagen = this.productoForm.get('imagen')?.value;
@@ -101,7 +102,7 @@ export class CrearProductoComponent implements OnInit {
           this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
 
 
-          
+
           this.router.navigate(['/listar-productos']);
         },
         error => {
@@ -131,7 +132,7 @@ export class CrearProductoComponent implements OnInit {
 
   obtenerCategorias() {
     this._productoService.getCategorias().subscribe((data: Categoria[]) => {
-      this.categorias= data;
+      this.categorias = data;
       console.log(this.categorias)
     })
 

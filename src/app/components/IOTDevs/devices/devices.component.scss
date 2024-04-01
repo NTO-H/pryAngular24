@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: radial-gradient(circle at center, #658081 0%, #202f31 100%);
+    // background-color: #f5f5f5;
 }
 
 .header {
@@ -33,21 +34,22 @@ body {
     margin-top: 10px;
 }
 
-.devices {
+.devices[_ngcontent-ng-c210980407] {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    height: 80vh;
+    background: linear-gradient(0 #ffff);
 }
-
 .device-card {
-    background-color: #fff;
-    color: #333;
+    background-color: #d6f0eb;
+    color: #19607b;
     padding: 20px;
     border-radius: 10px;
-    width: 45%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    box-shadow: 0 2px 4px #0000007a;
+    height: 150px;
 }
-
 .device-name {
     font-size: 18px;
     margin: 0;
