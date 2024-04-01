@@ -5,7 +5,7 @@
     height: 50px auto;
 }
 .imagen-fondo.scrolled {
-    filter: contrast(200%);
+    filter: saturate(60%);
 }
 
 .imagen-fondo::before {
@@ -94,8 +94,7 @@ img {
 
 
 .imagenBbe.scrolled {
-    filter: blur(5px);
-
+filter: blur(5px) grayscale(5%) sepia(40%);
 }
 
 span {
@@ -202,7 +201,7 @@ h1.scrolled {
     //font-size: 709%;
     // color: rgba(0, 103, 131, 0.995);
     text-shadow: 0px 0px 5px #faf3b1;
-    filter: blur(5px);
+    filter: blur(5px) grayscale(5%) sepia(40%);
     filter: text-shadow(0 0 10px rgba(214, 232, 142, 0.8));
     -webkit-filter: text-shadow(0 0 10px rgba(214, 232, 142, 0.8));
 }
