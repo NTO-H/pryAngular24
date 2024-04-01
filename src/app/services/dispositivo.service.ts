@@ -30,9 +30,9 @@ export class DispositivoService {
         return this.http.get<any>(this.url + 'obtenerEstadoCarrucel');
     }
 
-    obtenerProducto(id: string): Observable<any> {
-        return this.http.get(this.url + id);
-    }
+    // obtenerProducto(id: string): Observable<any> {
+    //     return this.http.get(this.url + id);
+    // }
 
     editarDispositivoLed(estado: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoLed", {"led": estado });

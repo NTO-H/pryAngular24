@@ -1,23 +1,12 @@
 export class Dispositivo {
     _id?: number;
-    devName: String;
-    devLabel: String;
-    // Temperatura: string;
-    // humedad: string;
-    // Movimiento: string;
-    // EstadoLed: number;
+    devName: string;
+    devLabel: string;
+    userId: string; // Nuevo campo para el ID del usuario
 
-
-
-    constructor( devLabel: string, devName: string) {
-    // constructor(Temperatura: string, devLabel: string, devName: string, EstadoLed: number, humedad: string, Movimiento: string) {
-        
-        this.devName= devName;
-        this.devLabel= devLabel;
-        // this.Temperatura = Temperatura;
-        // this.humedad = humedad;
-        // this.Movimiento = Movimiento;
-        // this.EstadoLed = EstadoLed;
+    constructor(devLabel: string, devName: string, userId: string) {
+        this.devName = devName;
+        this.devLabel = devLabel;
+        this.userId = userId; // Asignar el ID del usuario al campo userId
     }
-
 }

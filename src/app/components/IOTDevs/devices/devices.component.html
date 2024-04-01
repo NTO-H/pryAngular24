@@ -12,8 +12,26 @@
 </p-sidebar>
 
 
+<header class="header">
+    <div *ngIf="mostrarDispositivos" class="device-count">{{ deviceCount }} Devices</div>
+    <div *ngIf="!mostrarDispositivos" class="device-count">0 Devices - No tienes dispositivos</div>
+    <input type="text" class="search-bar" placeholder="Search devices...">
+</header>
+
+<main class="devices" *ngIf="mostrarDispositivos">
+    <div class="device-card" *ngFor="let dispositivo of dispositivos">
+        <h2 class="device-name">{{ dispositivo.devName }}</h2>
+        <!-- Mostrar otras propiedades del dispositivo si es necesario -->
+    </div>
+</main>
+
+<button type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left"
+    class="add-device">+</button>
+<footer class="pagination" *ngIf="mostrarDispositivos">1 - {{ deviceCount }} of {{ deviceCount }}</footer>
 
 
+
+<!-- 
 
 
 
@@ -44,4 +62,4 @@
     <button   type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left" class="add-device">+</button>
     <footer class="pagination">1 - 2 of 2</footer>
 </body>
-
+ -->

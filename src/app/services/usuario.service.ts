@@ -92,6 +92,13 @@ export class UsuarioService {
     }
 
 
+    
+    buscaUsuarioByCorreo(correo: string): Observable<any> {
+        return this.http.get(`${this.url}/buscaUsuarioById/${correo}`);
+     // http://localhost:4000/usuarios/buscaUsuarioById/gabo@gmail.com
+    }
+
+
 
 
 
