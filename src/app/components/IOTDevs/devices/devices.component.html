@@ -15,7 +15,7 @@
 <header class="header">
     <div *ngIf="mostrarDispositivos" class="device-count">{{ deviceCount }} Devices</div>
     <div *ngIf="!mostrarDispositivos" class="device-count">0 Devices - No tienes dispositivos</div>
-    <input type="text" class="search-bar" placeholder="Search devices...">
+    <input *ngIf="mostrarDispositivos" type="text" class="search-bar" placeholder="Search devices...">
 </header>
 
 <main class="devices" *ngIf="mostrarDispositivos">

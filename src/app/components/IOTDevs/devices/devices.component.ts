@@ -47,24 +47,38 @@ export class DevicesComponent  implements OnInit{
   }
 
 
+  obtenerDispositivos() {
+    const correo = localStorage.getItem('currentUser');
+    if (!correo) {
+      this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
+      return;
+    }
 
-  // obtenerDispositivos() {
-  //   // Llamar al servicio para obtener los dispositivos asociados al usuario
-  //   this.dvs.obtenerDispositivos().subscribe(
-  //     (data: Dispositivo[]) => {
-  //       // Al recibir los datos, asignarlos a la propiedad dispositivos
-  //       this.dispositivos = data;
-  //       // Actualizar el contador de dispositivos
-  //       this.deviceCount = this.dispositivos.length;
-  //       // Mostrar los dispositivos
-  //       this.mostrarDispositivos = true;
-  //     },
-  //     (error) => {
-  //       // Manejar errores al obtener dispositivos
-  //       console.error('Error al obtener dispositivos:', error);
-  //     }
-  //   );
-  // }
+    this.usr.buscaUsuarioByCorreo(correo).subscribe(
+      (data: any) => {
+        if (data && data.usuarioId) {
+          this.dvs.encontrarDispositivosPorUsuarioId(data.usuarioId).subscribe(
+            (data: Dispositivo[]) => {
+              this.dispositivos = data;
+              this.deviceCount = this.dispositivos.length;
+              this.mostrarDispositivos = true;
+            },
+            (error) => {
+              console.error('Error al obtener dispositivos:', error);
+            }
+          );
+        } else {
+          this.toastr.error('Usuario no encontrado', 'Error');
+        }
+      },
+      (error) => {
+        console.error(error);
+        this.toastr.error('Error al buscar el usuario', 'Error');
+      }
+    );
+  }
+
+
 
   crearDispositivo() {
     // Obtener el correo electrónico del usuario

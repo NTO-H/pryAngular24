@@ -49,6 +49,13 @@ export class DispositivoService {
     editarEstadoMusica(estadoMusica: number): Observable<any> {
         return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica });
     }
+// encontrarDispositivosPorUsuarioId/6601c7638f2fa0ddd22dfa44
+
+    encontrarDispositivosPorUsuarioId(id: string): Observable<any> {
+        return this.http.get(`${this.url}encontrarDispositivosPorUsuarioId/${id}`);
+    }
+
+
     crearDispositivo(devs:Dispositivo) {
         return this.http.post(this.url +'crearDispositivo',devs)
     }
