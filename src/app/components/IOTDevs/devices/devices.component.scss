@@ -34,12 +34,12 @@ body {
     margin-top: 10px;
 }
 
-.devices[_ngcontent-ng-c210980407] {
+.devices{
     display: flex;
     justify-content: space-between;
     padding: 20px;
     height: 80vh;
-    background: linear-gradient(0 #ffff);
+    background: radial-gradient(circle at center, #658081 0%, #202f31 100%);
 }
 .device-card {
     background-color: #d6f0eb;
