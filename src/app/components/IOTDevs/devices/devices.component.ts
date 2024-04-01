@@ -90,7 +90,7 @@ export class DevicesComponent  implements OnInit{
 
 
   crearDispositivo() {
-    // Obtener el correo electrónico del usuario
+    // Obtener el correo electrónico del usuario en el navegador
     const correo = localStorage.getItem('currentUser');
 
     // Verificar si se obtuvo el correo electrónico del usuario

@@ -17,14 +17,16 @@
     <div *ngIf="!mostrarDispositivos" class="device-count">0 Devices - No tienes dispositivos</div>
     <input *ngIf="mostrarDispositivos" type="text" class="search-bar" placeholder="Search devices...">
 </header>
-
 <main class="devices" *ngIf="mostrarDispositivos">
-    <div class="device-card" *ngFor="let dispositivo of dispositivos">
-        <h2 class="device-name">{{ dispositivo.deviceName }}</h2>
-        <!-- <h2 class="fecha creado">{{ dispositivo.fechaCreacion }}</h2> -->
-        <! -- Mostrar otras propiedades del dispositivo si es necesario -->
+    <div class="device-row" *ngFor="let row of dispositivos | chunk: 2">
+        <div class="device-card" *ngFor="let dispositivo of row">
+            <h2 class="device-name">{{ dispositivo.deviceName }}</h2>
+            <!-- <h2 class="fecha creado">{{ dispositivo.fechaCreacion }}</h2> -->
+            <!-- Mostrar otras propiedades del dispositivo si es necesario -->
+        </div>
     </div>
 </main>
+
 
 <button type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left"
     class="add-device">+</button>

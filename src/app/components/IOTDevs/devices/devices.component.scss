@@ -36,19 +36,25 @@ body {
 
 .devices{
     display: flex;
+// flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
     height: 80vh;
+    gap: 20px;
     background: radial-gradient(circle at center, #658081 0%, #202f31 100%);
 }
 .device-card {
     background-color: #d6f0eb;
     color: #19607b;
     padding: 20px;
+    box-sizing: border-box;
+        margin-bottom: 20px;
     border-radius: 10px;
     width: 30%;
     box-shadow: 0 2px 4px #0000007a;
     height: 150px;
+    flex: 1;
+        /* Los dispositivos ocuparán todo el espacio disponible */
 }
 .device-name {
     font-size: 18px;
@@ -117,3 +123,26 @@ input {
     font-size: 1rem;
     border-radius: 4px;
 }
+
+
+// .
+// devices {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 20px; /* Espacio entre las filas */
+// }
+
+.device-row {
+    display: flex;
+    flex: 1 0 50%; /* Las filas ocuparán el 50% del ancho disponible */
+}
+
+// .device-card {
+//     flex: 1; /* Los dispositivos ocuparán todo el espacio disponible */
+//     background-color: #f0f0f0;
+//     border: 1px solid #ddd;
+//     border-radius: 5px;
+//     padding: 20px;
+//     box-sizing: border-box;
+//     margin-bottom: 20px;
+// }

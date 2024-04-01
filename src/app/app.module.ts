@@ -6,6 +6,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { SidebarModule } from 'primeng/sidebar';
 // import { ToastModule } from 'primeng/toast';;
+// ChunkPipe
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
@@ -109,6 +110,7 @@ import { DashboardComponent } from './components/Admin/dashboard/dashboard.compo
 import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
 import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
 import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
+import { ChunkPipe } from './pipes/chunk/chunk.pipe';
 @NgModule({
 
   declarations: [DevicesComponent,TablaDispositivosComponent,IotHomeComponent,
@@ -119,7 +121,7 @@ import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.compone
     CrearProductoComponent, RecuperacionComponent, PreguntasComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
     DetalleProductoComponent,AuthComponent,
-    FilterPipe, CardsProductosComponent,
+    FilterPipe, CardsProductosComponent, ChunkPipe
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule, ConfirmDialogModule,

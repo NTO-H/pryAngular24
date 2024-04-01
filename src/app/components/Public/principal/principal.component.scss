@@ -198,14 +198,10 @@ h1 {
 
 h1.scrolled {
     font-family: 'Mitr', handwriting;
-    //font-size: 709%;
-    // color: rgba(0, 103, 131, 0.995);
+    filter: blur(5px) grayscale(5%) sepia(40%) drop-shadow(0 0 10px rgba(214, 232, 142, 0.8));
+    -webkit-filter: blur(5px) grayscale(5%) sepia(40%) drop-shadow(0 0 10px rgba(214, 232, 142, 0.8));
     text-shadow: 0px 0px 5px #faf3b1;
-    filter: blur(5px) grayscale(5%) sepia(40%);
-    filter: text-shadow(0 0 10px rgba(214, 232, 142, 0.8));
-    -webkit-filter: text-shadow(0 0 10px rgba(214, 232, 142, 0.8));
 }
-
 
 app-main:host {
     display: block;
