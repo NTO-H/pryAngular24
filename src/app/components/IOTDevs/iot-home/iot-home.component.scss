@@ -56,6 +56,13 @@
 }
 option {
   text-transform: none;
-  background: #fff;
-    background-color: rgb(255, 255, 255);
+  background: #000000;
+color: #ffe300;
+    // background-color: rgb(255, 255, 255);
+}
+option:hover {
+  text-transform: none;
+  background: #ffffff;
+color: #030303;
+    // background-color: rgb(255, 255, 255);
 }
