@@ -61,7 +61,7 @@ export class DevicesComponent  implements OnInit{
       (data: any) => {
         if (data && data.usuarioId) {
           const id = data.usuarioId;
-          this.dvs.encontrarDispositivosPorUsuarioId(data.usuarioId).subscribe(
+          this.dvs.encontrarDispositivosPorUsuarioId(id).subscribe(
             (data: Dispositivo[]) => {
               
               console.log("entró=>encontrarDispositivosPorUsuarioId ")
