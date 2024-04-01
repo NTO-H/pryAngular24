@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router, response } from 'express';
 import { ToastrService } from 'ngx-toastr';
+import { Dispositivo } from 'src/app/models/dispositivos';
 import { DispositivoService } from 'src/app/services/dispositivo.service';
 
 @Component({
@@ -28,12 +29,14 @@ export class DevicesComponent {
   }
 
     crearDispositivo(){
-      const name = this.frmCrearDev.get('devName')?.value;
-      const label = this.frmCrearDev.get('devLabel')?.value;
-   console.log(name,"<=nombre")
-      console.log(label,"<=label")
-   
-      this.dvs.crearDispositivo(this.frmCrearDev.value).subscribe(response => {
+
+      const DEVICE: Dispositivo = {
+        devName : this.frmCrearDev.get('devName')?.value,
+        devLabel : this.frmCrearDev.get('devLabel')?.value,
+      }
+    
+
+      this.dvs.crearDispositivo(DEVICE).subscribe(response => {
         this.toastr.success('Producto registrado con éxito!', 'Registró éxitoso');
 
       },
