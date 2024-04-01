@@ -129,6 +129,8 @@ export class DashboardsComponent implements OnInit {
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
+    console.log("obtenerDispositivos=>aqui ")
+    this.obtenerDispositivos();
   }
 
   toggleSwitch() {
