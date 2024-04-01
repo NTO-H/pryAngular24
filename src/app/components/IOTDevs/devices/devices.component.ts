@@ -20,7 +20,6 @@ export class DevicesComponent  implements OnInit{
   deviceCount: number = 0;
   mostrarDispositivos: boolean = false;
 
-  // constructor(private dispositivoService: DispositivoService) { }
 
   ngOnInit(): void {
     console.log("obtenerDispositivos=>aqui ")

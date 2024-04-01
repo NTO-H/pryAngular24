@@ -1,17 +1,11 @@
 .imagen-fondo {
-    //margin-top: -90px;
     position: relative;
     top: -90px;
-    //background-image: url('../../../../assets/images/fondoBody.jpg');
-    //,linear-gradient(black80%,transparente):;
-    //background-size: 100% auto;
     width: 100%;
     height: 50px auto;
-    // filter: grayscale(3px);
-    //background-: no-repeat;
-    /*Hacequelaimagendefondocubratodoelcuerpo*/
-    //background-position: center;
-    // -webkit-filter: grayscale(3px);
+}
+.imagen-fondo.scrolled {
+    filter: contrast(200%);
 }
 
 .imagen-fondo::before {

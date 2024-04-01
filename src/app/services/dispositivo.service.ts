@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class DispositivoService {
-
+//FIXME -   Corregir esto,serán unicos
     url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
 
     constructor(private http: HttpClient) { }
@@ -19,6 +19,8 @@ export class DispositivoService {
     getTempHum(): Observable<any> {
         return this.http.get<any>(this.url +'obtenerEstadoTemperaturaHumedad');
     }
+
+    
     getEstadoValancin(): Observable<any> {
         return this.http.get<any>(this.url +'obtenerEstadoValancin');
     }
