@@ -39,17 +39,12 @@ export class DashboardsComponent implements OnInit {
   constructor(
     private aRouter: ActivatedRoute,
     private fb: FormBuilder,
-    private dvs: DispositivoService,
+    private dispositivoService: DispositivoService,
     private usr: UsuarioService,
     private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
-    this.obtenerEstadoLed();
-    this.obtnerEstadoVancin();
-    this.obtenerEstadoCarrucel();
-    this.obtenerEstadoMusica();
-    this.obtenerEstadoTempHume();
     this.obtenerDispositivos();
   }
 
@@ -60,7 +55,6 @@ export class DashboardsComponent implements OnInit {
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
-    this.obtenerDispositivos();
   }
 
   copiarClave() {
@@ -82,7 +76,7 @@ export class DashboardsComponent implements OnInit {
         if (data && data.usuarioId) {
           const id = data.usuarioId;
 
-          this.dvs.encontrarDispositivosPorUsuarioId(id).subscribe(
+          this.dispositivoService.encontrarDispositivosPorUsuarioId(id).subscribe(
             (data: Dispositivo[]) => {
               console.log("entró=>encontrarDispositivosPorUsuarioId ");
               console.log("entró=>data.usuarioId ", id);
@@ -90,6 +84,13 @@ export class DashboardsComponent implements OnInit {
               this.dispositivos = data;
               this.deviceCount = this.dispositivos.length;
               this.mostrarDispositivos = true;
+
+              // Actualizar las variables de estado después de obtener los dispositivos
+              this.obtenerEstadoLed();
+              this.obtnerEstadoVancin();
+              this.obtenerEstadoCarrucel();
+              this.obtenerEstadoMusica();
+              this.obtenerEstadoTempHume();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
@@ -112,7 +113,6 @@ export class DashboardsComponent implements OnInit {
     const dvName = this.selectedDeviceName;
     console.log(dvName);
     this.cambiaEstadoLed(valor, dvName);
-    this.obtenerDispositivos();
   }
 
   toggleSwitchValanin() {
@@ -157,9 +157,10 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoLed(valor: number, dvName: string) {
-    this.dvs.editarDispositivoLed(valor, dvName).subscribe(
+    this.dispositivoService.editarDispositivoLed(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del LED actualizado correctamente');
+        this.isChecked = response === 1;
       },
       (error) => {
         this.toastr.error('Error al actualizar el estado del LED');
@@ -169,9 +170,10 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoValancin(valor: number, dvName: string) {
-    this.dvs.editarDispositivoValancin(valor, dvName).subscribe(
+    this.dispositivoService.editarDispositivoValancin(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del valancin actualizado correctamente');
+        this.isCheckedValancin = response === 1;
       },
       (error) => {
         this.toastr.error('Error al actualizar el estado del valancin');
@@ -181,9 +183,10 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoCarrucel(valor: number, dvName: string) {
-    this.dvs.editarDispositivoCarrucel(valor, dvName).subscribe(
+    this.dispositivoService.editarDispositivoCarrucel(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del carrucel actualizado correctamente');
+        this.isCheckedCarrucel = response === 1;
       },
       (error) => {
         this.toastr.error('Error al actualizar el estado del carrucel');
@@ -193,9 +196,10 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoMusica(valor: number, dvName: string) {
-    this.dvs.editarEstadoMusica(valor, dvName).subscribe(
+    this.dispositivoService.editarEstadoMusica(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del musica actualizado correctamente');
+        this.isCheckedMusica = response === 1;
       },
       (error) => {
         this.toastr.error('Error al actualizar el estado del musica');
@@ -207,7 +211,7 @@ export class DashboardsComponent implements OnInit {
   obtenerEstadoTempHume() {
     const dvName = this.selectedDeviceName;
 
-    this.dvs.getTempHum(dvName).subscribe(
+    this.dispositivoService.getTempHum(dvName).subscribe(
       (response: any) => {
         this.humedad = response.humedad;
         this.temperatura = response.temperatura;
@@ -247,11 +251,9 @@ export class DashboardsComponent implements OnInit {
   obtenerEstadoLed() {
     const dvName = this.selectedDeviceName;
 
-    this.dvs.getEstadoLed(dvName).subscribe(
-      (response) => {
-        if (response == 1) {
-          this.isChecked = true;
-        }
+    this.dispositivoService.getEstadoLed(dvName).subscribe(
+      (response: any) => {
+        this.isChecked = response === 1;
         console.log("valor que se obtiene de getEstadoLed=>", response);
         console.log("valor que se de isckeck=>", this.isChecked);
       },
@@ -264,13 +266,11 @@ export class DashboardsComponent implements OnInit {
   obtnerEstadoVancin() {
     const dvName = this.selectedDeviceName;
 
-    this.dvs.getEstadoValancin(dvName).subscribe(
-      (response) => {
-        if (response == 1) {
-          this.isCheckedValancin = true;
-        }
+    this.dispositivoService.getEstadoValancin(dvName).subscribe(
+      (response: any) => {
+        this.isCheckedValancin = response === 1;
         console.log("valor que se obtiene de getEstadoValancin=>", response);
-        console.log("valor que se de isckeck=>", this.isChecked);
+        console.log("valor que se de isckeck=>", this.isCheckedValancin);
       },
       (error) => {
         console.error('Error al obtener el estado del valancin:', error);
@@ -281,11 +281,9 @@ export class DashboardsComponent implements OnInit {
   obtenerEstadoCarrucel() {
     const dvName = this.selectedDeviceName;
 
-    this.dvs.getEstadoCarrucel(dvName).subscribe(
-      (response) => {
-        if (response == 1) {
-          this.isCheckedCarrucel = true;
-        }
+    this.dispositivoService.getEstadoCarrucel(dvName).subscribe(
+      (response: any) => {
+        this.isCheckedCarrucel = response === 1;
         console.log("valor que se obtiene de getEstadoCarrucel=>", response);
         console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
       },
@@ -298,16 +296,14 @@ export class DashboardsComponent implements OnInit {
   obtenerEstadoMusica() {
     const dvName = this.selectedDeviceName;
 
-    this.dvs.getEstadoMusica(dvName).subscribe(
-      (response) => {
-        if (response == 1) {
-          this.isCheckedMusica = true;
-        }
+    this.dispositivoService.getEstadoMusica(dvName).subscribe(
+      (response: any) => {
+        this.isCheckedMusica = response === 1;
         console.log("valor que se obtiene de getEstadoMusica=>", response);
-        console.log("valor que se de isckeck=>", this.isChecked);
+        console.log("valor que se de isckeck=>", this.isCheckedMusica);
       },
       (error) => {
-        console.error('Error al obtener el estado del carrucel:', error);
+        console.error('Error al obtener el estado del musica:', error);
       }
     );
   }
