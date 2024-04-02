@@ -49,16 +49,17 @@ export class DashboardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerDispositivos();
-  }
-
-  updateSelectedDevice() {
-    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
-    // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
+  }
+
+  updateSelectedDevice() {
+    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+    // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
+   
   }
 
   copiarClave() {
@@ -88,13 +89,6 @@ export class DashboardsComponent implements OnInit {
               this.dispositivos = data;
               this.deviceCount = this.dispositivos.length;
               this.mostrarDispositivos = true;
-
-              // Actualizar las variables de estado después de obtener los dispositivos
-              // this.obtenerEstadoLed();
-              // this.obtenerEstadoValancin();
-              // this.obtenerEstadoCarrucel();
-              // this.obtenerEstadoMusica();
-              // this.obtenerEstadoTempHume();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
