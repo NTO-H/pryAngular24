@@ -58,6 +58,7 @@ export class DashboardsComponent implements OnInit {
   }
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+ 
   }
 
 
@@ -80,7 +81,6 @@ export class DashboardsComponent implements OnInit {
 
   obtenerDispositivos() {
     console.log("entró=>currentUser ")
-
     const correo = localStorage.getItem('currentUser');
     if (!correo) {
       this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
@@ -117,10 +117,6 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-
-
-
-  
 //FIXME - 
   
 
@@ -133,14 +129,14 @@ export class DashboardsComponent implements OnInit {
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
-    console.log("obtenerDispositivos=>aqui ")
     this.obtenerDispositivos();
   }
 
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
-    this.cambiaEstadoLed(valor);
+    const dvName =this.selectedDeviceName;
+    this.cambiaEstadoLed(valor, dvName);
   }
 
   toggleSwitchValanin() {
@@ -149,8 +145,6 @@ export class DashboardsComponent implements OnInit {
     console.log("valor del valancin=>", valorValancin);
     this.cambiaEstadoValancin(valorValancin);
   }
-
-
 
   toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
@@ -164,8 +158,6 @@ export class DashboardsComponent implements OnInit {
     console.log("valor del Musica=>", valorMusica);
     this.cambiaEstadoMusica(valorMusica);
   }
-
-
   getIconoHumedad(humedad: number): string {
     if (humedad === 0) {
       return 'icono-0';
@@ -180,20 +172,8 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
-  //  !  arreglar 
-  //this.yourDataService.getHumedad().subscribe(
-  //      (data: any) => {
-  //   // Asigna el valor de la humedad obtenido del servicio al ngModel del slider
-  //   this.humedad = data.humedad; // Suponiendo que el valor de humedad se obtiene de un objeto data con una propiedad 'humedad'
-  // },
-  //   (error) => {
-  //     console.error('Error al obtener el valor de la humedad:', error);
-  //   }
-  //     );
-  //   }
-
-  cambiaEstadoLed(valor: number) {
-    this.dispositivoService.editarDispositivoLed(valor).subscribe(
+  cambiaEstadoLed(valor: number,dvName:string) {
+    this.dispositivoService.editarDispositivoLed(valor, dvName).subscribe(
       (response) => {
         // Manejar la respuesta del servidor si es necesario
         this.toastr.success('Estado del LED actualizado correctamente');
@@ -204,10 +184,6 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-
-
-
-
   cambiaEstadoValancin(valor: number) {
     this.dispositivoService.editarDispositivoValancin(valor).subscribe(
       (response) => {
@@ -246,11 +222,7 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-  mostrarSidebar() {
-    this.sidebarVisible3 = true;
-  }
-
-
+  // tipo get
   obtenerEstadoTempHume() {
     this.dispositivoService.getTempHum().subscribe(
       (response) => {
@@ -271,12 +243,6 @@ export class DashboardsComponent implements OnInit {
           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/njymyk1bytuvrgtcpnhf';
           this.alt = 'Humedad muy baja';
         }
-
-
-
-
-
-        // Cambiar la imagen en función de los valores de humedad y temperatura
         if (this.temperatura > 41) {
           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
           this.alt = 'temperatura media';
@@ -295,8 +261,6 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-
-
   obtenerEstadoLed() {
     this.dispositivoService.getEstadoLed().subscribe(
       (response) => {

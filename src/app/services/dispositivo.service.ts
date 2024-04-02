@@ -20,7 +20,7 @@ export class DispositivoService {
         return this.http.get<any>(this.url +'obtenerEstadoTemperaturaHumedad');
     }
 
-    
+
     getEstadoValancin(): Observable<any> {
         return this.http.get<any>(this.url +'obtenerEstadoValancin');
     }
@@ -36,8 +36,8 @@ export class DispositivoService {
     //     return this.http.get(this.url + id);
     // }
 
-    editarDispositivoLed(estado: number): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoLed", {"led": estado });
+    editarDispositivoLed(estado: number,dvName:string): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoLed/", { "led": estado,"deviceName":dvName});
     }
 
     editarDispositivoValancin(estadoValancin: number): Observable<any> {
