@@ -36,6 +36,9 @@ export class DashboardsComponent implements OnInit {
   isCheckedCarrucel = false;
   isCheckedMusica = false;
 
+  // Variable global para almacenar dvName
+  dvName: string = '';
+
   constructor(
     private aRouter: ActivatedRoute,
     private fb: FormBuilder,
@@ -50,6 +53,7 @@ export class DashboardsComponent implements OnInit {
 
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+    this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
@@ -86,7 +90,11 @@ export class DashboardsComponent implements OnInit {
               this.mostrarDispositivos = true;
 
               // Actualizar las variables de estado después de obtener los dispositivos
-              this.updateSelectedDevice();
+              this.obtenerEstadoLed();
+              this.obtenerEstadoValancin();
+              this.obtenerEstadoCarrucel();
+              this.obtenerEstadoMusica();
+              this.obtenerEstadoTempHume();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
@@ -106,25 +114,36 @@ export class DashboardsComponent implements OnInit {
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
-    this.cambiaEstadoLed(valor);
+    const dvName = this.dvName; // Utilizar la variable global dvName
+    console.log(dvName);
+    this.cambiaEstadoLed(valor, dvName);
   }
 
-  toggleSwitchValancin() {
+  toggleSwitchValanin() {
     this.isCheckedValancin = !this.isCheckedValancin;
     const valorValancin = this.isCheckedValancin ? 1 : 0;
-    this.cambiaEstadoValancin(valorValancin);
+    const dvName = this.dvName; // Utilizar la variable global dvName
+
+    this.cambiaEstadoValancin(valorValancin, dvName);
   }
 
   toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
-    this.cambiaEstadoCarrucel(valorCarrucel);
+    const dvName = this.dvName; // Utilizar la variable global dvName
+
+    console.log("valor del Carrucel=>", valorCarrucel);
+    this.cambiaEstadoCarrucel(valorCarrucel, dvName);
   }
 
   toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
-    this.cambiaEstadoMusica(valorMusica);
+    const dvName = this.dvName; // Utilizar la variable global dvName
+
+    console.log("valor del Musica=>", valorMusica);
+
+    this.cambiaEstadoMusica(valorMusica, dvName);
   }
 
   getIconoHumedad(humedad: number): string {
@@ -141,8 +160,7 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
-  cambiaEstadoLed(valor: number) {
-    const dvName = this.selectedDeviceName;
+  cambiaEstadoLed(valor: number, dvName: string) {
     this.dispositivoService.editarDispositivoLed(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del LED actualizado correctamente');
@@ -155,8 +173,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoValancin(valor: number) {
-    const dvName = this.selectedDeviceName;
+  cambiaEstadoValancin(valor: number, dvName: string) {
     this.dispositivoService.editarDispositivoValancin(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del valancin actualizado correctamente');
@@ -169,8 +186,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoCarrucel(valor: number) {
-    const dvName = this.selectedDeviceName;
+  cambiaEstadoCarrucel(valor: number, dvName: string) {
     this.dispositivoService.editarDispositivoCarrucel(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del carrucel actualizado correctamente');
@@ -183,8 +199,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoMusica(valor: number) {
-    const dvName = this.selectedDeviceName;
+  cambiaEstadoMusica(valor: number, dvName: string) {
     this.dispositivoService.editarEstadoMusica(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del musica actualizado correctamente');
@@ -198,7 +213,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoTempHume() {
-    const dvName = this.selectedDeviceName;
+    const dvName = this.dvName; // Utilizar la variable global dvName
 
     this.dispositivoService.getTempHum(dvName).subscribe(
       (response: any) => {
@@ -238,7 +253,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoLed() {
-    const dvName = this.selectedDeviceName;
+    const dvName = this.dvName; // Utilizar la variable global dvName
 
     this.dispositivoService.getEstadoLed(dvName).subscribe(
       (response: any) => {
@@ -253,7 +268,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoValancin() {
-    const dvName = this.selectedDeviceName;
+    const dvName = this.dvName; // Utilizar la variable global dvName
 
     this.dispositivoService.getEstadoValancin(dvName).subscribe(
       (response: any) => {
@@ -268,7 +283,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoCarrucel() {
-    const dvName = this.selectedDeviceName;
+    const dvName = this.dvName; // Utilizar la variable global dvName
 
     this.dispositivoService.getEstadoCarrucel(dvName).subscribe(
       (response: any) => {
@@ -283,7 +298,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoMusica() {
-    const dvName = this.selectedDeviceName;
+    const dvName = this.dvName; // Utilizar la variable global dvName
 
     this.dispositivoService.getEstadoMusica(dvName).subscribe(
       (response: any) => {
