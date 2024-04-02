@@ -56,9 +56,18 @@ export class DashboardsComponent implements OnInit {
   constructor(private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr:UsuarioService,private consultaService: ConsultasService, private dispositivoService: DispositivoService, private toastr: ToastrService, private formBuilder: FormBuilder) {
 
   }
+   
+  
+  
+  
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
- 
+    this.obtenerEstadoLed();
+    this.obtnerEstadoVancin();
+    this.obtenerEstadoCarrucel();
+    this.obtenerEstadoMusica();
+    this.obtenerEstadoTempHume();
+    this.obtenerDispositivos();
   }
 
 
