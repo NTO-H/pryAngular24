@@ -212,6 +212,9 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
+
+  
+  
   obtenerEstadoTempHume() {
     const dvName = this.dvName; // Utilizar la variable global dvName
 

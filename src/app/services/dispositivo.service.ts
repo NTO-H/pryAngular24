@@ -18,6 +18,12 @@ export class DispositivoService {
         );
     }
 
+
+
+
+
+    
+
     getTempHum(deviceName: string): Observable<any> {
         return interval(1000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoTemperaturaHumedad/${deviceName}`))
