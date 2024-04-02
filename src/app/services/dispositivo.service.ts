@@ -13,23 +13,24 @@ export class DispositivoService {
 
     constructor(private http: HttpClient) { }
 
-    getEstadoLed(): Observable<any> {
-        return this.http.get<any>(this.url +'obtenerEstadoLed');
+    getEstadoLed(deviceName: string): Observable<any> {
+        return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`);
     }
-    getTempHum(): Observable<any> {
-        return this.http.get<any>(this.url +'obtenerEstadoTemperaturaHumedad');
+
+    getTempHum(deviceName: string): Observable<any> {
+        return this.http.get<any>(this.url + 'obtenerEstadoTemperaturaHumedad/' + deviceName);
     }
 
 
-    getEstadoValancin(): Observable<any> {
-        return this.http.get<any>(this.url +'obtenerEstadoValancin');
+    getEstadoValancin(deviceName: string): Observable<any> {
+        return this.http.get<any>(this.url + 'obtenerEstadoValancin/' + deviceName);
     }
-    getEstadoMusica(): Observable<any> {
-        return this.http.get<any>(this.url +'obtenerEstadoMusica');
+    getEstadoMusica(deviceName: string): Observable<any> {
+        return this.http.get<any>(this.url + 'obtenerEstadoMusica/' + deviceName);
     }
 
-    getEstadoCarrucel(): Observable<any> {
-        return this.http.get<any>(this.url + 'obtenerEstadoCarrucel');
+    getEstadoCarrucel(deviceName: string): Observable<any> {
+        return this.http.get<any>(this.url + 'obtenerEstadoCarrucel/' + deviceName);
     }
 
     // obtenerProducto(id: string): Observable<any> {

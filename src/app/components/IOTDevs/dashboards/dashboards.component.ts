@@ -232,7 +232,9 @@ export class DashboardsComponent implements OnInit {
   }
   // tipo get
   obtenerEstadoTempHume() {
-    this.dispositivoService.getTempHum().subscribe(
+    const dvName = this.selectedDeviceName;
+
+    this.dispositivoService.getTempHum(dvName).subscribe(
       (response) => {
         // Asignar los valores de humedad y temperatura
         this.humedad = response.humedad;
@@ -269,8 +271,12 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
+
+
   obtenerEstadoLed() {
-    this.dispositivoService.getEstadoLed().subscribe(
+    const dvName = this.selectedDeviceName;
+
+    this.dispositivoService.getEstadoLed(dvName).subscribe(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
@@ -287,7 +293,9 @@ export class DashboardsComponent implements OnInit {
     );
   }
   obtnerEstadoVancin() {
-    this.dispositivoService.getEstadoValancin().subscribe(
+    const dvName = this.selectedDeviceName;
+
+    this.dispositivoService.getEstadoValancin(dvName).subscribe(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
@@ -304,7 +312,9 @@ export class DashboardsComponent implements OnInit {
     );
   }
   obtenerEstadoCarrucel() {
-    this.dispositivoService.getEstadoCarrucel().subscribe(
+    const dvName = this.selectedDeviceName;
+
+    this.dispositivoService.getEstadoCarrucel(dvName).subscribe(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
@@ -321,7 +331,9 @@ export class DashboardsComponent implements OnInit {
     );
   }
   obtenerEstadoMusica() {
-    this.dispositivoService.getEstadoMusica().subscribe(
+    const dvName = this.selectedDeviceName;
+
+    this.dispositivoService.getEstadoMusica(dvName).subscribe(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
