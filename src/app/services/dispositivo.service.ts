@@ -36,20 +36,22 @@ export class DispositivoService {
     //     return this.http.get(this.url + id);
     // }
 
-    editarDispositivoLed(estado: number,dvName:string): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoLed/", { "led": estado,"deviceName":dvName});
+    editarDispositivoLed(estado: number, deviceName:string): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoLed/", { "led": estado, "deviceName": deviceName });
     }
 
-    editarDispositivoValancin(estadoValancin: number): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoValancin", { "valancin": estadoValancin });
+    editarDispositivoValancin(estadoValancin: number, deviceName: string): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoValancin", { "valancin": estadoValancin, "deviceName": deviceName  });
     }
 
-    editarDispositivoCarrucel(estadoCarrucel: number): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoCarrucel", { "carrucel": estadoCarrucel });
+editarDispositivoCarrucel(estadoCarrucel: number, deviceName: string): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoCarrucel", { "carrucel": estadoCarrucel, "deviceName": deviceName 
+});
     }
 
-    editarEstadoMusica(estadoMusica: number): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica });
+    editarEstadoMusica(estadoMusica: number, deviceName: string): Observable<any> {
+        return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica, "deviceName": deviceName 
+});
     }
 // encontrarDispositivosPorUsuarioId/6601c7638f2fa0ddd22dfa44
 

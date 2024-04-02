@@ -135,28 +135,36 @@ export class DashboardsComponent implements OnInit {
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
-    const dvName =this.selectedDeviceName;
+    const dvName = this.selectedDeviceName;
+    console.log(dvName)
     this.cambiaEstadoLed(valor, dvName);
+    this.obtenerDispositivos()
   }
 
   toggleSwitchValanin() {
     this.isCheckedValancin = !this.isCheckedValancin;
     const valorValancin = this.isCheckedValancin ? 1 : 0;
-    console.log("valor del valancin=>", valorValancin);
-    this.cambiaEstadoValancin(valorValancin);
+    const dvName = this.selectedDeviceName;
+
+    this.cambiaEstadoValancin(valorValancin, dvName);
   }
 
   toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
+    const dvName = this.selectedDeviceName;
+
     console.log("valor del Carrucel=>", valorCarrucel);
-    this.cambiaEstadoCarrucel(valorCarrucel);
+    this.cambiaEstadoCarrucel(valorCarrucel, dvName);
   }
   toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
+    const dvName = this.selectedDeviceName;
+
     console.log("valor del Musica=>", valorMusica);
-    this.cambiaEstadoMusica(valorMusica);
+
+    this.cambiaEstadoMusica(valorMusica, dvName);
   }
   getIconoHumedad(humedad: number): string {
     if (humedad === 0) {
@@ -184,8 +192,8 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-  cambiaEstadoValancin(valor: number) {
-    this.dispositivoService.editarDispositivoValancin(valor).subscribe(
+  cambiaEstadoValancin(valor: number, dvName: string) {
+    this.dispositivoService.editarDispositivoValancin(valor, dvName).subscribe(
       (response) => {
         // Manejar la respuesta del servidor si es necesario
         this.toastr.success('Estado del valancin actualizado correctamente');
@@ -196,8 +204,8 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-  cambiaEstadoCarrucel(valor: number) {
-    this.dispositivoService.editarDispositivoCarrucel(valor).subscribe(
+  cambiaEstadoCarrucel(valor: number,dvName: string) {
+    this.dispositivoService.editarDispositivoCarrucel(valor, dvName).subscribe(
       (response) => {
         // Manejar la respuesta del servidor si es necesario
         this.toastr.success('Estado del carrucel actualizado correctamente');
@@ -210,8 +218,8 @@ export class DashboardsComponent implements OnInit {
   }
 
 
-  cambiaEstadoMusica(valor: number) {
-    this.dispositivoService.editarEstadoMusica(valor).subscribe(
+  cambiaEstadoMusica(valor: number, dvName: string) {
+    this.dispositivoService.editarEstadoMusica(valor, dvName).subscribe(
       (response) => {
         // Manejar la respuesta del servidor si es necesario
         this.toastr.success('Estado del musica actualizado correctamente');
