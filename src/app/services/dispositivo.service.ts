@@ -13,7 +13,7 @@ export class DispositivoService {
     constructor(private http: HttpClient) { }
 
     getEstadoLed(deviceName: string): Observable<any> {
-        return interval(1000).pipe(
+        return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`))
         );
     }
@@ -22,28 +22,28 @@ export class DispositivoService {
 
 
 
-    
+
 
     getTempHum(deviceName: string): Observable<any> {
-        return interval(1000).pipe(
+        return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoTemperaturaHumedad/${deviceName}`))
         );
     }
 
     getEstadoValancin(deviceName: string): Observable<any> {
-        return interval(1000).pipe(
+        return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoValancin/${deviceName}`))
         );
     }
 
     getEstadoMusica(deviceName: string): Observable<any> {
-        return interval(1000).pipe(
+        return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoMusica/${deviceName}`))
         );
     }
 
     getEstadoCarrucel(deviceName: string): Observable<any> {
-        return interval(1000).pipe(
+        return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoCarrucel/${deviceName}`))
         );
     }
