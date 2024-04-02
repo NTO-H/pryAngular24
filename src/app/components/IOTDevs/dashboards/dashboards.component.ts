@@ -54,6 +54,11 @@ export class DashboardsComponent implements OnInit {
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
     this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
+    this.obtenerEstadoLed();
+    this.obtenerEstadoValancin();
+    this.obtenerEstadoCarrucel();
+    this.obtenerEstadoMusica();
+    this.obtenerEstadoTempHume();
   }
 
   copiarClave() {
@@ -85,11 +90,11 @@ export class DashboardsComponent implements OnInit {
               this.mostrarDispositivos = true;
 
               // Actualizar las variables de estado después de obtener los dispositivos
-              this.obtenerEstadoLed();
-              this.obtenerEstadoValancin();
-              this.obtenerEstadoCarrucel();
-              this.obtenerEstadoMusica();
-              this.obtenerEstadoTempHume();
+              // this.obtenerEstadoLed();
+              // this.obtenerEstadoValancin();
+              // this.obtenerEstadoCarrucel();
+              // this.obtenerEstadoMusica();
+              // this.obtenerEstadoTempHume();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
