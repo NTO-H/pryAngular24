@@ -1,73 +1,68 @@
 import { Dispositivo } from '../models/dispositivos';
 import { HttpClient } from '@angular/common/http';
-// Es el módulo de Angular utilizado para realizar solicitudes HTTP.
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class DispositivoService {
-//FIXME -   Corregir esto,serán unicos
     url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
 
     constructor(private http: HttpClient) { }
 
-    getEstadoLed(deviceName: string):Promise<any>{
-        return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`).toPromise();
+    getEstadoLed(deviceName: string): Observable<any> {
+        return interval(1000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`))
+        );
     }
-    // getEstadoLed(deviceName: string): Observable<any> {
-    //     return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`).toPromise();
-    // }
 
     getTempHum(deviceName: string): Observable<any> {
-        return this.http.get<any>(this.url + 'obtenerEstadoTemperaturaHumedad/' + deviceName);
+        return interval(1000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoTemperaturaHumedad/${deviceName}`))
+        );
     }
-
 
     getEstadoValancin(deviceName: string): Observable<any> {
-        return this.http.get<any>(this.url + 'obtenerEstadoValancin/' + deviceName);
+        return interval(1000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoValancin/${deviceName}`))
+        );
     }
+
     getEstadoMusica(deviceName: string): Observable<any> {
-        return this.http.get<any>(this.url + 'obtenerEstadoMusica/' + deviceName);
+        return interval(1000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoMusica/${deviceName}`))
+        );
     }
 
     getEstadoCarrucel(deviceName: string): Observable<any> {
-        return this.http.get<any>(this.url + 'obtenerEstadoCarrucel/' + deviceName);
+        return interval(1000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoCarrucel/${deviceName}`))
+        );
     }
 
-    // obtenerProducto(id: string): Observable<any> {
-    //     return this.http.get(this.url + id);
-    // }
-
-    editarDispositivoLed(estado: number, deviceName:string): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoLed/", { "led": estado, "deviceName": deviceName });
+    editarDispositivoLed(estado: number, deviceName: string): Observable<any> {
+        return this.http.put(`${this.url}cambiarEstadoLed/`, { "led": estado, "deviceName": deviceName });
     }
 
     editarDispositivoValancin(estadoValancin: number, deviceName: string): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoValancin", { "valancin": estadoValancin, "deviceName": deviceName  });
+        return this.http.put(`${this.url}cambiarEstadoValancin`, { "valancin": estadoValancin, "deviceName": deviceName });
     }
 
-editarDispositivoCarrucel(estadoCarrucel: number, deviceName: string): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoCarrucel", { "carrucel": estadoCarrucel, "deviceName": deviceName 
-});
+    editarDispositivoCarrucel(estadoCarrucel: number, deviceName: string): Observable<any> {
+        return this.http.put(`${this.url}cambiarEstadoCarrucel`, { "carrucel": estadoCarrucel, "deviceName": deviceName });
     }
 
     editarEstadoMusica(estadoMusica: number, deviceName: string): Observable<any> {
-        return this.http.put(this.url + "cambiarEstadoMusica", { "musica": estadoMusica, "deviceName": deviceName 
-});
+        return this.http.put(`${this.url}cambiarEstadoMusica`, { "musica": estadoMusica, "deviceName": deviceName });
     }
-// encontrarDispositivosPorUsuarioId/6601c7638f2fa0ddd22dfa44
 
     encontrarDispositivosPorUsuarioId(id: string): Observable<any> {
         return this.http.get(`${this.url}encontrarDispositivosPorUsuarioId/${id}`);
     }
 
-
-    crearDispositivo(devs:Dispositivo) {
-        return this.http.post(this.url +'crearDispositivo',devs)
+    crearDispositivo(devs: Dispositivo): Observable<any> {
+        return this.http.post(`${this.url}crearDispositivo`, devs);
     }
-    
-    
 }
-

@@ -284,7 +284,7 @@ export class DashboardsComponent implements OnInit {
   obtenerEstadoLed() {
     const dvName = this.selectedDeviceName;
 
-    this.dispositivoService.getEstadoLed(dvName).then(
+    this.dispositivoService.getEstadoLed(dvName).subscribe(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
