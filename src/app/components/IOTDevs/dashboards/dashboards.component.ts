@@ -51,7 +51,7 @@ export class DashboardsComponent implements OnInit {
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
     this.obtenerEstadoLed();
-    this.obtnerEstadoVancin();
+    this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
@@ -86,11 +86,7 @@ export class DashboardsComponent implements OnInit {
               this.mostrarDispositivos = true;
 
               // Actualizar las variables de estado después de obtener los dispositivos
-              this.obtenerEstadoLed();
-              this.obtnerEstadoVancin();
-              this.obtenerEstadoCarrucel();
-              this.obtenerEstadoMusica();
-              this.obtenerEstadoTempHume();
+              this.updateSelectedDevice();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
@@ -110,36 +106,25 @@ export class DashboardsComponent implements OnInit {
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
-    const dvName = this.selectedDeviceName;
-    console.log(dvName);
-    this.cambiaEstadoLed(valor, dvName);
+    this.cambiaEstadoLed(valor);
   }
 
-  toggleSwitchValanin() {
+  toggleSwitchValancin() {
     this.isCheckedValancin = !this.isCheckedValancin;
     const valorValancin = this.isCheckedValancin ? 1 : 0;
-    const dvName = this.selectedDeviceName;
-
-    this.cambiaEstadoValancin(valorValancin, dvName);
+    this.cambiaEstadoValancin(valorValancin);
   }
 
   toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
-    const dvName = this.selectedDeviceName;
-
-    console.log("valor del Carrucel=>", valorCarrucel);
-    this.cambiaEstadoCarrucel(valorCarrucel, dvName);
+    this.cambiaEstadoCarrucel(valorCarrucel);
   }
 
   toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
-    const dvName = this.selectedDeviceName;
-
-    console.log("valor del Musica=>", valorMusica);
-
-    this.cambiaEstadoMusica(valorMusica, dvName);
+    this.cambiaEstadoMusica(valorMusica);
   }
 
   getIconoHumedad(humedad: number): string {
@@ -156,7 +141,8 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
-  cambiaEstadoLed(valor: number, dvName: string) {
+  cambiaEstadoLed(valor: number) {
+    const dvName = this.selectedDeviceName;
     this.dispositivoService.editarDispositivoLed(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del LED actualizado correctamente');
@@ -169,7 +155,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoValancin(valor: number, dvName: string) {
+  cambiaEstadoValancin(valor: number) {
+    const dvName = this.selectedDeviceName;
     this.dispositivoService.editarDispositivoValancin(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del valancin actualizado correctamente');
@@ -182,7 +169,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoCarrucel(valor: number, dvName: string) {
+  cambiaEstadoCarrucel(valor: number) {
+    const dvName = this.selectedDeviceName;
     this.dispositivoService.editarDispositivoCarrucel(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del carrucel actualizado correctamente');
@@ -195,7 +183,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoMusica(valor: number, dvName: string) {
+  cambiaEstadoMusica(valor: number) {
+    const dvName = this.selectedDeviceName;
     this.dispositivoService.editarEstadoMusica(valor, dvName).subscribe(
       (response) => {
         this.toastr.success('Estado del musica actualizado correctamente');
@@ -263,7 +252,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  obtnerEstadoVancin() {
+  obtenerEstadoValancin() {
     const dvName = this.selectedDeviceName;
 
     this.dispositivoService.getEstadoValancin(dvName).subscribe(
