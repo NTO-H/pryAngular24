@@ -13,9 +13,12 @@ export class DispositivoService {
 
     constructor(private http: HttpClient) { }
 
-    getEstadoLed(deviceName: string): Observable<any> {
-        return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`);
+    getEstadoLed(deviceName: string):Promise<any>{
+        return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`).toPromise();
     }
+    // getEstadoLed(deviceName: string): Observable<any> {
+    //     return this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`).toPromise();
+    // }
 
     getTempHum(deviceName: string): Observable<any> {
         return this.http.get<any>(this.url + 'obtenerEstadoTemperaturaHumedad/' + deviceName);

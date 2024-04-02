@@ -281,11 +281,10 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-
   obtenerEstadoLed() {
     const dvName = this.selectedDeviceName;
 
-    this.dispositivoService.getEstadoLed(dvName).subscribe(
+    this.dispositivoService.getEstadoLed(dvName).then(
       (response) => {
         // Asignar el valor del LED basado en la respuesta
 
@@ -301,6 +300,27 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
+  
+  //!SECTION  original
+  //  obtenerEstadoLed() {
+  // const dvName = this.selectedDeviceName;
+
+  //   this.dispositivoService.getEstadoLed(dvName).subscribe(
+  //   (response) => {
+  //     // Asignar el valor del LED basado en la respuesta
+
+  //     if (response == 1) {
+  //       this.isChecked = true
+  //     }
+  //     // Suponiendo que el servidor devuelve 1 para "encendido" y 0 para "apagado"
+  //     console.log("valor que se obtiene de getEstadoLed=>", response);
+  //     console.log("valor que se de isckeck=>", this.isChecked);
+  //   },
+  //   (error) => {
+  //     console.error('Error al obtener el estado del LED:', error);
+  //   }
+  // );
+  // }
   obtnerEstadoVancin() {
     const dvName = this.selectedDeviceName;
 
