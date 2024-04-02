@@ -48,18 +48,21 @@ export class DashboardsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.aRouter.params.subscribe(params => {
+      this.selectedDeviceName = params['deviceName']; // Suponiendo que 'deviceName' es el nombre del parámetro en la ruta
+      this.updateSelectedDevice();
+    });
+  }
+
+  updateSelectedDevice() {
+    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+    // this.selectedDeviceName = deviceName;
     this.obtenerDispositivos();
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
     this.obtenerEstadoMusica();
     this.obtenerEstadoTempHume();
-  }
-
-  updateSelectedDevice() {
-    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
-    // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
-   
   }
 
   copiarClave() {
