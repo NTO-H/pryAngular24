@@ -3,7 +3,7 @@
 <body>
             <header class="header">
                 <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
-                <select name="options" class="optionSelect">
+                <select name="options"  (click)=" updateSelectedDevice()" class="optionSelect">
                     <!-- Itera sobre cada dispositivo para crear opciones -->
                     <ng-container *ngFor="let dv of dispositivos">
                         <option [value]="dv.deviceName">{{ dv.deviceName }}</option>
@@ -27,7 +27,7 @@
             </div>
         </div>
     </section>
-
+<!--  -->
 
 
 
