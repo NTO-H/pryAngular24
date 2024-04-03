@@ -36,8 +36,6 @@ export class DashboardsComponent implements OnInit {
   isCheckedCarrucel = false;
   isCheckedMusica = false;
 
-  // Variable global para almacenar dvName
-  dvName: string = '';
 
   constructor(
     private aRouter: ActivatedRoute,
@@ -48,16 +46,12 @@ export class DashboardsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.aRouter.params.subscribe(params => {
-      this.selectedDeviceName = params['deviceName']; // Suponiendo que 'deviceName' es el nombre del parámetro en la ruta
-      this.updateSelectedDevice();
-    });
+    this.obtenerDispositivos();
   }
 
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
-    // this.selectedDeviceName = deviceName;
-    this.obtenerDispositivos();
+    // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
@@ -92,6 +86,7 @@ export class DashboardsComponent implements OnInit {
               this.dispositivos = data;
               this.deviceCount = this.dispositivos.length;
               this.mostrarDispositivos = true;
+
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
@@ -258,6 +253,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
+  
   obtenerEstadoValancin() {
   
     this.dispositivoService.getEstadoValancin(this.selectedDeviceName).subscribe(
