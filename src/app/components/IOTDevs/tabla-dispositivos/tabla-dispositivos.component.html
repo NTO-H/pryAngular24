@@ -6,7 +6,7 @@
     </header>
     <main  class="main">
         <input type="text" class="search-input" placeholder="Search Token">
-        <table *ngFor="let dispositivo of dispositivos" class="token-table">
+        <table class="token-table">
             <thead>
                 <tr>
                     <th>Nombre dispositivo/th>
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let dispositivo of dispositivos">
                     <td>{{dispositivo.deviceName}}</td>
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
@@ -25,6 +25,7 @@
                 <!-- Add more token rows here -->
             </tbody>
         </table>
+        <div *ngIf="!mostrarDispositivos">No hay dispositivos disponibles.</div>
     </main>
     <footer class="footer">
         <select class="page-size">
