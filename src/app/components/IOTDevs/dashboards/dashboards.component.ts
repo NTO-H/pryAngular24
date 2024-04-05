@@ -59,21 +59,68 @@ export class DashboardsComponent implements OnInit {
   // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
 
   updateSelectedDevice() {
-    console.log('Dispositivo seleccionado:', this.deviceName);
-
-    // Almacena el dispositivo seleccionado
+    // Almacena el dispositivo seleccionado actual
     const dispositivoSeleccionado = this.deviceName;
 
     // Verifica si el dispositivo seleccionado ha cambiado
     if (dispositivoSeleccionado !== this.ultimoDispositivoSeleccionado) {
       console.log("Se seleccionó un dispositivo diferente.")
       this.ultimoDispositivoSeleccionado = dispositivoSeleccionado;
-      this.obtenerEstadosDispositivos(); // Realiza solicitudes para obtener el estado del nuevo dispositivo
+
+      // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+      this.dispositivoService.getEstadoLed(this.ultimoDispositivoSeleccionado).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoLed de ", this.ultimoDispositivoSeleccionado)
+          this.isChecked = response === 1;
+          console.log("valor que se obtiene de getEstadoLed=>", response);
+          console.log("valor que se de isckeck=>", this.isChecked);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del LED:', error);
+        }
+      );
+
+      this.dispositivoService.getEstadoValancin(this.ultimoDispositivoSeleccionado).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoValancin de ", this.ultimoDispositivoSeleccionado)
+          this.isCheckedValancin = response === 1;
+          console.log("valor que se obtiene de getEstadoValancin=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedValancin);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del valancin:', error);
+        }
+      );
+      this.dispositivoService.getEstadoCarrucel(this.ultimoDispositivoSeleccionado).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoCarrucel de ", this.ultimoDispositivoSeleccionado)
+
+          this.isCheckedCarrucel = response === 1;
+          console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del carrucel:', error);
+        }
+      );
+      this.dispositivoService.getEstadoMusica(this.ultimoDispositivoSeleccionado).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoMusica de ", this.ultimoDispositivoSeleccionado)
+
+          this.isCheckedMusica = response === 1;
+          console.log("valor que se obtiene de getEstadoMusica=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedMusica);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del musica:', error);
+        }
+      );
+
     } else {
       console.log("Se seleccionó el mismo dispositivo.");
+      // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
+      this.obtenerEstadosDispositivos();
     }
-
-  
   }
 
   copiarClave() {
@@ -121,12 +168,12 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadosDispositivos() {
-    this.obtenerEstadoLed();
-    this.obtenerEstadoValancin();
-    this.obtenerEstadoCarrucel();
-    this.obtenerEstadoMusica();
-    this.obtenerEstadoTempHume();
-
+      // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+      this.obtenerEstadoLed();
+      this.obtenerEstadoValancin();
+      this.obtenerEstadoCarrucel();
+      this.obtenerEstadoMusica();
+      this.obtenerEstadoTempHume();
   }
   
   toggleSwitch() {
