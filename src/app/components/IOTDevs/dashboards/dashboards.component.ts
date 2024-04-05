@@ -270,7 +270,7 @@ export class DashboardsComponent implements OnInit {
           console.log("obtenerEstadoLed de ", this.deviceName)
           this.ledState = response === 1;
           this.isChecked = this.ledState;
-          console.log("valor que se obtiene de getEstadoLed=>", response);
+          console.log("valor que se obtiene de getEstadoLed=>de ", this.deviceName, ">?", response);
           console.log("valor que se de isckeck=>", this.isChecked);
         },
         (error) => {
@@ -292,7 +292,7 @@ export class DashboardsComponent implements OnInit {
 
           this.valancinState = response === 1;
           this.isCheckedValancin = this.valancinState;
-          console.log("valor que se obtiene de getEstadoValancin=>", response);
+          console.log("valor que se obtiene de getEstadoValancin=>de ", this.deviceName, ">?", response);
           console.log("valor que se de isckeck=>", this.isCheckedValancin);
         },
         (error) => {
@@ -311,7 +311,7 @@ export class DashboardsComponent implements OnInit {
           console.log("obtenerEstadoCarrucel de ", this.deviceName)
           this.carrucelState = response === 1;
           this.isCheckedCarrucel = this.carrucelState;
-          console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+          console.log("valor que se obtiene de getEstadoCarrucel=>de ", this.deviceName,">?", response);
           console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
         },
         (error) => {
@@ -331,7 +331,7 @@ export class DashboardsComponent implements OnInit {
           console.log("obtenerEstadoMusica de ", this.deviceName)
           this.musicaState = response === 1;
           this.isCheckedMusica = this.musicaState;
-          console.log("valor que se obtiene de getEstadoMusica=>", response);
+          console.log("valor que se obtiene de getEstadoMusica=>de ", this.deviceName, ">?", response);
           console.log("valor que se de isckeck=>", this.isCheckedMusica);
         },
         (error) => {
