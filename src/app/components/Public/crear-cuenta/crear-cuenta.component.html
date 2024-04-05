@@ -112,15 +112,13 @@
 
 
 
-                <div class="conteninesinput">
-                    <label for="inputState">Selecciona una pregunta</label>
-                    <p-dropdown *ngIf="preguntas.length > 0" [options]="preguntas" placeholder="Seleccione..."
-                        formControlName="pregunta" [style]="{'width': '100%'}">
-                        <ng-template let-pregunta pTemplate="item">
-                            {{ pregunta.pregunta }}
-                        </ng-template>
-                    </p-dropdown>
-                </div>
+            <div class="conteninesinput">
+                <label for="inputState">Selecciona una pregunta</label>
+                <p-dropdown *ngIf="preguntas.length > 0" [options]="preguntas" placeholder="Seleccione..."
+                    formControlName="pregunta" optionLabel="pregunta" [style]="{'width': '100%'}">
+                </p-dropdown>
+            </div>
+
 
 
                 <div class="conteninesinput">
