@@ -93,7 +93,7 @@ export class DashboardsComponent implements OnInit {
       }
 
       // Realizar una solicitud cada 5 segundos
-      this.dispositivoSubscription = interval(2000).pipe(
+      this.dispositivoSubscription = interval(1000).pipe(
         switchMap(() => this.http.get<any>(`https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${selectedDevice}`))
       ).subscribe(
         (response) => {

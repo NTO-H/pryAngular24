@@ -61,6 +61,11 @@ export class CrearCuentaComponent implements OnInit {
       respuesta: ['', Validators.required],
     });
   }
+  volverAFormulario1() {
+    this.esFormulario1 = true;
+    this.esFormulario2 = false;
+  }
+
 
   ngOnInit() {
 
