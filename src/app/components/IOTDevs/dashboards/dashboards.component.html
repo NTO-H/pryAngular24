@@ -3,15 +3,16 @@
 <body>
 <header class="header">
     <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
-<div class="mt-3" style="width: 45%;">
-    <label for="categoria" class="form-label">Selecciona un dispositivo:</label>
-    <p-dropdown *ngIf="dispositivos.length > 0" formControlName="selectedDevice" [options]="dispositivos"
-        placeholder="Seleccione..." appendTo="body" [style]="{'width': '100%'}" optionLabel="deviceName"
-        (onChange)="updateSelectedDevice($event)">
-    </p-dropdown>
-</div>
-
+    <div class="mt-3" style="width: 45%;">
+        <label for="categoria" class="form-label">Selecciona un dispositivo:</label>
+        <p-dropdown *ngIf="dispositivos.length > 0" formControlName="selectedDevice" [options]="dispositivos"
+            placeholder="Seleccione..." appendTo="body" [style]="{'width': '100%'}" optionLabel="deviceName"
+            optionValue="deviceName" (onChange)="dateSelectedDevice($event.value)">
+        </p-dropdown>
+    </div>
 </header>
+
+
 
 
 
@@ -44,11 +45,11 @@
     <section class="botones">
         <div class="fila">
             <!-- Botones de la primera fila -->
-            <div class="switch-container" [ngClass]="{ 'active': isChecked }" (click)="toggleSwitch()">
+            <div class="switch-container" [ngClass]="{ 'active': isCheckedLed }" (click)="toggleSwitch()">
                 <label class="switch">
                     <img src="../../../../assets/images/bombilla-de-idea.png" alt="led">
                 </label>
-                <div class="status-label">{{ isChecked ? 'Encendido' : 'Apagado' }}</div>
+                <div class="status-label">{{ isCheckedLed ? 'Encendido' : 'Apagado' }}</div>
             </div>
 
             <div class="switch-container" [ngClass]="{ 'active': isCheckedValancin }" (click)="toggleSwitchValanin()">

@@ -12,6 +12,14 @@ export class DispositivoService {
 
     constructor(private http: HttpClient) { }
 
+    getEstadoDispositivo(deviceName: string): Observable<any> {
+        return interval(2000).pipe(
+            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoDispositivo/${deviceName}`))
+        );
+    }
+
+
+    
     getEstadoLed(deviceName: string): Observable<any> {
         return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`))
