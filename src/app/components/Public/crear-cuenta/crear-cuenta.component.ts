@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
-import { Usuario } from 'src/app/models/usuario';
+import { PreguntaS, Usuario } from 'src/app/models/usuario';
 import { MessageService } from 'primeng/api';
 import { Pregunta } from 'src/app/models/privado';
 
@@ -29,10 +29,11 @@ export class CrearCuentaComponent implements OnInit {
   esFormulario1 : boolean = true;
   esFormulario2 : boolean = false;
   esFormulario3 : boolean = false;
+  preguntaSeleccionada: string = '';
 
 
 
-  preguntas :Pregunta[]=[]
+  preguntas :PreguntaS[]=[]
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -72,7 +73,7 @@ export class CrearCuentaComponent implements OnInit {
 
   obtenerPreguntas() {
     
-    this._UsuarioService.getPreguntas().subscribe((data: Pregunta[]) => {
+    this._UsuarioService.getPreguntas().subscribe((data: PreguntaS[]) => {
       this.preguntas = data;
       console.log(this.preguntas)
     })

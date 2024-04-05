@@ -19,3 +19,16 @@ export class Usuario {
         this.respuesta = respuesta;
     }
 }
+
+
+
+export class PreguntaS {
+    _id?: string;
+    pregunta: string;
+
+
+    constructor(pregunta: string) {
+        this.pregunta = pregunta;
+
+    }
+}
