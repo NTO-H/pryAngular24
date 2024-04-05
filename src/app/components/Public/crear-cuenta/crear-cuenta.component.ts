@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario';
 import { MessageService } from 'primeng/api';
+import { Pregunta } from 'src/app/models/privado';
 
 
 
@@ -31,11 +32,7 @@ export class CrearCuentaComponent implements OnInit {
 
 
 
-  preguntas = [
-    { label: '¿Nombre de tu mejor amigo?' },
-    { label: '¿Color favorito?' },
-    { label: '¿Equipo de fútbol?' }
-  ];
+  preguntas :Pregunta[]=[]
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -68,6 +65,17 @@ export class CrearCuentaComponent implements OnInit {
 
 
   ngOnInit() {
+    this.obtenerPreguntas();
+  }
+
+
+
+  obtenerPreguntas() {
+    
+    this._UsuarioService.getPreguntas().subscribe((data: Pregunta[]) => {
+      this.preguntas = data;
+      console.log(this.preguntas)
+    })
 
   }
 

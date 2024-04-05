@@ -84,6 +84,9 @@ export class UsuarioService {
     // }
 
 
+    getPreguntas(): Observable<any> {
+        return this.http.get<any>(`${this.url}getPreguntasSecretas`);
+    }
 
 
     detalleUsuarioById(id: string): Observable<any> {

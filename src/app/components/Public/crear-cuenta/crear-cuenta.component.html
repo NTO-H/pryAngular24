@@ -114,7 +114,7 @@
 
                 <div class="conteninesinput">
     <label for="inputState">Selecciona una pregunta</label>
-    <p-dropdown [options]="preguntas" placeholder="Seleccione..." formControlName="pregunta" optionLabel="label"
+    <p-dropdown *ngIf="preguntas.length > 0"  [options]="preguntas" placeholder="Seleccione..." formControlName="pregunta" optionLabel="label"
         appendTo="body" [style]="{'width': '100%'}">
     </p-dropdown>
 </div>
