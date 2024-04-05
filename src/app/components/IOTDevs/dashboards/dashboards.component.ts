@@ -57,9 +57,9 @@ export class DashboardsComponent implements OnInit {
 
   // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
   updateSelectedDevice(event: any) {
-    // Verificar si event es undefined y si event.target es un elemento HTML con la propiedad value
-    if (event && event.target instanceof HTMLSelectElement) {
-      const selectedDevice = event.target.value;
+    // Verificar si el evento es un cambio en el componente p-dropdown
+    if (event.value) {
+      const selectedDevice = event.value;
       console.log('Dispositivo seleccionado:', selectedDevice);
 
       // Verificar si el dispositivo seleccionado es diferente al último dispositivo seleccionado
@@ -69,8 +69,7 @@ export class DashboardsComponent implements OnInit {
 
         // Realizar las solicitudes HTTP solo si el dispositivo seleccionado es válido
         if (selectedDevice) {
-
-          // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+          // Realizar solicitudes para obtener el estado de cada componente del dispositivo seleccionado
           this.dispositivoService.getEstadoLed(selectedDevice).subscribe(
             (response: any) => {
               console.log("obtenerEstadoLed de ", selectedDevice)
@@ -83,7 +82,7 @@ export class DashboardsComponent implements OnInit {
             }
           );
 
-          // Agrega aquí las demás solicitudes HTTP utilizando this.ultimoDispositivoSeleccionado
+          // Agregar aquí las demás solicitudes HTTP utilizando this.ultimoDispositivoSeleccionado
           this.dispositivoService.getEstadoValancin(selectedDevice).subscribe(
             (response: any) => {
               console.log("obtenerEstadoValancin de ", selectedDevice)
@@ -123,13 +122,10 @@ export class DashboardsComponent implements OnInit {
           console.log("Se seleccionó el mismo dispositivo.");
           // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
           // this.obtenerEstadosDispositivos();
-
-      
         }
       }
     }
   }
-
 
   copiarClave() {
     const claveInput = document.getElementById('keyInput') as HTMLInputElement;

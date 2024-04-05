@@ -6,7 +6,8 @@
 <div class="mt-3" style="width: 45%;">
     <label for="categoria" class="form-label">Selecciona un dispositivo:</label>
     <p-dropdown *ngIf="dispositivos.length > 0" formControlName="selectedDevice" [options]="dispositivos"
-        placeholder="Seleccione..." appendTo="body" [style]="{'width': '100%'}" optionLabel="deviceName">
+        placeholder="Seleccione..." appendTo="body" [style]="{'width': '100%'}" optionLabel="deviceName"
+        (onChange)="updateSelectedDevice($event)">
     </p-dropdown>
 </div>
 
