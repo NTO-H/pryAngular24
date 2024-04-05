@@ -3,13 +3,13 @@
 <body>
 <header class="header">
     <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
-    <select name="options" (change)="updateSelectedDevice($event)" class="optionSelect">
-        <!-- Itera sobre cada dispositivo para crear opciones -->
-        <ng-container *ngFor="let dv of dispositivos">
-            <!-- Utiliza la variable selectedDevice como el valor de la opción seleccionada -->
-            <option [value]="dv.deviceName" [selected]="selectedDevice === dv.deviceName">{{ dv.deviceName }}</option>
-        </ng-container>
-    </select>
+<div class="mt-3" style="width: 45%;">
+    <label for="categoria" class="form-label">Selecciona un dispositivo:</label>
+    <p-dropdown *ngIf="dispositivos.length > 0" formControlName="selectedDevice" [options]="dispositivos"
+        placeholder="Seleccione..." appendTo="body" [style]="{'width': '100%'}" optionLabel="deviceName">
+    </p-dropdown>
+</div>
+
 </header>
 
 
