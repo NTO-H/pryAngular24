@@ -57,22 +57,44 @@ export class DashboardsComponent implements OnInit {
   }
 
   // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
-  dateSelectedDevice(selectedDevice: string){
-    if (selectedDevice !== this.currentSelectedDevice) { // Verificar si el dispositivo seleccionado ha cambiado
-      this.currentSelectedDevice = selectedDevice; // Actualizar el dispositivo seleccionado actual
-      this.dispositivoService.getEstadoDispositivo(selectedDevice).subscribe(
-        (response: any) => {
-          console.log("Estado del dispositivo:", response);
-          // Actualizar el estado de los componentes en el frontend
-          this.isCheckedLed = response.led === 1;
-          this.isCheckedValancin = response.valancin === 1;
-          this.isCheckedCarrucel = response.carrucel === 1;
-          this.isCheckedMusica = response.musica === 1;
-        },
-        (error) => {
-          console.error('Error al obtener el estado del dispositivo:', error);
-        }
-      );
+  // dateSelectedDevice(selectedDevice: string){
+  //   if (selectedDevice !== this.currentSelectedDevice) { // Verificar si el dispositivo seleccionado ha cambiado
+  //     this.currentSelectedDevice = selectedDevice; // Actualizar el dispositivo seleccionado actual
+  //     this.dispositivoService.getEstadoDispositivo(selectedDevice).subscribe(
+  //       (response: any) => {
+  //         console.log("Estado del dispositivo:", response);
+  //         // Actualizar el estado de los componentes en el frontend
+  //         this.isCheckedLed = response.led === 1;
+  //         this.isCheckedValancin = response.valancin === 1;
+  //         this.isCheckedCarrucel = response.carrucel === 1;
+  //         this.isCheckedMusica = response.musica === 1;
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado del dispositivo:', error);
+  //       }
+  //     );
+  //   }
+  // }
+  dateSelectedDevice(selectedDevice: string) {
+    if (selectedDevice !== this.currentSelectedDevice) {
+      this.currentSelectedDevice = selectedDevice;
+      const eventSource = new EventSource(`https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${selectedDevice}`); // URL personalizada con el dispositivo seleccionado
+      // private urlD = `wss://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${deviceName}`; // URL de tu servidor WebSocket
+      // 
+      eventSource.onmessage = (event) => {
+        const response = JSON.parse(event.data);
+        console.log("Estado del dispositivo:", response);
+        // Actualizar el estado de los componentes en el frontend
+        this.isCheckedLed = response.led === 1;
+        this.isCheckedValancin = response.valancin === 1;
+        this.isCheckedCarrucel = response.carrucel === 1;
+        this.isCheckedMusica = response.musica === 1;
+      };
+
+      eventSource.onerror = (error) => {
+        console.error('Error al obtener el estado del dispositivo:', error);
+        eventSource.close(); // Cerrar la conexión en caso de error
+      };
     }
   }
 

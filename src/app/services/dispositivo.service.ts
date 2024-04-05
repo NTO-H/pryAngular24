@@ -10,29 +10,29 @@ import { filter, map } from 'rxjs/operators'; // Importa filter y map
     providedIn: 'root',
 })
 export class DispositivoService {
-    private socket$: WebSocketSubject<any>;
+    // private socket$: WebSocketSubject<any>;
     url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
   
-    private urlD = 'wss://servidortropicalworld-1.onrender.com/dispositivos/'; // URL de tu servidor WebSocket
+    // private urlD = `wss://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${deviceName}`; // URL de tu servidor WebSocket
 
 
     constructor(private http: HttpClient) {
-        this.socket$ = webSocket(this.urlD);
+        // this.socket$ = webSocket(this.urlD);
     }
 
 
-    getEstadoDispositivo(deviceName: string): Observable<any> {
-        // Suscribirse a eventos de actualización del estado del dispositivo
-        this.socket$.next({ action: 'subscribe', deviceName });
-        return this.socket$.asObservable().pipe(
-            filter((data: any) => data.deviceName === deviceName),
-            map((data: any) => data.estado)
-        );
-    }
     // getEstadoDispositivo(deviceName: string): Observable<any> {
-    //     return this.http.get<any>(`${this.url}obtenerEstadoDispositivo/${deviceName}`
+    //     // Suscribirse a eventos de actualización del estado del dispositivo
+    //     this.socket$.next({ action: 'subscribe', deviceName });
+    //     return this.socket$.asObservable().pipe(
+    //         filter((data: any) => data.deviceName === deviceName),
+    //         map((data: any) => data.estado)
     //     );
     // }
+    getEstadoDispositivo(deviceName: string): Observable<any> {
+        return this.http.get<any>(`${this.url}obtenerEstadoDispositivo/${deviceName}`
+        );
+    }
 
 
     
