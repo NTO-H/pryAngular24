@@ -104,7 +104,7 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  obtenerEstadoDispositivo() {
+  obtenerEstadosDispositivos() {
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
