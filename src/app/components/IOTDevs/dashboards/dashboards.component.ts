@@ -179,7 +179,7 @@ export class DashboardsComponent implements OnInit {
   //   this.obtenerEstadoMusica();
   //   this.obtenerEstadoTempHume();
   // }
-  
+
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
@@ -202,7 +202,7 @@ export class DashboardsComponent implements OnInit {
   toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
-  
+
     console.log("valor del Musica=>", valorMusica);
 
     this.cambiaEstadoMusica(valorMusica);
@@ -273,6 +273,4 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-
-
 }
