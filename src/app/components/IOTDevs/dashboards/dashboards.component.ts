@@ -62,62 +62,71 @@ export class DashboardsComponent implements OnInit {
       const selectedDevice = event.target.value;
       console.log('Dispositivo seleccionado:', selectedDevice);
 
+      // Verificar si el dispositivo seleccionado es diferente al último dispositivo seleccionado
+      if (selectedDevice !== this.ultimoDispositivoSeleccionado) {
+        // Actualizar el último dispositivo seleccionado
+        this.ultimoDispositivoSeleccionado = selectedDevice;
 
-        // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
-      this.dispositivoService.getEstadoLed(selectedDevice).subscribe(
-          (response: any) => {
-            console.log("obtenerEstadoLed de ", selectedDevice)
-            this.isChecked = response === 1;
-            console.log("valor que se obtiene de getEstadoLed=>", response);
-            console.log("valor que se de isckeck=>", this.isChecked);
-          },
-          (error) => {
-            console.error('Error al obtener el estado del LED:', error);
-          }
-        );
+        // Realizar las solicitudes HTTP solo si el dispositivo seleccionado es válido
+        if (selectedDevice) {
 
-        // Agrega aquí las demás solicitudes HTTP utilizando this.ultimoDispositivoSeleccionado
-      this.dispositivoService.getEstadoValancin(selectedDevice).subscribe(
-          (response: any) => {
-          console.log("obtenerEstadoValancin de ", selectedDevice)
-            this.isCheckedValancin = response === 1;
-            console.log("valor que se obtiene de getEstadoValancin=>", response);
-            console.log("valor que se de isckeck=>", this.isCheckedValancin);
-          },
-          (error) => {
-            console.error('Error al obtener el estado del valancin:', error);
-          }
-        );
-      this.dispositivoService.getEstadoCarrucel(selectedDevice).subscribe(
-          (response: any) => {
-          console.log("obtenerEstadoCarrucel de ", selectedDevice)
+          // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+          this.dispositivoService.getEstadoLed(selectedDevice).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoLed de ", selectedDevice)
+              this.isChecked = response === 1;
+              console.log("valor que se obtiene de getEstadoLed=>", response);
+              console.log("valor que se de isckeck=>", this.isChecked);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del LED:', error);
+            }
+          );
 
-            this.isCheckedCarrucel = response === 1;
-            console.log("valor que se obtiene de getEstadoCarrucel=>", response);
-            console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
-          },
-          (error) => {
-            console.error('Error al obtener el estado del carrucel:', error);
-          }
-        );
-      this.dispositivoService.getEstadoMusica(selectedDevice).subscribe(
-          (response: any) => {
-          console.log("obtenerEstadoMusica de ", selectedDevice)
+          // Agrega aquí las demás solicitudes HTTP utilizando this.ultimoDispositivoSeleccionado
+          this.dispositivoService.getEstadoValancin(selectedDevice).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoValancin de ", selectedDevice)
+              this.isCheckedValancin = response === 1;
+              console.log("valor que se obtiene de getEstadoValancin=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedValancin);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del valancin:', error);
+            }
+          );
+          this.dispositivoService.getEstadoCarrucel(selectedDevice).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoCarrucel de ", selectedDevice)
 
-            this.isCheckedMusica = response === 1;
-            console.log("valor que se obtiene de getEstadoMusica=>", response);
-            console.log("valor que se de isckeck=>", this.isCheckedMusica);
-          },
-          (error) => {
-            console.error('Error al obtener el estado del musica:', error);
-          }
-        );
-      } else {
-        console.log("Se seleccionó el mismo dispositivo.");
-        // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
-        // this.obtenerEstadosDispositivos();
+              this.isCheckedCarrucel = response === 1;
+              console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del carrucel:', error);
+            }
+          );
+          this.dispositivoService.getEstadoMusica(selectedDevice).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoMusica de ", selectedDevice)
+
+              this.isCheckedMusica = response === 1;
+              console.log("valor que se obtiene de getEstadoMusica=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedMusica);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del musica:', error);
+            }
+          );
+        } else {
+          console.log("Se seleccionó el mismo dispositivo.");
+          // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
+          // this.obtenerEstadosDispositivos();
 
       
+        }
+      }
     }
   }
 
