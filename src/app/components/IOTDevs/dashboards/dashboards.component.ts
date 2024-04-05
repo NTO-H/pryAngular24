@@ -59,7 +59,7 @@ export class DashboardsComponent implements OnInit {
   updateSelectedDevice(event: any) {
     // Verificar si el evento es un cambio en el componente p-dropdown
     if (event.value) {
-      const selectedDevice = event.value;
+      const selectedDevice = event.value.deviceName;
       console.log('Dispositivo seleccionado:', selectedDevice);
 
       // Verificar si el dispositivo seleccionado es diferente al último dispositivo seleccionado
