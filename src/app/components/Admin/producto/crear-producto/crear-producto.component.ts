@@ -135,6 +135,5 @@ export class CrearProductoComponent implements OnInit {
       this.categorias = data;
       console.log(this.categorias)
     })
-
   }
 }

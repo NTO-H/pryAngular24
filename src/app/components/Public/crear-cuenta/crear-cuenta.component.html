@@ -1,7 +1,7 @@
 <body>
     <div>
 
-        <div *ngIf="esFormulario1"  class="frm-container">
+        <div *ngIf="esFormulario1" class="frm-container">
             <div class="container">
                 <form method="post" [formGroup]="frmSeccionDatosPersonales" (ngSubmit)="tomarDatosPersonales()">
                     <h2>Registro de usuarios</h2>
@@ -48,7 +48,7 @@
 
     <!-- aqui comienza el otro formulario -->
 
-    <div   *ngIf="esFormulario2" class="frm-container">
+    <div *ngIf="esFormulario2" class="frm-container">
         <div class="container">
             <form method="post" [formGroup]="frmSeccionDatosPrivados" (ngSubmit)="registrarUsuario()">
                 <h2>Registro de usuarios</h2>
@@ -113,11 +113,14 @@
 
 
                 <div class="conteninesinput">
-    <label for="inputState">Selecciona una pregunta</label>
-    <p-dropdown *ngIf="preguntas.length > 0"  [options]="preguntas" placeholder="Seleccione..." formControlName="pregunta" optionLabel="label"
-        appendTo="body" [style]="{'width': '100%'}">
-    </p-dropdown>
-</div>
+                    <label for="inputState">Selecciona una pregunta</label>
+                    <p-dropdown *ngIf="preguntas.length > 0" [options]="preguntas" placeholder="Seleccione..."
+                        formControlName="pregunta" [style]="{'width': '100%'}">
+                        <ng-template let-pregunta pTemplate="item">
+                            {{ pregunta.pregunta }}
+                        </ng-template>
+                    </p-dropdown>
+                </div>
 
 
                 <div class="conteninesinput">
