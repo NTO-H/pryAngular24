@@ -51,6 +51,7 @@ export class TablaDispositivosComponent {
               console.log("entró=>data.usuarioId ", id)
 
               this.dispositivos = data;
+              this.mostrarDispositivos = true;
               console.log(data);
 
             },
