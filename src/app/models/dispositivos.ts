@@ -2,6 +2,7 @@ export class Dispositivo {
     _id?: number;
     deviceName: string;
     deviceLabel: string;
+    fechaCreacion?: string;
     userId: string; // Nuevo campo para el ID del usuario
 
     constructor(deviceLabel: string, deviceName: string, userId: string) {

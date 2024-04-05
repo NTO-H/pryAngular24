@@ -1,27 +1,26 @@
 
 <body>
     <header class="header">
-        <h1 class="title">Tokens</h1>
-        <p class="info">Use Tokens to authenticate API requests. You can create Tokens from this interface, or through
-            our API.</p>
+        <h1 class="title">Mis Apps</h1>
+        <p class="info">Puedes crear mas dispositivos desde nuestra interfaz</p>
     </header>
-    <main class="main">
+    <main  class="main">
         <input type="text" class="search-input" placeholder="Search Token">
-        <table class="token-table">
+        <table *ngFor="let dispositivo of dispositivos" class="token-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Created at</th>
-                    <th>Token</th>
-                    <th>Rate limit</th>
+                    <th>Nombre dispositivo/th>
+                    <th>Fecha creada </th>
+                    <th>código</th>
+                    <!-- <th>Rate limit</th> -->
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Default token</td>
-                    <td>2024-02-07 11:19:29</td>
-                    <td>*************</td>
-                    <td>1 req/s</td>
+                    <td>{{dispositivo.deviceName}}</td>
+                    <td>{{dispositivo.fechaCreacion}}</td>
+                    <td>{{dispositivo._id}}</td>
+                    <!-- <td>1 req/s</td> -->
                 </tr>
                 <!-- Add more token rows here -->
             </tbody>

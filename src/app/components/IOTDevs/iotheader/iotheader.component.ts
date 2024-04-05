@@ -62,17 +62,10 @@ export class IotheaderComponent {
       console.log(userData);
       this.auth.miPerfilUsuario(userData).subscribe(usuario => {
         this.usuarioId = usuario.datos;
-
-
-
       })
     } else {
-
       Swal.fire('Error', 'No se obtubo datos', 'error');
-
     }
-
-
   }
   copiarClave() {
     // Obtener el valor del input
