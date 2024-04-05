@@ -1,22 +1,38 @@
 import { Dispositivo } from '../models/dispositivos';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { Observable, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators'; // Importa filter y map
 
 @Injectable({
     providedIn: 'root',
 })
 export class DispositivoService {
+    private socket$: WebSocketSubject<any>;
     url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
+  
+    private urlD = 'wss://servidortropicalworld-1.onrender.com/dispositivos/'; // URL de tu servidor WebSocket
 
-    constructor(private http: HttpClient) { }
+
+    constructor(private http: HttpClient) {
+        this.socket$ = webSocket(this.urlD);
+    }
+
 
     getEstadoDispositivo(deviceName: string): Observable<any> {
-        return interval(2000).pipe(
-            switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoDispositivo/${deviceName}`))
+        // Suscribirse a eventos de actualización del estado del dispositivo
+        this.socket$.next({ action: 'subscribe', deviceName });
+        return this.socket$.asObservable().pipe(
+            filter((data: any) => data.deviceName === deviceName),
+            map((data: any) => data.estado)
         );
     }
+    // getEstadoDispositivo(deviceName: string): Observable<any> {
+    //     return this.http.get<any>(`${this.url}obtenerEstadoDispositivo/${deviceName}`
+    //     );
+    // }
 
 
     
