@@ -5,7 +5,7 @@
         <p class="info">Puedes crear mas dispositivos desde nuestra interfaz</p>
     </header>
     <main  class="main">
-        <input type="text" class="search-input" placeholder="Search Token">
+        <input [(ngModel)]="filterDevices" type="text" class="search-input" placeholder="Search Token">
         <table  *ngIf="dispositivos.length>0" class="token-table">
             <thead>
                 <tr>
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let dispositivo of dispositivos">
+                <tr *ngFor="let dispositivo of dispositivos| filter:filterDevices">
                     <td>{{dispositivo.deviceName}}</td>
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
