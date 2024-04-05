@@ -51,6 +51,7 @@ export class CrearCuentaComponent implements OnInit {
 
     this.frmSeccionDatosPrivados = this.formBuilder.group({
       // nombre: ['', Validators.required],
+      
       // correo: ['', Validators.required],
       pass: ['', Validators.required],
       confirmpass: ['', Validators.required],
@@ -106,6 +107,7 @@ export class CrearCuentaComponent implements OnInit {
     }
   }
   tomarDatosPersonales() {
+    this.obtenerPreguntas();
 
     
     const nombre = this.frmSeccionDatosPersonales.get('nombre')?.value;
@@ -143,6 +145,7 @@ export class CrearCuentaComponent implements OnInit {
 
   registrarUsuario() {
    // this.esFormulario1 = false;
+    this.obtenerPreguntas();
 
 
     
