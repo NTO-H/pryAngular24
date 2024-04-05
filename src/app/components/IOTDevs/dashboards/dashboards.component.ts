@@ -56,12 +56,8 @@ export class DashboardsComponent implements OnInit {
 
     console.log('Dispositivo seleccionado:', this.deviceName);
     // this.dvName = this.deviceName; // Asignar el valor a dvName
-
-    this.obtenerEstadoLed();
-    this.obtenerEstadoValancin();
-    this.obtenerEstadoCarrucel();
-    this.obtenerEstadoMusica();
-    this.obtenerEstadoTempHume();
+    this.obtenerEstadosDispositivos();
+  
   }
 
   copiarClave() {
@@ -108,6 +104,15 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
+  obtenerEstadoDispositivo() {
+    this.obtenerEstadoLed();
+    this.obtenerEstadoValancin();
+    this.obtenerEstadoCarrucel();
+    this.obtenerEstadoMusica();
+    this.obtenerEstadoTempHume();
+
+  }
+  
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
