@@ -21,7 +21,7 @@ export class DashboardsComponent implements OnInit {
   dispositivos: Dispositivo[] = [];
   deviceCount = 0;
   mostrarDispositivos = false;
-  selectedDeviceName = '';
+  deviceName = '';
   humedad = 0;
   humedadOptions = [
     { value: 0, label: '0%', icon: 'fas fa-tint' },
@@ -36,8 +36,6 @@ export class DashboardsComponent implements OnInit {
   isCheckedCarrucel = false;
   isCheckedMusica = false;
 
-  // Variable global para almacenar dvName
-  dvName: string = '';
 
   constructor(
     private aRouter: ActivatedRoute,
@@ -52,9 +50,13 @@ export class DashboardsComponent implements OnInit {
   }
 
   updateSelectedDevice() {
-    console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+    // console.log('Dispositivo seleccionado:', this.selectedDeviceName);
     console.log("se presiono para hacer cambios ")
-    this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
+    // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
+
+    console.log('Dispositivo seleccionado:', this.deviceName);
+    // this.dvName = this.deviceName; // Asignar el valor a dvName
+
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
     this.obtenerEstadoCarrucel();
@@ -90,12 +92,6 @@ export class DashboardsComponent implements OnInit {
               this.deviceCount = this.dispositivos.length;
               this.mostrarDispositivos = true;
 
-              // Actualizar las variables de estado después de obtener los dispositivos
-              this.obtenerEstadoLed();
-              this.obtenerEstadoValancin();
-              this.obtenerEstadoCarrucel();
-              this.obtenerEstadoMusica();
-              this.obtenerEstadoTempHume();
             },
             (error) => {
               console.error('Error al obtener dispositivos:', error);
@@ -115,36 +111,29 @@ export class DashboardsComponent implements OnInit {
   toggleSwitch() {
     this.isChecked = !this.isChecked;
     const valor = this.isChecked ? 1 : 0;
-    const dvName = this.dvName; // Utilizar la variable global dvName
-    console.log(dvName);
-    this.cambiaEstadoLed(valor, dvName);
+    this.cambiaEstadoLed(valor);
   }
 
   toggleSwitchValanin() {
     this.isCheckedValancin = !this.isCheckedValancin;
     const valorValancin = this.isCheckedValancin ? 1 : 0;
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
-    this.cambiaEstadoValancin(valorValancin, dvName);
+    this.cambiaEstadoValancin(valorValancin);
   }
 
   toggleSwitchCarrucel() {
     this.isCheckedCarrucel = !this.isCheckedCarrucel;
     const valorCarrucel = this.isCheckedCarrucel ? 1 : 0;
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
     console.log("valor del Carrucel=>", valorCarrucel);
-    this.cambiaEstadoCarrucel(valorCarrucel, dvName);
+    this.cambiaEstadoCarrucel(valorCarrucel);
   }
 
   toggleSwitchMusica() {
     this.isCheckedMusica = !this.isCheckedMusica;
     const valorMusica = this.isCheckedMusica ? 1 : 0;
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
+  
     console.log("valor del Musica=>", valorMusica);
 
-    this.cambiaEstadoMusica(valorMusica, dvName);
+    this.cambiaEstadoMusica(valorMusica);
   }
 
   getIconoHumedad(humedad: number): string {
@@ -161,8 +150,8 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
-  cambiaEstadoLed(valor: number, dvName: string) {
-    this.dispositivoService.editarDispositivoLed(valor, dvName).subscribe(
+  cambiaEstadoLed(valor: number) {
+    this.dispositivoService.editarDispositivoLed(valor, this.deviceName).subscribe(
       (response) => {
         this.toastr.success('Estado del LED actualizado correctamente');
         this.isChecked = response === 1;
@@ -174,8 +163,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoValancin(valor: number, dvName: string) {
-    this.dispositivoService.editarDispositivoValancin(valor, dvName).subscribe(
+  cambiaEstadoValancin(valor: number) {
+    this.dispositivoService.editarDispositivoValancin(valor, this.deviceName).subscribe(
       (response) => {
         this.toastr.success('Estado del valancin actualizado correctamente');
         this.isCheckedValancin = response === 1;
@@ -187,8 +176,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoCarrucel(valor: number, dvName: string) {
-    this.dispositivoService.editarDispositivoCarrucel(valor, dvName).subscribe(
+  cambiaEstadoCarrucel(valor: number) {
+    this.dispositivoService.editarDispositivoCarrucel(valor, this.deviceName).subscribe(
       (response) => {
         this.toastr.success('Estado del carrucel actualizado correctamente');
         this.isCheckedCarrucel = response === 1;
@@ -200,8 +189,8 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  cambiaEstadoMusica(valor: number, dvName: string) {
-    this.dispositivoService.editarEstadoMusica(valor, dvName).subscribe(
+  cambiaEstadoMusica(valor: number) {
+    this.dispositivoService.editarEstadoMusica(valor, this.deviceName).subscribe(
       (response) => {
         this.toastr.success('Estado del musica actualizado correctamente');
         this.isCheckedMusica = response === 1;
@@ -213,10 +202,12 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  obtenerEstadoTempHume() {
-    const dvName = this.dvName; // Utilizar la variable global dvName
 
-    this.dispositivoService.getTempHum(dvName).subscribe(
+  
+
+  obtenerEstadoTempHume() {
+
+    this.dispositivoService.getTempHum(this.deviceName).subscribe(
       (response: any) => {
         this.humedad = response.humedad;
         this.temperatura = response.temperatura;
@@ -254,9 +245,8 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoLed() {
-    const dvName = this.dvName; // Utilizar la variable global dvName
 
-    this.dispositivoService.getEstadoLed(dvName).subscribe(
+    this.dispositivoService.getEstadoLed(this.deviceName).subscribe(
       (response: any) => {
         this.isChecked = response === 1;
         console.log("valor que se obtiene de getEstadoLed=>", response);
@@ -268,10 +258,10 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
+  
   obtenerEstadoValancin() {
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
-    this.dispositivoService.getEstadoValancin(dvName).subscribe(
+  
+    this.dispositivoService.getEstadoValancin(this.deviceName).subscribe(
       (response: any) => {
         this.isCheckedValancin = response === 1;
         console.log("valor que se obtiene de getEstadoValancin=>", response);
@@ -284,9 +274,8 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoCarrucel() {
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
-    this.dispositivoService.getEstadoCarrucel(dvName).subscribe(
+ 
+    this.dispositivoService.getEstadoCarrucel(this.deviceName).subscribe(
       (response: any) => {
         this.isCheckedCarrucel = response === 1;
         console.log("valor que se obtiene de getEstadoCarrucel=>", response);
@@ -299,9 +288,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoMusica() {
-    const dvName = this.dvName; // Utilizar la variable global dvName
-
-    this.dispositivoService.getEstadoMusica(dvName).subscribe(
+    this.dispositivoService.getEstadoMusica(this.deviceName).subscribe(
       (response: any) => {
         this.isCheckedMusica = response === 1;
         console.log("valor que se obtiene de getEstadoMusica=>", response);
