@@ -6,10 +6,12 @@
     <select name="options" (change)="updateSelectedDevice($event)" class="optionSelect">
         <!-- Itera sobre cada dispositivo para crear opciones -->
         <ng-container *ngFor="let dv of dispositivos">
-            <option [value]="dv.deviceName">{{ dv.deviceName }}</option>
+            <!-- Utiliza la variable selectedDevice como el valor de la opción seleccionada -->
+            <option [value]="dv.deviceName" [selected]="selectedDevice === dv.deviceName">{{ dv.deviceName }}</option>
         </ng-container>
     </select>
 </header>
+
 
 
 
