@@ -53,6 +53,7 @@ export class DashboardsComponent implements OnInit {
 
   updateSelectedDevice() {
     console.log('Dispositivo seleccionado:', this.selectedDeviceName);
+    console.log("se presiono para hacer cambios ")
     this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
     this.obtenerEstadoLed();
     this.obtenerEstadoValancin();
