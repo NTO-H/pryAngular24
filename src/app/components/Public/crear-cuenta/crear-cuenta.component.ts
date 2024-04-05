@@ -258,7 +258,7 @@ export class CrearCuentaComponent implements OnInit {
       pass: this.frmSeccionDatosPrivados.get('pass')?.value,
       confirmpass: this.frmSeccionDatosPrivados.get('confirmpass')?.value,
       token:'',
-      pregunta: this.frmSeccionDatosPrivados.get('pregunta')?.value,
+      pregunta: this.frmSeccionDatosPrivados.get('pregunta')?.value?.pregunta,
       respuesta: this.frmSeccionDatosPrivados.get('respuesta')?.value,
     };
 
