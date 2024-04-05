@@ -5,7 +5,7 @@ import { DispositivoService } from 'src/app/services/dispositivo.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Dispositivo } from 'src/app/models/dispositivos';
 import { ActivatedRoute } from '@angular/router';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
@@ -45,6 +45,7 @@ export class DashboardsComponent implements OnInit {
   carrucelState: boolean | null = null;
   musicaState: boolean | null = null;
   currentSelectedDevice: string = ''; // Variable para almacenar el dispositivo seleccionado actualmente
+  private dispositivoSubscription!: Subscription;
 
   selectedDevice: string = '';
   constructor(private http: HttpClient,
@@ -80,12 +81,19 @@ export class DashboardsComponent implements OnInit {
   // }
 
 
+  // Declarar una variable para almacenar la suscripción actual
+
   dateSelectedDevice(selectedDevice: string) {
     if (selectedDevice !== this.currentSelectedDevice) {
       this.currentSelectedDevice = selectedDevice;
 
-      // Realiza una solicitud cada 5 segundos
-      interval(2000).pipe(
+      // Cancelar la suscripción anterior si existe
+      if (this.dispositivoSubscription) {
+        this.dispositivoSubscription.unsubscribe();
+      }
+
+      // Realizar una solicitud cada 5 segundos
+      this.dispositivoSubscription = interval(5000).pipe(
         switchMap(() => this.http.get<any>(`https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${selectedDevice}`))
       ).subscribe(
         (response) => {
