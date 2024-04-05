@@ -45,14 +45,12 @@ export class TablaDispositivosComponent {
 
 
           this.dvs.encontrarDispositivosPorUsuarioId(id).subscribe(
-            (data: Dispositivo[]) => {
+            data => {
 
               console.log("entró=>encontrarDispositivosPorUsuarioId ")
               console.log("entró=>data.usuarioId ", id)
 
               this.dispositivos = data;
-              this.deviceCount = this.dispositivos.length;
-              this.mostrarDispositivos = true;
 
             },
             (error) => {
