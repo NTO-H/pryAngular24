@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let dispositivo of dispositivos| filter:filterProducts">
+                <tr *ngFor="let dispositivo of dispositivos">
                     <td>{{dispositivo.deviceName}}</td>
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
