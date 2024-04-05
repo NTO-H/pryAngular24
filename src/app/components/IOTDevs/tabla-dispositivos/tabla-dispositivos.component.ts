@@ -22,7 +22,8 @@ export class TablaDispositivosComponent implements OnInit {
   deviceCount: number = 0;
   mostrarDispositivos: boolean = false;
 
-  filterDevices = '';
+  // filterDevices = '';
+  filterProducts: string = '';
 
 
   constructor(private toastr: ToastrService, private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr: UsuarioService) { }
