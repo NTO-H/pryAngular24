@@ -41,6 +41,7 @@ export class DashboardsComponent implements OnInit {
   valancinState: boolean | null = null;
   carrucelState: boolean | null = null;
   musicaState: boolean | null = null;
+  currentSelectedDevice: string = ''; // Variable para almacenar el dispositivo seleccionado actualmente
 
   selectedDevice: string = '';
   constructor(
@@ -57,22 +58,24 @@ export class DashboardsComponent implements OnInit {
 
   // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
   dateSelectedDevice(selectedDevice: string){
-    // Verificar si el evento es un cambio en el componente p-dropdown
-    this.dispositivoService.getEstadoDispositivo(selectedDevice).subscribe(
-      (response: any) => {
-        console.log("Estado del dispositivo:", response);
-
-        // Actualizar el estado de los componentes en el frontend
-        this.isCheckedLed = response.led === 1;
-        this.isCheckedValancin = response.valancin === 1;
-        this.isCheckedCarrucel = response.carrucel === 1;
-        this.isCheckedMusica = response.musica === 1;
-      },
-      (error) => {
-        console.error('Error al obtener el estado del dispositivo:', error);
-      }
-    );
+    if (selectedDevice !== this.currentSelectedDevice) { // Verificar si el dispositivo seleccionado ha cambiado
+      this.currentSelectedDevice = selectedDevice; // Actualizar el dispositivo seleccionado actual
+      this.dispositivoService.getEstadoDispositivo(selectedDevice).subscribe(
+        (response: any) => {
+          console.log("Estado del dispositivo:", response);
+          // Actualizar el estado de los componentes en el frontend
+          this.isCheckedLed = response.led === 1;
+          this.isCheckedValancin = response.valancin === 1;
+          this.isCheckedCarrucel = response.carrucel === 1;
+          this.isCheckedMusica = response.musica === 1;
+        },
+        (error) => {
+          console.error('Error al obtener el estado del dispositivo:', error);
+        }
+      );
+    }
   }
+
 
   copiarClave() {
     const claveInput = document.getElementById('keyInput') as HTMLInputElement;
