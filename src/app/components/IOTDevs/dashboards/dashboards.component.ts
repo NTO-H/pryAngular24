@@ -58,68 +58,84 @@ export class DashboardsComponent implements OnInit {
   // console.log('Dispositivo seleccionado:', this.selectedDeviceName);
   // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
 
-  updateSelectedDevice() {
-    // Almacena el dispositivo seleccionado actual
-    const dispositivoSeleccionado = this.deviceName;
+  updateSelectedDevice(event: any) {
+    // Verificar si event es undefined y si event.target es un elemento HTML con la propiedad value
+    if (event && event.target instanceof HTMLSelectElement) {
+      const selectedDevice = event.target.value;
+      console.log('Dispositivo seleccionado:', selectedDevice);
 
     // Verifica si el dispositivo seleccionado ha cambiado
-    if (dispositivoSeleccionado !== this.ultimoDispositivoSeleccionado) {
-      console.log("Se seleccionó un dispositivo diferente.")
-      this.ultimoDispositivoSeleccionado = dispositivoSeleccionado;
+      // Verifica si el dispositivo seleccionado ha cambiado
+      if (selectedDevice !== this.ultimoDispositivoSeleccionado) {
+        console.log("Se seleccionó un dispositivo diferente.")
+        this.ultimoDispositivoSeleccionado = selectedDevice;
 
-      // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
-      this.dispositivoService.getEstadoLed(this.ultimoDispositivoSeleccionado).subscribe(
-        (response: any) => {
-          console.log("obtenerEstadoLed de ", this.ultimoDispositivoSeleccionado)
-          this.isChecked = response === 1;
-          console.log("valor que se obtiene de getEstadoLed=>", response);
-          console.log("valor que se de isckeck=>", this.isChecked);
-        },
-        (error) => {
-          console.error('Error al obtener el estado del LED:', error);
+
+        // Verifica si el dispositivo seleccionado ha cambiado
+        if (selectedDevice !== this.ultimoDispositivoSeleccionado) {
+          console.log("Se seleccionó un dispositivo diferente.")
+          this.ultimoDispositivoSeleccionado = selectedDevice;
+
+
+          // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+          this.dispositivoService.getEstadoLed(this.ultimoDispositivoSeleccionado).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoLed de ", this.ultimoDispositivoSeleccionado)
+              this.isChecked = response === 1;
+              console.log("valor que se obtiene de getEstadoLed=>", response);
+              console.log("valor que se de isckeck=>", this.isChecked);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del LED:', error);
+            }
+          );
+
+          // Agrega aquí las demás solicitudes HTTP utilizando this.ultimoDispositivoSeleccionado
+
+
+          this.dispositivoService.getEstadoValancin(this.ultimoDispositivoSeleccionado).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoValancin de ", this.ultimoDispositivoSeleccionado)
+              this.isCheckedValancin = response === 1;
+              console.log("valor que se obtiene de getEstadoValancin=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedValancin);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del valancin:', error);
+            }
+          );
+          this.dispositivoService.getEstadoCarrucel(this.ultimoDispositivoSeleccionado).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoCarrucel de ", this.ultimoDispositivoSeleccionado)
+
+              this.isCheckedCarrucel = response === 1;
+              console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del carrucel:', error);
+            }
+          );
+          this.dispositivoService.getEstadoMusica(this.ultimoDispositivoSeleccionado).subscribe(
+            (response: any) => {
+              console.log("obtenerEstadoMusica de ", this.ultimoDispositivoSeleccionado)
+
+              this.isCheckedMusica = response === 1;
+              console.log("valor que se obtiene de getEstadoMusica=>", response);
+              console.log("valor que se de isckeck=>", this.isCheckedMusica);
+            },
+            (error) => {
+              console.error('Error al obtener el estado del musica:', error);
+            }
+          );
+
+        } else {
+          console.log("Se seleccionó el mismo dispositivo.");
+          // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
+          // this.obtenerEstadosDispositivos();
+    
         }
-      );
-
-      this.dispositivoService.getEstadoValancin(this.ultimoDispositivoSeleccionado).subscribe(
-        (response: any) => {
-          console.log("obtenerEstadoValancin de ", this.ultimoDispositivoSeleccionado)
-          this.isCheckedValancin = response === 1;
-          console.log("valor que se obtiene de getEstadoValancin=>", response);
-          console.log("valor que se de isckeck=>", this.isCheckedValancin);
-        },
-        (error) => {
-          console.error('Error al obtener el estado del valancin:', error);
-        }
-      );
-      this.dispositivoService.getEstadoCarrucel(this.ultimoDispositivoSeleccionado).subscribe(
-        (response: any) => {
-          console.log("obtenerEstadoCarrucel de ", this.ultimoDispositivoSeleccionado)
-
-          this.isCheckedCarrucel = response === 1;
-          console.log("valor que se obtiene de getEstadoCarrucel=>", response);
-          console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
-        },
-        (error) => {
-          console.error('Error al obtener el estado del carrucel:', error);
-        }
-      );
-      this.dispositivoService.getEstadoMusica(this.ultimoDispositivoSeleccionado).subscribe(
-        (response: any) => {
-          console.log("obtenerEstadoMusica de ", this.ultimoDispositivoSeleccionado)
-
-          this.isCheckedMusica = response === 1;
-          console.log("valor que se obtiene de getEstadoMusica=>", response);
-          console.log("valor que se de isckeck=>", this.isCheckedMusica);
-        },
-        (error) => {
-          console.error('Error al obtener el estado del musica:', error);
-        }
-      );
-
-    } else {
-      console.log("Se seleccionó el mismo dispositivo.");
-      // Si es el mismo dispositivo, puedes llamar a la función para obtener los estados de dispositivos aquí
-      this.obtenerEstadosDispositivos();
+      }
     }
   }
 
@@ -167,14 +183,14 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  obtenerEstadosDispositivos() {
-      // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
-      this.obtenerEstadoLed();
-      this.obtenerEstadoValancin();
-      this.obtenerEstadoCarrucel();
-      this.obtenerEstadoMusica();
-      this.obtenerEstadoTempHume();
-  }
+  // obtenerEstadosDispositivos() {
+  //   // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
+  //   this.obtenerEstadoLed();
+  //   this.obtenerEstadoValancin();
+  //   this.obtenerEstadoCarrucel();
+  //   this.obtenerEstadoMusica();
+  //   this.obtenerEstadoTempHume();
+  // }
   
   toggleSwitch() {
     this.isChecked = !this.isChecked;
@@ -273,109 +289,110 @@ export class DashboardsComponent implements OnInit {
 
   
 
-  obtenerEstadoTempHume() {
+  //   obtenerEstadoTempHume() {
 
-    this.dispositivoService.getTempHum(this.deviceName).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoTempHume de ", this.ultimoDispositivoSeleccionado)
+  //     this.dispositivoService.getTempHum(this.deviceName).subscribe(
+  //       (response: any) => {
+  //         console.log("obtenerEstadoTempHume de ", this.ultimoDispositivoSeleccionado)
 
-        this.humedad = response.humedad;
-        this.temperatura = response.temperatura;
+  //         this.humedad = response.humedad;
+  //         this.temperatura = response.temperatura;
 
-        if (this.humedad > 75) {
-          this.alt = 'Humedad alta';
-        } else if (this.humedad > 50) {
-          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
-          this.alt = 'Humedad media';
-        } else if (this.humedad > 25) {
-          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ifhw3urphhkirc3izgtm';
-          this.alt = 'Humedad baja';
-        } else {
-          this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/njymyk1bytuvrgtcpnhf';
-          this.alt = 'Humedad muy baja';
-        }
+  //         if (this.humedad > 75) {
+  //           this.alt = 'Humedad alta';
+  //         } else if (this.humedad > 50) {
+  //           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ao5time9sdftgaaxucvq';
+  //           this.alt = 'Humedad media';
+  //         } else if (this.humedad > 25) {
+  //           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/ifhw3urphhkirc3izgtm';
+  //           this.alt = 'Humedad baja';
+  //         } else {
+  //           this.imagen = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/njymyk1bytuvrgtcpnhf';
+  //           this.alt = 'Humedad muy baja';
+  //         }
 
-        if (this.temperatura > 41) {
-          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
-          this.alt = 'temperatura media';
-        } else if (this.temperatura > 30 && this.temperatura < 37) {
-          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mtmxndj0oxhpfbjxq58v';
-          this.alt = 'Hutemperatura normal';
-        } else {
-          this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mwtyrblssqbqidm2wwyy';
-          this.alt = 'temperatura muy baja';
-        }
+  //         if (this.temperatura > 41) {
+  //           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/zoueidpgtguvdhkqut4j';
+  //           this.alt = 'temperatura media';
+  //         } else if (this.temperatura > 30 && this.temperatura < 37) {
+  //           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mtmxndj0oxhpfbjxq58v';
+  //           this.alt = 'Hutemperatura normal';
+  //         } else {
+  //           this.imagen2 = 'https://res.cloudinary.com/dvvhnrvav/image/upload/v1711384871/images/mwtyrblssqbqidm2wwyy';
+  //           this.alt = 'temperatura muy baja';
+  //         }
 
-        console.log("valor que se obtiene de obtenerEstadoTempHume=>", response);
-      },
-      (error) => {
-        console.error('Error al obtener el estado de obtenerEstadoTempHume:', error);
-      }
-    );
-  }
+  //         console.log("valor que se obtiene de obtenerEstadoTempHume=>", response);
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado de obtenerEstadoTempHume:', error);
+  //       }
+  //     );
+  //   }
 
-  obtenerEstadoLed() {
+  //   obtenerEstadoLed() {
 
-    this.dispositivoService.getEstadoLed(this.ultimoDispositivoSeleccionado).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoLed de ", this.ultimoDispositivoSeleccionado)
+  //     this.dispositivoService.getEstadoLed(this.ultimoDispositivoSeleccionado).subscribe(
+  //       (response: any) => {
+  //         console.log("obtenerEstadoLed de ", this.ultimoDispositivoSeleccionado)
 
-        this.isChecked = response === 1;
-        console.log("valor que se obtiene de getEstadoLed=>", response);
-        console.log("valor que se de isckeck=>", this.isChecked);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del LED:', error);
-      }
-    );
-  }
+  //         this.isChecked = response === 1;
+  //         console.log("valor que se obtiene de getEstadoLed=>", response);
+  //         console.log("valor que se de isckeck=>", this.isChecked);
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado del LED:', error);
+  //       }
+  //     );
+  //   }
   
-  obtenerEstadoValancin() {
+  //   obtenerEstadoValancin() {
 
-    this.dispositivoService.getEstadoValancin(this.ultimoDispositivoSeleccionado).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoValancin de ", this.ultimoDispositivoSeleccionado)
+  //     this.dispositivoService.getEstadoValancin(this.ultimoDispositivoSeleccionado).subscribe(
+  //       (response: any) => {
+  //         console.log("obtenerEstadoValancin de ", this.ultimoDispositivoSeleccionado)
 
-        this.isCheckedValancin = response === 1;
-        console.log("valor que se obtiene de getEstadoValancin=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedValancin);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del valancin:', error);
-      }
-    );
-  }
+  //         this.isCheckedValancin = response === 1;
+  //         console.log("valor que se obtiene de getEstadoValancin=>", response);
+  //         console.log("valor que se de isckeck=>", this.isCheckedValancin);
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado del valancin:', error);
+  //       }
+  //     );
+  //   }
 
-  obtenerEstadoCarrucel() {
+  //   obtenerEstadoCarrucel() {
 
-    this.dispositivoService.getEstadoCarrucel(this.ultimoDispositivoSeleccionado).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoCarrucel de ", this.ultimoDispositivoSeleccionado)
+  //     this.dispositivoService.getEstadoCarrucel(this.ultimoDispositivoSeleccionado).subscribe(
+  //       (response: any) => {
+  //         console.log("obtenerEstadoCarrucel de ", this.ultimoDispositivoSeleccionado)
 
-        this.isCheckedCarrucel = response === 1;
-        console.log("valor que se obtiene de getEstadoCarrucel=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del carrucel:', error);
-      }
-    );
-  }
+  //         this.isCheckedCarrucel = response === 1;
+  //         console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+  //         console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado del carrucel:', error);
+  //       }
+  //     );
+  //   }
 
-  obtenerEstadoMusica() {
-    this.dispositivoService.getEstadoMusica(this.ultimoDispositivoSeleccionado).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoMusica de ", this.ultimoDispositivoSeleccionado)
+  //   obtenerEstadoMusica() {
+  //     this.dispositivoService.getEstadoMusica(this.ultimoDispositivoSeleccionado).subscribe(
+  //       (response: any) => {
+  //         console.log("obtenerEstadoMusica de ", this.ultimoDispositivoSeleccionado)
 
-        this.isCheckedMusica = response === 1;
-        console.log("valor que se obtiene de getEstadoMusica=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedMusica);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del musica:', error);
-      }
-    );
-  }
+  //         this.isCheckedMusica = response === 1;
+  //         console.log("valor que se obtiene de getEstadoMusica=>", response);
+  //         console.log("valor que se de isckeck=>", this.isCheckedMusica);
+  //       },
+  //       (error) => {
+  //         console.error('Error al obtener el estado del musica:', error);
+  //       }
+  //     );
+  //   }
 
 
+  // }
 }

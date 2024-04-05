@@ -1,15 +1,17 @@
 
     
 <body>
-    <header class="header">
-        <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
-        <select name="options" [(ngModel)]="deviceName" (change)="updateSelectedDevice()" class="optionSelect">
-            <!-- Itera sobre cada dispositivo para crear opciones -->
-            <ng-container *ngFor="let dv of dispositivos">
-                <option [value]="dv.deviceName">{{ dv.deviceName }}</option>
-            </ng-container>
-        </select>
-    </header>
+<header class="header">
+    <span style="margin-right: 10px; color: white;">Mis Dispositivos</span>
+    <select name="options" (change)="updateSelectedDevice($event)" class="optionSelect">
+        <!-- Itera sobre cada dispositivo para crear opciones -->
+        <ng-container *ngFor="let dv of dispositivos">
+            <option [value]="dv.deviceName">{{ dv.deviceName }}</option>
+        </ng-container>
+    </select>
+</header>
+
+
 
 
     <section class="dispositivos">
