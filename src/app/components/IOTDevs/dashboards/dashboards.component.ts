@@ -37,10 +37,10 @@ export class DashboardsComponent implements OnInit {
   isCheckedValancin: boolean | null = null;
   isCheckedCarrucel: boolean | null = null;
   isCheckedMusica: boolean | null = null;
-  // ledState: boolean | null = null;
-  // valancinState: boolean | null = null;
-  // carrucelState: boolean | null = null;
-  // musicaState: boolean | null = null;
+  ledState: boolean | null = null;
+  valancinState: boolean | null = null;
+  carrucelState: boolean | null = null;
+  musicaState: boolean | null = null;
 
 
   constructor(
@@ -264,66 +264,83 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoLed() {
-
-    this.dispositivoService.getEstadoLed(this.deviceName).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoLed de ", this.deviceName)
-
-        this.isChecked = response === 1;
-        console.log("valor que se obtiene de getEstadoLed=>", response);
-        console.log("valor que se de isckeck=>", this.isChecked);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del LED:', error);
-      }
-    );
+    if (this.ledState === null) {
+      this.dispositivoService.getEstadoLed(this.deviceName).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoLed de ", this.deviceName)
+          this.ledState = response === 1;
+          this.isChecked = this.ledState;
+          console.log("valor que se obtiene de getEstadoLed=>", response);
+          console.log("valor que se de isckeck=>", this.isChecked);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del LED:', error);
+        }
+      );
+    } else {
+      this.isChecked = this.ledState;
+    }
   }
+
 
   
   obtenerEstadoValancin() {
-  
-    this.dispositivoService.getEstadoValancin(this.deviceName).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoValancin de ", this.deviceName)
+    if (this.valancinState === null) {
+      this.dispositivoService.getEstadoValancin(this.deviceName).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoValancin de ", this.deviceName)
 
-        this.isCheckedValancin = response === 1;
-        console.log("valor que se obtiene de getEstadoValancin=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedValancin);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del valancin:', error);
-      }
-    );
+          this.valancinState = response === 1;
+          this.isCheckedValancin = this.valancinState;
+          console.log("valor que se obtiene de getEstadoValancin=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedValancin);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del valancin:', error);
+        }
+      );
+    } else {
+      this.isCheckedValancin = this.valancinState;
+    }
   }
 
   obtenerEstadoCarrucel() {
- 
-    this.dispositivoService.getEstadoCarrucel(this.deviceName).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoCarrucel de ", this.deviceName)
-
-        this.isCheckedCarrucel = response === 1;
-        console.log("valor que se obtiene de getEstadoCarrucel=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del carrucel:', error);
-      }
-    );
+    if (this.carrucelState === null) {
+      this.dispositivoService.getEstadoCarrucel(this.deviceName).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoCarrucel de ", this.deviceName)
+          this.carrucelState = response === 1;
+          this.isCheckedCarrucel = this.carrucelState;
+          console.log("valor que se obtiene de getEstadoCarrucel=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del carrucel:', error);
+        }
+      );
+    } else {
+      this.isCheckedCarrucel = this.carrucelState;
+    }
   }
+
 
   obtenerEstadoMusica() {
-    this.dispositivoService.getEstadoMusica(this.deviceName).subscribe(
-      (response: any) => {
-        console.log("obtenerEstadoMusica de ", this.deviceName)
-
-        this.isCheckedMusica = response === 1;
-        console.log("valor que se obtiene de getEstadoMusica=>", response);
-        console.log("valor que se de isckeck=>", this.isCheckedMusica);
-      },
-      (error) => {
-        console.error('Error al obtener el estado del musica:', error);
-      }
-    );
+    if (this.musicaState === null) {
+      this.dispositivoService.getEstadoMusica(this.deviceName).subscribe(
+        (response: any) => {
+          console.log("obtenerEstadoMusica de ", this.deviceName)
+          this.musicaState = response === 1;
+          this.isCheckedMusica = this.musicaState;
+          console.log("valor que se obtiene de getEstadoMusica=>", response);
+          console.log("valor que se de isckeck=>", this.isCheckedMusica);
+        },
+        (error) => {
+          console.error('Error al obtener el estado del musica:', error);
+        }
+      );
+    } else {
+      this.isCheckedMusica = this.musicaState;
+    }
   }
+
 }
