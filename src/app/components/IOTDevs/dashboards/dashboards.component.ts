@@ -5,6 +5,9 @@ import { DispositivoService } from 'src/app/services/dispositivo.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Dispositivo } from 'src/app/models/dispositivos';
 import { ActivatedRoute } from '@angular/router';
+import { interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboards',
@@ -44,7 +47,7 @@ export class DashboardsComponent implements OnInit {
   currentSelectedDevice: string = ''; // Variable para almacenar el dispositivo seleccionado actualmente
 
   selectedDevice: string = '';
-  constructor(
+  constructor(private http: HttpClient,
     private aRouter: ActivatedRoute,
     private fb: FormBuilder,
     private dispositivoService: DispositivoService,
@@ -75,28 +78,31 @@ export class DashboardsComponent implements OnInit {
   //     );
   //   }
   // }
+
+
   dateSelectedDevice(selectedDevice: string) {
     if (selectedDevice !== this.currentSelectedDevice) {
       this.currentSelectedDevice = selectedDevice;
-      const eventSource = new EventSource(`https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${selectedDevice}`); // URL personalizada con el dispositivo seleccionado
-      // private urlD = `wss://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${deviceName}`; // URL de tu servidor WebSocket
-      // 
-      eventSource.onmessage = (event) => {
-        const response = JSON.parse(event.data);
-        console.log("Estado del dispositivo:", response);
-        // Actualizar el estado de los componentes en el frontend
-        this.isCheckedLed = response.led === 1;
-        this.isCheckedValancin = response.valancin === 1;
-        this.isCheckedCarrucel = response.carrucel === 1;
-        this.isCheckedMusica = response.musica === 1;
-      };
 
-      eventSource.onerror = (error) => {
-        console.error('Error al obtener el estado del dispositivo:', error);
-        eventSource.close(); // Cerrar la conexión en caso de error
-      };
+      // Realiza una solicitud cada 5 segundos
+      interval(5000).pipe(
+        switchMap(() => this.http.get<any>(`https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${selectedDevice}`))
+      ).subscribe(
+        (response) => {
+          console.log("Estado del dispositivo:", response);
+          // Actualizar el estado de los componentes en el frontend
+          this.isCheckedLed = response.led === 1;
+          this.isCheckedValancin = response.valancin === 1;
+          this.isCheckedCarrucel = response.carrucel === 1;
+          this.isCheckedMusica = response.musica === 1;
+        },
+        (error) => {
+          console.error('Error al obtener el estado del dispositivo:', error);
+        }
+      );
     }
   }
+
 
 
   copiarClave() {
