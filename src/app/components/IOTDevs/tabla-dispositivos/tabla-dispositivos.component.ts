@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './tabla-dispositivos.component.html',
   styleUrl: './tabla-dispositivos.component.scss'
 })
-export class TablaDispositivosComponent {
+export class TablaDispositivosComponent implements OnInit {
 
   
 
@@ -29,6 +29,9 @@ export class TablaDispositivosComponent {
 
 
 
+  ngOnInit(): void {
+    this.obtenerDispositivos();
+  }
   obtenerDispositivos() {
     console.log("entró=>currentUser ")
 
