@@ -22,6 +22,8 @@ export class DashboardsComponent implements OnInit {
   deviceCount = 0;
   mostrarDispositivos = false;
   deviceName = '';
+  ultimoDispositivoSeleccionado: string = '';
+
   humedad = 0;
   humedadOptions = [
     { value: 0, label: '0%', icon: 'fas fa-tint' },
@@ -55,8 +57,10 @@ export class DashboardsComponent implements OnInit {
     // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
 
     console.log('Dispositivo seleccionado:', this.deviceName);
-    // this.dvName = this.deviceName; // Asignar el valor a dvName
-    this.obtenerEstadosDispositivos();
+    if (this.deviceName !== this.ultimoDispositivoSeleccionado) {
+      this.obtenerEstadosDispositivos();
+      this.ultimoDispositivoSeleccionado = this.deviceName;
+    }
   
   }
 
