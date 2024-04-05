@@ -264,12 +264,14 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoLed() {
-
     this.dispositivoService.getEstadoLed(this.deviceName).subscribe(
       (response: any) => {
         console.log("obtenerEstadoLed de ", this.deviceName)
 
         this.isChecked = response === 1;
+        if (response === 0) {
+          this.isChecked = false;
+        }
         console.log("valor que se obtiene de getEstadoLed=>", response);
         console.log("valor que se de isckeck=>", this.isChecked);
       },
@@ -278,14 +280,16 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-  
-  obtenerEstadoValancin() {
 
+  obtenerEstadoValancin() {
     this.dispositivoService.getEstadoValancin(this.deviceName).subscribe(
       (response: any) => {
         console.log("obtenerEstadoValancin de ", this.deviceName)
 
         this.isCheckedValancin = response === 1;
+        if (response === 0) {
+          this.isCheckedValancin = false;
+        }
         console.log("valor que se obtiene de getEstadoValancin=>", response);
         console.log("valor que se de isckeck=>", this.isCheckedValancin);
       },
@@ -296,12 +300,14 @@ export class DashboardsComponent implements OnInit {
   }
 
   obtenerEstadoCarrucel() {
-
     this.dispositivoService.getEstadoCarrucel(this.deviceName).subscribe(
       (response: any) => {
         console.log("obtenerEstadoCarrucel de ", this.deviceName)
 
         this.isCheckedCarrucel = response === 1;
+        if (response === 0) {
+          this.isCheckedCarrucel = false;
+        }
         console.log("valor que se obtiene de getEstadoCarrucel=>", response);
         console.log("valor que se de isckeck=>", this.isCheckedCarrucel);
       },
@@ -317,6 +323,9 @@ export class DashboardsComponent implements OnInit {
         console.log("obtenerEstadoMusica de ", this.deviceName)
 
         this.isCheckedMusica = response === 1;
+        if (response === 0) {
+          this.isCheckedMusica = false;
+        }
         console.log("valor que se obtiene de getEstadoMusica=>", response);
         console.log("valor que se de isckeck=>", this.isCheckedMusica);
       },
@@ -325,6 +334,5 @@ export class DashboardsComponent implements OnInit {
       }
     );
   }
-
 
 }
