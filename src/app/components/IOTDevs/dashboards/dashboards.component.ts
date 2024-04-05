@@ -33,10 +33,14 @@ export class DashboardsComponent implements OnInit {
     { value: 100, label: '100%', icon: 'fas fa-tint' }
   ];
   sidebarStyle: { [klass: string]: any } = { height: '50%', width: '100%', textAlign: 'center' };
-  isChecked = false;
-  isCheckedValancin = false;
-  isCheckedCarrucel = false;
-  isCheckedMusica = false;
+  isChecked : boolean | null = null;
+  isCheckedValancin: boolean | null = null;
+  isCheckedCarrucel: boolean | null = null;
+  isCheckedMusica: boolean | null = null;
+  // ledState: boolean | null = null;
+  // valancinState: boolean | null = null;
+  // carrucelState: boolean | null = null;
+  // musicaState: boolean | null = null;
 
 
   constructor(
