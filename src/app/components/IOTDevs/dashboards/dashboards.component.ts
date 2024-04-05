@@ -209,7 +209,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoLed(valor: number) {
-    this.dispositivoService.editarDispositivoLed(valor, this.selectedDevice).subscribe(
+    this.dispositivoService.editarDispositivoLed(valor, this.currentSelectedDevice).subscribe(
       (response) => {
         this.toastr.success('Estado del LED actualizado correctamente');
         this.isCheckedLed = response === 1;
@@ -222,7 +222,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoValancin(valor: number) {
-    this.dispositivoService.editarDispositivoValancin(valor, this.selectedDevice).subscribe(
+    this.dispositivoService.editarDispositivoValancin(valor, this.currentSelectedDevice).subscribe(
       (response) => {
         this.toastr.success('Estado del valancin actualizado correctamente');
         this.isCheckedValancin = response === 1;
@@ -235,7 +235,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoCarrucel(valor: number) {
-    this.dispositivoService.editarDispositivoCarrucel(valor, this.selectedDevice).subscribe(
+    this.dispositivoService.editarDispositivoCarrucel(valor, this.currentSelectedDevice).subscribe(
       (response) => {
         this.toastr.success('Estado del carrucel actualizado correctamente');
         this.isCheckedCarrucel = response === 1;
@@ -248,7 +248,7 @@ export class DashboardsComponent implements OnInit {
   }
 
   cambiaEstadoMusica(valor: number) {
-    this.dispositivoService.editarEstadoMusica(valor, this.selectedDevice).subscribe(
+    this.dispositivoService.editarEstadoMusica(valor, this.currentSelectedDevice).subscribe(
       (response) => {
         this.toastr.success('Estado del musica actualizado correctamente');
         this.isCheckedMusica = response === 1;
