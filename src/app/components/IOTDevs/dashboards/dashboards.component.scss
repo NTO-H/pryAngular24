@@ -19,8 +19,9 @@ body {
 
 
     backdrop-filter: blur(2px);
-    background: linear-gradient(270deg, #59057a7b 0%, #0380ad80 100%);
-    // background-color: #47126dcb;
+    
+    // background: linear-gradient(270deg, #59057a7b 0%, #0380ad80 100%);
+     background-color: transparent;
 }
 
 // sensores temperatura y humedad
@@ -229,7 +230,8 @@ header {
     height: 340px;
 
     margin: 20px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
+    border: none;
     padding: 15px;
     text-align: center;
 
