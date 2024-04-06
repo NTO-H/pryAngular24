@@ -112,7 +112,7 @@ export class DashboardsComponent implements OnInit {
       borderColor = '#00ff00'; // Verde para humedad baja
       icono = '<i class="fas fa-thermometer-half" style="color: green;"></i>';
       alt = 'Humedad baja';
-    } else {
+    } else if (humedad < 25) {
       borderColor = '#0000ff'; // Azul para humedad muy baja
       icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
       alt = 'Humedad muy baja';
@@ -146,7 +146,7 @@ export class DashboardsComponent implements OnInit {
       borderColor = '#00ff00'; // Verde para temperatura normal
       icono = '<i class="fas fa-thermometer-three-quarters" style="color: green;"></i>';
       alt = 'Temperatura normal';
-    } else {
+    } else if (temperatura < 30) {
       borderColor = '#0000ff'; // Azul para temperatura baja
       icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
       alt = 'Temperatura baja';
