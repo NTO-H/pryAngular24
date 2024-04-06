@@ -18,7 +18,7 @@ export class DashboardsComponent implements OnInit {
   @Input() imagen!: string;
   @Input() imagen2!: string;
   @Input() alt!: string;
-  temperatura = 25;
+  temperatura = 0;
   sidebarVisible3 = false;
 
   dispositivos: Dispositivo[] = [];
@@ -60,29 +60,6 @@ export class DashboardsComponent implements OnInit {
     this.obtenerDispositivos();
   }
 
-  // this.dvName = this.selectedDeviceName; // Asignar el valor a dvName
-  // dateSelectedDevice(selectedDevice: string){
-  //   if (selectedDevice !== this.currentSelectedDevice) { // Verificar si el dispositivo seleccionado ha cambiado
-  //     this.currentSelectedDevice = selectedDevice; // Actualizar el dispositivo seleccionado actual
-  //     this.dispositivoService.getEstadoDispositivo(selectedDevice).subscribe(
-  //       (response: any) => {
-  //         console.log("Estado del dispositivo:", response);
-  //         // Actualizar el estado de los componentes en el frontend
-  //         this.isCheckedLed = response.led === 1;
-  //         this.isCheckedValancin = response.valancin === 1;
-  //         this.isCheckedCarrucel = response.carrucel === 1;
-  //         this.isCheckedMusica = response.musica === 1;
-  //       },
-  //       (error) => {
-  //         console.error('Error al obtener el estado del dispositivo:', error);
-  //       }
-  //     );
-  //   }
-  // }
-
-
-  // Declarar una variable para almacenar la suscripción actual
-
   dateSelectedDevice(selectedDevice: string) {
     if (selectedDevice !== this.currentSelectedDevice) {
       this.currentSelectedDevice = selectedDevice;
@@ -103,6 +80,17 @@ export class DashboardsComponent implements OnInit {
           this.isCheckedValancin = response.valancin === 1;
           this.isCheckedCarrucel = response.carrucel === 1;
           this.isCheckedMusica = response.musica === 1;
+          // Asignar el valor de temperatura obtenido a la variable temperatura
+          this.temperatura = response.temperatura;
+
+          // Asignar el valor de humedad obtenido a la variable humedad
+          this.humedad = response.humedad;
+
+          // Llamar a la función para determinar la imagen basada en la temperatura
+          this.actualizarImagenTemperatura(this.temperatura);
+
+          // Llamar a la función para determinar la imagen basada en la humedad
+          this.actualizarImagenHumedad(this.humedad);
         },
         (error) => {
           console.error('Error al obtener el estado del dispositivo:', error);
@@ -111,8 +99,39 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
+  
+  actualizarImagenHumedad(humedad: number) {
+    if (humedad > 75) {
+      this.imagen = 'ruta/a/imagen-humedad-alta.png';
+      this.alt = 'Humedad alta';
+    } else if (humedad > 50) {
+      this.imagen = 'ruta/a/imagen-humedad-media.png';
+      this.alt = 'Humedad media';
+    } else if (humedad > 25) {
+      this.imagen = 'ruta/a/imagen-humedad-baja.png';
+      this.alt = 'Humedad baja';
+    } else {
+      this.imagen = 'ruta/a/imagen-humedad-muy-baja.png';
+      this.alt = 'Humedad muy baja';
+    }
+  }
 
 
+  actualizarImagenTemperatura(temperatura: number) {
+    if (temperatura > 41) {
+      this.imagen2 = 'ruta/a/imagen-alta-temperatura.png';
+      this.alt = 'Temperatura alta';
+    } else if (temperatura > 30 && temperatura < 37) {
+      this.imagen2 = 'ruta/a/imagen-media-temperatura.png';
+      this.alt = 'Temperatura normal';
+    } else {
+      this.imagen2 = 'ruta/a/imagen-baja-temperatura.png';
+      this.alt = 'Temperatura baja';
+    }
+  }
+
+
+  
   copiarClave() {
     const claveInput = document.getElementById('keyInput') as HTMLInputElement;
     claveInput.select();
@@ -157,15 +176,6 @@ export class DashboardsComponent implements OnInit {
     );
   }
 
-  // obtenerEstadosDispositivos() {
-  //   // Realiza solicitudes para obtener el estado de cada componente del dispositivo seleccionado
-  //   this.obtenerEstadoLed();
-  //   this.obtenerEstadoValancin();
-  //   this.obtenerEstadoCarrucel();
-  //   this.obtenerEstadoMusica();
-  //   this.obtenerEstadoTempHume();
-  // }
-
   toggleSwitch() {
     this.isCheckedLed = !this.isCheckedLed;
     const valor = this.isCheckedLed ? 1 : 0;
@@ -192,20 +202,6 @@ export class DashboardsComponent implements OnInit {
     console.log("valor del Musica=>", valorMusica);
 
     this.cambiaEstadoMusica(valorMusica);
-  }
-
-  getIconoHumedad(humedad: number): string {
-    if (humedad === 0) {
-      return 'icono-0';
-    } else if (humedad <= 25) {
-      return 'icono-25';
-    } else if (humedad <= 50) {
-      return 'icono-50';
-    } else if (humedad <= 75) {
-      return 'icono-75';
-    } else {
-      return 'icono-100';
-    }
   }
 
   cambiaEstadoLed(valor: number) {

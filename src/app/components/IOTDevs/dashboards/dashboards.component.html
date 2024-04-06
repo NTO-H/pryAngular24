@@ -12,12 +12,68 @@
 </header>
 
 
+<style>
+    .speedometer {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto;
+        position: relative;
+        /* Transparent border for gradient */
+        border: 5px solid transparent;
+    }
+
+    .speed-dial {
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        /* Dial blanco */
+    }
+
+    .speed-text {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .humidity-image {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Nuevo CSS para el borde basado en la humedad */
+    .speedometer::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 5px #00ff00;
+        /* Verde para baja humedad */
+        z-index: -1;
+    }
+</style>
 
 
 
 
 
-    <section class="dispositivos">
+
+    <!-- <section class="dispositivos">
         <div class="dispositivo">
             <img style="height: 131px; width: 131px;" [src]="imagen2" [alt]="alt">
             <div class="humedad">
@@ -31,6 +87,24 @@
                 <span class="label">Temperatura:</span>
                 <span class="value">{{ temperatura }}°C</span>
             </div>
+        </div>
+    </section> -->
+    <section class="dispositivos">
+        <div class="dispositivo">
+        <div class="speedometer">
+            <div class="speed-dial"></div>
+            <img class="humidity-image" [src]="imagen" [alt]="alt">
+            <div class="speed-text">{{ temperatura }}</div> <!-- Valor dinámico de la temperatura -->
+        </div>
+
+        </div>
+        <div class="dispositivo">
+        <div class="speedometer">
+            <div class="speed-dial"></div>
+            <img class="humidity-image" [src]="imagen" [alt]="alt">
+            <div class="speed-text">{{ humedad }}</div> <!-- Valor dinámico de la humedad -->
+        </div>
+
         </div>
     </section>
 <!--  -->

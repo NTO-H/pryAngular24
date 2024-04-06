@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedometer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    .speedometer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff; /* Beige background */
+  border: 2px solid #8b4513; /* Brown border */
+}
+
+.speed-dial {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* White dial */
+}
+
+.needle {
+  width: 2px;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background-color: #8b4513; /* Brown needle */
+}
+
+.speed-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+</style>
+<body>
+    <div class="speedometer">
+        <div class="speed-dial"></div>
+        <div class="needle"></div>
+        <div class="speed-text">80 km/h</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidor de Humedad</title>
+    <style>
+        .speedometer {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            /* Transparent border for gradient */
+            border: 5px solid transparent;
+        }
+
+        .speed-dial {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            /* Dial blanco */
+        }
+
+        .speed-text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .humidity-image {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Nuevo CSS para el borde basado en la humedad */
+        .speedometer::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 5px #00ff00;
+            /* Verde para baja humedad */
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="speedometer">
+        <div class="speed-dial"></div>
+        <img class="humidity-image"
+            src="https://res.cloudinary.com/dvvhnrvav/image/upload/v1711460373/images/mwtyrblssqbqidm2wwyy.png"
+            alt="Icono de humedad">
+        <div class="speed-text">50%</div>
+    </div>
+    <script>
+        // Set initial humidity
+        var currentHumidity = 10;
+        // Update text
+        document.querySelector('.speed-text').textContent = currentHumidity + '%';
+
+        // Update border based on humidity
+        updateBorder(currentHumidity);
+
+        // Function to update border color based on humidity
+        function updateBorder(humidity) {
+            var borderColor = '#00ff00'; // Green by default
+            if (humidity < 30) {
+                borderColor = '#00ff00'; // Green for low humidity
+            } else if (humidity < 70) {
+                borderColor = '#ffff00'; // Yellow for medium humidity
+            } else {
+                borderColor = '#ff0000'; // Red for high humidity
+            }
+            document.querySelector('.speedometer').style.border = `5px solid ${borderColor}`;
+        }
+
+    </script>
+</body>
+
+</html>      
