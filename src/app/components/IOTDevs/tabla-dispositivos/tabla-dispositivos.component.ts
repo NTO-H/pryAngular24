@@ -88,13 +88,13 @@ export class TablaDispositivosComponent implements OnInit {
       acceptIcon: "pi pi-check",
       rejectIcon: "pi pi-times",
       accept: () => {
-        this.eliminarProducto(id);
+        this.eliminarDispositivo(id);
       }
     });
   }
 
 
-  eliminarProducto(id: any) {
+  eliminarDispositivo(id: any) {
 
     this.dvs.eliminarDispositivo(id).subscribe(data => {
 
