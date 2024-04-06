@@ -82,7 +82,7 @@ export class TablaDispositivosComponent implements OnInit {
     
     alert("entro a funcion eliminar ")
     this.confirmationService.confirm({
-      message: '¿Estás seguro de que deseas eliminar este producto?',
+      message: '¿Estás seguro de que deseas eliminar este dispositivo?',
       header: 'Confirmación de eliminación',
       icon: 'pi pi-exclamation-triangle',
       acceptButtonStyleClass: "p-button-danger p-button-rounded p-button-text",
