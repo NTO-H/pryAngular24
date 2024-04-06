@@ -168,7 +168,7 @@ export class DevicesComponent  implements OnInit{
           {
             deviceName: data.deviceName,
             deviceLabel: data.deviceLabel,
-            userId: data.usuarioId
+            // userId: data.usuarioId
 
           })
       })
