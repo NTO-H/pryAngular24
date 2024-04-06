@@ -41,8 +41,8 @@
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
                 <td>
-                    <i style="cursor: pointer;" (click)="mostrarConfirmacionEliminar(dispositivo._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                     <i [routerLink]="['/editar-producto',dispositivo._id]" class="fas fa-edit text-primary me-4"></i>
+                    <i style="cursor: pointer;" (click)="mostrarConfirmacionEliminar(dispositivo._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                     <!-- <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog> -->
                     <!-- <i (click)="eliminarProducto(producto._id)"
                                                         class="fas fa-regular fa-trash-can text-danger"></i> -->

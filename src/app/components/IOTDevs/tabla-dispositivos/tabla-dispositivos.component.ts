@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Dispositivo } from 'src/app/models/dispositivos';
@@ -20,7 +20,7 @@ export class TablaDispositivosComponent implements OnInit {
   // listProductos: Producto[] = [];
   // filterProducts = '';
   frmCrearDev!: FormGroup;
-  // id!: string | null;
+  id!: string | null;
   // // imagen inicio
   // photoSelected: string | ArrayBuffer | null = null;
   // file: File | null = null;
@@ -34,7 +34,15 @@ export class TablaDispositivosComponent implements OnInit {
   filterProducts: string = '';
 
 
-  constructor(private confirmationService: ConfirmationService,private toastr: ToastrService, private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr: UsuarioService) { }
+  constructor(private confirmationService: ConfirmationService,private toastr: ToastrService, private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr: UsuarioService) { 
+
+
+    this.frmCrearDev = this.fb.group({
+      deviceName: ['', Validators.required],
+      deviceLabel: ['', Validators.required]
+    })
+    this.id = this.aRouter.snapshot.paramMap.get('id');
+  }
 
 
 
