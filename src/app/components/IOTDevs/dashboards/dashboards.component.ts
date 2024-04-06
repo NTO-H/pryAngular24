@@ -97,24 +97,24 @@ export class DashboardsComponent implements OnInit {
   
   actualizarImagenHumedad(humedad: number) {
     let borderColor = '#00ff00'; // Verde por defecto
-    let imagen = 'ruta/a/imagen-humedad-baja.png'; // Imagen por defecto
+    let icono = ''; // Icono por defecto
     let alt = 'Humedad baja'; // Texto alternativo por defecto
 
     if (humedad > 75) {
       borderColor = '#ff0000'; // Rojo para humedad alta
-      imagen = 'ruta/a/imagen-humedad-alta.png';
+      icono = '<i class="fas fa-thermometer-full" style="color: red;"></i>';
       alt = 'Humedad alta';
     } else if (humedad > 50) {
       borderColor = '#ffff00'; // Amarillo para humedad media
-      imagen = 'ruta/a/imagen-humedad-media.png';
+      icono = '<i class="fas fa-thermometer-three-quarters" style="color: yellow;"></i>';
       alt = 'Humedad media';
     } else if (humedad > 25) {
       borderColor = '#00ff00'; // Verde para humedad baja
-      imagen = 'ruta/a/imagen-humedad-baja.png';
+      icono = '<i class="fas fa-thermometer-half" style="color: green;"></i>';
       alt = 'Humedad baja';
     } else {
       borderColor = '#0000ff'; // Azul para humedad muy baja
-      imagen = 'ruta/a/imagen-humedad-muy-baja.png';
+      icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
       alt = 'Humedad muy baja';
     }
 
@@ -125,40 +125,47 @@ export class DashboardsComponent implements OnInit {
       speedometer.style.border = `5px solid ${borderColor}`;
     }
 
-    // Actualizar la imagen y el texto alternativo en el componente
-    this.imagen = imagen;
+    // Actualizar el icono y el texto alternativo en el componente
+    this.imagen = icono;
     this.alt = alt;
   }
 
 
 
+
   actualizarImagenTemperatura(temperatura: number) {
     let borderColor = '#00ff00'; // Verde por defecto
+    let icono = ''; // Icono por defecto
+    let alt = 'Temperatura baja'; // Texto alternativo por defecto
+
     if (temperatura > 41) {
       borderColor = '#ff0000'; // Rojo para temperatura alta
-
-      this.imagen2 = 'ruta/a/imagen-alta-temperatura.png';
-      this.alt2 = 'Temperatura alta';
+      icono = '<i class="fas fa-thermometer-full" style="color: red;"></i>';
+      alt = 'Temperatura alta';
     } else if (temperatura > 30 && temperatura < 37) {
       borderColor = '#00ff00'; // Verde para temperatura normal
-      this.imagen2 = 'ruta/a/imagen-media-temperatura.png';
-      this.alt2 = 'Temperatura normal';
+      icono = '<i class="fas fa-thermometer-three-quarters" style="color: green;"></i>';
+      alt = 'Temperatura normal';
     } else {
-      this.imagen2 = 'ruta/a/imagen-baja-temperatura.png';
-      this.alt2 = 'Temperatura baja';
+      borderColor = '#0000ff'; // Azul para temperatura baja
+      icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
+      alt = 'Temperatura baja';
     }
 
     const speedometer = document.querySelector('.speedometer') as HTMLElement;
     const speedText = document.querySelector('.speed-text') as HTMLElement;
 
-    if (speedometer && speedText) {
+    if (speedometer) {
       speedometer.style.border = `5px solid ${borderColor}`;
-      speedText.textContent = `${temperatura}°C`;
     }
 
-  
+    // Actualizar el icono y el texto alternativo en el componente
+    this.imagen2 = icono;
+    this.alt2 = alt;
 
-   
+    if (speedText) {
+      speedText.innerHTML = icono + ` ${temperatura}°C`;
+    }
   }
 
 
