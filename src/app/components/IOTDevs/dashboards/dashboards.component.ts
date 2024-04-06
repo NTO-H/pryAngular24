@@ -28,13 +28,7 @@ export class DashboardsComponent implements OnInit {
   ultimoDispositivoSeleccionado: string = '';
 
   humedad = 0;
-  humedadOptions = [
-    { value: 0, label: '0%', icon: 'fas fa-tint' },
-    { value: 25, label: '25%', icon: 'fas fa-tint' },
-    { value: 50, label: '50%', icon: 'fas fa-tint' },
-    { value: 75, label: '75%', icon: 'fas fa-tint' },
-    { value: 100, label: '100%', icon: 'fas fa-tint' }
-  ];
+  
   sidebarStyle: { [klass: string]: any } = { height: '50%', width: '100%', textAlign: 'center' };
   isCheckedLed: boolean | null = null;
   isCheckedValancin: boolean | null = null;
@@ -131,7 +125,7 @@ export class DashboardsComponent implements OnInit {
   }
 
 
-  
+
   copiarClave() {
     const claveInput = document.getElementById('keyInput') as HTMLInputElement;
     claveInput.select();
