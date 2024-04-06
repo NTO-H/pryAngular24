@@ -1,3 +1,18 @@
+<p-sidebar [(visible)]="sidebarVisible2" position="right">
+    <h3 class="sidebar-title">Add New Device</h3>
+    <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
+        <label for="deviceName">Device name:</label>
+        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
+            placeholder="Enter device name" required>
+
+        <label for="deviceLabel">Device label:</label>
+        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
+            placeholder="Enter device label" required>
+
+        <button type="submit" class="create-button">Create a device</button>
+    </form>
+</p-sidebar>
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
@@ -12,7 +27,8 @@
                         [(ngModel)]="filterProducts"> 
                     <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
                                     <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog>
-
+<button type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left"
+    class="add-device">+</button>
                     <table *ngIf="listProductos.length>0" class="table table-striped mt-4">
                         <thead>
                             <tr>
@@ -43,7 +59,6 @@
                                         class="fas fa-solid fa-book-open me-4"></i>
                                     <i [routerLink]="['/editar-producto',producto._id]"
                                         class="fas fa-edit text-primary me-4"></i>
-                                  
                                     <!-- <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog> -->
                                     <i (click)="mostrarConfirmacionEliminar(producto._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                                     <!-- <i (click)="eliminarProducto(producto._id)"

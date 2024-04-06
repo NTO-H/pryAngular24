@@ -89,7 +89,9 @@ export class DispositivoService {
     crearDispositivo(devs: Dispositivo): Observable<any> {
         return this.http.post(`${this.url}crearDispositivo`, devs);
     }
-
+    eliminarDispositivo(id: string): Observable<any> {
+        return this.http.delete(this.url+'eliminarDispositivo/' + id);
+    }
 
 
 

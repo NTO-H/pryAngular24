@@ -12,6 +12,8 @@
                     <th>Nombre dispositivo</th>
                     <th>Fecha creada </th>
                     <th>código</th>
+                    <th scope="col">Acciones</th>
+
                     <!-- <th>Rate limit</th> -->
                 </tr>
             </thead>
@@ -20,6 +22,13 @@
                     <td>{{dispositivo.deviceName}}</td>
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
+                <td>
+                    <i [routerLink]="['/editar-producto',dispositivo._id]" class="fas fa-edit text-primary me-4"></i>
+                    <!-- <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog> -->
+                    <i (click)="mostrarConfirmacionEliminar(dispositivo._id)" class="fas fa-regular fa-trash-can text-danger"></i>
+                    <!-- <i (click)="eliminarProducto(producto._id)"
+                                                        class="fas fa-regular fa-trash-can text-danger"></i> -->
+                </td>
                     <!-- <td>1 req/s</td> -->
                 </tr>
                 <!-- Add more token rows here -->

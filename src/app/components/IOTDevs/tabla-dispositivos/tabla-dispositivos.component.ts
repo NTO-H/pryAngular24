@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Dispositivo } from 'src/app/models/dispositivos';
 import { DispositivoService } from 'src/app/services/dispositivo.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-tabla-dispositivos',
@@ -26,7 +27,7 @@ export class TablaDispositivosComponent implements OnInit {
   filterProducts: string = '';
 
 
-  constructor(private toastr: ToastrService, private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr: UsuarioService) { }
+  constructor(private confirmationService: ConfirmationService,private toastr: ToastrService, private aRouter: ActivatedRoute, private fb: FormBuilder, private dvs: DispositivoService, private usr: UsuarioService) { }
 
 
 
@@ -75,5 +76,38 @@ export class TablaDispositivosComponent implements OnInit {
     );
   }
 
+
+  
+  mostrarConfirmacionEliminar(id: any) {
+    this.confirmationService.confirm({
+      message: '¿Estás seguro de que deseas eliminar este producto?',
+      header: 'Confirmación de eliminación',
+      icon: 'pi pi-exclamation-triangle',
+      acceptButtonStyleClass: "p-button-danger p-button-rounded p-button-text",
+      rejectButtonStyleClass: "p-button-text p-button-rounded p-button-text",
+      acceptIcon: "pi pi-check",
+      rejectIcon: "pi pi-times",
+      accept: () => {
+        this.eliminarProducto(id);
+      }
+    });
+  }
+
+
+  eliminarProducto(id: any) {
+
+    this.dvs.eliminarDispositivo(id).subscribe(data => {
+
+
+      this.toastr.success('El producto fue eliminado con exito', 'Producto eliminado');
+      this.obtenerDispositivos();
+
+
+    }, error => {
+
+      console.error();
+
+    })
+  }
 
 }
