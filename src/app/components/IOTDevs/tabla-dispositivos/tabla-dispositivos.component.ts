@@ -79,7 +79,8 @@ export class TablaDispositivosComponent implements OnInit {
 
   
   mostrarConfirmacionEliminar(id: any) {
-    
+    console.log("id del dispositivo a eliminar=>", id)
+
     alert("entro a funcion eliminar ")
     this.confirmationService.confirm({
       message: '¿Estás seguro de que deseas eliminar este dispositivo?',

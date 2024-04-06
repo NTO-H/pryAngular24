@@ -105,7 +105,7 @@ export class ListarProductosComponent implements OnInit{
 
 
   mostrarConfirmacionEliminar(id: any) {
-    console.log("id del dispositivo a eliminar=>",id)
+    // console.log("id del dispositivo a eliminar=>",id)
     this.confirmationService.confirm({
       message: '¿Estás seguro de que deseas eliminar este producto?',
       header: 'Confirmación de eliminación',
