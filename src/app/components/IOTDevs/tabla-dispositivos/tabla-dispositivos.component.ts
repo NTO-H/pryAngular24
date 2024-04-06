@@ -79,6 +79,8 @@ export class TablaDispositivosComponent implements OnInit {
 
   
   mostrarConfirmacionEliminar(id: any) {
+    
+    alert("entro a funcion eliminar ")
     this.confirmationService.confirm({
       message: '¿Estás seguro de que deseas eliminar este producto?',
       header: 'Confirmación de eliminación',
@@ -89,12 +91,15 @@ export class TablaDispositivosComponent implements OnInit {
       rejectIcon: "pi pi-times",
       accept: () => {
         this.eliminarDispositivo(id);
+        alert("entro a funcion eliminado ")
+
       }
     });
   }
 
 
   eliminarDispositivo(id: any) {
+    alert("entro a dispositivo eliminar ")
 
     this.dvs.eliminarDispositivo(id).subscribe(data => {
 
