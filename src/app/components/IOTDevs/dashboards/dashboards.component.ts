@@ -17,8 +17,8 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardsComponent implements OnInit {
   @Input() imagen!: string;
   @Input() imagen2!: string;
-  @Input() alt!: string;
-  @Input() alt2!: string;
+  @Input() text!: string;
+  @Input() text2!: string;
   temperatura = 0;
   sidebarVisible3 = false;
 
@@ -97,25 +97,19 @@ export class DashboardsComponent implements OnInit {
   
   actualizarImagenHumedad(humedad: number) {
     let borderColor = '#00ff00'; // Verde por defecto
-    let icono = ''; // Icono por defecto
-    let alt = 'Humedad baja'; // Texto alternativo por defecto
 
     if (humedad > 75) {
       borderColor = '#ff0000'; // Rojo para humedad alta
-      icono = '<i class="fas fa-thermometer-full" style="color: red;"></i>';
-      alt = 'Humedad alta';
+      this.text = 'Humedad alta';
     } else if (humedad > 50) {
       borderColor = '#ffff00'; // Amarillo para humedad media
-      icono = '<i class="fas fa-thermometer-three-quarters" style="color: yellow;"></i>';
-      alt = 'Humedad media';
+      this.text = 'Humedad media';
     } else if (humedad > 25) {
       borderColor = '#00ff00'; // Verde para humedad baja
-      icono = '<i class="fas fa-thermometer-half" style="color: green;"></i>';
-      alt = 'Humedad baja';
-    } else if (humedad < 25) {
+      this.text = 'Humedad baja';
+    } else {
       borderColor = '#0000ff'; // Azul para humedad muy baja
-      icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
-      alt = 'Humedad muy baja';
+      this.text = 'Humedad muy baja';
     }
 
     const speedometer = document.querySelector('.speedometer') as HTMLElement;
@@ -125,47 +119,36 @@ export class DashboardsComponent implements OnInit {
       speedometer.style.border = `5px solid ${borderColor}`;
     }
 
-    // Actualizar el icono y el texto alternativo en el componente
-    this.imagen = icono;
-    this.alt = alt;
+    // Actualizar la imagen y el texto alternativo en el componente
+   
   }
-
 
 
 
   actualizarImagenTemperatura(temperatura: number) {
     let borderColor = '#00ff00'; // Verde por defecto
-    let icono = ''; // Icono por defecto
-    let alt = 'Temperatura baja'; // Texto alternativo por defecto
-
     if (temperatura > 41) {
       borderColor = '#ff0000'; // Rojo para temperatura alta
-      icono = '<i class="fas fa-thermometer-full" style="color: red;"></i>';
-      alt = 'Temperatura alta';
+
+      this.text2 = 'Temperatura alta';
     } else if (temperatura > 30 && temperatura < 37) {
       borderColor = '#00ff00'; // Verde para temperatura normal
-      icono = '<i class="fas fa-thermometer-three-quarters" style="color: green;"></i>';
-      alt = 'Temperatura normal';
-    } else if (temperatura < 30) {
-      borderColor = '#0000ff'; // Azul para temperatura baja
-      icono = '<i class="fas fa-thermometer-quarter" style="color: blue;"></i>';
-      alt = 'Temperatura baja';
+      this.text2 = 'Temperatura normal';
+    } else {
+      this.text2 = 'Temperatura baja';
     }
 
     const speedometer = document.querySelector('.speedometer') as HTMLElement;
     const speedText = document.querySelector('.speed-text') as HTMLElement;
 
-    if (speedometer) {
+    if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
+      speedText.textContent = `${temperatura}°C`;
     }
 
-    // Actualizar el icono y el texto alternativo en el componente
-    this.imagen2 = icono;
-    this.alt2 = alt;
+  
 
-    if (speedText) {
-      speedText.innerHTML = icono + ` ${temperatura}°C`;
-    }
+   
   }
 
 
