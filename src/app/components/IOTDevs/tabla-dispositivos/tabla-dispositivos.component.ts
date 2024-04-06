@@ -94,9 +94,9 @@ export class TablaDispositivosComponent implements OnInit {
 
   
   mostrarConfirmacionEliminar(id: any) {
-    console.log("id del dispositivo a eliminar=>", id)
+    // console.log("id del dispositivo a eliminar=>", id)
 
-    alert("entro a funcion eliminar ")
+    // alert("entro a funcion eliminar ")
     this.confirmationService.confirm({
       message: '¿Estás seguro de que deseas eliminar este dispositivo?',
       header: 'Confirmación de eliminación',
@@ -107,7 +107,7 @@ export class TablaDispositivosComponent implements OnInit {
       rejectIcon: "pi pi-times",
       accept: () => {
         this.eliminarDispositivo(id);
-        alert("entro a funcion eliminado ")
+        // alert("entro a funcion eliminado ")
 
       }
     });
@@ -115,7 +115,7 @@ export class TablaDispositivosComponent implements OnInit {
 
 
   eliminarDispositivo(id: any) {
-    alert("entro a dispositivo eliminar ")
+    // alert("entro a dispositivo eliminar ")
 
     this.dvs.eliminarDispositivo(id).subscribe(data => {
 
@@ -158,6 +158,8 @@ export class TablaDispositivosComponent implements OnInit {
           this.dvs.crearDispositivo(DEVICE).subscribe(
             () => {
               this.toastr.success('Producto registrado con éxito!', 'Registró exitoso');
+              this.obtenerDispositivos();
+
             },
             () => {
               this.toastr.error('Error al guardar!', 'Registró fallido');

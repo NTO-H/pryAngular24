@@ -116,6 +116,7 @@ export class DevicesComponent  implements OnInit{
           this.dvs.crearDispositivo(DEVICE).subscribe(
             () => {
               this.toastr.success('Producto registrado con éxito!', 'Registró exitoso');
+              this.obtenerDispositivos();
             },
             () => {
               this.toastr.error('Error al guardar!', 'Registró fallido');
