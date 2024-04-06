@@ -39,7 +39,8 @@
         <div  class="container">
 
           <div *ngIf="!isLoading && listProductos.length>0">
-            <div appScrollEffect class="cards">
+            <div  class="cards">
+            <!-- <div appScrollEffect class="cards"> -->
               <div  [ngClass]="{ 'blur': isCardBlurred }" data-aos="flip-up" class="card" *ngFor="let producto of listProductos">
 
                 <!-- estatico -->

@@ -34,28 +34,34 @@ body {
     margin-top: 10px;
 }
 
-.devices{
+.devices {
     display: flex;
-// flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* Esto permitirá que los dispositivos se envuelvan a una nueva fila si no hay suficiente espacio */
     justify-content: space-between;
-    padding: 20px;
-    height: 80vh;
-    gap: 20px;
-    background: radial-gradient(circle at center, #658081 0%, #202f31 100%);
+    /* Esto distribuirá los dispositivos a lo largo de la línea principal */
+padding: 50px;
+height: 80vh;
+gap: 20px;
+background: radial-gradient(circle at center, #658081 0%, #202f31 100%);
 }
+
 .device-card {
     background-color: #d6f0eb;
     color: #19607b;
     padding: 20px;
     box-sizing: border-box;
-        margin-bottom: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    width: 30%;
+    width: 20%;
     box-shadow: 0 2px 4px #0000007a;
     height: 150px;
     flex: 1;
-        /* Los dispositivos ocuparán todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
 }
+
 .device-name {
     font-size: 18px;
     margin: 0;
@@ -65,7 +71,7 @@ body {
     background-color: #336d87;
     color: #fff;
     border: none;
-    
+
     border-radius: 50%;
     font-size: 24px;
     padding: 10px;
@@ -79,8 +85,8 @@ body {
     text-align: center;
     font-size: 20px;
     background-color: #203f48de;
-         color: #ffd46e;
-        align-items: center;
+    color: #ffd46e;
+    align-items: center;
 }
 
 
@@ -134,7 +140,8 @@ input {
 
 .device-row {
     display: flex;
-    flex: 1 0 50%; /* Las filas ocuparán el 50% del ancho disponible */
+    flex: 1 0 50%;
+    /* Las filas ocuparán el 50% del ancho disponible */
 }
 
 // .device-card {
