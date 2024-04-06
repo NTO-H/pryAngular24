@@ -205,7 +205,10 @@ export class TablaDispositivosComponent implements OnInit {
         this.frmCrearDev.setValue(
           {
             deviceName:data.deviceName,
-            deviceLabel:data.deviceLabel
+            deviceLabel: data.deviceLabel,
+            userId: data.usuarioId
+
+            
           })
       })
     }

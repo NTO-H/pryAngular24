@@ -118,6 +118,7 @@ export class DevicesComponent  implements OnInit{
 
                 this.toastr.success('Dispositivo actualizado correctamente');
                 this.obtenerDispositivos();
+                this.frmCrearDev.reset();
 
               },
               (error) => {
@@ -132,10 +133,13 @@ export class DevicesComponent  implements OnInit{
 
                 this.toastr.success('Dispositivo registrado con éxito', 'Registro exitoso');
                 this.obtenerDispositivos();
+                this.frmCrearDev.reset();
               },
               (error) => {
                 console.error(error);
                 this.toastr.error('Ocurrió un error al registrar el dispositivo', 'Error');
+                this.frmCrearDev.reset();
+
               }
             );
           }
@@ -163,7 +167,9 @@ export class DevicesComponent  implements OnInit{
         this.frmCrearDev.setValue(
           {
             deviceName: data.deviceName,
-            deviceLabel: data.deviceLabel
+            deviceLabel: data.deviceLabel,
+            userId: data.usuarioId
+
           })
       })
     }
