@@ -96,33 +96,69 @@ export class DashboardsComponent implements OnInit {
 
   
   actualizarImagenHumedad(humedad: number) {
+    let borderColor = '#00ff00'; // Verde por defecto
+    let imagen = 'ruta/a/imagen-humedad-baja.png'; // Imagen por defecto
+    let alt = 'Humedad baja'; // Texto alternativo por defecto
+
     if (humedad > 75) {
-      this.imagen = 'ruta/a/imagen-humedad-alta.png';
-      this.alt = 'Humedad alta';
+      borderColor = '#ff0000'; // Rojo para humedad alta
+      imagen = 'ruta/a/imagen-humedad-alta.png';
+      alt = 'Humedad alta';
     } else if (humedad > 50) {
-      this.imagen = 'ruta/a/imagen-humedad-media.png';
-      this.alt = 'Humedad media';
+      borderColor = '#ffff00'; // Amarillo para humedad media
+      imagen = 'ruta/a/imagen-humedad-media.png';
+      alt = 'Humedad media';
     } else if (humedad > 25) {
-      this.imagen = 'ruta/a/imagen-humedad-baja.png';
-      this.alt = 'Humedad baja';
+      borderColor = '#00ff00'; // Verde para humedad baja
+      imagen = 'ruta/a/imagen-humedad-baja.png';
+      alt = 'Humedad baja';
     } else {
-      this.imagen = 'ruta/a/imagen-humedad-muy-baja.png';
-      this.alt = 'Humedad muy baja';
+      borderColor = '#0000ff'; // Azul para humedad muy baja
+      imagen = 'ruta/a/imagen-humedad-muy-baja.png';
+      alt = 'Humedad muy baja';
     }
+
+    const speedometer = document.querySelector('.speedometer') as HTMLElement;
+    const speedText = document.querySelector('.speed-text') as HTMLElement;
+
+    if (speedometer) {
+      speedometer.style.border = `5px solid ${borderColor}`;
+    }
+
+    // Actualizar la imagen y el texto alternativo en el componente
+    this.imagen = imagen;
+    this.alt = alt;
   }
 
 
+
   actualizarImagenTemperatura(temperatura: number) {
+    let borderColor = '#00ff00'; // Verde por defecto
     if (temperatura > 41) {
+      borderColor = '#ff0000'; // Rojo para temperatura alta
+
       this.imagen2 = 'ruta/a/imagen-alta-temperatura.png';
       this.alt2 = 'Temperatura alta';
     } else if (temperatura > 30 && temperatura < 37) {
+      borderColor = '#00ff00'; // Verde para temperatura normal
       this.imagen2 = 'ruta/a/imagen-media-temperatura.png';
       this.alt2 = 'Temperatura normal';
     } else {
       this.imagen2 = 'ruta/a/imagen-baja-temperatura.png';
       this.alt2 = 'Temperatura baja';
     }
+
+    const speedometer = document.querySelector('.speedometer') as HTMLElement;
+    const speedText = document.querySelector('.speed-text') as HTMLElement;
+
+    if (speedometer && speedText) {
+      speedometer.style.border = `5px solid ${borderColor}`;
+      speedText.textContent = `${temperatura}°C`;
+    }
+
+  
+
+   
   }
 
 
