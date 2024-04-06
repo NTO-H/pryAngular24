@@ -1,15 +1,19 @@
 <p-sidebar [(visible)]="sidebarVisible2" position="right">
-    <h3 class="sidebar-title">Add New Device</h3>
-    <form  [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
+    <h3 class="sidebar-title">{{titulo}}</h3>
+    <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
         <label for="deviceName">Device name:</label>
-        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName" placeholder="Enter device name" required>
+        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
+            placeholder="Enter device name" required>
 
         <label for="deviceLabel">Device label:</label>
-        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel" placeholder="Enter device label" required>
+        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
+            placeholder="Enter device label" required>
 
-        <button type="submit" class="create-button">Create a device</button>
+        <button type="submit" class="create-button">{{btnTitle}}</button>
+        <!-- <button type="submit" class="create-button">Create a device</button> -->
     </form>
 </p-sidebar>
+
 
 
 <header class="header">

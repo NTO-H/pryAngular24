@@ -65,10 +65,5 @@ export class AdminService {
     return this.http.put<any>(this.url + 'politica/' + id, politica);
   }
 
-
-
-
-
-
   
 }

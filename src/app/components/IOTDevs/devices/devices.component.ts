@@ -20,6 +20,10 @@ export class DevicesComponent  implements OnInit{
   deviceCount: number = 0;
   mostrarDispositivos: boolean = false;
 
+  titulo = 'Agregar dispositivo';
+  btnTitle = 'Agregar';
+
+
 
   ngOnInit(): void {
     console.log("obtenerDispositivos=>aqui ")
@@ -90,54 +94,80 @@ export class DevicesComponent  implements OnInit{
 
 
   crearDispositivo() {
-    // Obtener el correo electrónico del usuario en el navegador
     const correo = localStorage.getItem('currentUser');
 
-    // Verificar si se obtuvo el correo electrónico del usuario
     if (!correo) {
-      // Manejar el caso en el que el correo electrónico es nulo o no se encontró en el localStorage
       this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
-      return; // Salir del método
+      return;
     }
 
-    // Buscar el ID del usuario por su correo electrónico
     this.usr.buscaUsuarioByCorreo(correo).subscribe(
       (data: any) => {
-        // Verificar si se encontró el usuario
         if (data && data.usuarioId) {
-          // Crear el objeto Dispositivo con el ID del usuario
           const DEVICE: Dispositivo = {
             deviceName: this.frmCrearDev.get('deviceName')?.value,
             deviceLabel: this.frmCrearDev.get('deviceLabel')?.value,
-            userId: data.usuarioId // Incluir el ID del usuario en el dispositivo
+            userId: data.usuarioId
           };
 
-          // Enviar el objeto Dispositivo al backend para su creación
-          this.dvs.crearDispositivo(DEVICE).subscribe(
-            () => {
-              this.toastr.success('Producto registrado con éxito!', 'Registró exitoso');
-              this.obtenerDispositivos();
-            },
-            () => {
-              this.toastr.error('Error al guardar!', 'Registró fallido');
-            }
-          );
+          // Aquí puedes verificar si hay un ID proporcionado (para saber si se está editando o creando)
+          if (this.id !== null) {
+            this.dvs.editarDispositivo(this.id, DEVICE).subscribe(
+              () => {
+                this.sidebarVisible2 = false;
+
+                this.toastr.success('Dispositivo actualizado correctamente');
+                this.obtenerDispositivos();
+
+              },
+              (error) => {
+                console.error(error);
+                this.toastr.error('Ocurrió un error al actualizar el dispositivo');
+              }
+            );
+          } else {
+            this.dvs.crearDispositivo(DEVICE).subscribe(
+              () => {
+                this.sidebarVisible2 = false;
+
+                this.toastr.success('Dispositivo registrado con éxito', 'Registro exitoso');
+                this.obtenerDispositivos();
+              },
+              (error) => {
+                console.error(error);
+                this.toastr.error('Ocurrió un error al registrar el dispositivo', 'Error');
+              }
+            );
+          }
         } else {
-          // Manejar el caso en el que no se encontró el usuario
           this.toastr.error('Usuario no encontrado', 'Error');
         }
       },
       (error) => {
-        // Manejar errores de la solicitud de búsqueda del usuario
         console.error(error);
         this.toastr.error('Error al buscar el usuario', 'Error');
       }
     );
   }
 
-
   
-
+  editar(_id: any) {
+    // this.position = position;
+    this.sidebarVisible2 = true;
+    this.id = _id;
+    console.log("esEditar", _id)
+    if (_id) {
+      this.titulo = 'Editar Dispositivo';
+      this.btnTitle = 'Actualizar';
+      this.dvs.obtenerDispositivo(_id).subscribe((data) => {
+        this.frmCrearDev.setValue(
+          {
+            deviceName: data.deviceName,
+            deviceLabel: data.deviceLabel
+          })
+      })
+    }
+  }
 
 
 

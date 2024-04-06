@@ -1,14 +1,12 @@
 // import { jwt_decode } from 'jwt-jwt_decode';
-// import { jwt_decode } from 'jwt_decode';
-// import { jwt_decode } from 'jwt-decode';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import { TabView } from 'primeng/tabview';
-// const jwt = require('jsonwebtoken');
-// import * as jwt_decode from 'jwt-decode';
+
+
 
 @Component({
   selector: 'app-Auth',

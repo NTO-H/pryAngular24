@@ -1,17 +1,19 @@
-<p-sidebar [(visible)]="sidebarVisible2" position="right">
-        <h3 class="sidebar-title">Add New Device</h3>
-        <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
-            <label for="deviceName">Device name:</label>
-            <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
-                placeholder="Enter device name" required>
-    
-            <label for="deviceLabel">Device label:</label>
-            <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
-                placeholder="Enter device label" required>
-    
-            <button type="submit" class="create-button">Create a device</button>
-        </form>
-    </p-sidebar>
+<p-sidebar    [(visible)]="sidebarVisible2" position="right">
+    <h3 class="sidebar-title">{{titulo}}</h3>
+    <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
+        <label for="deviceName">Device name:</label>
+        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
+            placeholder="Enter device name" required>
+
+        <label for="deviceLabel">Device label:</label>
+        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
+            placeholder="Enter device label" required>
+
+        <button type="submit" class="create-button">{{btnTitle}}</button>
+        <!-- <button type="submit" class="create-button">Create a device</button> -->
+    </form>
+</p-sidebar>
+
 <body>
     
     <header class="header">
@@ -41,7 +43,7 @@
                     <td>{{dispositivo.fechaCreacion}}</td>
                     <td>{{dispositivo._id}}</td>
                 <td>
-                    <i [routerLink]="['/editar-producto',dispositivo._id]" class="fas fa-edit text-primary me-4"></i>
+                    <i (click)="editar(dispositivo._id)" class="fas fa-edit text-primary me-4"></i>
                     <i style="cursor: pointer;" (click)="mostrarConfirmacionEliminar(dispositivo._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                     <!-- <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog> -->
                     <!-- <i (click)="eliminarProducto(producto._id)"

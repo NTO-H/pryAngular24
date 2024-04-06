@@ -12,7 +12,7 @@ import { filter, map } from 'rxjs/operators'; // Importa filter y map
 export class DispositivoService {
     // private socket$: WebSocketSubject<any>;
     url = 'https://servidortropicalworld-1.onrender.com/dispositivos/';
-  
+
     // private urlD = `wss://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoDispositivo/${deviceName}`; // URL de tu servidor WebSocket
 
 
@@ -35,7 +35,7 @@ export class DispositivoService {
     }
 
 
-    
+
     getEstadoLed(deviceName: string): Observable<any> {
         return interval(2000).pipe(
             switchMap(() => this.http.get<any>(`${this.url}obtenerEstadoLed/${deviceName}`))
@@ -94,5 +94,12 @@ export class DispositivoService {
     }
 
 
+    obtenerDispositivo(id: string): Observable<any> {
+        return this.http.get(this.url + 'dispositivo/' + id);
+    }
+
+    editarDispositivo(id: string, dvs: Dispositivo) {
+        return this.http.put<any>(this.url + 'editar/' + id, dvs);
+    }
 
 }
