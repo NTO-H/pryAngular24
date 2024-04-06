@@ -1,17 +1,4 @@
-<p-sidebar [(visible)]="sidebarVisible2" position="right">
-    <h3 class="sidebar-title">Add New Device</h3>
-    <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
-        <label for="deviceName">Device name:</label>
-        <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
-            placeholder="Enter device name" required>
 
-        <label for="deviceLabel">Device label:</label>
-        <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
-            placeholder="Enter device label" required>
-
-        <button type="submit" class="create-button">Create a device</button>
-    </form>
-</p-sidebar>
 
 <div class="container mt-5">
     <div class="row">
@@ -27,8 +14,7 @@
                         [(ngModel)]="filterProducts"> 
                     <button class="btn btn-outline-warning float-end mt-3" routerLink="/crear-producto">Nuevo</button>
                                     <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog>
-<button type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left"
-    class="add-device">+</button>
+
                     <table *ngIf="listProductos.length>0" class="table table-striped mt-4">
                         <thead>
                             <tr>

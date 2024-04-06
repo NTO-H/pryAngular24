@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Dispositivo } from 'src/app/models/dispositivos';
@@ -17,7 +17,14 @@ export class TablaDispositivosComponent implements OnInit {
 
   
 
-
+  // listProductos: Producto[] = [];
+  // filterProducts = '';
+  frmCrearDev!: FormGroup;
+  // id!: string | null;
+  // // imagen inicio
+  // photoSelected: string | ArrayBuffer | null = null;
+  // file: File | null = null;
+  sidebarVisible2: boolean = false;
 
   dispositivos: Dispositivo[] = [];
   deviceCount: number = 0;
@@ -116,4 +123,48 @@ export class TablaDispositivosComponent implements OnInit {
     })
   }
 
+  crearDispositivo() {
+    // Obtener el correo electrónico del usuario en el navegador
+    const correo = localStorage.getItem('currentUser');
+
+    // Verificar si se obtuvo el correo electrónico del usuario
+    if (!correo) {
+      // Manejar el caso en el que el correo electrónico es nulo o no se encontró en el localStorage
+      this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
+      return; // Salir del método
+    }
+
+    // Buscar el ID del usuario por su correo electrónico
+    this.usr.buscaUsuarioByCorreo(correo).subscribe(
+      (data: any) => {
+        // Verificar si se encontró el usuario
+        if (data && data.usuarioId) {
+          // Crear el objeto Dispositivo con el ID del usuario
+          const DEVICE: Dispositivo = {
+            deviceName: this.frmCrearDev.get('deviceName')?.value,
+            deviceLabel: this.frmCrearDev.get('deviceLabel')?.value,
+            userId: data.usuarioId // Incluir el ID del usuario en el dispositivo
+          };
+
+          // Enviar el objeto Dispositivo al backend para su creación
+          this.dvs.crearDispositivo(DEVICE).subscribe(
+            () => {
+              this.toastr.success('Producto registrado con éxito!', 'Registró exitoso');
+            },
+            () => {
+              this.toastr.error('Error al guardar!', 'Registró fallido');
+            }
+          );
+        } else {
+          // Manejar el caso en el que no se encontró el usuario
+          this.toastr.error('Usuario no encontrado', 'Error');
+        }
+      },
+      (error) => {
+        // Manejar errores de la solicitud de búsqueda del usuario
+        console.error(error);
+        this.toastr.error('Error al buscar el usuario', 'Error');
+      }
+    );
+  }
 }

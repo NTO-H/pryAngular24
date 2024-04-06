@@ -1,11 +1,29 @@
-
+<p-sidebar [(visible)]="sidebarVisible2" position="right">
+        <h3 class="sidebar-title">Add New Device</h3>
+        <form [formGroup]="frmCrearDev" (ngSubmit)="crearDispositivo()" class="device-form">
+            <label for="deviceName">Device name:</label>
+            <input formControlName="deviceName" type="text" id="deviceName" name="deviceName"
+                placeholder="Enter device name" required>
+    
+            <label for="deviceLabel">Device label:</label>
+            <input formControlName="deviceLabel" type="text" id="deviceLabel" name="deviceLabel"
+                placeholder="Enter device label" required>
+    
+            <button type="submit" class="create-button">Create a device</button>
+        </form>
+    </p-sidebar>
 <body>
+    
     <header class="header">
         <h1 class="title">Mis Apps</h1>
         <p class="info">Puedes crear mas dispositivos desde nuestra interfaz</p>
     </header>
     <main  class="main">
         <input [(ngModel)]="filterProducts" type="text" class="search-input" placeholder="Search Token">
+    <button type="button" class="mr-2" (click)="sidebarVisible2 = true" icon="pi pi-arrow-left"
+        class="add-device">+</button>
+                                    <p-confirmDialog header="Confirmar Eliminación" icon="pi pi-exclamation-triangle" [appendTo]="'body'"></p-confirmDialog>
+
         <table  *ngIf="dispositivos.length>0" class="token-table">
             <thead>
                 <tr>
