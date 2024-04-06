@@ -18,6 +18,7 @@ export class DashboardsComponent implements OnInit {
   @Input() imagen!: string;
   @Input() imagen2!: string;
   @Input() alt!: string;
+  @Input() alt2!: string;
   temperatura = 0;
   sidebarVisible3 = false;
 
@@ -114,13 +115,13 @@ export class DashboardsComponent implements OnInit {
   actualizarImagenTemperatura(temperatura: number) {
     if (temperatura > 41) {
       this.imagen2 = 'ruta/a/imagen-alta-temperatura.png';
-      this.alt = 'Temperatura alta';
+      this.alt2 = 'Temperatura alta';
     } else if (temperatura > 30 && temperatura < 37) {
       this.imagen2 = 'ruta/a/imagen-media-temperatura.png';
-      this.alt = 'Temperatura normal';
+      this.alt2 = 'Temperatura normal';
     } else {
       this.imagen2 = 'ruta/a/imagen-baja-temperatura.png';
-      this.alt = 'Temperatura baja';
+      this.alt2 = 'Temperatura baja';
     }
   }
 
