@@ -71,12 +71,14 @@ export class ListarUsuariosComponent implements OnInit {
   onUpdateRole() {
     if (this.id) {
       alert('id usuario:' + this.id)
-      alert('rol' + this.selectedRole)
+      alert('rol:' + this.selectedRole)
 
       this.usuarioService.actualizarRol(this.id, this.selectedRole)
         .subscribe(() => {
           // Actualización exitosa
           this.displayModal = false;
+          this.obtenerUsuarios();
+
           // Puedes agregar aquí alguna lógica adicional, como recargar la lista de usuarios
         }, error => {
           // Manejo de errores
