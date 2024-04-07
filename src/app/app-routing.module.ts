@@ -51,9 +51,9 @@ const routes: Routes = [
   { path: 'iot', component: IotHomeComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Ruta por defecto
-      { path: 'dashboard', component: DashboardsComponent, canActivate: [adminGuard] },
-      { path: 'devices', component: DevicesComponent, canActivate: [adminGuard] },
-      { path: 'tokens', component: TablaDispositivosComponent, canActivate: [adminGuard] },
+      { path: 'dashboard', component: DashboardsComponent},
+      { path: 'devices', component: DevicesComponent },
+      { path: 'tokens', component: TablaDispositivosComponent},
       // Agrega aquí más rutas según sea necesario
     ]
   },
