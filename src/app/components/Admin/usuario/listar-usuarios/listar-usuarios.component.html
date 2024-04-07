@@ -31,7 +31,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Rol</th>
-                <th scope="col"><button (click)="showDialog()">Cambiar rol</button></th>
+                <th scope="col">Cambiar rol</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
@@ -44,6 +44,10 @@
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.correo}}</td>
                 <td>{{usuario.rol}}</td>
+                <td>
+                  <button style="color: brown; cursor: pointer; border-radius: 10px; border: solid #dadada; padding: 5px; width: 90px;" type="submit" (click)="showDialog()">Cambiar rol</button>
+                  </td>
+                
                 <td>
                   
 <input type="checkbox" name="" id="">
