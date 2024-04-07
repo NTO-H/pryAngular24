@@ -30,3 +30,17 @@ export const clientGuard = () => {
         return false; // Usuario no tiene rol de admin
     }
 }
+export const EmployeeGuard = () => {
+    const router =inject(Router)
+
+
+    const rol = localStorage.getItem('rol');
+
+    // Verificar si el rol es admin
+    if (rol &&rol === 'empleado') {
+        return true; // Usuario tiene rol de admin
+    } else {
+        router.navigate(['/']);
+        return false; // Usuario no tiene rol de admin
+    }
+}

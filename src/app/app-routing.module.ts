@@ -1,7 +1,7 @@
 import { ListarUsuariosComponent } from './components/Admin/usuario/listar-usuarios/listar-usuarios.component';
 import { CarritoComponent } from './components/shared/carrito/carrito.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { clientGuard, adminGuard } from './components/guards/private.guard';
+import { clientGuard, adminGuard, EmployeeGuard } from './components/guards/private.guard';
 // clientGuard
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -64,7 +64,7 @@ const routes: Routes = [
   { path: 'quienesSomos', component: QuienesSomosComponent, data: { breadcrumb: 'Acerca de' } },
   {path:'cards-productos',component:CardsProductosComponent,data: { breadcrumb: 'Productos' }},
   { path: 'listar-productos', component: ListarProductosComponent, data: { breadcrumb: 'Listar productos' },canActivate:[adminGuard]},
-  { path: 'crear-producto', component: CrearProductoComponent, data: { breadcrumb: 'Crear producto' }, canActivate: [adminGuard] },
+  { path: 'crear-producto', component: CrearProductoComponent, data: { breadcrumb: 'Crear producto' }, canActivate: [adminGuard, EmployeeGuard] },
   { path: 'detalles/:id', component: DetalleProductoComponent, data: { breadcrumb: 'Detalles producto' }},//componente de ver detalles
   { path: 'editar-producto/:id', component: CrearProductoComponent, data: { breadcrumb: 'Editar producto' }, canActivate: [adminGuard]},
    { path: 'dashboard', component: DashboardsComponent },
