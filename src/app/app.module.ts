@@ -111,6 +111,7 @@ import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositi
 import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
 import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
 import { ChunkPipe } from './pipes/chunk/chunk.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
 
   declarations: [DevicesComponent,TablaDispositivosComponent,IotHomeComponent,
@@ -120,7 +121,7 @@ import { ChunkPipe } from './pipes/chunk/chunk.pipe';
     CrearCuentaComponent, PrincipalComponent,ClientHeaderComponent,AgregarPoliticasComponent,
     CrearProductoComponent, RecuperacionComponent, PreguntasComponent,
     ListarProductosComponent,HeaderComponent,CarritoComponent,ListarUsuariosComponent,AgregarPreguntasComponent,
-    DetalleProductoComponent,AuthComponent,
+    DetalleProductoComponent,AuthComponent,NotFoundComponent,
     FilterPipe, CardsProductosComponent, ChunkPipe
   ],
   imports: [MenuModule, ListboxModule, TreeSelectModule,

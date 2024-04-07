@@ -1,0 +1,69 @@
+<style>
+body {
+  background-color: #2d2d2d; /* Color de fondo oscuro */
+  margin: 0; /* Elimina el margen predeterminado */
+  padding: 0; /* Elimina el relleno predeterminado */
+}.error404-container {
+  display: flex;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
+  height: 100vh; /* Altura igual a la altura de la ventana */
+  background-color: #000; /* Fondo oscuro */
+}
+.error{
+
+  animation: bounce 2s infinite alternate; /* Animación de rebote */
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(-10px); /* Mover hacia la izquierda */
+  }
+  100% {
+    transform: translateX(10px); /* Mover hacia la derecha */
+  }
+}
+
+.error404-content {
+  text-align: center; /* Centrar el contenido del contenedor */
+  color: #fff; /* Color del texto blanco */
+}
+
+.error404-content h1 {
+  font-size: 5em; /* Tamaño grande del texto */
+  margin-bottom: 0.5em; /* Espacio inferior */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Sombra de texto para efecto brillante */
+}
+
+.error404-content p {
+  font-size: 1.5em; /* Tamaño del texto */
+}
+
+.btn {
+cursor: pointer;
+  /* Estilos del botón */
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para los cambios */
+}
+
+.btn:hover {
+  /* Estilos al pasar el mouse sobre el botón */
+  background-color: #ccc;
+
+  box-shadow: 0 0 10px 5px rgb(214, 255, 138); /* Borde brillante alrededor */
+}
+
+
+</style>
+<div class="error404-container">
+    <div class="error404-content">
+        <h1 class="error">Error 404</h1>
+        <p>¡Oops! La página que estás buscando no pudo ser encontrada.</p>
+        <a routerLink="/" class="btn btn-primary">Volver al inicio</a>
+    </div>
+</div>

@@ -31,6 +31,7 @@ import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositi
 import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
 import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
 import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
@@ -42,7 +43,7 @@ const routes: Routes = [
   { path: 'recuperacion', component: RecuperacionComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'listar-usuarios', component: ListarUsuariosComponent },
-  { path: 'admin-home', component: AdminHomeComponent ,data:{breadcrumb:'Administrador'},canActivate: [adminGuard] } ,
+  { path: 'admin-home', component: AdminHomeComponent, data: { breadcrumb: 'Administrador' }, canActivate: [adminGuard, EmployeeGuard], } ,
   { path: 'agregar-politicas', component: AgregarPoliticasComponent, data: { breadcrumb: 'Administrador' } },
   // { path: 'admin', component: AdminHomeComponent },
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
@@ -70,7 +71,8 @@ const routes: Routes = [
    { path: 'dashboard', component: DashboardsComponent },
   { path: 'devices', component: DevicesComponent },
   { path: 'tokens', component: TablaDispositivosComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
+  // { path: '**', redirectTo: '', pathMatch: 'full' },
 
 
 
