@@ -28,11 +28,17 @@ export class AppComponent {
     const userRole = this.authService.obtenerRolUsuario();
     // Dependiendo del rol, establece las variables correspondientes
     // window.location.reload();
-    if (userRole === 'admin' || userRole ==='empleado') {
+    if (userRole === 'admin') {
       this.isAdmin = true;
       console.log("admin?=>", this.isAdmin);
       this.router.navigate(['/admin-home']); // Redirige al home del administrador
 
+    } else if (userRole === 'empleado') {
+      this.isEmpleado = true;
+      console.log("empleado?=>", this.isClient);
+      this.router.navigate(['/admin-home']); // Redirige al home del cliente
+
+    
     } else if (userRole === 'cliente') {
       this.isClient = true;
       console.log("cliente?=>", this.isClient);

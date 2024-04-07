@@ -64,10 +64,10 @@ const routes: Routes = [
   { path: 'crear-cuenta', component: CrearCuentaComponent, data: { breadcrumb: 'Registro' } },
   { path: 'quienesSomos', component: QuienesSomosComponent, data: { breadcrumb: 'Acerca de' } },
   {path:'cards-productos',component:CardsProductosComponent,data: { breadcrumb: 'Productos' }},
-  { path: 'listar-productos', component: ListarProductosComponent, data: { breadcrumb: 'Listar productos' },canActivate:[adminGuard]},
+  { path: 'listar-productos', component: ListarProductosComponent, data: { breadcrumb: 'Listar productos' }, canActivate: [adminGuard, EmployeeGuard]},
   { path: 'crear-producto', component: CrearProductoComponent, data: { breadcrumb: 'Crear producto' }, canActivate: [adminGuard, EmployeeGuard] },
   { path: 'detalles/:id', component: DetalleProductoComponent, data: { breadcrumb: 'Detalles producto' }},//componente de ver detalles
-  { path: 'editar-producto/:id', component: CrearProductoComponent, data: { breadcrumb: 'Editar producto' }, canActivate: [adminGuard]},
+  { path: 'editar-producto/:id', component: CrearProductoComponent, data: { breadcrumb: 'Editar producto' }, canActivate: [adminGuard, EmployeeGuard]},
    { path: 'dashboard', component: DashboardsComponent },
   { path: 'devices', component: DevicesComponent },
   { path: 'tokens', component: TablaDispositivosComponent },
