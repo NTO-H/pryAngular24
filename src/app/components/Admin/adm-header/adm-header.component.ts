@@ -25,6 +25,7 @@ import { AuthComponent } from '../../Auth/Auth.component';
 export class AdmHeaderComponent {
   isScrolled: boolean = false;
   showFiller = false;
+  isEmpleado: boolean = false;
   // menuOpen = false;
 
   loggingIn: boolean = false; // Variable para controlar el estado de carga
@@ -58,6 +59,15 @@ export class AdmHeaderComponent {
 
     })
 
+    
+    const userRole = this.authService.obtenerRolUsuario();
+    // Dependiendo del rol, establece las variables correspondientes
+    // window.location.reload();
+    if (userRole === 'empleado') {
+
+      this.isEmpleado = true;
+
+    }
     // this.items = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
 
     // this.home = { icon: 'pi pi-home', routerLink: '/' };

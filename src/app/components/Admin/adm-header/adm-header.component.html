@@ -39,8 +39,9 @@
                 </ul>
             </li>
             <li id="li" class="ul1">
-                <a id="a" routerLink="/listar-usuarios">Usuario</a>
+                <a id="a" routerLink="/listar-usuarios" *ngIf="!isEmpleado">Usuario</a>
             </li>
+
 
             <li id="li" class="ul1">
                 <a id="a">Iot</a>

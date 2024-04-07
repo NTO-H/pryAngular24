@@ -17,6 +17,7 @@ export class AppComponent {
 
 
   isAdmin: boolean = false;
+  isEmpleado: boolean = false;
   isClient: boolean = false;
   isPublic: boolean = false;
 
@@ -27,7 +28,7 @@ export class AppComponent {
     const userRole = this.authService.obtenerRolUsuario();
     // Dependiendo del rol, establece las variables correspondientes
     // window.location.reload();
-    if (userRole === 'admin') {
+    if (userRole === 'admin' || userRole ==='empleado') {
       this.isAdmin = true;
       console.log("admin?=>", this.isAdmin);
       this.router.navigate(['/admin-home']); // Redirige al home del administrador
