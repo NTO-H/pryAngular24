@@ -29,7 +29,6 @@
           <table *ngIf="listUsuarios.length > 0" class="table table-striped mt-4">
             <thead>
               <tr>
-                <th scope="col">imagen</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Correo</th>
@@ -40,9 +39,6 @@
             </thead>
             <tbody>
               <tr *ngFor="let usuario of listUsuarios | filter:filterProducts">
-                <td>
-                  <img [src]="photoSelected || '../../../assets/products/p1.jpg'" class="img-fluid" alt="No image">
-                </td>
                 <td>{{usuario.nombre}}</td>
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.correo}}</td>
