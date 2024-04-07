@@ -38,3 +38,12 @@ top: -8%;
     background-position: center;
 
 }
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: -1px;
+    padding: 5px;
+}
