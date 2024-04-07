@@ -57,6 +57,12 @@ const routes: Routes = [
       { path: 'tokens', component: TablaDispositivosComponent},
       // Agrega aquí más rutas según sea necesario
     ]
+
+
+
+
+
+    
   },
   { path: 'login', component: AuthComponent,data: { breadcrumb: 'Login' } },
   { path: 'miPerfil', component: PerfilComponent },
