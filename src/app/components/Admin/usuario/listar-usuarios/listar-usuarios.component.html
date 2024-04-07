@@ -1,17 +1,12 @@
 <style>
-  dl, ol, ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  margin-left: -2px;
-  padding: 5px;
-}
+
 </style>
 <body>
   
   
   <p-dialog header="Actualizar Rol" [(visible)]="displayModal">
     <div>
-      <p-dropdown [options]="roles" [(ngModel)]="selectedRole" placeholder="Seleccionar rol"></p-dropdown>
+      <p-dropdown [style]="dropdownStyle" [options]="roles" [(ngModel)]="selectedRole" placeholder="Seleccionar rol"></p-dropdown>
     </div>
     <div style="margin-top: 1rem;">
       <button pButton type="button" label="Cancelar" (click)="displayModal = false"></button>

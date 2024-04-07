@@ -26,6 +26,12 @@ export class ListarUsuariosComponent implements OnInit {
   displayModal: boolean = false;
 
 
+  dropdownStyle: any = {
+    marginTop: '0',
+    marginBottom: '1rem',
+    marginLeft: '-2px',
+    padding: '5px'
+  };
 
   // imagen inicio
 
