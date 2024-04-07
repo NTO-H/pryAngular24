@@ -21,7 +21,11 @@ export class TablaDispositivosComponent implements OnInit {
   // filterProducts = '';
   frmCrearDev!: FormGroup;
   id!: string | null;
-  titulo = 'Agregar Politica';
+
+
+
+
+  titulo = 'Agregar dispositivo';
   btnTitle = 'Agregar';
 
 
