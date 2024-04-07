@@ -139,7 +139,7 @@ export class TablaDispositivosComponent implements OnInit {
 
   crearDispositivo() {
     const correo = localStorage.getItem('currentUser');
-
+    this.id =null
     if (!correo) {
       this.toastr.error('Correo electrónico del usuario no encontrado', 'Error');
       return;
@@ -172,9 +172,13 @@ export class TablaDispositivosComponent implements OnInit {
               }
             );
           } else {
+            
             this.dvs.crearDispositivo(DEVICE).subscribe(
               () => {
                 this.sidebarVisible2 = false;
+
+                this.titulo = 'Agregar dispositivo';
+                this.btnTitle = 'Agregar';
 
                 this.toastr.success('Dispositivo registrado con éxito', 'Registro exitoso');
                 this.obtenerDispositivos();
