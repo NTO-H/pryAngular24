@@ -158,7 +158,10 @@ export class TablaDispositivosComponent implements OnInit {
 
                 this.toastr.success('Dispositivo actualizado correctamente');
                 this.obtenerDispositivos();
+                this.frmCrearDev.reset();
+
               },
+              
               (error) => {
                 console.error(error);
                 this.toastr.error('Ocurrió un error al actualizar el dispositivo');
@@ -171,6 +174,8 @@ export class TablaDispositivosComponent implements OnInit {
 
                 this.toastr.success('Dispositivo registrado con éxito', 'Registro exitoso');
                 this.obtenerDispositivos();
+                this.frmCrearDev.reset();
+
               },
               (error) => {
                 console.error(error);

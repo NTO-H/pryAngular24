@@ -1,5 +1,16 @@
 <body>
+ 
   
+  <p-dialog header="Actualizar Rol" [(visible)]="displayModal">
+    <div>
+      <p-dropdown [options]="roles" [(ngModel)]="selectedRole" placeholder="Seleccionar rol"></p-dropdown>
+    </div>
+    <div style="margin-top: 1rem;">
+      <button pButton type="button" label="Cancelar" (click)="displayModal = false"></button>
+      <button pButton type="button" label="Actualizar Rol" (click)="onUpdateRole()"></button>
+    </div>
+  </p-dialog>
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -20,7 +31,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Rol</th>
-                <th scope="col">Cambiar rol</th>
+                <th scope="col"><button (click)="showDialog()">Cambiar rol</button></th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>

@@ -3,6 +3,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { FormsModule, NgModel, NgModelGroup } from '@angular/forms';
 // import { Component, Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
+import { SelectItem } from 'primeng/api';
 // import { ToastrService } from 'ngx-toastr';//son librerias que sirven para el diseño de alertas
 import { Producto } from 'src/app/models/producto';
 import { Usuario } from 'src/app/models/usuario';
@@ -20,6 +21,9 @@ export class ListarUsuariosComponent implements OnInit {
 
 
 
+  roles!: SelectItem[];
+  selectedRole!: string;
+  displayModal: boolean = false;
 
 
 
@@ -44,8 +48,22 @@ export class ListarUsuariosComponent implements OnInit {
       reader.readAsDataURL(this.file);
     }
   }
+  showDialog() {
+    this.displayModal = true;
+  }
+
+  onUpdateRole() {
+    // Aquí puedes agregar la lógica para actualizar el rol en la base de datos
+    console.log('Rol actualizado:', this.selectedRole);
+    this.displayModal = false;
+  }
   // imagen fin
-  constructor(private usuarioService: UsuarioService, private toastr: ToastrService) { }
+  constructor(private usuarioService: UsuarioService, private toastr: ToastrService) {
+    this.roles = [
+      { label: 'Cliente', value: 'cliente' },
+      { label: 'Empleado', value: 'empleado' }
+    ];
+   }
   ngOnInit(): void {
     this.obtenerUsuarios();
     // this.detalleProductoById();
