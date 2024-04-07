@@ -58,6 +58,10 @@ export class UsuarioService {
     actualizaPasswordxPregunta(pregunta: string, respuesta: string, nueva: string): Observable<any> {
         return this.http.put<boolean>(this.url + 'actualizaxPregunta', { pregunta, respuesta,nueva});
     }
+    actualizarRol(id: string, nuevoRol: string): Observable<any> {
+        return this.http.put<any>(`${this.url}/actualizaRol/${id}/`, { nuevoRol });
+    }
+
 
    
 

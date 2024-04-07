@@ -19,7 +19,7 @@ export class ListarUsuariosComponent implements OnInit {
   // filterProducts = '';
   filterProducts: string = '';
 
-
+  id!: string | null;
 
   roles!: SelectItem[];
   selectedRole!: string;
@@ -42,6 +42,8 @@ export class ListarUsuariosComponent implements OnInit {
   //   this.obtenerProductos();
 
   // }6666666
+  selectedUsuario: Usuario | null = null; // Almacena el usuario seleccionado para mostrar en el diálogo
+
 
   onPhotoSelected(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -54,14 +56,33 @@ export class ListarUsuariosComponent implements OnInit {
       reader.readAsDataURL(this.file);
     }
   }
-  showDialog() {
+  showDialog(usuarioId: string) {
+   
+   
+   
+    this.id = usuarioId;
+    alert('id usuario:'+this.id)
     this.displayModal = true;
+  
+  
+  
   }
 
   onUpdateRole() {
-    // Aquí puedes agregar la lógica para actualizar el rol en la base de datos
-    console.log('Rol actualizado:', this.selectedRole);
-    this.displayModal = false;
+    if (this.id) {
+      alert('id usuario:' + this.id)
+      alert('rol' + this.selectedRole)
+
+      this.usuarioService.actualizarRol(this.id, this.selectedRole)
+        .subscribe(() => {
+          // Actualización exitosa
+          this.displayModal = false;
+          // Puedes agregar aquí alguna lógica adicional, como recargar la lista de usuarios
+        }, error => {
+          // Manejo de errores
+          console.error('Error al actualizar el rol del usuario:', error);
+        });
+    }
   }
   // imagen fin
   constructor(private usuarioService: UsuarioService, private toastr: ToastrService) {

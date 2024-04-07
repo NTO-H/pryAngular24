@@ -48,13 +48,13 @@
                 <td>{{usuario.correo}}</td>
                 <td>{{usuario.rol}}</td>
                 <td>
-                  <button style="   color: brown; cursor: pointer; border-radius: 10px; border: solid #dadada;margin:0 ; padding: 0px; width: 120px;" type="submit" (click)="showDialog()">Cambiar rol</button>
+                  <button style="   color: brown; cursor: pointer; border-radius: 10px; border: solid #dadada;margin:0 ; padding: 0px; width: 120px;" type="submit" (click)="showDialog(usuario._id)">Cambiar rol</button>
                   </td>
                 
                 
                 <td>
-                  <i [routerLink]="['/detalles', usuario._id]" class="fas fa-solid fa-book-open me-4"></i>
-                  <i [routerLink]="['/editar-usuario', usuario._id]" class="fas fa-edit text-primary me-4"></i>
+                  <!-- <i [routerLink]="['/detalles', usuario._id]" class="fas fa-solid fa-book-open me-4"></i> -->
+                  <!-- <i [routerLink]="['/editar-usuario', usuario._id]" class="fas fa-edit text-primary me-4"></i> -->
                   <i (click)="eliminarUsuario(usuario._id)" class="fas fa-regular fa-trash-can text-danger"></i>
                 </td>
               </tr>
