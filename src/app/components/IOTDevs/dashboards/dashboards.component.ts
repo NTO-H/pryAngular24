@@ -117,7 +117,7 @@ export class DashboardsComponent implements OnInit {
 
     if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
-      speedText.textContent = `${humedad}%`;
+      speedText.textContent = `${humedad}`;
 
     }
 
