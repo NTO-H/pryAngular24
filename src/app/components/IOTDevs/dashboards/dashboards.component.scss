@@ -347,7 +347,7 @@ option:hover {
 
 
 .card {
-    background-color:#84c5d7;
+    background-color: #ffffff;
 }
 
 
@@ -365,7 +365,8 @@ option:hover {
     border-radius: 30px 30px 30px 30px;
     /* Redondea solo la parte superior */
     position: relative;
-    margin: 50px;
+    margin-left: 70px;
+    margin-top: -5px;
     overflow: hidden;
 
     /* / Asegura que la base redonda no sobresalga */
