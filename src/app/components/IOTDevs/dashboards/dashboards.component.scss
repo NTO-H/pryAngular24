@@ -18,9 +18,9 @@ body {
 .dispositivo {
 
     backdrop-filter: blur(2px);
-    
+
     // background: linear-gradient(270deg, #59057a7b 0%, #0380ad80 100%);
-     background-color: transparent;
+    background-color: transparent;
 }
 
 // sensores temperatura y humedad
@@ -342,10 +342,54 @@ option:hover {
     color: #030303;
     // background-color: rgb(255, 255, 255);
 }
-        
-        
-        
-        
-.card{
-background-color: transparent;
+
+
+
+
+.card {
+    background-color: transparent;
+}
+
+
+
+
+/* Puedes compilar este SCSS a CSS usando un preprocesador */
+$temperaturas: ("frio": #6495ED,
+    "templado": #FFD700,
+    "caliente": #FF4500);
+
+.termometro {
+    width: 50px;
+    height: 200px;
+    background: #EEE;
+    border: 2px solid #333;
+    border-radius: 25px;
+    position: relative;
+    margin: 50px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        background: map-get($temperaturas, "frio");
+        width: 100%;
+        border-radius: 25px;
+        transition: height 0.3s, background-color 0.3s;
+    }
+}
+
+// Cambia el color y la altura del termómetro según la clase
+.termometro.frio::after {
+    height: 33%;
+    background: map-get($temperaturas, "frio");
+}
+
+.termometro.templado::after {
+    height: 66%;
+    background: map-get($temperaturas, "templado");
+}
+
+.termometro.caliente::after {
+    height: 100%;
+    background: map-get($temperaturas, "caliente");
 }
