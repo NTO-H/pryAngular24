@@ -25,8 +25,6 @@ export class AuthComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    
-    
     this.loginForm = this.fb.group({
       correo: ['', Validators.required],
       pass: ['', Validators.required]
@@ -57,8 +55,6 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('rol', rol);
           console.log(rol);
           localStorage.setItem('currentUser', correo);
-
-
           window.location.reload();
         } else {
           console.error('No se recibió el rol del usuario en la respuesta.');

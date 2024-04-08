@@ -34,8 +34,7 @@
                 <ul class="ul">
                     <!-- <li><a href="#">p</a></li> -->
                     <li><a routerLink="cards-productos">Catalogo</a></li>
-                    <li><a href="#">Comentarios productos</a></li>
-                    <li><a routerLink="listar-productos">Listar productos</a></li>
+                    <li><a *ngIf="!isEmpleado" routerLink="listar-productos">Listar productos</a></li>
                 </ul>
             </li>
             <li id="li" class="ul1">
