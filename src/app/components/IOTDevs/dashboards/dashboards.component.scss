@@ -355,7 +355,7 @@ option:hover {
 
 
 .termometro {
-    width: 50px;
+    width: 60px;
     height: 210px;
     padding: 10px;
     padding-top: 10px;
@@ -484,6 +484,17 @@ option:hover {
         fill: none !important;
     }
 }
+
+@layer primeng {
+    .p-component {
+        font-family: var(--font-family);
+        font-feature-settings: var(--font-feature-settings, normal);
+        font-size: 1rem;
+        font-weight: 400;
+        background: rgba(255, 255, 255, 0.684);
+    }
+}
+
 
 .p-knob-value {
     background: #21cdf3;
