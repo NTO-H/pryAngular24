@@ -355,8 +355,8 @@ option:hover {
 
 
 .termometro {
-    width: 40px;
-    height: 200px;
+    width: 50px;
+    height: 210px;
     padding: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -388,13 +388,15 @@ option:hover {
     position: absolute;
     bottom: -2px;
     left: 50%;
+    z-index: 1;
+
     margin-bottom: 10px;
     transform: translateX(-50%);
     width: 50px;
     /* Igual al ancho del termómetro */
     height: 50px;
     /* Altura para formar un círculo perfecto */
-    background: #333;
+    // background: #333;
     border-radius: 50%;
     /* Redondea completamente para formar un círculo */
     text-align: center;
@@ -404,6 +406,8 @@ option:hover {
 }
 
 .termometro.frio::before {
+    z-index: 1;
+
     background: #6495ED;
     /* Azul para frio */
 
@@ -414,7 +418,7 @@ option:hover {
     height: 85%;
     width: 15px;
 
-    margin-left: 12px;
+    margin-left: -8px;
     margin-bottom: 10px;
 
     text-align: center;
@@ -435,14 +439,14 @@ option:hover {
     height: 85%;
     width: 15px;
     text-align: center;
-    margin-left: 12px;
+    margin-left: -8px;
     margin-bottom: 10px;
     background: #FFD700;
     /* Amarillo para templado */
 }
 
 .termometro.caliente::before {
-
+    z-index: 1;
     background: #FF4500;
     /* Rojo para caliente */
 
@@ -453,7 +457,7 @@ option:hover {
     width: 15px;
     /* text-align: center;
    */
-    margin-left: 12px;
+    margin-left: -8px;
     margin-bottom: 10px;
     background: #FF4500;
     /* Rojo para caliente */
@@ -479,6 +483,16 @@ option:hover {
 
         fill: none !important;
     }
+}
+
+.p-knob-value {
+    background: #21cdf3;
+}
+
+.p-knob-range {
+
+    background: #747e87;
+
 }
 
 .speed-dial {
