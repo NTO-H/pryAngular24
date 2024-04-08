@@ -1,194 +1,180 @@
-
+#include <Arduino.h>
 #include <WiFi.h>
-#include <PubSubClient.h>
-#include <Stepper.h>
+#include <HTTPClient.h>
 #include <DHT.h>
-#include <LiquidCrystal_I2C.h>
-  #include <HX711.h>
-#include <ArduinoJson.h>
-// Configuración WiFi
-const char* ssid = "INFINITUMD4FA";
-const char* password = "Padilla270104";
 
-// Configuración del servidor MQTT
-const char* server = "broker.emqx.io";
-const int port = 1883;
+const char *ssid = "INFINITUM8F57";
+const char *password = "Aa1Yu2Ee5m";
+
+// Pines del motor del valancín
+const int valancinPin1 = 14;   // Primer pin de dirección del motor del valancín
+const int valancinPin2 = 27;   // Segundo pin de dirección del motor del valancín
+const int valancinEnablePin = 2;  // Pin de habilitación del motor del valancín
+int valancinSpeed = 70;  // Velocidad inicial del motor del valancín (0-255)
+
+// Pines del motor del carrucel
+const int carrucelPin1 = 25;   // Primer pin de dirección del motor del carrucel
+const int carrucelPin2 = 26;   // Segundo pin de dirección del motor del carrucel
+const int carrucelEnablePin = 5;  // Pin de habilitación del motor del carrucel
+int carrucelSpeed = 50 ;  // Velocidad inicial del motor del carrucel (0-255)
+
+// URLs para consultar el estado de los dispositivos
+const char *urlValancin = "https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoValancin";
+const char *urlCarrucel = "https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoCarrucel";
+const char *urlLed = "https://servidortropicalworld-1.onrender.com/dispositivos/obtenerEstadoLed";
 
 
 
-// Configuración de dispositivos
-const int releFocoPin = 18;
-const int releCerraduraPin = 23;
-const int releVentiladorPin = 5;
-const int releVentilador2Pin = 15;
-const int DHTPIN = 33;
-const int DHTTYPE = DHT11;
-const int STEPS_PER_REV = 200;
-const int MOTOR_SPEED = 100;
-const int ledPin = 4; // Pin del LED para indicar el estado de la cerradura
+const char* urlTemperaturaHumedad = "https://servidortropicalworld-1.onrender.com/dispositivos/guardar_datos"; // Reemplaza "tu_direccion_ip" con la dirección IP 
+
+
+// Pin del LED
+const int pinLed = 4;
+
+// Definiciones para el sensor DHT11
+#define DHTPIN 13
+#define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
-Stepper stepper_NEMA17(STEPS_PER_REV, 27, 14, 25, 26);
-WiFiClient esp32Client;
-PubSubClient mqttClient(esp32Client);
-
-// Inicialización del LCD
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-bool modoAutomatico = false; // Variable para almacenar el modo de operación
-
-
-void wifiInit() {
-    Serial.print("Conectándose a ");
-    Serial.println(ssid);
-    WiFi.begin(ssid, password);
-    while (WiFi.status() != WL_CONNECTED) {
-        Serial.print(".");
-        delay(500);
-    }
-    Serial.println("\nConectado a WiFi");
-    Serial.print("Dirección IP: ");
-    Serial.println(WiFi.localIP());
-}
-
-void callback(char* topic, byte* payload, unsigned int length) {
-    Serial.print("Mensaje recibido [");
-    Serial.print(topic);
-    Serial.print("] ");
-    payload[length] = '\0'; // Asegura la terminación de la cadena
-    String message = String((char*)payload);
-
-    Serial.println(message);
-
-    // Verificar el mensaje recibido
-    if (message == "controlarDeFormaAutomatica") {
-        modoAutomatico = true;
-    } else if (message == "controlarDeFormaManual") {
-        modoAutomatico = false;
-    }
-    // Control manual
-    else if (!modoAutomatico) {
-        if (message == "focoOn") {
-            digitalWrite(releFocoPin, LOW);
-        } else if (message == "focoOff") {
-            digitalWrite(releFocoPin, HIGH);
-        } else if (message == "cerraduraOpen") {
-            digitalWrite(releCerraduraPin, LOW);
-            digitalWrite(ledPin, HIGH); // Encender el LED cuando la cerradura está abierta
-        } else if (message == "cerraduraClose") {
-            digitalWrite(releCerraduraPin, HIGH);
-            digitalWrite(ledPin, LOW); // Apagar el LED cuando la cerradura está cerrada
-        } else if (message == "ventiladorOn") {
-            digitalWrite(releVentiladorPin, LOW);
-        } else if (message == "ventiladorOff") {
-            digitalWrite(releVentiladorPin, HIGH);
-        } else if (message == "ventilador2On") {
-            digitalWrite(releVentilador2Pin, LOW);
-        } else if (message == "ventilador2Off") {
-            digitalWrite(releVentilador2Pin, HIGH);
-        }
-        // Control para el motor a pasos
-        else if (message == "motorStart") {
-            stepper_NEMA17.step(STEPS_PER_REV * 6); // Ejemplo: 6 revoluciones
-        }
-    }
-}
-
-void reconnect() {
-    while (!mqttClient.connected()) {
-        Serial.print("Intentando conectarse a MQTT...");
-        if (mqttClient.connect("esp32Client")) {
-                    Serial.println("Conectado");
-            mqttClient.subscribe("Entrada/01");
-        } else {
-            Serial.print("Fallo, rc=");
-            Serial.print(mqttClient.state());
-            Serial.println(" intentar de nuevo en 5 segundos");
-            delay(5000);
-        }
-    }
-}
 
 void setup() {
-    Serial.begin(115200);
-    pinMode(releFocoPin, OUTPUT);
-    pinMode(releCerraduraPin, OUTPUT);
-    pinMode(releVentiladorPin, OUTPUT);
-    pinMode(releVentilador2Pin, OUTPUT);
-    pinMode(ledPin, OUTPUT); // Configurar el pin del LED
+  // Configurar pines del valancín
+  pinMode(valancinPin1, OUTPUT);
+  pinMode(valancinPin2, OUTPUT);
+  pinMode(valancinEnablePin, OUTPUT);
 
-   digitalWrite(releFocoPin, HIGH);
-    digitalWrite(releCerraduraPin, HIGH);
-    digitalWrite(releVentiladorPin, HIGH);
-    digitalWrite(releVentilador2Pin, HIGH);
-    digitalWrite(ledPin, LOW);
+  // Configurar pines del carrucel
+  pinMode(carrucelPin1, OUTPUT);
+  pinMode(carrucelPin2, OUTPUT);
+  pinMode(carrucelEnablePin, OUTPUT);
 
+  // Configurar pin del LED
+  pinMode(pinLed, OUTPUT);
 
+  // Iniciar comunicación serial
+  Serial.begin(115200);
 
+  // Iniciar conexión WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Conectando al WiFi...");
+  }
+  Serial.println("Conexión exitosa al WiFi");
 
-    wifiInit();
-    mqttClient.setServer(server, port);
-    mqttClient.setCallback(callback);
-    // Configurar el motor a pasos
-    stepper_NEMA17.setSpeed(MOTOR_SPEED);
-
-    dht.begin();
-    lcd.init();
-    lcd.backlight();
+  // Inicializar sensor DHT11
+  dht.begin();
 }
 
 void loop() {
-    if (!mqttClient.connected()) {
-        reconnect();
+  // Realizar la solicitud HTTP para obtener el estado del valancín desde el servidor
+  HTTPClient httpValancin, httpCarrucel, httpLed, httpTemperatura;
+  httpValancin.begin(urlValancin);
+  httpCarrucel.begin(urlCarrucel);
+  httpLed.begin(urlLed);
+  httpTemperatura.begin(urlTemperaturaHumedad);
+  
+  int respuestaValancin = httpValancin.GET();
+  if (respuestaValancin == HTTP_CODE_OK) {
+    String responseValancin = httpValancin.getString();
+    int estadoValancin = responseValancin.toInt();
+
+    // Controlar el motor del valancín según el estado recibido
+    if (estadoValancin == 1) {
+      digitalWrite(valancinEnablePin, HIGH);
+      digitalWrite(valancinPin1, HIGH);
+      digitalWrite(valancinPin2, LOW);
+      analogWrite(valancinEnablePin, valancinSpeed);
+      Serial.println("Valancin encendido");
+    } else {
+      analogWrite(valancinEnablePin, 0);
+      Serial.println("Valancin apagado");
     }
-    mqttClient.loop();
-    int temperatura = dht.readTemperature();
-    int humedad = dht.readHumidity();
+  } else {
+    Serial.print("Error al obtener el estado del valancin desde el servidor. Código de respuesta: ");
+    Serial.println(respuestaValancin);
+  }
 
-    static unsigned long lastPublishTime = 0;
+  httpValancin.end();
 
-    unsigned long currentMillis = millis();
-    if (currentMillis - lastPublishTime > 10000) { // Publicar cada 10 segundos
-        lastPublishTime = currentMillis;
+  // Realizar la solicitud HTTP para obtener el estado del carrucel desde el servidor
+  int respuestaCarrucel = httpCarrucel.GET();
+  if (respuestaCarrucel == HTTP_CODE_OK) {
+    String responseCarrucel = httpCarrucel.getString();
+    int estadoCarrucel = responseCarrucel.toInt();
 
-        // Preparar el documento JSON
-       StaticJsonDocument<512> doc; // Aumentamos el tamaño del documento JSON para acomodar la temperatura
-    doc["temperatura"] = temperatura;
-    doc["humedad"] = humedad;
-        // Serializar JSON a String
-        char jsonBuffer[512];
-        serializeJson(doc, jsonBuffer);
+    // Controlar el motor del carrucel según el estado recibido
+    if (estadoCarrucel == 1) {
+      digitalWrite(carrucelEnablePin, HIGH);
+      digitalWrite(carrucelPin1, HIGH);
+      digitalWrite(carrucelPin2, LO W);
+      analogWrite(carrucelEnablePin, carrucelSpeed);
+      Serial.println("Carrucel encendido");
+    } else {
+        analogWrite(carrucelEnablePin, 0); // Apagar el carrucel si está apagado
+      Serial.println("Carrucel apagado");
+    }
+  } else {
+    Serial.print("Error al obtener el estado del carrucel desde el servidor. Código de respuesta: ");
+    Serial.println(respuestaCarrucel);
+  }
 
-        // Publicar el JSON en el topic de estado
-        mqttClient.publish("Entrada/01/estado", jsonBuffer);
+  httpCarrucel.end();
 
-        // Muestra de valores en el LCD (sin cambios)
-        lcd.clear();
-            lcd.print("Temp: ");
-            lcd.print(temperatura);
-            lcd.print(" C");
-            lcd.setCursor(0, 1); // Mover a la segunda línea
-            lcd.print("Hum: ");
-            lcd.print(humedad);
-            lcd.print("%");
+  // Realizar la solicitud HTTP para obtener el estado del LED desde el servidor
+  int respuestaLed = httpLed.GET();
+  if (respuestaLed == HTTP_CODE_OK) {
+    String responseLed = httpLed.getString();
+    int estadoLed = responseLed.toInt();
 
+    // Controlar el LED según el estado recibido
+    if (estadoLed == 1) {
+      digitalWrite(pinLed, HIGH);
+      Serial.println("LED encendido");
+    } else {
+      digitalWrite(pinLed, LOW);
+      Serial.println("LED apagado");
+    }
+  } else {
+    Serial.print("Error al obtener el estado del LED desde el servidor. Código de respuesta: ");
+    Serial.println(respuestaLed);
+  }
 
-        if (modoAutomatico) {
-                // Si la temperatura supera los 32.5 grados, apagar el foco
-                if (temperatura > 35) {
-                    digitalWrite(releFocoPin, HIGH);
-                } else {
-                    digitalWrite(releFocoPin, LOW);
-                }
+  httpLed.end();
 
-                // Si la humedad supera el 60%, encender los ventiladores
-                if (humedad > 60) {
-                    digitalWrite(releVentiladorPin, LOW);
-                    digitalWrite(releVentilador2Pin, LOW);
-                } else {
-                    digitalWrite(releVentiladorPin, HIGH);
-                    digitalWrite(releVentilador2Pin, HIGH);
-                }
-            }
-    delay(100); // Pequeño retardo para evitar uso excesivo del CPU
+ if (WiFi.status() == WL_CONNECTED) {
+    float temperatura = dht.readTemperature();
+    float humedad = dht.readHumidity();
+
+    if (isnan(temperatura) || isnan(humedad)) {
+      Serial.println("Error al leer datos del sensor DHT");
+      delay(2000);
+      return;
+    }
+
+    HTTPClient http;
+    http.begin(urlTemperaturaHumedad);
+    http.addHeader("Content-Type", "application/json");
+
+    String postData = "{\"temperatura\":\"" + String(temperatura) + "\",\"humedad\":\"" + String(humedad) + "\"}";
+
+    int httpCode = http.PUT(postData); // Cambia POST por PUT para enviar la solicitud PUT
+
+    Serial.println("temperatura=>");
+    Serial.println(temperatura);
+    Serial.println("humedad=>");
+    Serial.println(humedad);
+
+    if (httpCode > 0) {
+      String response = http.getString();
+      Serial.println("HTTP response code: " + String(httpCode));
+      Serial.println("Server response: " + response);
+    } else {
+      Serial.println("Error en la solicitud HTTP");
+    }
+
+    http.end();
+  }
+  delay(2000);
+
 }
