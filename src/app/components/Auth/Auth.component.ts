@@ -55,7 +55,7 @@ export class AuthComponent implements OnInit {
           const token = response.token;
           localStorage.setItem('token', token);
           localStorage.setItem('rol', rol);
-
+          console.log(rol);
           localStorage.setItem('currentUser', correo);
 
 
