@@ -98,11 +98,11 @@ body {
     height: 100px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #550b0b;
+    background: radial-gradient(circle at center, #a91414 0%, #290000 100%);
     border: none;
     color: #fff;
     box-shadow: 0 0 5px rgb(255, 255, 255), 0 0 20px rgba(15, 255, 221, 0.3);
-    border: solid 10px #2a0d0d;
+    border: solid 10px #270101;
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -135,9 +135,10 @@ body {
 
 .switch-container.active {
     color: #000;
-    background-color: #06ae00;
-    box-shadow: 0 0 4px rgb(0, 0, 0), 0 0 20px rgb(225, 255, 0);
+    background: radial-gradient(circle at center, #d8ff4d 0%, #1eca00 100%);
+    box-shadow: 0 0 4px #000, 0 0 20px #efff7a;
     border: solid 10px #71ff31;
+
 
 }
 
