@@ -347,14 +347,193 @@ option:hover {
 
 
 .card {
-    color: #ffffff;
-
-    background-color: transparent;
+    background-color: #ffffff;
 }
 
 
 
-// /* Puedes compilar este SCSS a CSS usando un preprocesador */
+
+
+.termometro {
+    width: 40px;
+    height: 200px;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #EEE;
+    border: 2px solid #8a8888;
+    border-radius: 30px 30px 30px 30px;
+    /* Redondea solo la parte superior */
+    position: relative;
+    margin: 50px;
+    overflow: hidden;
+
+    /* / Asegura que la base redonda no sobresalga */
+}
+
+.termometro::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background: #6495ED;
+    /* Color inicial para frio */
+    width: 100%;
+    border-radius: 25px;
+    transition: height 0.3s, background-color 0.3s;
+}
+
+/* Base redonda del termómetro */
+.termometro::before {
+    content: attr(data-content);
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    margin-bottom: 10px;
+    transform: translateX(-50%);
+    width: 50px;
+    /* Igual al ancho del termómetro */
+    height: 50px;
+    /* Altura para formar un círculo perfecto */
+    background: #333;
+    border-radius: 50%;
+    /* Redondea completamente para formar un círculo */
+    text-align: center;
+    /* Centra horizontalmente */
+    line-height: 50px;
+    /* Centra verticalmente */
+}
+
+.termometro.frio::before {
+    background: #6495ED;
+    /* Azul para frio */
+
+}
+
+/* Cambia el color y la altura del termómetro según la clase */
+.termometro.frio::after {
+    height: 85%;
+    width: 15px;
+
+    margin-left: 12px;
+    margin-bottom: 10px;
+
+    text-align: center;
+    background: #6495ED;
+    /* Azul para frio */
+}
+
+
+.termometro.templado::before {
+    background: #FFD700;
+    /* Amarillo para templado */
+
+}
+
+
+
+.termometro.templado::after {
+    height: 85%;
+    width: 15px;
+    text-align: center;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    background: #FFD700;
+    /* Amarillo para templado */
+}
+
+.termometro.caliente::before {
+
+    background: #FF4500;
+    /* Rojo para caliente */
+
+}
+
+.termometro.caliente::after {
+    height: 85%;
+    width: 15px;
+    /* text-align: center;
+   */
+    margin-left: 12px;
+    margin-bottom: 10px;
+    background: #FF4500;
+    /* Rojo para caliente */
+}
+
+
+
+.speedometer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    /* Transparent border for gradient */
+    border: 5px solid transparent;
+}
+
+
+@layer primeng {
+    .p-knob-text {
+        font-size: 1.3rem;
+        text-align: center;
+
+        fill: none !important;
+    }
+}
+
+.speed-dial {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    /* Dial blanco */
+}
+
+.speed-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.humidity-image {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.temperatura-image {
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Nuevo CSS para el borde basado en la humedad */
+.speedometer::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 5px #00ff00;
+    /* Verde para baja humedad */
+    z-index: -1;
+}
+
 // $temperaturas: ("frio": #6495ED,
 //     "templado": #FFD700,
 //     "caliente": #FF4500);
