@@ -5,32 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Termómetro con SCSS y HTML</title>
 <style>
- 
+.termometro {
+  width: 40px;
+  height: 200px;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #EEE;
+  border: 2px solid #8a8888;
+  border-radius: 30px 30px 30px 30px ; /* Redondea solo la parte superior */
+  position: relative;
+  margin: 50px;
+  overflow: hidden;
+  
+  /* / Asegura que la base redonda no sobresalga */
+}
+
+.termometro::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background: #6495ED; /* Color inicial para frio */
+  width: 100%;
+  border-radius: 25px;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+/* Base redonda del termómetro */
+.termometro::before {
+   content: attr(data-content);
+  position: absolute;
+  bottom: -2px; /* Ajusta para que la mitad del círculo esté visible */
+  left: 50%;
+  z-index: 1;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+  width: 50px; /* Igual al ancho del termómetro */
+  height: 50px; /* Altura para formar un círculo perfecto */
+  background: #333;
+  border-radius: 50%; /* Redondea completamente para formar un círculo */
+  text-align: center; /* Centra horizontalmente */
+  line-height: 50px; /* Centra verticalmente */
+}
+
+.termometro.frio::before {
+  background: #6495ED; /* Azul para frio */
+
+}
+
+/* Cambia el color y la altura del termómetro según la clase */
+.termometro.frio::after{
+ height: 85%;
+  width: 15px;
+
+margin-left: 12px;
+margin-bottom: 10px;
+
+  text-align: center;
+  background: #6495ED; /* Azul para frio */
+}
+
+
+.termometro.templado::before{
+  background: #FFD700; /* Amarillo para templado */
+
+}
+
+
+
+.termometro.templado::after {
+ height: 85%;
+  width: 15px;
+  text-align: center;
+margin-left: 12px;
+margin-bottom: 10px;
+  background: #FFD700; /* Amarillo para templado */
+}
+
+.termometro.caliente::before
+{
+
+  background: #FF4500; /* Rojo para caliente */
+
+}
+
+.termometro.caliente::after 
+{
+  height: 85%;
+  width: 15px;
+  /* text-align: center;
+   */
+margin-left: 12px;
+margin-bottom: 10px;
+  background: #FF4500; /* Rojo para caliente */
+}
+
+
 </style>
 </head>
 <body>
 
-<div class="termometro frio" id="termometro"></div>
+<div class="termometro frio"  data-content="80"  style="color: antiquewhite ;  font-weight: bold;" id="termometro"></div>
 
 <script>
   // Suponiendo que tienes una función que obtiene la temperatura actual
-  function obtenerTemperatura() {
-    // Retorna un valor de ejemplo
-    return 30; // Temperatura en grados Celsius
-  }
+  
 
-  function actualizarTermometro() {
-    const temperatura = obtenerTemperatura();
-    const termometro = document.getElementById('termometro');
+ function actualizarTermometro() {
+        const termometro = document.getElementById('termometro');
+        const valorContenido = termometro.getAttribute('data-content');
 
-    if (temperatura < 20) {
-      termometro.className = 'termometro frio';
-    } else if (temperatura >= 20 && temperatura < 30) {
-      termometro.className = 'termometro templado';
-    } else {
-      termometro.className = 'termometro caliente';
+        // Convertir el valorContenido a un número si es necesario
+        const temperatura = parseFloat(valorContenido);
+
+        if (temperatura < 20) {
+            termometro.className = 'termometro frio';
+        } else if (temperatura >= 20 && temperatura < 30) {
+            termometro.className = 'termometro templado';
+        } else {
+            termometro.className = 'termometro caliente';
+        }
     }
-  }
+
 
   // Actualiza el termómetro cada segundo
   setInterval(actualizarTermometro, 1000);
