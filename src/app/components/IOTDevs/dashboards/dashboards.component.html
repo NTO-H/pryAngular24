@@ -98,13 +98,16 @@
     </section> -->
     <section class="dispositivos">
         <div class="dispositivo">
-            <div class="speedometer">
+            <div class="card flex justify-content-center">
+                <p-knob [(ngModel)]="temperatura" valueColor="SlateGray" rangeColor="MediumTurquoise"></p-knob>
+            </div>
+            <!-- <div class="speedometer">
                 <div class="speed-dial"></div>
                 <h3 class="temperatura-image">{{text2}}</h3>
-                <div class="speed-text">{{ temperatura }} C </div> <!-- Valor dinámico de la temperatura -->
-          
-        </div>
-            </div>
+                <div class="speed-text">{{ temperatura }} ºC </div> <!-- Valor dinámico de la temperatura -->
+           -->
+        <!-- </div> -->
+            </div>  
 
 
 

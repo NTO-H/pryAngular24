@@ -28,7 +28,7 @@ import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/
 import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
 import { DevicesComponent } from './components/IOTDevs/devices/devices.component';
 import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
-import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
+import { DashboardsComponent } from './components/IOTDevs/dashboards/DashboardsComponent';
 import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
 import { IotHomeComponent } from './components/IOTDevs/iot-home/iot-home.component';
 import { NotFoundComponent } from './not-found/not-found.component';

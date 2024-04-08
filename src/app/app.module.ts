@@ -102,9 +102,11 @@ import { AgregarPoliticasComponent } from './components/Admin/agregar-politicas/
 import { PoliticasComponent } from './components/Public/politicas/politicas.component';
 import { AgregarPreguntasComponent } from './components/Admin/agregar-preguntas/agregar-preguntas.component';
 import { ClientHomeComponent } from './components/client/client-home/client-home.component';
-// import { SidebarModule } from 'primeng/sidebar';
+
+import { KnobModule } from 'primeng/knob';
+
 import { PreguntasComponent } from './components/Public/preguntas/preguntas.component';
-import { DashboardsComponent } from './components/IOTDevs/dashboards/dashboards.component';
+import { DashboardsComponent } from './components/IOTDevs/dashboards/DashboardsComponent';
 import { IotheaderComponent } from './components/IOTDevs/iotheader/iotheader.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
 import { TablaDispositivosComponent } from './components/IOTDevs/tabla-dispositivos/tabla-dispositivos.component';
@@ -124,7 +126,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DetalleProductoComponent,AuthComponent,NotFoundComponent,
     FilterPipe, CardsProductosComponent, ChunkPipe
   ],
-  imports: [MenuModule, ListboxModule, TreeSelectModule,
+  imports: [KnobModule,MenuModule, ListboxModule, TreeSelectModule,
     SidebarModule, MdbCheckboxModule, AvatarGroupModule, AvatarModule, DropdownModule, ConfirmDialogModule,
     BrowserModule, CommonModule, AccordionModule, InputNumberModule, InputTextareaModule,
     AppRoutingModule, PasswordModule, MatRadioModule, DialogModule,

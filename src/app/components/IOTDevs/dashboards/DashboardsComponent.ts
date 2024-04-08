@@ -9,6 +9,7 @@ import { interval, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-dashboards',
   templateUrl: './dashboards.component.html',
@@ -29,8 +30,8 @@ export class DashboardsComponent implements OnInit {
   ultimoDispositivoSeleccionado: string = '';
 
   humedad = 0;
-  
-  sidebarStyle: { [klass: string]: any } = { height: '50%', width: '100%', textAlign: 'center' };
+
+  sidebarStyle: { [klass: string]: any; } = { height: '50%', width: '100%', textAlign: 'center' };
   isCheckedLed: boolean | null = null;
   isCheckedValancin: boolean | null = null;
   isCheckedCarrucel: boolean | null = null;
@@ -41,7 +42,7 @@ export class DashboardsComponent implements OnInit {
   musicaState: boolean | null = null;
   currentSelectedDevice: string = ''; // Variable para almacenar el dispositivo seleccionado actualmente
   private dispositivoSubscription!: Subscription;
-
+  value: number = 50;
   selectedDevice: string = '';
   constructor(private http: HttpClient,
     private aRouter: ActivatedRoute,
@@ -54,6 +55,8 @@ export class DashboardsComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerDispositivos();
   }
+
+
 
   dateSelectedDevice(selectedDevice: string) {
     if (selectedDevice !== this.currentSelectedDevice) {
@@ -94,7 +97,7 @@ export class DashboardsComponent implements OnInit {
     }
   }
 
-  
+
   actualizarImagenHumedad(humedad: number) {
     let borderColor = '#00ff00'; // Verde por defecto
 
@@ -111,18 +114,13 @@ export class DashboardsComponent implements OnInit {
       borderColor = '#0000ff'; // Azul para humedad muy baja
       this.text = 'Humedad muy baja';
     }
-
     const speedometer = document.querySelector('.speedometer') as HTMLElement;
     const speedText = document.querySelector('.speed-text') as HTMLElement;
-
     if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
       speedText.textContent = `${humedad}`;
-
     }
-
     // Actualizar la imagen y el texto alternativo en el componente
-   
   }
 
 
@@ -131,7 +129,6 @@ export class DashboardsComponent implements OnInit {
     let borderColor = '#00ff00'; // Verde por defecto
     if (temperatura > 41) {
       borderColor = '#ff0000'; // Rojo para temperatura alta
-
       this.text2 = 'Temperatura alta';
     } else if (temperatura > 30 && temperatura < 37) {
       borderColor = '#00ff00'; // Verde para temperatura normal
@@ -139,18 +136,12 @@ export class DashboardsComponent implements OnInit {
     } else {
       this.text2 = 'Temperatura baja';
     }
-
     const speedometer = document.querySelector('.speedometer') as HTMLElement;
     const speedText = document.querySelector('.speed-text') as HTMLElement;
-
     if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
       speedText.textContent = `${temperatura} `;
     }
-
-  
-
-   
   }
 
 
