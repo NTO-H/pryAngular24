@@ -118,7 +118,7 @@ export class DashboardsComponent implements OnInit {
     const speedText = document.querySelector('.speed-text') as HTMLElement;
     if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
-      speedText.textContent = `${this.humedad}%`;
+      speedText.textContent = `${humedad}`;
     }
     // Actualizar la imagen y el texto alternativo en el componente
   }
@@ -140,7 +140,7 @@ export class DashboardsComponent implements OnInit {
     const speedText = document.querySelector('.speed-text') as HTMLElement;
     if (speedometer && speedText) {
       speedometer.style.border = `5px solid ${borderColor}`;
-      speedText.textContent = `${this.temperatura}°C`;
+      speedText.textContent = `${temperatura} `;
     }
   }
 
