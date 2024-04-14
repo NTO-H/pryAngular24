@@ -35,18 +35,18 @@
     <section class="dispositivos">
         <div class="dispositivo">
             <div class="card flex justify-content-center">
-                <p-knob valueColor="MediumTurquoise" [size]="200"   [(ngModel)]="humedad"  rangeColor="SlateGray"[readonly]="true" ></p-knob>
+                <p-knob valueColor="MediumTurquoise" [size]="200"   [(ngModel)]="humedadConSimbolo"  rangeColor="SlateGray"[readonly]="true" ></p-knob>
             </div>
-                <h3 class="">{{text}}%</h3>
+                <h3 class="">{{text}}</h3>
             </div>  
 
             
         <div class="dispositivo">
             <!-- <div class="speedometer"> -->
-            <div class="termometro frio" [attr.data-content]="temperatura" style="color: antiquewhite ;  font-weight: bold;" id="termometro"></div>
+            <div class="termometro frio" [attr.data-content]="temperaturaConSimbolo" style="color: antiquewhite ;  font-weight: bold;" id="termometro"></div>
 
              
-                <h3 class="">{{text2}}°C</h3>
+                <h3 class="">{{text2}}</h3>
             <!-- </div> -->
 
         </div>
