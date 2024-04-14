@@ -35,9 +35,9 @@
     <section class="dispositivos">
         <div class="dispositivo">
             <div class="card flex justify-content-center">
-                <p-knob valueColor="MediumTurquoise" [size]="200"  [(ngModel)]="humedadConSimbolo" rangeColor="SlateGray" [readonly]="true" ></p-knob>
-                <!-- <p-knob valueColor="MediumTurquoise" [size]="200"   [(ngModel)]="humedadConSimbolo"  rangeColor="SlateGray" [readonly]="true" ></p-knob> -->
-            </div>
+  <p-knob [size]="200" valueTemplate="{value}%" [(ngModel)]="humedad" [readonly]="true"></p-knob>
+</div>
+
                 <h3 class="">{{text}}</h3>
             </div>  
 
