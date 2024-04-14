@@ -90,7 +90,7 @@ export class DashboardsComponent implements OnInit {
           this.humedad = response.humedad;
 
 
-    this.temperaturaConSimbolo = `${this.temperatura} °C`;
+    this.temperaturaConSimbolo = `${this.temperatura}°C`;
     this.humedadConSimbolo = `${this.humedad} %`;
           // Llamar a la función para determinar la imagen basada en la temperatura
           this.actualizarImagenTemperatura(this.temperatura);
