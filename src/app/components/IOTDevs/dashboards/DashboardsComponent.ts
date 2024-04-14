@@ -30,6 +30,11 @@ export class DashboardsComponent implements OnInit {
   ultimoDispositivoSeleccionado: string = '';
 
   humedad = 0;
+  
+    temperaturaConSimbolo : string = '';
+
+
+    humedadConSimbolo : string = '';
 
   sidebarStyle: { [klass: string]: any; } = { height: '50%', width: '100%', textAlign: 'center' };
   isCheckedLed: boolean | null = null;
@@ -84,6 +89,9 @@ export class DashboardsComponent implements OnInit {
           // Asignar el valor de humedad obtenido a la variable humedad
           this.humedad = response.humedad;
 
+
+    this.temperaturaConSimbolo = `${this.temperatura} °C`;
+    this.humedadConSimbolo = `${this.humedad} %`;
           // Llamar a la función para determinar la imagen basada en la temperatura
           this.actualizarImagenTemperatura(this.temperatura);
 
