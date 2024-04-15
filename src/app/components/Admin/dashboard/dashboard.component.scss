@@ -31,5 +31,18 @@ body {
     background-image: url('../../../../assets/images/fondoBody.jpg');
     background-size: cover;
     background-position: center;
+    animation: moveBackground 5s linear infinite alternate;
+    /* Ajusta la duración y el timing según tu preferencia */
 
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: center;
+    }
+
+    100% {
+        background-position: bottom right;
+        /* Cambia la dirección del movimiento aquí */
+    }
 }
