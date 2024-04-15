@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'recuperacion', component: RecuperacionComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'listar-usuarios', component: ListarUsuariosComponent },
-  { path: 'admin-home', component: AdminHomeComponent, data: { breadcrumb: 'Administrador' }, canActivate: [adminGuard, EmployeeGuard], } ,
+  { path: 'admin-home', component: AdminHomeComponent, data: { breadcrumb: 'Administrador' }, canActivate: [adminGuard], } ,
   { path: 'agregar-politicas', component: AgregarPoliticasComponent, data: { breadcrumb: 'Administrador' } },
   // { path: 'admin', component: AdminHomeComponent },
   { path: 'client-home', component: ClientHomeComponent, data: { breadcrumb: 'Cliente' }, canActivate: [clientGuard]	},
